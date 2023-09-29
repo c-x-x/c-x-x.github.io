@@ -548,83 +548,6 @@
       </tags>
   </entry>
   <entry>
-    <title>git环境配置</title>
-    <url>/2021/06/08/git/</url>
-    <content><![CDATA[<h2 id="git环境配置"><a href="#git环境配置" class="headerlink" title="git环境配置"></a>git环境配置</h2><h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p>git官网：<a href="https://git-scm.com/%EF%BC%8C%E4%B8%8B%E8%BD%BD%E5%AF%B9%E5%BA%94%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%9A%84%E7%89%88%E6%9C%AC">https://git-scm.com/，下载对应操作系统的版本</a></p>
-<p>如果感觉下载慢的话，可以选择开一下代理。</p>
-<p>或者国内镜像：<a href="http://npm.taobao.org/mirrors/git-for-windows/">http://npm.taobao.org/mirrors/git-for-windows/</a></p>
-<p><img src="https://cdn.jsdelivr.net/gh/fristalpha/alpha/BlogPic/20210608105734.png" alt="image-20210608105725436"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/fristalpha/alpha/BlogPic/20210608105753.png" alt="image-20210608105751977"></p>
-<p><strong>安装</strong>：</p>
-<p>下一步下一步下一步。。。</p>
-<p><strong>默认会配置环境变量。</strong></p>
-<h3 id="启动"><a href="#启动" class="headerlink" title="启动"></a><strong>启动</strong></h3><p>安装成功开始菜单会多出几个程序，在任意文件夹下右键也会有相应的程序</p>
-<p><img src="https://cdn.jsdelivr.net/gh/fristalpha/alpha/BlogPic/20210608110648.png" alt="image-20210608110647320"></p>
-<p>git bush：unix与linux风格的命令行，<strong>使用最多</strong>   可以使用linux命令</p>
-<p>git cmd：windows风格的命令行</p>
-<p>git gui：图形界面的git</p>
-<h3 id="常用的Linux命令"><a href="#常用的Linux命令" class="headerlink" title="常用的Linux命令"></a>常用的Linux命令</h3><p>平时一定要多使用这些基础的命令！</p>
-<p>1）、cd : 改变目录。</p>
-<p>2）、cd . . 回退到上一个目录，直接cd进入默认目录</p>
-<p>3）、pwd : 显示当前所在的目录路径。</p>
-<p>4）、ls(ll):  都是列出当前目录中的所有文件，只不过ll(两个ll)列出的内容更为详细。</p>
-<p>5）、touch : 新建一个文件 如 touch index.js 就会在当前目录下新建一个index.js文件。</p>
-<p>6）、rm:  删除一个文件, rm index.js 就会把index.js文件删除。</p>
-<p>7）、mkdir:  新建一个目录,就是新建一个文件夹。</p>
-<p>8）、rm -r :  删除一个文件夹, rm -r src 删除src目录</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">rm -rf / 切勿在Linux中尝试！删除电脑中全部文件！</span><br></pre></td></tr></table></figure>
-
-<p>9）、mv 移动文件, mv index.html src index.html 是我们要移动的文件, src 是目标文件夹,当然, 这样写,必须保证文件和目标文件夹在同一目录下。</p>
-<p>10）、reset 重新初始化终端&#x2F;清屏。</p>
-<p>11）、clear 清屏。</p>
-<p>12）、history 查看命令历史。</p>
-<p>13）、help 帮助。</p>
-<p>14）、exit 退出。</p>
-<p>15）、#表示注释</p>
-<h3 id="git配置"><a href="#git配置" class="headerlink" title="git配置"></a>git配置</h3><p>所有的配置文件，其实都保存在本地！</p>
-<p>查看配置 git config -l</p>
-<p><img src="https://cdn.jsdelivr.net/gh/fristalpha/alpha/BlogPic/20210608112334.png" alt="image-20210608112332209"></p>
-<p>查看不同级别的配置文件：</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#查看系统config文件</span><br><span class="line">git config --system --list</span><br><span class="line">　　</span><br><span class="line">#查看当前用户（global）配置</span><br><span class="line">git config --global  --list</span><br></pre></td></tr></table></figure>
-
-<p><strong>Git相关的配置文件：</strong></p>
-<p>1）、Git\etc\gitconfig  ：Git 安装目录下的 gitconfig   –system 系统级</p>
-<p><img src="https://cdn.jsdelivr.net/gh/fristalpha/alpha/BlogPic/20210608113555.png" alt="image-20210608113554018"></p>
-<p>2）、C:\Users\用户名\ .gitconfig   只适用于当前登录用户的配置  –global 全局</p>
-<p><img src="https://cdn.jsdelivr.net/gh/fristalpha/alpha/BlogPic/20210608113640.png" alt="image-20210608113639130"></p>
-<p>这里可以直接编辑配置文件，通过命令设置后会响应到这里。</p>
-<p><strong>设置用户名与邮箱</strong></p>
-<p>当你安装Git后首先要做的事情是设置你的用户名称和e-mail地址。这是非常重要的，因为每次Git提交都会使用该信息。它被永远的嵌入到了你的提交中：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git config --global user.name &quot;xxxxxx&quot;  #名称</span><br><span class="line">git config --global user.email &quot;xxxxx@xxx.com&quot;   #邮箱</span><br></pre></td></tr></table></figure>
-
-<p>只需要做一次这个设置，如果你传递了–global 选项，因为Git将总是会使用该信息来处理你在系统中所做的一切操作。如果你希望在一个特定的项目中使用不同的名称或e-mail地址，你可以在该项目中运行该命令而不要–global选项。总之–global为全局配置，不加为某个项目的特定配置。</p>
-]]></content>
-      <categories>
-        <category>Java</category>
-      </categories>
-      <tags>
-        <tag>git</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hello World</title>
-    <url>/2023/09/29/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-]]></content>
-  </entry>
-  <entry>
     <title>git学习笔记</title>
     <url>/2021/06/08/git-study/</url>
     <content><![CDATA[<h2 id="git环境配置"><a href="#git环境配置" class="headerlink" title="git环境配置"></a>git环境配置</h2><h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p>git官网：<a href="https://git-scm.com/%EF%BC%8C%E4%B8%8B%E8%BD%BD%E5%AF%B9%E5%BA%94%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%9A%84%E7%89%88%E6%9C%AC">https://git-scm.com/，下载对应操作系统的版本</a></p>
@@ -783,6 +706,111 @@
       </tags>
   </entry>
   <entry>
+    <title>git环境配置</title>
+    <url>/2021/06/08/git/</url>
+    <content><![CDATA[<h2 id="git环境配置"><a href="#git环境配置" class="headerlink" title="git环境配置"></a>git环境配置</h2><h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p>git官网：<a href="https://git-scm.com/%EF%BC%8C%E4%B8%8B%E8%BD%BD%E5%AF%B9%E5%BA%94%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%9A%84%E7%89%88%E6%9C%AC">https://git-scm.com/，下载对应操作系统的版本</a></p>
+<p>如果感觉下载慢的话，可以选择开一下代理。</p>
+<p>或者国内镜像：<a href="http://npm.taobao.org/mirrors/git-for-windows/">http://npm.taobao.org/mirrors/git-for-windows/</a></p>
+<p><img src="https://cdn.jsdelivr.net/gh/fristalpha/alpha/BlogPic/20210608105734.png" alt="image-20210608105725436"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/fristalpha/alpha/BlogPic/20210608105753.png" alt="image-20210608105751977"></p>
+<p><strong>安装</strong>：</p>
+<p>下一步下一步下一步。。。</p>
+<p><strong>默认会配置环境变量。</strong></p>
+<h3 id="启动"><a href="#启动" class="headerlink" title="启动"></a><strong>启动</strong></h3><p>安装成功开始菜单会多出几个程序，在任意文件夹下右键也会有相应的程序</p>
+<p><img src="https://cdn.jsdelivr.net/gh/fristalpha/alpha/BlogPic/20210608110648.png" alt="image-20210608110647320"></p>
+<p>git bush：unix与linux风格的命令行，<strong>使用最多</strong>   可以使用linux命令</p>
+<p>git cmd：windows风格的命令行</p>
+<p>git gui：图形界面的git</p>
+<h3 id="常用的Linux命令"><a href="#常用的Linux命令" class="headerlink" title="常用的Linux命令"></a>常用的Linux命令</h3><p>平时一定要多使用这些基础的命令！</p>
+<p>1）、cd : 改变目录。</p>
+<p>2）、cd . . 回退到上一个目录，直接cd进入默认目录</p>
+<p>3）、pwd : 显示当前所在的目录路径。</p>
+<p>4）、ls(ll):  都是列出当前目录中的所有文件，只不过ll(两个ll)列出的内容更为详细。</p>
+<p>5）、touch : 新建一个文件 如 touch index.js 就会在当前目录下新建一个index.js文件。</p>
+<p>6）、rm:  删除一个文件, rm index.js 就会把index.js文件删除。</p>
+<p>7）、mkdir:  新建一个目录,就是新建一个文件夹。</p>
+<p>8）、rm -r :  删除一个文件夹, rm -r src 删除src目录</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">rm -rf / 切勿在Linux中尝试！删除电脑中全部文件！</span><br></pre></td></tr></table></figure>
+
+<p>9）、mv 移动文件, mv index.html src index.html 是我们要移动的文件, src 是目标文件夹,当然, 这样写,必须保证文件和目标文件夹在同一目录下。</p>
+<p>10）、reset 重新初始化终端&#x2F;清屏。</p>
+<p>11）、clear 清屏。</p>
+<p>12）、history 查看命令历史。</p>
+<p>13）、help 帮助。</p>
+<p>14）、exit 退出。</p>
+<p>15）、#表示注释</p>
+<h3 id="git配置"><a href="#git配置" class="headerlink" title="git配置"></a>git配置</h3><p>所有的配置文件，其实都保存在本地！</p>
+<p>查看配置 git config -l</p>
+<p><img src="https://cdn.jsdelivr.net/gh/fristalpha/alpha/BlogPic/20210608112334.png" alt="image-20210608112332209"></p>
+<p>查看不同级别的配置文件：</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#查看系统config文件</span><br><span class="line">git config --system --list</span><br><span class="line">　　</span><br><span class="line">#查看当前用户（global）配置</span><br><span class="line">git config --global  --list</span><br></pre></td></tr></table></figure>
+
+<p><strong>Git相关的配置文件：</strong></p>
+<p>1）、Git\etc\gitconfig  ：Git 安装目录下的 gitconfig   –system 系统级</p>
+<p><img src="https://cdn.jsdelivr.net/gh/fristalpha/alpha/BlogPic/20210608113555.png" alt="image-20210608113554018"></p>
+<p>2）、C:\Users\用户名\ .gitconfig   只适用于当前登录用户的配置  –global 全局</p>
+<p><img src="https://cdn.jsdelivr.net/gh/fristalpha/alpha/BlogPic/20210608113640.png" alt="image-20210608113639130"></p>
+<p>这里可以直接编辑配置文件，通过命令设置后会响应到这里。</p>
+<p><strong>设置用户名与邮箱</strong></p>
+<p>当你安装Git后首先要做的事情是设置你的用户名称和e-mail地址。这是非常重要的，因为每次Git提交都会使用该信息。它被永远的嵌入到了你的提交中：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git config --global user.name &quot;xxxxxx&quot;  #名称</span><br><span class="line">git config --global user.email &quot;xxxxx@xxx.com&quot;   #邮箱</span><br></pre></td></tr></table></figure>
+
+<p>只需要做一次这个设置，如果你传递了–global 选项，因为Git将总是会使用该信息来处理你在系统中所做的一切操作。如果你希望在一个特定的项目中使用不同的名称或e-mail地址，你可以在该项目中运行该命令而不要–global选项。总之–global为全局配置，不加为某个项目的特定配置。</p>
+]]></content>
+      <categories>
+        <category>Java</category>
+      </categories>
+      <tags>
+        <tag>git</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>idea常用快捷键</title>
+    <url>/2021/07/09/idea%E5%B8%B8%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AE/</url>
+    <content><![CDATA[<h1 id="空"><a href="#空" class="headerlink" title="空"></a>空</h1>]]></content>
+      <categories>
+        <category>Java</category>
+      </categories>
+      <tags>
+        <tag>idea</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>/2023/09/29/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>idea插件-获取maven依赖</title>
+    <url>/2021/07/08/idea%E6%8F%92%E4%BB%B6-search%20in%20repository/</url>
+    <content><![CDATA[<p>我们平时使用maven构建项目时，还需要去中央仓库去依赖，相当的麻烦</p>
+<p>可以试试这款idea插件—-&gt;<code>search in repository</code></p>
+<p><img src="https://cdn.jsdelivr.net/gh/c-x-x/image-hosting@master/20210628/image-20210708224912179.3j9g45zpss80.png" alt="image-20210708224912179"></p>
+<p>使用方式如下图</p>
+<p><img src="https://cdn.jsdelivr.net/gh/c-x-x/image-hosting@master/20210628/image.390sqrfpjbu0.png" alt="image"></p>
+]]></content>
+      <categories>
+        <category>Java</category>
+      </categories>
+      <tags>
+        <tag>idea</tag>
+        <tag>maven</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>hexo使用中的问题以及解决方法</title>
     <url>/2021/06/09/hexo%E4%BD%BF%E7%94%A8%E4%B8%AD%E7%9A%84%E9%97%AE%E9%A2%98%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</url>
     <content><![CDATA[<h2 id="hexo使用中的问题以及解决方法"><a href="#hexo使用中的问题以及解决方法" class="headerlink" title="hexo使用中的问题以及解决方法"></a>hexo使用中的问题以及解决方法</h2><h3 id="更换GitHub账号后，hexo-d-提交不上去"><a href="#更换GitHub账号后，hexo-d-提交不上去" class="headerlink" title="更换GitHub账号后，hexo d 提交不上去"></a>更换GitHub账号后，hexo d 提交不上去</h3><p>因为之前使用过，所以电脑上还保存着之前的GitHub账户密码</p>
@@ -822,31 +850,29 @@
       </tags>
   </entry>
   <entry>
-    <title>idea插件-获取maven依赖</title>
-    <url>/2021/07/08/idea%E6%8F%92%E4%BB%B6-search%20in%20repository/</url>
-    <content><![CDATA[<p>我们平时使用maven构建项目时，还需要去中央仓库去依赖，相当的麻烦</p>
-<p>可以试试这款idea插件—-&gt;<code>search in repository</code></p>
-<p><img src="https://cdn.jsdelivr.net/gh/c-x-x/image-hosting@master/20210628/image-20210708224912179.3j9g45zpss80.png" alt="image-20210708224912179"></p>
-<p>使用方式如下图</p>
-<p><img src="https://cdn.jsdelivr.net/gh/c-x-x/image-hosting@master/20210628/image.390sqrfpjbu0.png" alt="image"></p>
+    <title>idea配置代理</title>
+    <url>/2021/07/01/idea%E9%85%8D%E7%BD%AE%E4%BB%A3%E7%90%86/</url>
+    <content><![CDATA[<h2 id="打开idea"><a href="#打开idea" class="headerlink" title="打开idea"></a>打开idea</h2><p><strong>左上角Flie</strong></p>
+<p>File | Settings | Appearance &amp; Behavior | System Settings | HTTP Proxy</p>
+<p><img src="https://cdn.jsdelivr.net/gh/c-x-x/picture/img/image-20210701165941078.png" alt="image-20210701165941078"></p>
+<p>选择Manual proxy configuration</p>
+<p>选择socks</p>
+<p>hostname：localhost</p>
+<p>prot number：7890</p>
+<p>点击Check connection</p>
+<p>输入<a href="https://youtube.com/">https://youtube.com</a></p>
+<p><img src="https://cdn.jsdelivr.net/gh/c-x-x/picture/img/image-20210701170325727.png" alt="image-20210701170325727"></p>
+<p>点击ok</p>
+<p>如下图显示就成功了</p>
+<p><img src="https://cdn.jsdelivr.net/gh/c-x-x/picture/img/image-20210701170403998.png" alt="image-20210701170403998"></p>
 ]]></content>
       <categories>
-        <category>Java</category>
+        <category>idea</category>
       </categories>
       <tags>
         <tag>idea</tag>
-        <tag>maven</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>idea常用快捷键</title>
-    <url>/2021/07/09/idea%E5%B8%B8%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AE/</url>
-    <content><![CDATA[<h1 id="空"><a href="#空" class="headerlink" title="空"></a>空</h1>]]></content>
-      <categories>
-        <category>Java</category>
-      </categories>
-      <tags>
-        <tag>idea</tag>
+        <tag>idea配置代理</tag>
+        <tag>代理</tag>
       </tags>
   </entry>
   <entry>
@@ -1185,32 +1211,6 @@
       <tags>
         <tag>java</tag>
         <tag>Mybatis</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>idea配置代理</title>
-    <url>/2021/07/01/idea%E9%85%8D%E7%BD%AE%E4%BB%A3%E7%90%86/</url>
-    <content><![CDATA[<h2 id="打开idea"><a href="#打开idea" class="headerlink" title="打开idea"></a>打开idea</h2><p><strong>左上角Flie</strong></p>
-<p>File | Settings | Appearance &amp; Behavior | System Settings | HTTP Proxy</p>
-<p><img src="https://cdn.jsdelivr.net/gh/c-x-x/picture/img/image-20210701165941078.png" alt="image-20210701165941078"></p>
-<p>选择Manual proxy configuration</p>
-<p>选择socks</p>
-<p>hostname：localhost</p>
-<p>prot number：7890</p>
-<p>点击Check connection</p>
-<p>输入<a href="https://youtube.com/">https://youtube.com</a></p>
-<p><img src="https://cdn.jsdelivr.net/gh/c-x-x/picture/img/image-20210701170325727.png" alt="image-20210701170325727"></p>
-<p>点击ok</p>
-<p>如下图显示就成功了</p>
-<p><img src="https://cdn.jsdelivr.net/gh/c-x-x/picture/img/image-20210701170403998.png" alt="image-20210701170403998"></p>
-]]></content>
-      <categories>
-        <category>idea</category>
-      </categories>
-      <tags>
-        <tag>idea</tag>
-        <tag>idea配置代理</tag>
-        <tag>代理</tag>
       </tags>
   </entry>
   <entry>
