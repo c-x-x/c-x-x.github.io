@@ -1,91 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Nginx笔记</title>
-    <url>/2021/08/13/Nginx%E7%AC%94%E8%AE%B0/</url>
-    <content><![CDATA[<h2 id="Nginx简介"><a href="#Nginx简介" class="headerlink" title="Nginx简介"></a>Nginx简介</h2><p>Nginx是由伊戈尔·赛索耶夫为俄罗斯访问量第二的Rambler.ru站点（俄文：Рамблер）开发的，第一个公开版本0.1.0发布于2004年10月4日。</p>
-<p>Nginx是一个高性能的<code>http</code>和<code>反向代理</code>web服务器，同时也提供了IMAP&#x2F;POP3&#x2F;SMTP服务</p>
-<p>Nginx是一款<code>轻量级</code>的Web 服务器<code>反向代理</code>服务器及<code>电子邮件</code>（IMAP&#x2F;POP3）代理服务器</p>
-<p>Nginx作为负载均衡服务：Nginx 既可以在内部直接支持 Rails 和 PHP 程序对外进行服务，也可以支持作为 HTTP<a href="https://baike.baidu.com/item/%E4%BB%A3%E7%90%86%E6%9C%8D%E5%8A%A1">代理服务</a>对外进行服务</p>
-<p><strong>特点</strong>: </p>
-<ul>
-<li>占有内存少</li>
-<li><a href="https://baike.baidu.com/item/%E5%B9%B6%E5%8F%91/11024806">并发</a>能力强</li>
-<li>安装非常简单</li>
-<li>配置文件非常简介（还能够支持perl语法）</li>
-<li>Bug非常少，启动特别容易</li>
-<li>并且几乎可以做到7*24不间断运行，即使运行几个月也不需要重新启动</li>
-<li>你还可以在不间断服务的情况下进行软件版本的升级</li>
-</ul>
-<p>Nginx代码完全用c语言从头写成，官方测试表明能够支持高达50000个并发连接数的响应</p>
-<h2 id="Nginx的作用"><a href="#Nginx的作用" class="headerlink" title="Nginx的作用"></a>Nginx的作用</h2><h3 id="反向代理"><a href="#反向代理" class="headerlink" title="反向代理"></a>反向代理</h3><blockquote>
-<p>Http代理，<strong>反向代理</strong>：作为web服务器中最常见的功能之一，尤其是反向代理</p>
-</blockquote>
-<p><strong>正向代理：</strong>代理客户端，在本机上装的</p>
-<p>游戏加速：VPN</p>
-<p><img src="https://cdn.jsdelivr.net/gh/c-x-x/picture/img/image-20210811093420721.png" alt="image-20210811093420721"></p>
-<p><strong>反向代理</strong>：代理服务器</p>
-<p>网站：百度</p>
-<p><img src="https://cdn.jsdelivr.net/gh/c-x-x/picture/img/image-20210811094102967.png" alt="image-20210811094102967"></p>
-<h3 id="负载均衡"><a href="#负载均衡" class="headerlink" title="负载均衡"></a>负载均衡</h3><blockquote>
-<p>Nginx提供的<strong>负载均衡</strong>策略有两种：<strong>内置策略</strong>和<strong>扩展策略</strong>。内置策略位轮询，加权轮询，Ip hash。扩展策略，天马行空，只有你想不到没有它做不到</p>
-</blockquote>
-<p>轮询：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/c-x-x/picture/img/image-20210811095222381.png" alt="image-20210811095222381"></p>
-<p>加权轮询：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/c-x-x/picture/img/image-20210811095648780.png" alt="image-20210811095648780"></p>
-<p>iphash对客户端请求的ip进行hash操作，然后根据hash结果将同一客户端ip的请求分发给同一台服务器，可以解决session不共享的问题。</p>
-<p>如果这台服务器挂了，对应的信息就没了</p>
-<p>不建议使用nginx做session共享，建议使用：Redis</p>
-<p><img src="https://cdn.jsdelivr.net/gh/c-x-x/picture/img/image-20210811100201004.png" alt="image-20210811100201004"></p>
-<h3 id="动静分离"><a href="#动静分离" class="headerlink" title="动静分离"></a>动静分离</h3><blockquote>
-<p>动静分离，在我们的软件开发中，有些请求需要后台处理，有些请求是不经过后台处理的（如：css、html、jpg、js等文件），这些不经过后台处理的文件统称为静态文件，让动态网站里的动态网页根据一定规则把不变的资源和经常变的资源区分开，动静资源做好拆分以后，我们就可以根据静态资源的特点将其做缓存操作，提高资源响应速度。</p>
-</blockquote>
-<p>静态资源直接从nginx返回，不会再走到你的项目里里面</p>
-<p><img src="https://cdn.jsdelivr.net/gh/c-x-x/picture/img/image-20210811101532735.png" alt="image-20210811101532735"></p>
-<h2 id="安装Nginx"><a href="#安装Nginx" class="headerlink" title="安装Nginx"></a>安装Nginx</h2><blockquote>
-<p>Windows下安装</p>
-</blockquote>
-<p><strong>1、下载nginx</strong></p>
-<p>下载地址：<a href="https://nginx.org/en/download.html">https://nginx.org/en/download.html</a></p>
-<p><img src="https://cdn.jsdelivr.net/gh/c-x-x/picture/img/image-20210811102149829.png" alt="image-20210811102149829"></p>
-<p><strong>2、启动nginx</strong></p>
-<p>解压后进入目录，在目录运行cmd输入nginx.exe，回车即可</p>
-<p><strong>3、检查nginx是否启动成功</strong></p>
-<p>浏览器输入如<a href="http://localhost/">http://localhost:80</a></p>
-<p>如下即成功：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/c-x-x/picture/img/image-20210811102614264.png" alt="image-20210811102614264"></p>
-<p><strong>4、配置监听</strong></p>
-<p>conf目录下nginx.conf，默认监听端口为80，如果被占用，可以修改为其他的</p>
-<p><strong>5、关闭nginx</strong></p>
-<p>关闭cmd窗口是<strong>不能结束nginx进程的</strong></p>
-<p>方式1：输入命令<code>nginx -s stop</code>（快速停止nginx）或者<code>nginx -s quit</code>（完整有序的停止nginx）</p>
-<p>方式2：<code>taskkill /f /t /im nginx.exe</code></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">taskkill 进程终止</span><br><span class="line">/f 强制停止</span><br><span class="line">/t 终止指定的进程和任何由此启动的子进程</span><br><span class="line">/im 指定进程名称</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>Linux下安装</p>
-</blockquote>
-<p>🤡  自己上网找    <strong>或者</strong> —&gt;   <a href="https://cb-baidu.vercel.app/?q=TGludXjlronoo4VOZ2lueA==">点此查看</a></p>
-<h2 id="Nginx常用命令"><a href="#Nginx常用命令" class="headerlink" title="Nginx常用命令"></a>Nginx常用命令</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> /usr/local/nginx/sbin</span><br><span class="line">./nginx  启动</span><br><span class="line">./nginx -s stop  停止</span><br><span class="line">./nginx -s quit  安全退出</span><br><span class="line">./nginx -s reload  从新加载配置文件</span><br><span class="line">ps aux|grep nginx  查看nginx进程</span><br></pre></td></tr></table></figure>
-
-<h2 id="其他相关命令"><a href="#其他相关命令" class="headerlink" title="其他相关命令"></a>其他相关命令</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 开启防火墙</span></span><br><span class="line">service firewalld start</span><br><span class="line"><span class="comment"># 重启防火墙</span></span><br><span class="line">service firewalld restart</span><br><span class="line"><span class="comment"># 关闭防火墙</span></span><br><span class="line">service firewalld stop</span><br><span class="line"><span class="comment"># 查看防火墙规则</span></span><br><span class="line">firewall -cmd --list-all</span><br><span class="line"><span class="comment"># 查询端口是否开放</span></span><br><span class="line">firewall -cmd --query-port=8080/tcp</span><br><span class="line"><span class="comment"># 开放80端口</span></span><br><span class="line">firewall -cmd --permanent --add-port=80/tcp</span><br><span class="line"><span class="comment"># 移除端口</span></span><br><span class="line">firewall -cmd --permanent --remove-port=8080/tcp</span><br><span class="line"><span class="comment"># 重启防火墙（修改配置后要重启防火墙）</span></span><br><span class="line">firewall -cmd --reload</span><br><span class="line"><span class="comment"># 参数解释</span></span><br><span class="line">firewall -cmd  Linux提供的操作firewall的一个工具</span><br><span class="line">--permanent  表示设置为持久</span><br><span class="line">--add-port  标识添加的端口</span><br></pre></td></tr></table></figure>
-
-<h2 id="实战使用"><a href="#实战使用" class="headerlink" title="实战使用"></a>实战使用</h2><p>反向代理和负载均衡配置</p>
-<p>weight权重</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">server 127.0.0.1:8080 weight=3;</span><br><span class="line">server 127.0.0.1:8081 weight=1;</span><br><span class="line"><span class="comment"># 打4次请求3次到第一台</span></span><br></pre></td></tr></table></figure>
-
-<p><img src="https://cdn.jsdelivr.net/gh/c-x-x/picture/img/image-20210811112147636.png" alt="image-20210811112147636"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/c-x-x/picture/img/image-20210811113014155.png" alt="image-20210811113014155"></p>
-<h1 id="这个只是入门！"><a href="#这个只是入门！" class="headerlink" title="这个只是入门！"></a>这个只是入门！</h1>]]></content>
-      <categories>
-        <category>Nginx</category>
-      </categories>
-      <tags>
-        <tag>运维</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Servlet笔记</title>
     <url>/2023/09/29/Servlet/</url>
     <content><![CDATA[<h2 id="Servlet"><a href="#Servlet" class="headerlink" title="Servlet"></a>Servlet</h2><h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><ul>
@@ -359,57 +274,6 @@
       </tags>
   </entry>
   <entry>
-    <title>使用Freenom免费申请一年的域名并且设置DNS到阿里或腾讯</title>
-    <url>/2021/07/03/freenom1yearfree/</url>
-    <content><![CDATA[<h2 id="在国内注册freenom需要这个，并且开全局（自备）！！！"><a href="#在国内注册freenom需要这个，并且开全局（自备）！！！" class="headerlink" title="在国内注册freenom需要这个，并且开全局（自备）！！！"></a><strong>在国内注册freenom需要这个，并且开全局（自备）！！！</strong></h2><p><img src="https://cdn.jsdelivr.net/gh/c-x-x/picture/img/image-20210703190742278.png" alt="image-20210703190742278"></p>
-<h2 id="还需要填一些信息（必须是美国的）！！！"><a href="#还需要填一些信息（必须是美国的）！！！" class="headerlink" title="还需要填一些信息（必须是美国的）！！！"></a><strong>还需要填一些信息（必须是美国的）！！！</strong></h2><p>美国人信息生成网：<a href="http://haoweichi.com/">http://haoweichi.com/</a></p>
-<h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><h3 id="官网"><a href="#官网" class="headerlink" title="官网"></a>官网</h3><p><a href="https://www.freenom.com/zh/index.html?lang=zh">https://www.freenom.com/zh/index.html?lang=zh</a></p>
-<h3 id="输入一个域名检查是否可用"><a href="#输入一个域名检查是否可用" class="headerlink" title="输入一个域名检查是否可用"></a>输入一个域名检查是否可用</h3><p><img src="https://cdn.jsdelivr.net/gh/c-x-x/picture/img/image-20210703185609005.png" alt="image-20210703185609005"></p>
-<h3 id="这几个都是免费的"><a href="#这几个都是免费的" class="headerlink" title="这几个都是免费的"></a>这几个都是免费的</h3><p><img src="https://cdn.jsdelivr.net/gh/c-x-x/picture/img/image-20210703185842498.png" alt="image-20210703185842498"></p>
-<h3 id="在这几个里面选择一个自己选择一个自己喜欢的后缀，比如我选的是ml，就在输入框中再添加域名-ml，再回车。"><a href="#在这几个里面选择一个自己选择一个自己喜欢的后缀，比如我选的是ml，就在输入框中再添加域名-ml，再回车。" class="headerlink" title="在这几个里面选择一个自己选择一个自己喜欢的后缀，比如我选的是ml，就在输入框中再添加域名.ml，再回车。"></a>在这几个里面选择一个自己选择一个自己喜欢的后缀，比如我选的是ml，就在输入框中再添加<code>域名.ml</code>，再回车。</h3><p><img src="https://cdn.jsdelivr.net/gh/c-x-x/picture/img/image-20210703190153292.png" alt="image-20210703190153292"></p>
-<h3 id="点击完成"><a href="#点击完成" class="headerlink" title="点击完成"></a>点击完成</h3><h3 id="选择12个月，然后点击Continue"><a href="#选择12个月，然后点击Continue" class="headerlink" title="选择12个月，然后点击Continue"></a>选择12个月，然后点击Continue</h3><p><img src="https://cdn.jsdelivr.net/gh/c-x-x/picture/img/image-20210703190401358.png" alt="image-20210703190401358"></p>
-<h3 id="在左下角的框中输入你的邮箱—-用于注册"><a href="#在左下角的框中输入你的邮箱—-用于注册" class="headerlink" title="在左下角的框中输入你的邮箱—&gt;用于注册"></a>在左下角的框中输入你的邮箱—&gt;用于注册</h3><h3 id="进入如下页面，而且你的邮箱会收到一封邮件"><a href="#进入如下页面，而且你的邮箱会收到一封邮件" class="headerlink" title="进入如下页面，而且你的邮箱会收到一封邮件"></a>进入如下页面，而且你的邮箱会收到一封邮件</h3><p><img src="https://cdn.jsdelivr.net/gh/c-x-x/picture/img/image-20210703191456840.png" alt="image-20210703191456840"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/c-x-x/image-hosting@master/20210628/image-20210703191537744.2jwp9pjyul40.png" alt="image-20210703191537744"></p>
-<h3 id="点击邮件中的链接进入如下界面"><a href="#点击邮件中的链接进入如下界面" class="headerlink" title="点击邮件中的链接进入如下界面"></a>点击邮件中的链接进入如下界面</h3><p><img src="https://cdn.jsdelivr.net/gh/c-x-x/picture/img/image-20210703192218908.png" alt="image-20210703192218908"></p>
-<h3 id="并将美国人身份生成网里面的对应的信息填写到对应的位置，对照如下"><a href="#并将美国人身份生成网里面的对应的信息填写到对应的位置，对照如下" class="headerlink" title="并将美国人身份生成网里面的对应的信息填写到对应的位置，对照如下"></a>并将美国人身份生成网里面的对应的信息填写到对应的位置，对照如下</h3><p>最后两个是密码</p>
-<p><img src="https://cdn.jsdelivr.net/gh/c-x-x/picture/img/image-20210703192310260.png" alt="image-20210703192310260"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/c-x-x/picture/img/image-20210703192705026.png" alt="image-20210703192705026"></p>
-<h3 id="如图"><a href="#如图" class="headerlink" title="如图"></a>如图</h3><p><img src="https://cdn.jsdelivr.net/gh/c-x-x/picture/img/image-20210703192756958.png" alt="image-20210703192756958"></p>
-<h3 id="如下图显示就是购买成功了"><a href="#如下图显示就是购买成功了" class="headerlink" title="如下图显示就是购买成功了"></a>如下图显示就是购买成功了</h3><p><img src="https://cdn.jsdelivr.net/gh/c-x-x/picture/img/image-20210703192901910.png" alt="image-20210703192901910"></p>
-<h3 id="查看域名"><a href="#查看域名" class="headerlink" title="查看域名"></a>查看域名</h3><p><img src="https://cdn.jsdelivr.net/gh/c-x-x/picture/img/image-20210703192959846.png" alt="image-20210703192959846"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/c-x-x/picture/img/image-20210703193108996.png" alt="image-20210703193108996"></p>
-<h3 id="设置DNS到腾讯云或者阿里云（可以不修改）"><a href="#设置DNS到腾讯云或者阿里云（可以不修改）" class="headerlink" title="设置DNS到腾讯云或者阿里云（可以不修改）"></a>设置DNS到腾讯云或者阿里云（可以不修改）</h3><ul>
-<li><p>点击<strong>Manage domain</strong></p>
-</li>
-<li><p>点击<strong>Nameservice</strong></p>
-<p><img src="https://cdn.jsdelivr.net/gh/c-x-x/picture/img/image-20210703193546543.png" alt="image-20210703193546543"></p>
-</li>
-<li><p>点击<strong>Use custom nameservers (enter below)</strong></p>
-</li>
-<li><p>以阿里云为例，进入阿里的云解析DNS，点击添加域名，把刚才的域名输入进去，点击确定</p>
-<p><img src="https://cdn.jsdelivr.net/gh/c-x-x/picture/img/image-20210703193918058.png" alt="image-20210703193918058"></p>
-</li>
-<li><p>然后把如下图的两个地址填到Nameserver 1和Nameserver 2里面</p>
-<p><img src="https://cdn.jsdelivr.net/gh/c-x-x/picture/img/image-20210703194128057.png" alt="image-20210703194128057"></p>
-<p>点击Change Nameservers</p>
-<p><img src="https://cdn.jsdelivr.net/gh/c-x-x/picture/img/image-20210703194221034.png" alt="image-20210703194221034"></p>
-</li>
-<li><p>然后会跳转到登录页面，登录自己的账号即可，有如下提示即成功，然后进入阿里，如图二即可。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/c-x-x/picture/img/image-20210703194433981.png" alt="image-20210703194433981"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/c-x-x/picture/img/image-20210703194547481.png" alt="image-20210703194547481"></p>
-</li>
-</ul>
-]]></content>
-      <categories>
-        <category>服务器</category>
-      </categories>
-      <tags>
-        <tag>免费域名</tag>
-        <tag>freenom</tag>
-        <tag>NDS解析</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>SpringBoot笔记</title>
     <url>/2021/07/14/Springboot/</url>
     <content><![CDATA[<p><strong>注：</strong></p>
@@ -545,6 +409,142 @@
       <tags>
         <tag>java</tag>
         <tag>servlet</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Nginx笔记</title>
+    <url>/2021/08/13/Nginx%E7%AC%94%E8%AE%B0/</url>
+    <content><![CDATA[<h2 id="Nginx简介"><a href="#Nginx简介" class="headerlink" title="Nginx简介"></a>Nginx简介</h2><p>Nginx是由伊戈尔·赛索耶夫为俄罗斯访问量第二的Rambler.ru站点（俄文：Рамблер）开发的，第一个公开版本0.1.0发布于2004年10月4日。</p>
+<p>Nginx是一个高性能的<code>http</code>和<code>反向代理</code>web服务器，同时也提供了IMAP&#x2F;POP3&#x2F;SMTP服务</p>
+<p>Nginx是一款<code>轻量级</code>的Web 服务器<code>反向代理</code>服务器及<code>电子邮件</code>（IMAP&#x2F;POP3）代理服务器</p>
+<p>Nginx作为负载均衡服务：Nginx 既可以在内部直接支持 Rails 和 PHP 程序对外进行服务，也可以支持作为 HTTP<a href="https://baike.baidu.com/item/%E4%BB%A3%E7%90%86%E6%9C%8D%E5%8A%A1">代理服务</a>对外进行服务</p>
+<p><strong>特点</strong>: </p>
+<ul>
+<li>占有内存少</li>
+<li><a href="https://baike.baidu.com/item/%E5%B9%B6%E5%8F%91/11024806">并发</a>能力强</li>
+<li>安装非常简单</li>
+<li>配置文件非常简介（还能够支持perl语法）</li>
+<li>Bug非常少，启动特别容易</li>
+<li>并且几乎可以做到7*24不间断运行，即使运行几个月也不需要重新启动</li>
+<li>你还可以在不间断服务的情况下进行软件版本的升级</li>
+</ul>
+<p>Nginx代码完全用c语言从头写成，官方测试表明能够支持高达50000个并发连接数的响应</p>
+<h2 id="Nginx的作用"><a href="#Nginx的作用" class="headerlink" title="Nginx的作用"></a>Nginx的作用</h2><h3 id="反向代理"><a href="#反向代理" class="headerlink" title="反向代理"></a>反向代理</h3><blockquote>
+<p>Http代理，<strong>反向代理</strong>：作为web服务器中最常见的功能之一，尤其是反向代理</p>
+</blockquote>
+<p><strong>正向代理：</strong>代理客户端，在本机上装的</p>
+<p>游戏加速：VPN</p>
+<p><img src="https://cdn.jsdelivr.net/gh/c-x-x/picture/img/image-20210811093420721.png" alt="image-20210811093420721"></p>
+<p><strong>反向代理</strong>：代理服务器</p>
+<p>网站：百度</p>
+<p><img src="https://cdn.jsdelivr.net/gh/c-x-x/picture/img/image-20210811094102967.png" alt="image-20210811094102967"></p>
+<h3 id="负载均衡"><a href="#负载均衡" class="headerlink" title="负载均衡"></a>负载均衡</h3><blockquote>
+<p>Nginx提供的<strong>负载均衡</strong>策略有两种：<strong>内置策略</strong>和<strong>扩展策略</strong>。内置策略位轮询，加权轮询，Ip hash。扩展策略，天马行空，只有你想不到没有它做不到</p>
+</blockquote>
+<p>轮询：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/c-x-x/picture/img/image-20210811095222381.png" alt="image-20210811095222381"></p>
+<p>加权轮询：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/c-x-x/picture/img/image-20210811095648780.png" alt="image-20210811095648780"></p>
+<p>iphash对客户端请求的ip进行hash操作，然后根据hash结果将同一客户端ip的请求分发给同一台服务器，可以解决session不共享的问题。</p>
+<p>如果这台服务器挂了，对应的信息就没了</p>
+<p>不建议使用nginx做session共享，建议使用：Redis</p>
+<p><img src="https://cdn.jsdelivr.net/gh/c-x-x/picture/img/image-20210811100201004.png" alt="image-20210811100201004"></p>
+<h3 id="动静分离"><a href="#动静分离" class="headerlink" title="动静分离"></a>动静分离</h3><blockquote>
+<p>动静分离，在我们的软件开发中，有些请求需要后台处理，有些请求是不经过后台处理的（如：css、html、jpg、js等文件），这些不经过后台处理的文件统称为静态文件，让动态网站里的动态网页根据一定规则把不变的资源和经常变的资源区分开，动静资源做好拆分以后，我们就可以根据静态资源的特点将其做缓存操作，提高资源响应速度。</p>
+</blockquote>
+<p>静态资源直接从nginx返回，不会再走到你的项目里里面</p>
+<p><img src="https://cdn.jsdelivr.net/gh/c-x-x/picture/img/image-20210811101532735.png" alt="image-20210811101532735"></p>
+<h2 id="安装Nginx"><a href="#安装Nginx" class="headerlink" title="安装Nginx"></a>安装Nginx</h2><blockquote>
+<p>Windows下安装</p>
+</blockquote>
+<p><strong>1、下载nginx</strong></p>
+<p>下载地址：<a href="https://nginx.org/en/download.html">https://nginx.org/en/download.html</a></p>
+<p><img src="https://cdn.jsdelivr.net/gh/c-x-x/picture/img/image-20210811102149829.png" alt="image-20210811102149829"></p>
+<p><strong>2、启动nginx</strong></p>
+<p>解压后进入目录，在目录运行cmd输入nginx.exe，回车即可</p>
+<p><strong>3、检查nginx是否启动成功</strong></p>
+<p>浏览器输入如<a href="http://localhost/">http://localhost:80</a></p>
+<p>如下即成功：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/c-x-x/picture/img/image-20210811102614264.png" alt="image-20210811102614264"></p>
+<p><strong>4、配置监听</strong></p>
+<p>conf目录下nginx.conf，默认监听端口为80，如果被占用，可以修改为其他的</p>
+<p><strong>5、关闭nginx</strong></p>
+<p>关闭cmd窗口是<strong>不能结束nginx进程的</strong></p>
+<p>方式1：输入命令<code>nginx -s stop</code>（快速停止nginx）或者<code>nginx -s quit</code>（完整有序的停止nginx）</p>
+<p>方式2：<code>taskkill /f /t /im nginx.exe</code></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">taskkill 进程终止</span><br><span class="line">/f 强制停止</span><br><span class="line">/t 终止指定的进程和任何由此启动的子进程</span><br><span class="line">/im 指定进程名称</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>Linux下安装</p>
+</blockquote>
+<p>🤡  自己上网找    <strong>或者</strong> —&gt;   <a href="https://cb-baidu.vercel.app/?q=TGludXjlronoo4VOZ2lueA==">点此查看</a></p>
+<h2 id="Nginx常用命令"><a href="#Nginx常用命令" class="headerlink" title="Nginx常用命令"></a>Nginx常用命令</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> /usr/local/nginx/sbin</span><br><span class="line">./nginx  启动</span><br><span class="line">./nginx -s stop  停止</span><br><span class="line">./nginx -s quit  安全退出</span><br><span class="line">./nginx -s reload  从新加载配置文件</span><br><span class="line">ps aux|grep nginx  查看nginx进程</span><br></pre></td></tr></table></figure>
+
+<h2 id="其他相关命令"><a href="#其他相关命令" class="headerlink" title="其他相关命令"></a>其他相关命令</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 开启防火墙</span></span><br><span class="line">service firewalld start</span><br><span class="line"><span class="comment"># 重启防火墙</span></span><br><span class="line">service firewalld restart</span><br><span class="line"><span class="comment"># 关闭防火墙</span></span><br><span class="line">service firewalld stop</span><br><span class="line"><span class="comment"># 查看防火墙规则</span></span><br><span class="line">firewall -cmd --list-all</span><br><span class="line"><span class="comment"># 查询端口是否开放</span></span><br><span class="line">firewall -cmd --query-port=8080/tcp</span><br><span class="line"><span class="comment"># 开放80端口</span></span><br><span class="line">firewall -cmd --permanent --add-port=80/tcp</span><br><span class="line"><span class="comment"># 移除端口</span></span><br><span class="line">firewall -cmd --permanent --remove-port=8080/tcp</span><br><span class="line"><span class="comment"># 重启防火墙（修改配置后要重启防火墙）</span></span><br><span class="line">firewall -cmd --reload</span><br><span class="line"><span class="comment"># 参数解释</span></span><br><span class="line">firewall -cmd  Linux提供的操作firewall的一个工具</span><br><span class="line">--permanent  表示设置为持久</span><br><span class="line">--add-port  标识添加的端口</span><br></pre></td></tr></table></figure>
+
+<h2 id="实战使用"><a href="#实战使用" class="headerlink" title="实战使用"></a>实战使用</h2><p>反向代理和负载均衡配置</p>
+<p>weight权重</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">server 127.0.0.1:8080 weight=3;</span><br><span class="line">server 127.0.0.1:8081 weight=1;</span><br><span class="line"><span class="comment"># 打4次请求3次到第一台</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/c-x-x/picture/img/image-20210811112147636.png" alt="image-20210811112147636"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/c-x-x/picture/img/image-20210811113014155.png" alt="image-20210811113014155"></p>
+<h1 id="这个只是入门！"><a href="#这个只是入门！" class="headerlink" title="这个只是入门！"></a>这个只是入门！</h1>]]></content>
+      <categories>
+        <category>Nginx</category>
+      </categories>
+      <tags>
+        <tag>运维</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>使用Freenom免费申请一年的域名并且设置DNS到阿里或腾讯</title>
+    <url>/2021/07/03/freenom1yearfree/</url>
+    <content><![CDATA[<h2 id="在国内注册freenom需要这个，并且开全局（自备）！！！"><a href="#在国内注册freenom需要这个，并且开全局（自备）！！！" class="headerlink" title="在国内注册freenom需要这个，并且开全局（自备）！！！"></a><strong>在国内注册freenom需要这个，并且开全局（自备）！！！</strong></h2><p><img src="https://cdn.jsdelivr.net/gh/c-x-x/picture/img/image-20210703190742278.png" alt="image-20210703190742278"></p>
+<h2 id="还需要填一些信息（必须是美国的）！！！"><a href="#还需要填一些信息（必须是美国的）！！！" class="headerlink" title="还需要填一些信息（必须是美国的）！！！"></a><strong>还需要填一些信息（必须是美国的）！！！</strong></h2><p>美国人信息生成网：<a href="http://haoweichi.com/">http://haoweichi.com/</a></p>
+<h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><h3 id="官网"><a href="#官网" class="headerlink" title="官网"></a>官网</h3><p><a href="https://www.freenom.com/zh/index.html?lang=zh">https://www.freenom.com/zh/index.html?lang=zh</a></p>
+<h3 id="输入一个域名检查是否可用"><a href="#输入一个域名检查是否可用" class="headerlink" title="输入一个域名检查是否可用"></a>输入一个域名检查是否可用</h3><p><img src="https://cdn.jsdelivr.net/gh/c-x-x/picture/img/image-20210703185609005.png" alt="image-20210703185609005"></p>
+<h3 id="这几个都是免费的"><a href="#这几个都是免费的" class="headerlink" title="这几个都是免费的"></a>这几个都是免费的</h3><p><img src="https://cdn.jsdelivr.net/gh/c-x-x/picture/img/image-20210703185842498.png" alt="image-20210703185842498"></p>
+<h3 id="在这几个里面选择一个自己选择一个自己喜欢的后缀，比如我选的是ml，就在输入框中再添加域名-ml，再回车。"><a href="#在这几个里面选择一个自己选择一个自己喜欢的后缀，比如我选的是ml，就在输入框中再添加域名-ml，再回车。" class="headerlink" title="在这几个里面选择一个自己选择一个自己喜欢的后缀，比如我选的是ml，就在输入框中再添加域名.ml，再回车。"></a>在这几个里面选择一个自己选择一个自己喜欢的后缀，比如我选的是ml，就在输入框中再添加<code>域名.ml</code>，再回车。</h3><p><img src="https://cdn.jsdelivr.net/gh/c-x-x/picture/img/image-20210703190153292.png" alt="image-20210703190153292"></p>
+<h3 id="点击完成"><a href="#点击完成" class="headerlink" title="点击完成"></a>点击完成</h3><h3 id="选择12个月，然后点击Continue"><a href="#选择12个月，然后点击Continue" class="headerlink" title="选择12个月，然后点击Continue"></a>选择12个月，然后点击Continue</h3><p><img src="https://cdn.jsdelivr.net/gh/c-x-x/picture/img/image-20210703190401358.png" alt="image-20210703190401358"></p>
+<h3 id="在左下角的框中输入你的邮箱—-用于注册"><a href="#在左下角的框中输入你的邮箱—-用于注册" class="headerlink" title="在左下角的框中输入你的邮箱—&gt;用于注册"></a>在左下角的框中输入你的邮箱—&gt;用于注册</h3><h3 id="进入如下页面，而且你的邮箱会收到一封邮件"><a href="#进入如下页面，而且你的邮箱会收到一封邮件" class="headerlink" title="进入如下页面，而且你的邮箱会收到一封邮件"></a>进入如下页面，而且你的邮箱会收到一封邮件</h3><p><img src="https://cdn.jsdelivr.net/gh/c-x-x/picture/img/image-20210703191456840.png" alt="image-20210703191456840"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/c-x-x/image-hosting@master/20210628/image-20210703191537744.2jwp9pjyul40.png" alt="image-20210703191537744"></p>
+<h3 id="点击邮件中的链接进入如下界面"><a href="#点击邮件中的链接进入如下界面" class="headerlink" title="点击邮件中的链接进入如下界面"></a>点击邮件中的链接进入如下界面</h3><p><img src="https://cdn.jsdelivr.net/gh/c-x-x/picture/img/image-20210703192218908.png" alt="image-20210703192218908"></p>
+<h3 id="并将美国人身份生成网里面的对应的信息填写到对应的位置，对照如下"><a href="#并将美国人身份生成网里面的对应的信息填写到对应的位置，对照如下" class="headerlink" title="并将美国人身份生成网里面的对应的信息填写到对应的位置，对照如下"></a>并将美国人身份生成网里面的对应的信息填写到对应的位置，对照如下</h3><p>最后两个是密码</p>
+<p><img src="https://cdn.jsdelivr.net/gh/c-x-x/picture/img/image-20210703192310260.png" alt="image-20210703192310260"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/c-x-x/picture/img/image-20210703192705026.png" alt="image-20210703192705026"></p>
+<h3 id="如图"><a href="#如图" class="headerlink" title="如图"></a>如图</h3><p><img src="https://cdn.jsdelivr.net/gh/c-x-x/picture/img/image-20210703192756958.png" alt="image-20210703192756958"></p>
+<h3 id="如下图显示就是购买成功了"><a href="#如下图显示就是购买成功了" class="headerlink" title="如下图显示就是购买成功了"></a>如下图显示就是购买成功了</h3><p><img src="https://cdn.jsdelivr.net/gh/c-x-x/picture/img/image-20210703192901910.png" alt="image-20210703192901910"></p>
+<h3 id="查看域名"><a href="#查看域名" class="headerlink" title="查看域名"></a>查看域名</h3><p><img src="https://cdn.jsdelivr.net/gh/c-x-x/picture/img/image-20210703192959846.png" alt="image-20210703192959846"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/c-x-x/picture/img/image-20210703193108996.png" alt="image-20210703193108996"></p>
+<h3 id="设置DNS到腾讯云或者阿里云（可以不修改）"><a href="#设置DNS到腾讯云或者阿里云（可以不修改）" class="headerlink" title="设置DNS到腾讯云或者阿里云（可以不修改）"></a>设置DNS到腾讯云或者阿里云（可以不修改）</h3><ul>
+<li><p>点击<strong>Manage domain</strong></p>
+</li>
+<li><p>点击<strong>Nameservice</strong></p>
+<p><img src="https://cdn.jsdelivr.net/gh/c-x-x/picture/img/image-20210703193546543.png" alt="image-20210703193546543"></p>
+</li>
+<li><p>点击<strong>Use custom nameservers (enter below)</strong></p>
+</li>
+<li><p>以阿里云为例，进入阿里的云解析DNS，点击添加域名，把刚才的域名输入进去，点击确定</p>
+<p><img src="https://cdn.jsdelivr.net/gh/c-x-x/picture/img/image-20210703193918058.png" alt="image-20210703193918058"></p>
+</li>
+<li><p>然后把如下图的两个地址填到Nameserver 1和Nameserver 2里面</p>
+<p><img src="https://cdn.jsdelivr.net/gh/c-x-x/picture/img/image-20210703194128057.png" alt="image-20210703194128057"></p>
+<p>点击Change Nameservers</p>
+<p><img src="https://cdn.jsdelivr.net/gh/c-x-x/picture/img/image-20210703194221034.png" alt="image-20210703194221034"></p>
+</li>
+<li><p>然后会跳转到登录页面，登录自己的账号即可，有如下提示即成功，然后进入阿里，如图二即可。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/c-x-x/picture/img/image-20210703194433981.png" alt="image-20210703194433981"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/c-x-x/picture/img/image-20210703194547481.png" alt="image-20210703194547481"></p>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>服务器</category>
+      </categories>
+      <tags>
+        <tag>免费域名</tag>
+        <tag>freenom</tag>
+        <tag>NDS解析</tag>
       </tags>
   </entry>
   <entry>
@@ -706,24 +706,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Hello World</title>
-    <url>/2023/09/29/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-]]></content>
-  </entry>
-  <entry>
     <title>git环境配置</title>
     <url>/2021/06/08/git/</url>
     <content><![CDATA[<h2 id="git环境配置"><a href="#git环境配置" class="headerlink" title="git环境配置"></a>git环境配置</h2><h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p>git官网：<a href="https://git-scm.com/%EF%BC%8C%E4%B8%8B%E8%BD%BD%E5%AF%B9%E5%BA%94%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%9A%84%E7%89%88%E6%9C%AC">https://git-scm.com/，下载对应操作系统的版本</a></p>
@@ -783,6 +765,24 @@
       </tags>
   </entry>
   <entry>
+    <title>Hello World</title>
+    <url>/2023/09/29/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+]]></content>
+  </entry>
+  <entry>
     <title>hexo使用中的问题以及解决方法</title>
     <url>/2021/06/09/hexo%E4%BD%BF%E7%94%A8%E4%B8%AD%E7%9A%84%E9%97%AE%E9%A2%98%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</url>
     <content><![CDATA[<h2 id="hexo使用中的问题以及解决方法"><a href="#hexo使用中的问题以及解决方法" class="headerlink" title="hexo使用中的问题以及解决方法"></a>hexo使用中的问题以及解决方法</h2><h3 id="更换GitHub账号后，hexo-d-提交不上去"><a href="#更换GitHub账号后，hexo-d-提交不上去" class="headerlink" title="更换GitHub账号后，hexo d 提交不上去"></a>更换GitHub账号后，hexo d 提交不上去</h3><p>因为之前使用过，所以电脑上还保存着之前的GitHub账户密码</p>
@@ -822,60 +822,6 @@
       </tags>
   </entry>
   <entry>
-    <title>idea常用快捷键</title>
-    <url>/2021/07/09/idea%E5%B8%B8%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AE/</url>
-    <content><![CDATA[<h1 id="空"><a href="#空" class="headerlink" title="空"></a>空</h1>]]></content>
-      <categories>
-        <category>Java</category>
-      </categories>
-      <tags>
-        <tag>idea</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>idea插件-获取maven依赖</title>
-    <url>/2021/07/08/idea%E6%8F%92%E4%BB%B6-search%20in%20repository/</url>
-    <content><![CDATA[<p>我们平时使用maven构建项目时，还需要去中央仓库去依赖，相当的麻烦</p>
-<p>可以试试这款idea插件—-&gt;<code>search in repository</code></p>
-<p><img src="https://cdn.jsdelivr.net/gh/c-x-x/image-hosting@master/20210628/image-20210708224912179.3j9g45zpss80.png" alt="image-20210708224912179"></p>
-<p>使用方式如下图</p>
-<p><img src="https://cdn.jsdelivr.net/gh/c-x-x/image-hosting@master/20210628/image.390sqrfpjbu0.png" alt="image"></p>
-]]></content>
-      <categories>
-        <category>Java</category>
-      </categories>
-      <tags>
-        <tag>idea</tag>
-        <tag>maven</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>idea配置代理</title>
-    <url>/2021/07/01/idea%E9%85%8D%E7%BD%AE%E4%BB%A3%E7%90%86/</url>
-    <content><![CDATA[<h2 id="打开idea"><a href="#打开idea" class="headerlink" title="打开idea"></a>打开idea</h2><p><strong>左上角Flie</strong></p>
-<p>File | Settings | Appearance &amp; Behavior | System Settings | HTTP Proxy</p>
-<p><img src="https://cdn.jsdelivr.net/gh/c-x-x/picture/img/image-20210701165941078.png" alt="image-20210701165941078"></p>
-<p>选择Manual proxy configuration</p>
-<p>选择socks</p>
-<p>hostname：localhost</p>
-<p>prot number：7890</p>
-<p>点击Check connection</p>
-<p>输入<a href="https://youtube.com/">https://youtube.com</a></p>
-<p><img src="https://cdn.jsdelivr.net/gh/c-x-x/picture/img/image-20210701170325727.png" alt="image-20210701170325727"></p>
-<p>点击ok</p>
-<p>如下图显示就成功了</p>
-<p><img src="https://cdn.jsdelivr.net/gh/c-x-x/picture/img/image-20210701170403998.png" alt="image-20210701170403998"></p>
-]]></content>
-      <categories>
-        <category>idea</category>
-      </categories>
-      <tags>
-        <tag>idea</tag>
-        <tag>idea配置代理</tag>
-        <tag>代理</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>idea中使用maven</title>
     <url>/2021/06/07/idea%E7%BC%96%E8%BE%91%E5%99%A8%E9%9B%86%E6%88%90Maven%E7%8E%AF%E5%A2%83/</url>
     <content><![CDATA[<h2 id="IDEA编辑器集成Maven环境"><a href="#IDEA编辑器集成Maven环境" class="headerlink" title="IDEA编辑器集成Maven环境"></a>IDEA编辑器集成Maven环境</h2><p><strong>选择”file”—&gt;”OtherSettings”—&gt;”Settings for New Projects…”—&gt;搜索Maven</strong></p>
@@ -897,8 +843,36 @@
       </categories>
       <tags>
         <tag>java</tag>
-        <tag>idea</tag>
         <tag>maven</tag>
+        <tag>idea</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>idea插件-获取maven依赖</title>
+    <url>/2021/07/08/idea%E6%8F%92%E4%BB%B6-search%20in%20repository/</url>
+    <content><![CDATA[<p>我们平时使用maven构建项目时，还需要去中央仓库去依赖，相当的麻烦</p>
+<p>可以试试这款idea插件—-&gt;<code>search in repository</code></p>
+<p><img src="https://cdn.jsdelivr.net/gh/c-x-x/image-hosting@master/20210628/image-20210708224912179.3j9g45zpss80.png" alt="image-20210708224912179"></p>
+<p>使用方式如下图</p>
+<p><img src="https://cdn.jsdelivr.net/gh/c-x-x/image-hosting@master/20210628/image.390sqrfpjbu0.png" alt="image"></p>
+]]></content>
+      <categories>
+        <category>Java</category>
+      </categories>
+      <tags>
+        <tag>maven</tag>
+        <tag>idea</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>idea常用快捷键</title>
+    <url>/2021/07/09/idea%E5%B8%B8%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AE/</url>
+    <content><![CDATA[<h1 id="空"><a href="#空" class="headerlink" title="空"></a>空</h1>]]></content>
+      <categories>
+        <category>Java</category>
+      </categories>
+      <tags>
+        <tag>idea</tag>
       </tags>
   </entry>
   <entry>
@@ -1211,6 +1185,32 @@
       <tags>
         <tag>java</tag>
         <tag>Mybatis</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>idea配置代理</title>
+    <url>/2021/07/01/idea%E9%85%8D%E7%BD%AE%E4%BB%A3%E7%90%86/</url>
+    <content><![CDATA[<h2 id="打开idea"><a href="#打开idea" class="headerlink" title="打开idea"></a>打开idea</h2><p><strong>左上角Flie</strong></p>
+<p>File | Settings | Appearance &amp; Behavior | System Settings | HTTP Proxy</p>
+<p><img src="https://cdn.jsdelivr.net/gh/c-x-x/picture/img/image-20210701165941078.png" alt="image-20210701165941078"></p>
+<p>选择Manual proxy configuration</p>
+<p>选择socks</p>
+<p>hostname：localhost</p>
+<p>prot number：7890</p>
+<p>点击Check connection</p>
+<p>输入<a href="https://youtube.com/">https://youtube.com</a></p>
+<p><img src="https://cdn.jsdelivr.net/gh/c-x-x/picture/img/image-20210701170325727.png" alt="image-20210701170325727"></p>
+<p>点击ok</p>
+<p>如下图显示就成功了</p>
+<p><img src="https://cdn.jsdelivr.net/gh/c-x-x/picture/img/image-20210701170403998.png" alt="image-20210701170403998"></p>
+]]></content>
+      <categories>
+        <category>idea</category>
+      </categories>
+      <tags>
+        <tag>idea</tag>
+        <tag>idea配置代理</tag>
+        <tag>代理</tag>
       </tags>
   </entry>
   <entry>
