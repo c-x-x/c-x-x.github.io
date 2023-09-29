@@ -1,6 +1,91 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Nginx笔记</title>
+    <url>/2021/08/13/Nginx%E7%AC%94%E8%AE%B0/</url>
+    <content><![CDATA[<h2 id="Nginx简介"><a href="#Nginx简介" class="headerlink" title="Nginx简介"></a>Nginx简介</h2><p>Nginx是由伊戈尔·赛索耶夫为俄罗斯访问量第二的Rambler.ru站点（俄文：Рамблер）开发的，第一个公开版本0.1.0发布于2004年10月4日。</p>
+<p>Nginx是一个高性能的<code>http</code>和<code>反向代理</code>web服务器，同时也提供了IMAP&#x2F;POP3&#x2F;SMTP服务</p>
+<p>Nginx是一款<code>轻量级</code>的Web 服务器<code>反向代理</code>服务器及<code>电子邮件</code>（IMAP&#x2F;POP3）代理服务器</p>
+<p>Nginx作为负载均衡服务：Nginx 既可以在内部直接支持 Rails 和 PHP 程序对外进行服务，也可以支持作为 HTTP<a href="https://baike.baidu.com/item/%E4%BB%A3%E7%90%86%E6%9C%8D%E5%8A%A1">代理服务</a>对外进行服务</p>
+<p><strong>特点</strong>: </p>
+<ul>
+<li>占有内存少</li>
+<li><a href="https://baike.baidu.com/item/%E5%B9%B6%E5%8F%91/11024806">并发</a>能力强</li>
+<li>安装非常简单</li>
+<li>配置文件非常简介（还能够支持perl语法）</li>
+<li>Bug非常少，启动特别容易</li>
+<li>并且几乎可以做到7*24不间断运行，即使运行几个月也不需要重新启动</li>
+<li>你还可以在不间断服务的情况下进行软件版本的升级</li>
+</ul>
+<p>Nginx代码完全用c语言从头写成，官方测试表明能够支持高达50000个并发连接数的响应</p>
+<h2 id="Nginx的作用"><a href="#Nginx的作用" class="headerlink" title="Nginx的作用"></a>Nginx的作用</h2><h3 id="反向代理"><a href="#反向代理" class="headerlink" title="反向代理"></a>反向代理</h3><blockquote>
+<p>Http代理，<strong>反向代理</strong>：作为web服务器中最常见的功能之一，尤其是反向代理</p>
+</blockquote>
+<p><strong>正向代理：</strong>代理客户端，在本机上装的</p>
+<p>游戏加速：VPN</p>
+<p><img src="https://cdn.jsdelivr.net/gh/c-x-x/picture/img/image-20210811093420721.png" alt="image-20210811093420721"></p>
+<p><strong>反向代理</strong>：代理服务器</p>
+<p>网站：百度</p>
+<p><img src="https://cdn.jsdelivr.net/gh/c-x-x/picture/img/image-20210811094102967.png" alt="image-20210811094102967"></p>
+<h3 id="负载均衡"><a href="#负载均衡" class="headerlink" title="负载均衡"></a>负载均衡</h3><blockquote>
+<p>Nginx提供的<strong>负载均衡</strong>策略有两种：<strong>内置策略</strong>和<strong>扩展策略</strong>。内置策略位轮询，加权轮询，Ip hash。扩展策略，天马行空，只有你想不到没有它做不到</p>
+</blockquote>
+<p>轮询：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/c-x-x/picture/img/image-20210811095222381.png" alt="image-20210811095222381"></p>
+<p>加权轮询：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/c-x-x/picture/img/image-20210811095648780.png" alt="image-20210811095648780"></p>
+<p>iphash对客户端请求的ip进行hash操作，然后根据hash结果将同一客户端ip的请求分发给同一台服务器，可以解决session不共享的问题。</p>
+<p>如果这台服务器挂了，对应的信息就没了</p>
+<p>不建议使用nginx做session共享，建议使用：Redis</p>
+<p><img src="https://cdn.jsdelivr.net/gh/c-x-x/picture/img/image-20210811100201004.png" alt="image-20210811100201004"></p>
+<h3 id="动静分离"><a href="#动静分离" class="headerlink" title="动静分离"></a>动静分离</h3><blockquote>
+<p>动静分离，在我们的软件开发中，有些请求需要后台处理，有些请求是不经过后台处理的（如：css、html、jpg、js等文件），这些不经过后台处理的文件统称为静态文件，让动态网站里的动态网页根据一定规则把不变的资源和经常变的资源区分开，动静资源做好拆分以后，我们就可以根据静态资源的特点将其做缓存操作，提高资源响应速度。</p>
+</blockquote>
+<p>静态资源直接从nginx返回，不会再走到你的项目里里面</p>
+<p><img src="https://cdn.jsdelivr.net/gh/c-x-x/picture/img/image-20210811101532735.png" alt="image-20210811101532735"></p>
+<h2 id="安装Nginx"><a href="#安装Nginx" class="headerlink" title="安装Nginx"></a>安装Nginx</h2><blockquote>
+<p>Windows下安装</p>
+</blockquote>
+<p><strong>1、下载nginx</strong></p>
+<p>下载地址：<a href="https://nginx.org/en/download.html">https://nginx.org/en/download.html</a></p>
+<p><img src="https://cdn.jsdelivr.net/gh/c-x-x/picture/img/image-20210811102149829.png" alt="image-20210811102149829"></p>
+<p><strong>2、启动nginx</strong></p>
+<p>解压后进入目录，在目录运行cmd输入nginx.exe，回车即可</p>
+<p><strong>3、检查nginx是否启动成功</strong></p>
+<p>浏览器输入如<a href="http://localhost/">http://localhost:80</a></p>
+<p>如下即成功：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/c-x-x/picture/img/image-20210811102614264.png" alt="image-20210811102614264"></p>
+<p><strong>4、配置监听</strong></p>
+<p>conf目录下nginx.conf，默认监听端口为80，如果被占用，可以修改为其他的</p>
+<p><strong>5、关闭nginx</strong></p>
+<p>关闭cmd窗口是<strong>不能结束nginx进程的</strong></p>
+<p>方式1：输入命令<code>nginx -s stop</code>（快速停止nginx）或者<code>nginx -s quit</code>（完整有序的停止nginx）</p>
+<p>方式2：<code>taskkill /f /t /im nginx.exe</code></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">taskkill 进程终止</span><br><span class="line">/f 强制停止</span><br><span class="line">/t 终止指定的进程和任何由此启动的子进程</span><br><span class="line">/im 指定进程名称</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>Linux下安装</p>
+</blockquote>
+<p>🤡  自己上网找    <strong>或者</strong> —&gt;   <a href="https://cb-baidu.vercel.app/?q=TGludXjlronoo4VOZ2lueA==">点此查看</a></p>
+<h2 id="Nginx常用命令"><a href="#Nginx常用命令" class="headerlink" title="Nginx常用命令"></a>Nginx常用命令</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> /usr/local/nginx/sbin</span><br><span class="line">./nginx  启动</span><br><span class="line">./nginx -s stop  停止</span><br><span class="line">./nginx -s quit  安全退出</span><br><span class="line">./nginx -s reload  从新加载配置文件</span><br><span class="line">ps aux|grep nginx  查看nginx进程</span><br></pre></td></tr></table></figure>
+
+<h2 id="其他相关命令"><a href="#其他相关命令" class="headerlink" title="其他相关命令"></a>其他相关命令</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 开启防火墙</span></span><br><span class="line">service firewalld start</span><br><span class="line"><span class="comment"># 重启防火墙</span></span><br><span class="line">service firewalld restart</span><br><span class="line"><span class="comment"># 关闭防火墙</span></span><br><span class="line">service firewalld stop</span><br><span class="line"><span class="comment"># 查看防火墙规则</span></span><br><span class="line">firewall -cmd --list-all</span><br><span class="line"><span class="comment"># 查询端口是否开放</span></span><br><span class="line">firewall -cmd --query-port=8080/tcp</span><br><span class="line"><span class="comment"># 开放80端口</span></span><br><span class="line">firewall -cmd --permanent --add-port=80/tcp</span><br><span class="line"><span class="comment"># 移除端口</span></span><br><span class="line">firewall -cmd --permanent --remove-port=8080/tcp</span><br><span class="line"><span class="comment"># 重启防火墙（修改配置后要重启防火墙）</span></span><br><span class="line">firewall -cmd --reload</span><br><span class="line"><span class="comment"># 参数解释</span></span><br><span class="line">firewall -cmd  Linux提供的操作firewall的一个工具</span><br><span class="line">--permanent  表示设置为持久</span><br><span class="line">--add-port  标识添加的端口</span><br></pre></td></tr></table></figure>
+
+<h2 id="实战使用"><a href="#实战使用" class="headerlink" title="实战使用"></a>实战使用</h2><p>反向代理和负载均衡配置</p>
+<p>weight权重</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">server 127.0.0.1:8080 weight=3;</span><br><span class="line">server 127.0.0.1:8081 weight=1;</span><br><span class="line"><span class="comment"># 打4次请求3次到第一台</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/c-x-x/picture/img/image-20210811112147636.png" alt="image-20210811112147636"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/c-x-x/picture/img/image-20210811113014155.png" alt="image-20210811113014155"></p>
+<h1 id="这个只是入门！"><a href="#这个只是入门！" class="headerlink" title="这个只是入门！"></a>这个只是入门！</h1>]]></content>
+      <categories>
+        <category>Nginx</category>
+      </categories>
+      <tags>
+        <tag>运维</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Servlet笔记</title>
     <url>/2023/09/29/Servlet/</url>
     <content><![CDATA[<h2 id="Servlet"><a href="#Servlet" class="headerlink" title="Servlet"></a>Servlet</h2><h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><ul>
@@ -274,164 +359,6 @@
       </tags>
   </entry>
   <entry>
-    <title>git学习笔记</title>
-    <url>/2021/06/08/git-study/</url>
-    <content><![CDATA[<h2 id="git环境配置"><a href="#git环境配置" class="headerlink" title="git环境配置"></a>git环境配置</h2><h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p>git官网：<a href="https://git-scm.com/%EF%BC%8C%E4%B8%8B%E8%BD%BD%E5%AF%B9%E5%BA%94%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%9A%84%E7%89%88%E6%9C%AC">https://git-scm.com/，下载对应操作系统的版本</a></p>
-<p>如果感觉下载慢的话，可以选择开一下代理。</p>
-<p>或者国内镜像：<a href="http://npm.taobao.org/mirrors/git-for-windows/">http://npm.taobao.org/mirrors/git-for-windows/</a></p>
-<p><img src="https://cdn.jsdelivr.net/gh/fristalpha/alpha/BlogPic/20210608105734.png" alt="image-20210608105725436"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/fristalpha/alpha/BlogPic/20210608105753.png" alt="image-20210608105751977"></p>
-<p><strong>安装</strong>：</p>
-<p>下一步下一步下一步。。。</p>
-<p><strong>默认会配置环境变量。</strong></p>
-<h3 id="启动"><a href="#启动" class="headerlink" title="启动"></a><strong>启动</strong></h3><p>安装成功开始菜单会多出几个程序，在任意文件夹下右键也会有相应的程序</p>
-<p><img src="https://cdn.jsdelivr.net/gh/fristalpha/alpha/BlogPic/20210608110648.png" alt="image-20210608110647320"></p>
-<p>git bush：unix与linux风格的命令行，<strong>使用最多</strong>   可以使用linux命令</p>
-<p>git cmd：windows风格的命令行</p>
-<p>git gui：图形界面的git</p>
-<h3 id="常用的Linux命令"><a href="#常用的Linux命令" class="headerlink" title="常用的Linux命令"></a>常用的Linux命令</h3><p>平时一定要多使用这些基础的命令！</p>
-<p>1）、cd : 改变目录。</p>
-<p>2）、cd . . 回退到上一个目录，直接cd进入默认目录</p>
-<p>3）、pwd : 显示当前所在的目录路径。</p>
-<p>4）、ls(ll):  都是列出当前目录中的所有文件，只不过ll(两个ll)列出的内容更为详细。</p>
-<p>5）、touch : 新建一个文件 如 touch index.js 就会在当前目录下新建一个index.js文件。</p>
-<p>6）、rm:  删除一个文件, rm index.js 就会把index.js文件删除。</p>
-<p>7）、mkdir:  新建一个目录,就是新建一个文件夹。</p>
-<p>8）、rm -r :  删除一个文件夹, rm -r src 删除src目录</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">rm</span> -rf / 切勿在Linux中尝试！删除电脑中全部文件！</span><br></pre></td></tr></table></figure>
-
-<p>9）、mv 移动文件, mv index.html src index.html 是我们要移动的文件, src 是目标文件夹,当然, 这样写,必须保证文件和目标文件夹在同一目录下。</p>
-<p>10）、reset 重新初始化终端&#x2F;清屏。</p>
-<p>11）、clear 清屏。</p>
-<p>12）、history 查看命令历史。</p>
-<p>13）、help 帮助。</p>
-<p>14）、exit 退出。</p>
-<p>15）、#表示注释</p>
-<h3 id="git配置"><a href="#git配置" class="headerlink" title="git配置"></a>git配置</h3><p>所有的配置文件，其实都保存在本地！</p>
-<p>查看配置 git config -l</p>
-<p><img src="https://cdn.jsdelivr.net/gh/fristalpha/alpha/BlogPic/20210608112334.png" alt="image-20210608112332209"></p>
-<p>查看不同级别的配置文件：</p>
- <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#查看系统config文件</span></span><br><span class="line">git config --system --list</span><br><span class="line">　　</span><br><span class="line"><span class="comment">#查看当前用户（global）配置</span></span><br><span class="line">git config --global  --list</span><br></pre></td></tr></table></figure>
-
-<p><strong>Git相关的配置文件：</strong></p>
-<p>1）、Git\etc\gitconfig  ：Git 安装目录下的 gitconfig   –system 系统级</p>
-<p><img src="https://cdn.jsdelivr.net/gh/fristalpha/alpha/BlogPic/20210608113555.png" alt="image-20210608113554018"></p>
-<p>2）、C:\Users\用户名\ .gitconfig   只适用于当前登录用户的配置  –global 全局</p>
-<p><img src="https://cdn.jsdelivr.net/gh/fristalpha/alpha/BlogPic/20210608113640.png" alt="image-20210608113639130"></p>
-<p>这里可以直接编辑配置文件，通过命令设置后会响应到这里。</p>
-<p><strong>设置用户名与邮箱</strong></p>
-<p>当你安装Git后首先要做的事情是设置你的用户名称和e-mail地址。这是非常重要的，因为每次Git提交都会使用该信息。它被永远的嵌入到了你的提交中：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git config --global user.name <span class="string">&quot;xxxxxx&quot;</span>  <span class="comment">#名称</span></span><br><span class="line">git config --global user.email <span class="string">&quot;xxxxx@xxx.com&quot;</span>   <span class="comment">#邮箱</span></span><br></pre></td></tr></table></figure>
-
-<p>只需要做一次这个设置，如果你传递了–global 选项，因为Git将总是会使用该信息来处理你在系统中所做的一切操作。如果你希望在一个特定的项目中使用不同的名称或e-mail地址，你可以在该项目中运行该命令而不要–global选项。总之–global为全局配置，不加为某个项目的特定配置。</p>
-<h2 id="git基本理论（重要）"><a href="#git基本理论（重要）" class="headerlink" title="git基本理论（重要）"></a>git基本理论（重要）</h2><h3 id="三个区域"><a href="#三个区域" class="headerlink" title="三个区域"></a>三个区域</h3><p>Git本地有三个工作区域：工作目录（Working Directory）、暂存区(Stage&#x2F;Index)、资源库(Repository或Git Directory)。</p>
-<p>如果在加上远程的git仓库(Remote Directory)就可以分为四个工作区域。</p>
-<p>文件在这四个区域之间的转换关系如下：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/fristalpha/alpha/BlogPic/20210608194105.jpeg"></p>
-<ul>
-<li>Workspace：工作区，就是你平时存放项目代码的地方</li>
-<li>Index &#x2F; Stage：暂存区，用于临时存放你的改动，事实上它只是一个文件，保存即将提交到文件列表信息</li>
-<li>Repository：仓库区（或本地仓库），就是安全存放数据的位置，这里面有你提交到所有版本的数据。其中HEAD指向最新放入仓库的版本</li>
-<li>Remote：远程仓库，托管代码的服务器，可以简单的认为是你项目组中的一台电脑用于远程数据交换</li>
-</ul>
-<p>本地的三个区域确切的说应该是git仓库中HEAD指向的版本：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/fristalpha/alpha/BlogPic/20210608194450.jpeg"></p>
-<ul>
-<li>Directory：使用Git管理的一个目录，也就是一个仓库，包含我们的工作空间和Git的管理空间。</li>
-<li>WorkSpace：需要通过Git进行版本控制的目录和文件，这些目录和文件组成了工作空间。</li>
-<li>.git：存放Git管理信息的目录，初始化仓库的时候自动创建。</li>
-<li>Index&#x2F;Stage：暂存区，或者叫待提交更新区，在提交进入repo之前，我们可以把所有的更新放在暂存区。</li>
-<li>Local Repo：本地仓库，一个存放在本地的版本库；HEAD会只是当前的开发分支（branch）。</li>
-<li>Stash：隐藏，是一个工作状态保存栈，用于保存&#x2F;恢复WorkSpace中的临时状态。</li>
-</ul>
-<h3 id="工作流程"><a href="#工作流程" class="headerlink" title="工作流程"></a>工作流程</h3><p>git的工作流程一般是这样的：</p>
-<p>１、在工作目录中添加、修改文件</p>
-<p>２、将需要进行版本管理的文件放入暂存区域</p>
-<p>３、将暂存区域的文件提交到git仓库</p>
-<p>因此，git管理的文件有三种状态：已修改（modified）,已暂存（staged）,已提交(committed)</p>
-<p><img src="https://cdn.jsdelivr.net/gh/fristalpha/alpha/BlogPic/20210608194659.jpeg"></p>
-<h2 id="git项目搭建"><a href="#git项目搭建" class="headerlink" title="git项目搭建"></a>git项目搭建</h2><h3 id="创建工作目录与常用指令"><a href="#创建工作目录与常用指令" class="headerlink" title="创建工作目录与常用指令"></a>创建工作目录与常用指令</h3><p>工作目录（WorkSpace)一般就是你希望Git帮助你管理的文件夹，可以是你项目的目录，也可以是一个空目录，建议不要有中文。</p>
-<p>日常使用只要记住下图6个命令：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/fristalpha/alpha/BlogPic/20210608195009.png" alt="image-20210608195008421"></p>
-<h3 id="本地仓库搭建"><a href="#本地仓库搭建" class="headerlink" title="本地仓库搭建"></a>本地仓库搭建</h3><p>创建本地仓库的方法有两种：一种是创建全新的仓库，另一种是克隆远程仓库。</p>
-<p>1、创建全新的仓库，需要用GIT管理的项目的根目录执行：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 在当前目录新建一个Git代码库</span></span><br><span class="line">$ git init</span><br></pre></td></tr></table></figure>
-
-<p>2、执行后可以看到，仅仅在项目目录多出了一个.git目录，关于版本等的所有信息都在这个目录里面。</p>
-<h3 id="克隆远程仓库"><a href="#克隆远程仓库" class="headerlink" title="克隆远程仓库"></a>克隆远程仓库</h3><p>1、另一种方式是克隆远程目录，由于是将远程服务器上的仓库完全镜像一份至本地！</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 克隆一个项目和它的整个代码历史(版本信息)</span></span><br><span class="line">$ git <span class="built_in">clone</span> [url]  <span class="comment"># https://gitee.com/kuangstudy/openclass.git</span></span><br></pre></td></tr></table></figure>
-
-<p>2、去 gitee 或者 github 上克隆一个测试！</p>
-<h2 id="git文件操作"><a href="#git文件操作" class="headerlink" title="git文件操作"></a>git文件操作</h2><h3 id="文件的四种状态"><a href="#文件的四种状态" class="headerlink" title="文件的四种状态"></a>文件的四种状态</h3><p>版本控制就是对文件的版本控制，要对文件进行修改、提交等操作，首先要知道文件当前在什么状态，不然可能会提交了现在还不想提交的文件，或者要提交的文件没提交上。</p>
-<ul>
-<li>Untracked: 未跟踪, 此文件在文件夹中, 但并没有加入到git库, 不参与版本控制. 通过git add 状态变为Staged.</li>
-<li>Unmodify: 文件已经入库, 未修改, 即版本库中的文件快照内容与文件夹中完全一致. 这种类型的文件有两种去处, 如果它被修改, 而变为Modified. 如果使用git rm移出版本库, 则成为Untracked文件</li>
-<li>Modified: 文件已修改, 仅仅是修改, 并没有进行其他的操作. 这个文件也有两个去处, 通过git add可进入暂存staged状态, 使用git checkout 则丢弃修改过, 返回到unmodify状态, 这个git checkout即从库中取出文件, 覆盖当前修改 !</li>
-<li>Staged: 暂存状态. 执行git commit则将修改同步到库中, 这时库中的文件和本地文件又变为一致, 文件为Unmodify状态. 执行git reset HEAD filename取消暂存, 文件状态为Modified</li>
-</ul>
-<h3 id="查看文件状态"><a href="#查看文件状态" class="headerlink" title="查看文件状态"></a>查看文件状态</h3><p>上面说文件有4种状态，通过如下命令可以查看到文件的状态：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#查看指定文件状态git status [filename]</span></span><br><span class="line"><span class="comment">#查看所有文件状态git status</span></span><br><span class="line"><span class="comment"># git add .                 添加所有文件到暂存区</span></span><br><span class="line"><span class="comment"># git commit -m &quot;消息内容&quot;   提交暂存区中的内容到本地仓库 -m 提交信息</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="忽略文件"><a href="#忽略文件" class="headerlink" title="忽略文件"></a>忽略文件</h3><p>有些时候我们不想把某些文件纳入版本控制中，比如数据库文件，临时文件，设计文件等</p>
-<p>在主目录下建立”.gitignore”文件，此文件有如下规则：</p>
-<ol>
-<li>忽略文件中的空行或以井号（#）开始的行将会被忽略。</li>
-<li>可以使用Linux通配符。例如：星号（*）代表任意多个字符，问号（？）代表一个字符，方括号（[abc]）代表可选字符范围，大括号（{string1,string2,…}）代表可选的字符串等。</li>
-<li>如果名称的最前面有一个感叹号（!），表示例外规则，将不被忽略。</li>
-<li>如果名称的最前面是一个路径分隔符（&#x2F;），表示要忽略的文件在此目录下，而子目录中的文件不忽略。</li>
-<li>如果名称的最后面是一个路径分隔符（&#x2F;），表示要忽略的是此目录下该名称的子目录，而非文件（默认文件或目录都忽略）。</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#为注释*.txt        </span></span><br><span class="line"><span class="comment">#忽略所有 .txt结尾的文件,这样的话上传就不会被选中！!lib.txt     </span></span><br><span class="line"><span class="comment">#但lib.txt除外/temp        </span></span><br><span class="line"><span class="comment">#仅忽略项目根目录下的TODO文件,不包括其它目录tempbuild/       </span></span><br><span class="line"><span class="comment">#忽略build/目录下的所有文件doc/*.txt    </span></span><br><span class="line"><span class="comment">#会忽略 doc/notes.txt 但不包括 doc/server/arch.txt</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="使用github"><a href="#使用github" class="headerlink" title="使用github"></a>使用github</h2><h3 id="创建远程仓库"><a href="#创建远程仓库" class="headerlink" title="创建远程仓库"></a>创建远程仓库</h3><p>1、注册登录</p>
-<p>2、设置本机绑定ssh公钥，实现买密码登录</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 进入 C:\Users\用户名\.ssh 目录</span></span><br><span class="line"><span class="comment"># 生成公钥命令</span></span><br><span class="line">ssh-keygen</span><br></pre></td></tr></table></figure>
-
-<p>3、将公钥信息添加到github账户中</p>
-<p><img src="https://cdn.jsdelivr.net/gh/fristalpha/alpha/BlogPic/20210608152345.png" alt="image-20210608152344372"></p>
-<p>右键记事本打开，复制，打开github，点击头像，找到设置选择ssh公钥，如下图，粘贴到公钥处</p>
-<p><img src="https://cdn.jsdelivr.net/gh/fristalpha/alpha/BlogPic/20210608173208.png"></p>
-<p>4、创建一个仓库</p>
-<p><img src="https://cdn.jsdelivr.net/gh/fristalpha/alpha/BlogPic/20210608153542.png"></p>
-<p>5、克隆远程仓库到本地</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">clone</span> git@github.com:c-x-x/gitstudy.git</span><br></pre></td></tr></table></figure>
-
-<h2 id="在idea中集成git"><a href="#在idea中集成git" class="headerlink" title="在idea中集成git"></a>在idea中集成git</h2><p>1、新建项目，绑定git</p>
-<ul>
-<li>方式一：新建的项目跟远程git的文件的名称相同</li>
-<li>方式二：将远程的git文件目录拷贝到项目中即可（推荐）</li>
-</ul>
-<p>idea中的变化：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/fristalpha/alpha/BlogPic/20210608184850.png" alt="image-20210608184848768"></p>
-<p>2、使用idea操作git</p>
-<ul>
-<li><p>添加到暂存区</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git add .</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>commit提交到本地仓库</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git commit -m <span class="string">&quot;提交信息（自己写）&quot;</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>push到远端仓库</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git push</span><br></pre></td></tr></table></figure></li>
-</ul>
-<p><img src="https://cdn.jsdelivr.net/gh/fristalpha/alpha/BlogPic/20210608191610.png" alt="image-20210608191609059"></p>
-<p><strong>这些都是单人的操作</strong></p>
-<h2 id="git的分支"><a href="#git的分支" class="headerlink" title="git的分支"></a>git的分支</h2><h3 id="什么是分支"><a href="#什么是分支" class="headerlink" title="什么是分支"></a>什么是分支</h3><p>几乎每一种版本控制系统都以某种形式支持分支。使用分支意味着你可以从开发主线上分离开来，然后在不影响主线的同时继续工作。</p>
-<p>有人把 Git 的分支模型称为<strong>必杀技特性</strong>，而正是因为它，将 <strong>Git</strong> 从版本控制系统家族里区分出来。</p>
-<p>官网介绍：<a href="https://git-scm.com/book/zh/v2/Git-%E5%88%86%E6%94%AF-%E5%88%86%E6%94%AF%E7%AE%80%E4%BB%8B">点我进入</a></p>
-<h3 id="git分支中常用的命令"><a href="#git分支中常用的命令" class="headerlink" title="git分支中常用的命令"></a>git分支中常用的命令</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 列出所有本地分支</span></span><br><span class="line">git branch</span><br><span class="line"></span><br><span class="line"><span class="comment"># 列出所有远程分支</span></span><br><span class="line">git branch -r</span><br><span class="line"></span><br><span class="line"><span class="comment"># 新建一个分支，但依然停留在当前分支</span></span><br><span class="line">git branch 分支名</span><br><span class="line"></span><br><span class="line"><span class="comment"># 切换分支</span></span><br><span class="line">git checkout 分支名</span><br><span class="line"></span><br><span class="line"><span class="comment"># 新建一个分支，并切换到该分支</span></span><br><span class="line">git checkout -b 分支名</span><br><span class="line"></span><br><span class="line"><span class="comment"># 合并指定分支到当前分支</span></span><br><span class="line">$ git merge 分支名</span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除分支</span></span><br><span class="line">$ git branch -d 分支名</span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除远程分支</span></span><br><span class="line">$ git push origin --delete 分支名</span><br><span class="line">$ git branch -dr 分支名</span><br></pre></td></tr></table></figure>
-
-<p>如果同一个文件在合并分支时都被修改了则会引起冲突：解决的办法是我们可以修改冲突文件后重新提交！选择要保留他的代码还是你的代码！</p>
-<p>master主分支应该非常稳定，用来发布新版本，一般情况下不允许在上面工作，工作一般情况下在新建的dev分支上工作，工作完后，比如上要发布，或者说dev分支代码稳定后可以合并到主分支master上来。</p>
-]]></content>
-      <categories>
-        <category>学习笔记</category>
-      </categories>
-      <tags>
-        <tag>git</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>SpringBoot笔记</title>
     <url>/2021/07/14/Springboot/</url>
     <content><![CDATA[<p><strong>注：</strong></p>
@@ -621,24 +548,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Hello World</title>
-    <url>/2023/09/29/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-]]></content>
-  </entry>
-  <entry>
     <title>git环境配置</title>
     <url>/2021/06/08/git/</url>
     <content><![CDATA[<h2 id="git环境配置"><a href="#git环境配置" class="headerlink" title="git环境配置"></a>git环境配置</h2><h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p>git官网：<a href="https://git-scm.com/%EF%BC%8C%E4%B8%8B%E8%BD%BD%E5%AF%B9%E5%BA%94%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%9A%84%E7%89%88%E6%9C%AC">https://git-scm.com/，下载对应操作系统的版本</a></p>
@@ -698,6 +607,193 @@
       </tags>
   </entry>
   <entry>
+    <title>git学习笔记</title>
+    <url>/2021/06/08/git-study/</url>
+    <content><![CDATA[<h2 id="git环境配置"><a href="#git环境配置" class="headerlink" title="git环境配置"></a>git环境配置</h2><h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p>git官网：<a href="https://git-scm.com/%EF%BC%8C%E4%B8%8B%E8%BD%BD%E5%AF%B9%E5%BA%94%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%9A%84%E7%89%88%E6%9C%AC">https://git-scm.com/，下载对应操作系统的版本</a></p>
+<p>如果感觉下载慢的话，可以选择开一下代理。</p>
+<p>或者国内镜像：<a href="http://npm.taobao.org/mirrors/git-for-windows/">http://npm.taobao.org/mirrors/git-for-windows/</a></p>
+<p><img src="https://cdn.jsdelivr.net/gh/fristalpha/alpha/BlogPic/20210608105734.png" alt="image-20210608105725436"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/fristalpha/alpha/BlogPic/20210608105753.png" alt="image-20210608105751977"></p>
+<p><strong>安装</strong>：</p>
+<p>下一步下一步下一步。。。</p>
+<p><strong>默认会配置环境变量。</strong></p>
+<h3 id="启动"><a href="#启动" class="headerlink" title="启动"></a><strong>启动</strong></h3><p>安装成功开始菜单会多出几个程序，在任意文件夹下右键也会有相应的程序</p>
+<p><img src="https://cdn.jsdelivr.net/gh/fristalpha/alpha/BlogPic/20210608110648.png" alt="image-20210608110647320"></p>
+<p>git bush：unix与linux风格的命令行，<strong>使用最多</strong>   可以使用linux命令</p>
+<p>git cmd：windows风格的命令行</p>
+<p>git gui：图形界面的git</p>
+<h3 id="常用的Linux命令"><a href="#常用的Linux命令" class="headerlink" title="常用的Linux命令"></a>常用的Linux命令</h3><p>平时一定要多使用这些基础的命令！</p>
+<p>1）、cd : 改变目录。</p>
+<p>2）、cd . . 回退到上一个目录，直接cd进入默认目录</p>
+<p>3）、pwd : 显示当前所在的目录路径。</p>
+<p>4）、ls(ll):  都是列出当前目录中的所有文件，只不过ll(两个ll)列出的内容更为详细。</p>
+<p>5）、touch : 新建一个文件 如 touch index.js 就会在当前目录下新建一个index.js文件。</p>
+<p>6）、rm:  删除一个文件, rm index.js 就会把index.js文件删除。</p>
+<p>7）、mkdir:  新建一个目录,就是新建一个文件夹。</p>
+<p>8）、rm -r :  删除一个文件夹, rm -r src 删除src目录</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">rm</span> -rf / 切勿在Linux中尝试！删除电脑中全部文件！</span><br></pre></td></tr></table></figure>
+
+<p>9）、mv 移动文件, mv index.html src index.html 是我们要移动的文件, src 是目标文件夹,当然, 这样写,必须保证文件和目标文件夹在同一目录下。</p>
+<p>10）、reset 重新初始化终端&#x2F;清屏。</p>
+<p>11）、clear 清屏。</p>
+<p>12）、history 查看命令历史。</p>
+<p>13）、help 帮助。</p>
+<p>14）、exit 退出。</p>
+<p>15）、#表示注释</p>
+<h3 id="git配置"><a href="#git配置" class="headerlink" title="git配置"></a>git配置</h3><p>所有的配置文件，其实都保存在本地！</p>
+<p>查看配置 git config -l</p>
+<p><img src="https://cdn.jsdelivr.net/gh/fristalpha/alpha/BlogPic/20210608112334.png" alt="image-20210608112332209"></p>
+<p>查看不同级别的配置文件：</p>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#查看系统config文件</span></span><br><span class="line">git config --system --list</span><br><span class="line">　　</span><br><span class="line"><span class="comment">#查看当前用户（global）配置</span></span><br><span class="line">git config --global  --list</span><br></pre></td></tr></table></figure>
+
+<p><strong>Git相关的配置文件：</strong></p>
+<p>1）、Git\etc\gitconfig  ：Git 安装目录下的 gitconfig   –system 系统级</p>
+<p><img src="https://cdn.jsdelivr.net/gh/fristalpha/alpha/BlogPic/20210608113555.png" alt="image-20210608113554018"></p>
+<p>2）、C:\Users\用户名\ .gitconfig   只适用于当前登录用户的配置  –global 全局</p>
+<p><img src="https://cdn.jsdelivr.net/gh/fristalpha/alpha/BlogPic/20210608113640.png" alt="image-20210608113639130"></p>
+<p>这里可以直接编辑配置文件，通过命令设置后会响应到这里。</p>
+<p><strong>设置用户名与邮箱</strong></p>
+<p>当你安装Git后首先要做的事情是设置你的用户名称和e-mail地址。这是非常重要的，因为每次Git提交都会使用该信息。它被永远的嵌入到了你的提交中：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git config --global user.name <span class="string">&quot;xxxxxx&quot;</span>  <span class="comment">#名称</span></span><br><span class="line">git config --global user.email <span class="string">&quot;xxxxx@xxx.com&quot;</span>   <span class="comment">#邮箱</span></span><br></pre></td></tr></table></figure>
+
+<p>只需要做一次这个设置，如果你传递了–global 选项，因为Git将总是会使用该信息来处理你在系统中所做的一切操作。如果你希望在一个特定的项目中使用不同的名称或e-mail地址，你可以在该项目中运行该命令而不要–global选项。总之–global为全局配置，不加为某个项目的特定配置。</p>
+<h2 id="git基本理论（重要）"><a href="#git基本理论（重要）" class="headerlink" title="git基本理论（重要）"></a>git基本理论（重要）</h2><h3 id="三个区域"><a href="#三个区域" class="headerlink" title="三个区域"></a>三个区域</h3><p>Git本地有三个工作区域：工作目录（Working Directory）、暂存区(Stage&#x2F;Index)、资源库(Repository或Git Directory)。</p>
+<p>如果在加上远程的git仓库(Remote Directory)就可以分为四个工作区域。</p>
+<p>文件在这四个区域之间的转换关系如下：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/fristalpha/alpha/BlogPic/20210608194105.jpeg"></p>
+<ul>
+<li>Workspace：工作区，就是你平时存放项目代码的地方</li>
+<li>Index &#x2F; Stage：暂存区，用于临时存放你的改动，事实上它只是一个文件，保存即将提交到文件列表信息</li>
+<li>Repository：仓库区（或本地仓库），就是安全存放数据的位置，这里面有你提交到所有版本的数据。其中HEAD指向最新放入仓库的版本</li>
+<li>Remote：远程仓库，托管代码的服务器，可以简单的认为是你项目组中的一台电脑用于远程数据交换</li>
+</ul>
+<p>本地的三个区域确切的说应该是git仓库中HEAD指向的版本：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/fristalpha/alpha/BlogPic/20210608194450.jpeg"></p>
+<ul>
+<li>Directory：使用Git管理的一个目录，也就是一个仓库，包含我们的工作空间和Git的管理空间。</li>
+<li>WorkSpace：需要通过Git进行版本控制的目录和文件，这些目录和文件组成了工作空间。</li>
+<li>.git：存放Git管理信息的目录，初始化仓库的时候自动创建。</li>
+<li>Index&#x2F;Stage：暂存区，或者叫待提交更新区，在提交进入repo之前，我们可以把所有的更新放在暂存区。</li>
+<li>Local Repo：本地仓库，一个存放在本地的版本库；HEAD会只是当前的开发分支（branch）。</li>
+<li>Stash：隐藏，是一个工作状态保存栈，用于保存&#x2F;恢复WorkSpace中的临时状态。</li>
+</ul>
+<h3 id="工作流程"><a href="#工作流程" class="headerlink" title="工作流程"></a>工作流程</h3><p>git的工作流程一般是这样的：</p>
+<p>１、在工作目录中添加、修改文件</p>
+<p>２、将需要进行版本管理的文件放入暂存区域</p>
+<p>３、将暂存区域的文件提交到git仓库</p>
+<p>因此，git管理的文件有三种状态：已修改（modified）,已暂存（staged）,已提交(committed)</p>
+<p><img src="https://cdn.jsdelivr.net/gh/fristalpha/alpha/BlogPic/20210608194659.jpeg"></p>
+<h2 id="git项目搭建"><a href="#git项目搭建" class="headerlink" title="git项目搭建"></a>git项目搭建</h2><h3 id="创建工作目录与常用指令"><a href="#创建工作目录与常用指令" class="headerlink" title="创建工作目录与常用指令"></a>创建工作目录与常用指令</h3><p>工作目录（WorkSpace)一般就是你希望Git帮助你管理的文件夹，可以是你项目的目录，也可以是一个空目录，建议不要有中文。</p>
+<p>日常使用只要记住下图6个命令：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/fristalpha/alpha/BlogPic/20210608195009.png" alt="image-20210608195008421"></p>
+<h3 id="本地仓库搭建"><a href="#本地仓库搭建" class="headerlink" title="本地仓库搭建"></a>本地仓库搭建</h3><p>创建本地仓库的方法有两种：一种是创建全新的仓库，另一种是克隆远程仓库。</p>
+<p>1、创建全新的仓库，需要用GIT管理的项目的根目录执行：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 在当前目录新建一个Git代码库</span></span><br><span class="line">$ git init</span><br></pre></td></tr></table></figure>
+
+<p>2、执行后可以看到，仅仅在项目目录多出了一个.git目录，关于版本等的所有信息都在这个目录里面。</p>
+<h3 id="克隆远程仓库"><a href="#克隆远程仓库" class="headerlink" title="克隆远程仓库"></a>克隆远程仓库</h3><p>1、另一种方式是克隆远程目录，由于是将远程服务器上的仓库完全镜像一份至本地！</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 克隆一个项目和它的整个代码历史(版本信息)</span></span><br><span class="line">$ git <span class="built_in">clone</span> [url]  <span class="comment"># https://gitee.com/kuangstudy/openclass.git</span></span><br></pre></td></tr></table></figure>
+
+<p>2、去 gitee 或者 github 上克隆一个测试！</p>
+<h2 id="git文件操作"><a href="#git文件操作" class="headerlink" title="git文件操作"></a>git文件操作</h2><h3 id="文件的四种状态"><a href="#文件的四种状态" class="headerlink" title="文件的四种状态"></a>文件的四种状态</h3><p>版本控制就是对文件的版本控制，要对文件进行修改、提交等操作，首先要知道文件当前在什么状态，不然可能会提交了现在还不想提交的文件，或者要提交的文件没提交上。</p>
+<ul>
+<li>Untracked: 未跟踪, 此文件在文件夹中, 但并没有加入到git库, 不参与版本控制. 通过git add 状态变为Staged.</li>
+<li>Unmodify: 文件已经入库, 未修改, 即版本库中的文件快照内容与文件夹中完全一致. 这种类型的文件有两种去处, 如果它被修改, 而变为Modified. 如果使用git rm移出版本库, 则成为Untracked文件</li>
+<li>Modified: 文件已修改, 仅仅是修改, 并没有进行其他的操作. 这个文件也有两个去处, 通过git add可进入暂存staged状态, 使用git checkout 则丢弃修改过, 返回到unmodify状态, 这个git checkout即从库中取出文件, 覆盖当前修改 !</li>
+<li>Staged: 暂存状态. 执行git commit则将修改同步到库中, 这时库中的文件和本地文件又变为一致, 文件为Unmodify状态. 执行git reset HEAD filename取消暂存, 文件状态为Modified</li>
+</ul>
+<h3 id="查看文件状态"><a href="#查看文件状态" class="headerlink" title="查看文件状态"></a>查看文件状态</h3><p>上面说文件有4种状态，通过如下命令可以查看到文件的状态：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#查看指定文件状态git status [filename]</span></span><br><span class="line"><span class="comment">#查看所有文件状态git status</span></span><br><span class="line"><span class="comment"># git add .                 添加所有文件到暂存区</span></span><br><span class="line"><span class="comment"># git commit -m &quot;消息内容&quot;   提交暂存区中的内容到本地仓库 -m 提交信息</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="忽略文件"><a href="#忽略文件" class="headerlink" title="忽略文件"></a>忽略文件</h3><p>有些时候我们不想把某些文件纳入版本控制中，比如数据库文件，临时文件，设计文件等</p>
+<p>在主目录下建立”.gitignore”文件，此文件有如下规则：</p>
+<ol>
+<li>忽略文件中的空行或以井号（#）开始的行将会被忽略。</li>
+<li>可以使用Linux通配符。例如：星号（*）代表任意多个字符，问号（？）代表一个字符，方括号（[abc]）代表可选字符范围，大括号（{string1,string2,…}）代表可选的字符串等。</li>
+<li>如果名称的最前面有一个感叹号（!），表示例外规则，将不被忽略。</li>
+<li>如果名称的最前面是一个路径分隔符（&#x2F;），表示要忽略的文件在此目录下，而子目录中的文件不忽略。</li>
+<li>如果名称的最后面是一个路径分隔符（&#x2F;），表示要忽略的是此目录下该名称的子目录，而非文件（默认文件或目录都忽略）。</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#为注释*.txt        </span></span><br><span class="line"><span class="comment">#忽略所有 .txt结尾的文件,这样的话上传就不会被选中！!lib.txt     </span></span><br><span class="line"><span class="comment">#但lib.txt除外/temp        </span></span><br><span class="line"><span class="comment">#仅忽略项目根目录下的TODO文件,不包括其它目录tempbuild/       </span></span><br><span class="line"><span class="comment">#忽略build/目录下的所有文件doc/*.txt    </span></span><br><span class="line"><span class="comment">#会忽略 doc/notes.txt 但不包括 doc/server/arch.txt</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="使用github"><a href="#使用github" class="headerlink" title="使用github"></a>使用github</h2><h3 id="创建远程仓库"><a href="#创建远程仓库" class="headerlink" title="创建远程仓库"></a>创建远程仓库</h3><p>1、注册登录</p>
+<p>2、设置本机绑定ssh公钥，实现买密码登录</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 进入 C:\Users\用户名\.ssh 目录</span></span><br><span class="line"><span class="comment"># 生成公钥命令</span></span><br><span class="line">ssh-keygen</span><br></pre></td></tr></table></figure>
+
+<p>3、将公钥信息添加到github账户中</p>
+<p><img src="https://cdn.jsdelivr.net/gh/fristalpha/alpha/BlogPic/20210608152345.png" alt="image-20210608152344372"></p>
+<p>右键记事本打开，复制，打开github，点击头像，找到设置选择ssh公钥，如下图，粘贴到公钥处</p>
+<p><img src="https://cdn.jsdelivr.net/gh/fristalpha/alpha/BlogPic/20210608173208.png"></p>
+<p>4、创建一个仓库</p>
+<p><img src="https://cdn.jsdelivr.net/gh/fristalpha/alpha/BlogPic/20210608153542.png"></p>
+<p>5、克隆远程仓库到本地</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">clone</span> git@github.com:c-x-x/gitstudy.git</span><br></pre></td></tr></table></figure>
+
+<h2 id="在idea中集成git"><a href="#在idea中集成git" class="headerlink" title="在idea中集成git"></a>在idea中集成git</h2><p>1、新建项目，绑定git</p>
+<ul>
+<li>方式一：新建的项目跟远程git的文件的名称相同</li>
+<li>方式二：将远程的git文件目录拷贝到项目中即可（推荐）</li>
+</ul>
+<p>idea中的变化：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/fristalpha/alpha/BlogPic/20210608184850.png" alt="image-20210608184848768"></p>
+<p>2、使用idea操作git</p>
+<ul>
+<li><p>添加到暂存区</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git add .</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>commit提交到本地仓库</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git commit -m <span class="string">&quot;提交信息（自己写）&quot;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>push到远端仓库</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git push</span><br></pre></td></tr></table></figure></li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/fristalpha/alpha/BlogPic/20210608191610.png" alt="image-20210608191609059"></p>
+<p><strong>这些都是单人的操作</strong></p>
+<h2 id="git的分支"><a href="#git的分支" class="headerlink" title="git的分支"></a>git的分支</h2><h3 id="什么是分支"><a href="#什么是分支" class="headerlink" title="什么是分支"></a>什么是分支</h3><p>几乎每一种版本控制系统都以某种形式支持分支。使用分支意味着你可以从开发主线上分离开来，然后在不影响主线的同时继续工作。</p>
+<p>有人把 Git 的分支模型称为<strong>必杀技特性</strong>，而正是因为它，将 <strong>Git</strong> 从版本控制系统家族里区分出来。</p>
+<p>官网介绍：<a href="https://git-scm.com/book/zh/v2/Git-%E5%88%86%E6%94%AF-%E5%88%86%E6%94%AF%E7%AE%80%E4%BB%8B">点我进入</a></p>
+<h3 id="git分支中常用的命令"><a href="#git分支中常用的命令" class="headerlink" title="git分支中常用的命令"></a>git分支中常用的命令</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 列出所有本地分支</span></span><br><span class="line">git branch</span><br><span class="line"></span><br><span class="line"><span class="comment"># 列出所有远程分支</span></span><br><span class="line">git branch -r</span><br><span class="line"></span><br><span class="line"><span class="comment"># 新建一个分支，但依然停留在当前分支</span></span><br><span class="line">git branch 分支名</span><br><span class="line"></span><br><span class="line"><span class="comment"># 切换分支</span></span><br><span class="line">git checkout 分支名</span><br><span class="line"></span><br><span class="line"><span class="comment"># 新建一个分支，并切换到该分支</span></span><br><span class="line">git checkout -b 分支名</span><br><span class="line"></span><br><span class="line"><span class="comment"># 合并指定分支到当前分支</span></span><br><span class="line">$ git merge 分支名</span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除分支</span></span><br><span class="line">$ git branch -d 分支名</span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除远程分支</span></span><br><span class="line">$ git push origin --delete 分支名</span><br><span class="line">$ git branch -dr 分支名</span><br></pre></td></tr></table></figure>
+
+<p>如果同一个文件在合并分支时都被修改了则会引起冲突：解决的办法是我们可以修改冲突文件后重新提交！选择要保留他的代码还是你的代码！</p>
+<p>master主分支应该非常稳定，用来发布新版本，一般情况下不允许在上面工作，工作一般情况下在新建的dev分支上工作，工作完后，比如上要发布，或者说dev分支代码稳定后可以合并到主分支master上来。</p>
+]]></content>
+      <categories>
+        <category>学习笔记</category>
+      </categories>
+      <tags>
+        <tag>git</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>/2023/09/29/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>idea常用快捷键</title>
+    <url>/2021/07/09/idea%E5%B8%B8%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AE/</url>
+    <content><![CDATA[<h1 id="空"><a href="#空" class="headerlink" title="空"></a>空</h1>]]></content>
+      <categories>
+        <category>Java</category>
+      </categories>
+      <tags>
+        <tag>idea</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>hexo使用中的问题以及解决方法</title>
     <url>/2021/06/09/hexo%E4%BD%BF%E7%94%A8%E4%B8%AD%E7%9A%84%E9%97%AE%E9%A2%98%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</url>
     <content><![CDATA[<h2 id="hexo使用中的问题以及解决方法"><a href="#hexo使用中的问题以及解决方法" class="headerlink" title="hexo使用中的问题以及解决方法"></a>hexo使用中的问题以及解决方法</h2><h3 id="更换GitHub账号后，hexo-d-提交不上去"><a href="#更换GitHub账号后，hexo-d-提交不上去" class="headerlink" title="更换GitHub账号后，hexo d 提交不上去"></a>更换GitHub账号后，hexo d 提交不上去</h3><p>因为之前使用过，所以电脑上还保存着之前的GitHub账户密码</p>
@@ -737,102 +833,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Nginx笔记</title>
-    <url>/2021/08/13/Nginx%E7%AC%94%E8%AE%B0/</url>
-    <content><![CDATA[<h2 id="Nginx简介"><a href="#Nginx简介" class="headerlink" title="Nginx简介"></a>Nginx简介</h2><p>Nginx是由伊戈尔·赛索耶夫为俄罗斯访问量第二的Rambler.ru站点（俄文：Рамблер）开发的，第一个公开版本0.1.0发布于2004年10月4日。</p>
-<p>Nginx是一个高性能的<code>http</code>和<code>反向代理</code>web服务器，同时也提供了IMAP&#x2F;POP3&#x2F;SMTP服务</p>
-<p>Nginx是一款<code>轻量级</code>的Web 服务器<code>反向代理</code>服务器及<code>电子邮件</code>（IMAP&#x2F;POP3）代理服务器</p>
-<p>Nginx作为负载均衡服务：Nginx 既可以在内部直接支持 Rails 和 PHP 程序对外进行服务，也可以支持作为 HTTP<a href="https://baike.baidu.com/item/%E4%BB%A3%E7%90%86%E6%9C%8D%E5%8A%A1">代理服务</a>对外进行服务</p>
-<p><strong>特点</strong>: </p>
-<ul>
-<li>占有内存少</li>
-<li><a href="https://baike.baidu.com/item/%E5%B9%B6%E5%8F%91/11024806">并发</a>能力强</li>
-<li>安装非常简单</li>
-<li>配置文件非常简介（还能够支持perl语法）</li>
-<li>Bug非常少，启动特别容易</li>
-<li>并且几乎可以做到7*24不间断运行，即使运行几个月也不需要重新启动</li>
-<li>你还可以在不间断服务的情况下进行软件版本的升级</li>
-</ul>
-<p>Nginx代码完全用c语言从头写成，官方测试表明能够支持高达50000个并发连接数的响应</p>
-<h2 id="Nginx的作用"><a href="#Nginx的作用" class="headerlink" title="Nginx的作用"></a>Nginx的作用</h2><h3 id="反向代理"><a href="#反向代理" class="headerlink" title="反向代理"></a>反向代理</h3><blockquote>
-<p>Http代理，<strong>反向代理</strong>：作为web服务器中最常见的功能之一，尤其是反向代理</p>
-</blockquote>
-<p><strong>正向代理：</strong>代理客户端，在本机上装的</p>
-<p>游戏加速：VPN</p>
-<p><img src="https://cdn.jsdelivr.net/gh/c-x-x/picture/img/image-20210811093420721.png" alt="image-20210811093420721"></p>
-<p><strong>反向代理</strong>：代理服务器</p>
-<p>网站：百度</p>
-<p><img src="https://cdn.jsdelivr.net/gh/c-x-x/picture/img/image-20210811094102967.png" alt="image-20210811094102967"></p>
-<h3 id="负载均衡"><a href="#负载均衡" class="headerlink" title="负载均衡"></a>负载均衡</h3><blockquote>
-<p>Nginx提供的<strong>负载均衡</strong>策略有两种：<strong>内置策略</strong>和<strong>扩展策略</strong>。内置策略位轮询，加权轮询，Ip hash。扩展策略，天马行空，只有你想不到没有它做不到</p>
-</blockquote>
-<p>轮询：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/c-x-x/picture/img/image-20210811095222381.png" alt="image-20210811095222381"></p>
-<p>加权轮询：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/c-x-x/picture/img/image-20210811095648780.png" alt="image-20210811095648780"></p>
-<p>iphash对客户端请求的ip进行hash操作，然后根据hash结果将同一客户端ip的请求分发给同一台服务器，可以解决session不共享的问题。</p>
-<p>如果这台服务器挂了，对应的信息就没了</p>
-<p>不建议使用nginx做session共享，建议使用：Redis</p>
-<p><img src="https://cdn.jsdelivr.net/gh/c-x-x/picture/img/image-20210811100201004.png" alt="image-20210811100201004"></p>
-<h3 id="动静分离"><a href="#动静分离" class="headerlink" title="动静分离"></a>动静分离</h3><blockquote>
-<p>动静分离，在我们的软件开发中，有些请求需要后台处理，有些请求是不经过后台处理的（如：css、html、jpg、js等文件），这些不经过后台处理的文件统称为静态文件，让动态网站里的动态网页根据一定规则把不变的资源和经常变的资源区分开，动静资源做好拆分以后，我们就可以根据静态资源的特点将其做缓存操作，提高资源响应速度。</p>
-</blockquote>
-<p>静态资源直接从nginx返回，不会再走到你的项目里里面</p>
-<p><img src="https://cdn.jsdelivr.net/gh/c-x-x/picture/img/image-20210811101532735.png" alt="image-20210811101532735"></p>
-<h2 id="安装Nginx"><a href="#安装Nginx" class="headerlink" title="安装Nginx"></a>安装Nginx</h2><blockquote>
-<p>Windows下安装</p>
-</blockquote>
-<p><strong>1、下载nginx</strong></p>
-<p>下载地址：<a href="https://nginx.org/en/download.html">https://nginx.org/en/download.html</a></p>
-<p><img src="https://cdn.jsdelivr.net/gh/c-x-x/picture/img/image-20210811102149829.png" alt="image-20210811102149829"></p>
-<p><strong>2、启动nginx</strong></p>
-<p>解压后进入目录，在目录运行cmd输入nginx.exe，回车即可</p>
-<p><strong>3、检查nginx是否启动成功</strong></p>
-<p>浏览器输入如<a href="http://localhost/">http://localhost:80</a></p>
-<p>如下即成功：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/c-x-x/picture/img/image-20210811102614264.png" alt="image-20210811102614264"></p>
-<p><strong>4、配置监听</strong></p>
-<p>conf目录下nginx.conf，默认监听端口为80，如果被占用，可以修改为其他的</p>
-<p><strong>5、关闭nginx</strong></p>
-<p>关闭cmd窗口是<strong>不能结束nginx进程的</strong></p>
-<p>方式1：输入命令<code>nginx -s stop</code>（快速停止nginx）或者<code>nginx -s quit</code>（完整有序的停止nginx）</p>
-<p>方式2：<code>taskkill /f /t /im nginx.exe</code></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">taskkill 进程终止</span><br><span class="line">/f 强制停止</span><br><span class="line">/t 终止指定的进程和任何由此启动的子进程</span><br><span class="line">/im 指定进程名称</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>Linux下安装</p>
-</blockquote>
-<p>🤡  自己上网找    <strong>或者</strong> —&gt;   <a href="https://cb-baidu.vercel.app/?q=TGludXjlronoo4VOZ2lueA==">点此查看</a></p>
-<h2 id="Nginx常用命令"><a href="#Nginx常用命令" class="headerlink" title="Nginx常用命令"></a>Nginx常用命令</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> /usr/local/nginx/sbin</span><br><span class="line">./nginx  启动</span><br><span class="line">./nginx -s stop  停止</span><br><span class="line">./nginx -s quit  安全退出</span><br><span class="line">./nginx -s reload  从新加载配置文件</span><br><span class="line">ps aux|grep nginx  查看nginx进程</span><br></pre></td></tr></table></figure>
-
-<h2 id="其他相关命令"><a href="#其他相关命令" class="headerlink" title="其他相关命令"></a>其他相关命令</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 开启防火墙</span></span><br><span class="line">service firewalld start</span><br><span class="line"><span class="comment"># 重启防火墙</span></span><br><span class="line">service firewalld restart</span><br><span class="line"><span class="comment"># 关闭防火墙</span></span><br><span class="line">service firewalld stop</span><br><span class="line"><span class="comment"># 查看防火墙规则</span></span><br><span class="line">firewall -cmd --list-all</span><br><span class="line"><span class="comment"># 查询端口是否开放</span></span><br><span class="line">firewall -cmd --query-port=8080/tcp</span><br><span class="line"><span class="comment"># 开放80端口</span></span><br><span class="line">firewall -cmd --permanent --add-port=80/tcp</span><br><span class="line"><span class="comment"># 移除端口</span></span><br><span class="line">firewall -cmd --permanent --remove-port=8080/tcp</span><br><span class="line"><span class="comment"># 重启防火墙（修改配置后要重启防火墙）</span></span><br><span class="line">firewall -cmd --reload</span><br><span class="line"><span class="comment"># 参数解释</span></span><br><span class="line">firewall -cmd  Linux提供的操作firewall的一个工具</span><br><span class="line">--permanent  表示设置为持久</span><br><span class="line">--add-port  标识添加的端口</span><br></pre></td></tr></table></figure>
-
-<h2 id="实战使用"><a href="#实战使用" class="headerlink" title="实战使用"></a>实战使用</h2><p>反向代理和负载均衡配置</p>
-<p>weight权重</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">server 127.0.0.1:8080 weight=3;</span><br><span class="line">server 127.0.0.1:8081 weight=1;</span><br><span class="line"><span class="comment"># 打4次请求3次到第一台</span></span><br></pre></td></tr></table></figure>
-
-<p><img src="https://cdn.jsdelivr.net/gh/c-x-x/picture/img/image-20210811112147636.png" alt="image-20210811112147636"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/c-x-x/picture/img/image-20210811113014155.png" alt="image-20210811113014155"></p>
-<h1 id="这个只是入门！"><a href="#这个只是入门！" class="headerlink" title="这个只是入门！"></a>这个只是入门！</h1>]]></content>
-      <categories>
-        <category>Nginx</category>
-      </categories>
-      <tags>
-        <tag>运维</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>idea常用快捷键</title>
-    <url>/2021/07/09/idea%E5%B8%B8%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AE/</url>
-    <content><![CDATA[<h1 id="空"><a href="#空" class="headerlink" title="空"></a>空</h1>]]></content>
-      <categories>
-        <category>Java</category>
-      </categories>
-      <tags>
-        <tag>idea</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>idea插件-获取maven依赖</title>
     <url>/2021/07/08/idea%E6%8F%92%E4%BB%B6-search%20in%20repository/</url>
     <content><![CDATA[<p>我们平时使用maven构建项目时，还需要去中央仓库去依赖，相当的麻烦</p>
@@ -847,6 +847,32 @@
       <tags>
         <tag>idea</tag>
         <tag>maven</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>idea配置代理</title>
+    <url>/2021/07/01/idea%E9%85%8D%E7%BD%AE%E4%BB%A3%E7%90%86/</url>
+    <content><![CDATA[<h2 id="打开idea"><a href="#打开idea" class="headerlink" title="打开idea"></a>打开idea</h2><p><strong>左上角Flie</strong></p>
+<p>File | Settings | Appearance &amp; Behavior | System Settings | HTTP Proxy</p>
+<p><img src="https://cdn.jsdelivr.net/gh/c-x-x/picture/img/image-20210701165941078.png" alt="image-20210701165941078"></p>
+<p>选择Manual proxy configuration</p>
+<p>选择socks</p>
+<p>hostname：localhost</p>
+<p>prot number：7890</p>
+<p>点击Check connection</p>
+<p>输入<a href="https://youtube.com/">https://youtube.com</a></p>
+<p><img src="https://cdn.jsdelivr.net/gh/c-x-x/picture/img/image-20210701170325727.png" alt="image-20210701170325727"></p>
+<p>点击ok</p>
+<p>如下图显示就成功了</p>
+<p><img src="https://cdn.jsdelivr.net/gh/c-x-x/picture/img/image-20210701170403998.png" alt="image-20210701170403998"></p>
+]]></content>
+      <categories>
+        <category>idea</category>
+      </categories>
+      <tags>
+        <tag>idea</tag>
+        <tag>idea配置代理</tag>
+        <tag>代理</tag>
       </tags>
   </entry>
   <entry>
@@ -1036,32 +1062,6 @@
       <tags>
         <tag>markdown</tag>
         <tag>轻量标记语言</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>idea配置代理</title>
-    <url>/2021/07/01/idea%E9%85%8D%E7%BD%AE%E4%BB%A3%E7%90%86/</url>
-    <content><![CDATA[<h2 id="打开idea"><a href="#打开idea" class="headerlink" title="打开idea"></a>打开idea</h2><p><strong>左上角Flie</strong></p>
-<p>File | Settings | Appearance &amp; Behavior | System Settings | HTTP Proxy</p>
-<p><img src="https://cdn.jsdelivr.net/gh/c-x-x/picture/img/image-20210701165941078.png" alt="image-20210701165941078"></p>
-<p>选择Manual proxy configuration</p>
-<p>选择socks</p>
-<p>hostname：localhost</p>
-<p>prot number：7890</p>
-<p>点击Check connection</p>
-<p>输入<a href="https://youtube.com/">https://youtube.com</a></p>
-<p><img src="https://cdn.jsdelivr.net/gh/c-x-x/picture/img/image-20210701170325727.png" alt="image-20210701170325727"></p>
-<p>点击ok</p>
-<p>如下图显示就成功了</p>
-<p><img src="https://cdn.jsdelivr.net/gh/c-x-x/picture/img/image-20210701170403998.png" alt="image-20210701170403998"></p>
-]]></content>
-      <categories>
-        <category>idea</category>
-      </categories>
-      <tags>
-        <tag>idea</tag>
-        <tag>idea配置代理</tag>
-        <tag>代理</tag>
       </tags>
   </entry>
   <entry>
