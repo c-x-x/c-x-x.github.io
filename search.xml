@@ -190,7 +190,7 @@
   <entry>
     <title>Web前端开发-Vue</title>
     <url>/2023/10/03/JavaWeb-%E5%89%8D%E7%AB%AF-Vue/</url>
-    <content><![CDATA[<h1 id="2-2、Vue"><a href="#2-2、Vue" class="headerlink" title="2.2、Vue"></a>2.2、Vue</h1><p><img src="https://cxx-1304636603.cos.ap-beijing.myqcloud.com/picgo_update_img/image-20230923135400886.png" alt="image-20230923135400886"></p>
+    <content><![CDATA[<h1 id="Vue"><a href="#Vue" class="headerlink" title="Vue"></a>Vue</h1><p><img src="https://cxx-1304636603.cos.ap-beijing.myqcloud.com/picgo_update_img/image-20230923135400886.png" alt="image-20230923135400886"></p>
 <p><img src="https://cxx-1304636603.cos.ap-beijing.myqcloud.com/picgo_update_img/image-20230923170329145.png" alt="image-20230923170329145"></p>
 <p><img src="https://cxx-1304636603.cos.ap-beijing.myqcloud.com/picgo_update_img/image-20230923170654649.png" alt="image-20230923170654649"></p>
 <p><img src="https://cxx-1304636603.cos.ap-beijing.myqcloud.com/picgo_update_img/image-20230923172006812.png" alt="image-20230923172006812"></p>
@@ -211,13 +211,13 @@
 <p>以后用来发送请求到服务端，加载数据</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">new</span> <span class="title class_">Vue</span>(&#123;</span></span><br><span class="line"><span class="language-javascript">        <span class="attr">el</span>:<span class="string">&#x27;#app&#x27;</span>,</span></span><br><span class="line"><span class="language-javascript">        <span class="attr">data</span>:&#123;&#125;,</span></span><br><span class="line"><span class="language-javascript">        <span class="attr">methods</span>:&#123;&#125;,</span></span><br><span class="line"><span class="language-javascript">        mounted () &#123;</span></span><br><span class="line"><span class="language-javascript">            <span class="title function_">alert</span>(<span class="string">&quot;vue挂载完成，请求发送到服务端&quot;</span>)</span></span><br><span class="line"><span class="language-javascript">        &#125;</span></span><br><span class="line"><span class="language-javascript">    &#125;)</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-<h2 id="2-3、Ajax"><a href="#2-3、Ajax" class="headerlink" title="2.3、Ajax"></a>2.3、Ajax</h2><p><img src="https://cxx-1304636603.cos.ap-beijing.myqcloud.com/picgo_update_img/image-20230923185601136.png" alt="image-20230923185601136"></p>
+<h2 id="Ajax"><a href="#Ajax" class="headerlink" title="Ajax"></a>Ajax</h2><p><img src="https://cxx-1304636603.cos.ap-beijing.myqcloud.com/picgo_update_img/image-20230923185601136.png" alt="image-20230923185601136"></p>
 <p>同步异步</p>
 <p><img src="https://cxx-1304636603.cos.ap-beijing.myqcloud.com/picgo_update_img/image-20230923185737392.png" alt="同步异步"></p>
 <p><img src="https://cxx-1304636603.cos.ap-beijing.myqcloud.com/picgo_update_img/image-20230923185951997.png" alt="image-20230923185951997"></p>
 <p>白学，不用这种方式</p>
 <p><img src="https://cxx-1304636603.cos.ap-beijing.myqcloud.com/picgo_update_img/image-20230923190409979.png" alt="image-20230923190409979"></p>
-<h3 id="2-3-1、Axios"><a href="#2-3-1、Axios" class="headerlink" title="2.3.1、Axios"></a>2.3.1、Axios</h3><p>很简单</p>
+<h3 id="Axios"><a href="#Axios" class="headerlink" title="Axios"></a>Axios</h3><p>很简单</p>
 <p><img src="https://cxx-1304636603.cos.ap-beijing.myqcloud.com/picgo_update_img/image-20230923190619371.png" alt="image-20230923190619371"></p>
 <p><img src="https://cxx-1304636603.cos.ap-beijing.myqcloud.com/picgo_update_img/image-20230923190927711.png" alt="image-20230923190927711"></p>
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span> <span class="attr">content</span>=<span class="string">&quot;width=device-width, initial-scale=1.0&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Document<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;button&quot;</span> <span class="attr">value</span>=<span class="string">&quot;获取数据get&quot;</span> <span class="attr">onclick</span>=<span class="string">&quot;get()&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;button&quot;</span> <span class="attr">value</span>=<span class="string">&quot;删除数据post&quot;</span> <span class="attr">onclick</span>=<span class="string">&quot;post()&quot;</span>&gt;</span></span><br><span class="line">    </span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">function</span> <span class="title function_">get</span>(<span class="params"></span>)&#123;</span></span><br><span class="line"><span class="language-javascript">        <span class="comment">//通过axios发送异步请求-get</span></span></span><br><span class="line"><span class="language-javascript">        <span class="title function_">axios</span>(&#123;</span></span><br><span class="line"><span class="language-javascript">            <span class="attr">method</span>:<span class="string">&#x27;get&#x27;</span>,</span></span><br><span class="line"><span class="language-javascript">            <span class="attr">url</span>:<span class="string">&#x27;https://mock.apifox.cn/m1/3128855-0-default/emp/list&#x27;</span>,</span></span><br><span class="line"><span class="language-javascript">        &#125;).<span class="title function_">then</span>(<span class="function"><span class="params">result</span>=&gt;</span>&#123;</span></span><br><span class="line"><span class="language-javascript">            <span class="variable language_">console</span>.<span class="title function_">log</span>(result.<span class="property">data</span>);</span></span><br><span class="line"><span class="language-javascript">        &#125;)</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    &#125;</span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">function</span> <span class="title function_">post</span>(<span class="params"></span>)&#123;</span></span><br><span class="line"><span class="language-javascript">        <span class="comment">//通过axios发送异步请求-post</span></span></span><br><span class="line"><span class="language-javascript">        <span class="title function_">axios</span>(&#123;</span></span><br><span class="line"><span class="language-javascript">            <span class="attr">method</span>:<span class="string">&#x27;post&#x27;</span>,</span></span><br><span class="line"><span class="language-javascript">            <span class="attr">url</span>:<span class="string">&#x27;https://mock.apifox.cn/m1/3128855-0-default/emp/deleteById&#x27;</span>,</span></span><br><span class="line"><span class="language-javascript">            <span class="attr">data</span>:<span class="string">&#x27;id=1&#x27;</span></span></span><br><span class="line"><span class="language-javascript">        &#125;).<span class="title function_">then</span>(<span class="function"><span class="params">result</span>=&gt;</span>&#123;</span></span><br><span class="line"><span class="language-javascript">            <span class="variable language_">console</span>.<span class="title function_">log</span>(result.<span class="property">data</span>);</span></span><br><span class="line"><span class="language-javascript">        &#125;)</span></span><br><span class="line"><span class="language-javascript">    &#125;</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
@@ -234,18 +234,18 @@
 
 
 
-<h2 id="2-4、前后端分离开发"><a href="#2-4、前后端分离开发" class="headerlink" title="2.4、前后端分离开发"></a>2.4、前后端分离开发</h2><p><img src="https://cxx-1304636603.cos.ap-beijing.myqcloud.com/picgo_update_img/image-20230923200823045.png" alt="image-20230923200823045"></p>
+<h2 id="前后端分离开发"><a href="#前后端分离开发" class="headerlink" title="前后端分离开发"></a>前后端分离开发</h2><p><img src="https://cxx-1304636603.cos.ap-beijing.myqcloud.com/picgo_update_img/image-20230923200823045.png" alt="image-20230923200823045"></p>
 <p><img src="https://cxx-1304636603.cos.ap-beijing.myqcloud.com/picgo_update_img/image-20230923201304761.png" alt="image-20230923201304761"></p>
 <p><img src="https://cxx-1304636603.cos.ap-beijing.myqcloud.com/picgo_update_img/image-20230923201431895.png" alt="image-20230923201431895"></p>
-<h3 id="2-4-1什么是接口文档？"><a href="#2-4-1什么是接口文档？" class="headerlink" title="2.4.1什么是接口文档？"></a>2.4.1什么是接口文档？</h3><p><strong>上面你应该发现了，接口文档很重要，那么什么是接口文档，在线和离线是什么意思</strong></p>
+<h3 id="什么是接口文档？"><a href="#什么是接口文档？" class="headerlink" title="什么是接口文档？"></a>什么是接口文档？</h3><p><strong>上面你应该发现了，接口文档很重要，那么什么是接口文档，在线和离线是什么意思</strong></p>
 <p><img src="https://cxx-1304636603.cos.ap-beijing.myqcloud.com/picgo_update_img/image-20230923201856536.png" alt="image-20230923201856536"></p>
 <p><strong>可以通过自己公司内部部署服务自己用，也可以通过官方所提供的公网部署的–&gt;自己注册一个账号</strong></p>
 <p>mock服务：前端人员可以使用mock进行模拟数据的测试</p>
 <p><img src="https://cxx-1304636603.cos.ap-beijing.myqcloud.com/picgo_update_img/image-20230923202556973.png" alt="image-20230923202556973"></p>
 <p><img src="https://cxx-1304636603.cos.ap-beijing.myqcloud.com/picgo_update_img/image-20230923202634018.png" alt="image-20230923202634018"></p>
-<h2 id="2-5、前端工程化"><a href="#2-5、前端工程化" class="headerlink" title="2.5、前端工程化"></a>2.5、前端工程化</h2><p><img src="https://cxx-1304636603.cos.ap-beijing.myqcloud.com/picgo_update_img/image-20230923202830081.png" alt="image-20230923202830081"></p>
+<h2 id="前端工程化"><a href="#前端工程化" class="headerlink" title="前端工程化"></a>前端工程化</h2><p><img src="https://cxx-1304636603.cos.ap-beijing.myqcloud.com/picgo_update_img/image-20230923202830081.png" alt="image-20230923202830081"></p>
 <p><img src="https://cxx-1304636603.cos.ap-beijing.myqcloud.com/picgo_update_img/image-20230923203007153.png" alt="image-20230923203007153"></p>
-<h3 id="2-5-1、环境准备"><a href="#2-5-1、环境准备" class="headerlink" title="2.5.1、环境准备"></a>2.5.1、环境准备</h3><p><img src="https://cxx-1304636603.cos.ap-beijing.myqcloud.com/picgo_update_img/image-20230923203309363.png" alt="image-20230923203309363"></p>
+<h3 id="环境准备"><a href="#环境准备" class="headerlink" title="环境准备"></a>环境准备</h3><p><img src="https://cxx-1304636603.cos.ap-beijing.myqcloud.com/picgo_update_img/image-20230923203309363.png" alt="image-20230923203309363"></p>
 <p>1、安装nodejs–&gt;太简单了</p>
 <p><strong>新版的Node.js已自带npm，安装Node.js时会一起安装，npm的作用就是对Node.js依赖的包进行管理，也可以理解为用来安装&#x2F;卸载Node.js需要装的东西</strong></p>
 <p>2、配置npm的全局安装路径</p>
@@ -267,7 +267,7 @@
 <p>测试安装成功与否</p>
 <figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">vue --version</span><br></pre></td></tr></table></figure>
 
-<h3 id="2-5-2、Vue项目简介"><a href="#2-5-2、Vue项目简介" class="headerlink" title="2.5.2、Vue项目简介"></a>2.5.2、Vue项目简介</h3><p><img src="https://cxx-1304636603.cos.ap-beijing.myqcloud.com/picgo_update_img/image-20230924001333897.png" alt="image-20230924001333897"></p>
+<h3 id="Vue项目简介"><a href="#Vue项目简介" class="headerlink" title="Vue项目简介"></a>Vue项目简介</h3><p><img src="https://cxx-1304636603.cos.ap-beijing.myqcloud.com/picgo_update_img/image-20230924001333897.png" alt="image-20230924001333897"></p>
 <p><img src="https://cxx-1304636603.cos.ap-beijing.myqcloud.com/picgo_update_img/image-20230924001758173.png" alt="image-20230924001758173"></p>
 <p><img src="https://cxx-1304636603.cos.ap-beijing.myqcloud.com/picgo_update_img/image-20230924001820903.png" alt="image-20230924001820903"></p>
 <p><img src="https://cxx-1304636603.cos.ap-beijing.myqcloud.com/picgo_update_img/image-20230924001934674.png" alt="image-20230924001934674"></p>
@@ -284,15 +284,15 @@
 <p><strong>如果找不到npm脚本，ctrl+shift+p 输入npm 选择第一个</strong></p>
 <p><strong>注（重要重要重要！！！）：如果识别不了npm指令，不要怀疑自己环境变量的配置，重启电脑，node配置的环境变量，vscode每次开机才会读取系统的环境变量（这个问题的答案我找了好久😭）</strong></p>
 <p><img src="https://cxx-1304636603.cos.ap-beijing.myqcloud.com/picgo_update_img/image-20230924014240209.png" alt="image-20230924014240209"></p>
-<h3 id="2-5-3、Vue项目开发流程"><a href="#2-5-3、Vue项目开发流程" class="headerlink" title="2.5.3、Vue项目开发流程"></a>2.5.3、Vue项目开发流程</h3><p><img src="https://cxx-1304636603.cos.ap-beijing.myqcloud.com/picgo_update_img/image-20230924200525175.png" alt="image-20230924200525175"></p>
+<h3 id="Vue项目开发流程"><a href="#Vue项目开发流程" class="headerlink" title="Vue项目开发流程"></a>Vue项目开发流程</h3><p><img src="https://cxx-1304636603.cos.ap-beijing.myqcloud.com/picgo_update_img/image-20230924200525175.png" alt="image-20230924200525175"></p>
 <p><img src="https://cxx-1304636603.cos.ap-beijing.myqcloud.com/picgo_update_img/image-20230924200824176.png" alt="image-20230924200824176"></p>
 <p>app.vue:</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div &gt;</span><br><span class="line">    &lt;h1&gt;&#123;&#123;Message&#125;&#125;&lt;/h1&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">export default &#123;</span><br><span class="line">  data () &#123;</span><br><span class="line">    return&#123;</span><br><span class="line">      Message: &#x27;Hello Vue!&#x27;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">  &#125;,</span><br><span class="line">  methods: &#123;</span><br><span class="line">      </span><br><span class="line">    &#125;</span><br><span class="line">  </span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;style&gt;</span><br><span class="line">h1&#123;</span><br><span class="line">  color: red;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&lt;/style&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 
 
-<h2 id="2-6、Vue组件库Element"><a href="#2-6、Vue组件库Element" class="headerlink" title="2.6、Vue组件库Element"></a>2.6、Vue组件库Element</h2><p><img src="https://cxx-1304636603.cos.ap-beijing.myqcloud.com/picgo_update_img/image-20230924202355286.png" alt="image-20230924202355286"></p>
-<h3 id="2-6-1、快速入门"><a href="#2-6-1、快速入门" class="headerlink" title="2.6.1、快速入门"></a>2.6.1、快速入门</h3><p><img src="https://cxx-1304636603.cos.ap-beijing.myqcloud.com/picgo_update_img/image-20230924202556223.png" alt="image-20230924202556223"></p>
+<h2 id="Vue组件库Element"><a href="#Vue组件库Element" class="headerlink" title="Vue组件库Element"></a>Vue组件库Element</h2><p><img src="https://cxx-1304636603.cos.ap-beijing.myqcloud.com/picgo_update_img/image-20230924202355286.png" alt="image-20230924202355286"></p>
+<h3 id="快速入门"><a href="#快速入门" class="headerlink" title="快速入门"></a>快速入门</h3><p><img src="https://cxx-1304636603.cos.ap-beijing.myqcloud.com/picgo_update_img/image-20230924202556223.png" alt="image-20230924202556223"></p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm install element-ui@2.15.3</span><br></pre></td></tr></table></figure>
 
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="title class_">ElementUI</span> <span class="keyword">from</span> <span class="string">&#x27;element-ui&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> <span class="string">&#x27;element-ui/lib/theme-chalk/index.css&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="title class_">Vue</span>.<span class="title function_">use</span>(<span class="title class_">ElementUI</span>)</span><br></pre></td></tr></table></figure>
@@ -302,7 +302,7 @@
 
 <p>在App.vue中的<template>标签的<div>标签中添加<element-view>标签，就会自动导入ElementView.vue文件的包</p>
 <p>然后运行项目就可以看到效果</p>
-<h3 id="2-6-2常见组件"><a href="#2-6-2常见组件" class="headerlink" title="2.6.2常见组件"></a>2.6.2常见组件</h3><h4 id="常见组件-表格"><a href="#常见组件-表格" class="headerlink" title="常见组件-表格"></a>常见组件-表格</h4><p>操作方式参考2.6.1快速入门</p>
+<h3 id="常见组件"><a href="#常见组件" class="headerlink" title="常见组件"></a>常见组件</h3><h4 id="常见组件-表格"><a href="#常见组件-表格" class="headerlink" title="常见组件-表格"></a>常见组件-表格</h4><p>操作方式参考2.6.1快速入门</p>
 <h4 id="常见组件-分页"><a href="#常见组件-分页" class="headerlink" title="常见组件-分页"></a>常见组件-分页</h4><p>1、操作方式参考2.6.1快速入门</p>
 <p>2、附加功能</p>
 <p><img src="https://cxx-1304636603.cos.ap-beijing.myqcloud.com/picgo_update_img/image-20230925105054379.png" alt="image-20230925105054379"></p>
@@ -315,7 +315,7 @@
 <h4 id="常见组件-表单"><a href="#常见组件-表单" class="headerlink" title="常见组件-表单"></a>常见组件-表单</h4><p>操作方式参考2.6.1快速入门</p>
 <p>对话框组件里面可以放from表单</p>
 <p>注：this.from是一个js对象，用JSON.stringiy(this.from)就可以转换为json格式的字符串</p>
-<h3 id="2-6-3、案例"><a href="#2-6-3、案例" class="headerlink" title="2.6.3、案例"></a>2.6.3、案例</h3><p><img src="https://cxx-1304636603.cos.ap-beijing.myqcloud.com/picgo_update_img/image-20230925112343326.png" alt="image-20230925112343326"></p>
+<h3 id="案例"><a href="#案例" class="headerlink" title="案例"></a>案例</h3><p><img src="https://cxx-1304636603.cos.ap-beijing.myqcloud.com/picgo_update_img/image-20230925112343326.png" alt="image-20230925112343326"></p>
 <p><strong>创建页面，完成页面整体布局</strong></p>
 <p><img src="https://cxx-1304636603.cos.ap-beijing.myqcloud.com/picgo_update_img/image-20230925201335145.png" alt="image-20230925201335145"></p>
 <p><strong>布局中的各部分组件实现</strong></p>
@@ -336,7 +336,7 @@
 
 
 
-<h2 id="2-7、Vue路由"><a href="#2-7、Vue路由" class="headerlink" title="2.7、Vue路由"></a>2.7、Vue路由</h2><p><img src="https://cxx-1304636603.cos.ap-beijing.myqcloud.com/picgo_update_img/image-20230926141328876.png" alt="image-20230926141328876"></p>
+<h2 id="Vue路由"><a href="#Vue路由" class="headerlink" title="Vue路由"></a>Vue路由</h2><p><img src="https://cxx-1304636603.cos.ap-beijing.myqcloud.com/picgo_update_img/image-20230926141328876.png" alt="image-20230926141328876"></p>
 <p><img src="https://cxx-1304636603.cos.ap-beijing.myqcloud.com/picgo_update_img/image-20230926141549196.png" alt="image-20230926141549196"></p>
 <p><img src="https://cxx-1304636603.cos.ap-beijing.myqcloud.com/picgo_update_img/image-20230926141744418.png" alt="image-20230926141744418"></p>
 <p>因为刚开始创建项目就选择了所以这个已经默认指定了</p>
@@ -347,7 +347,7 @@
 <p>router-vue：</p>
 <p><img src="https://cxx-1304636603.cos.ap-beijing.myqcloud.com/picgo_update_img/image-20230926142628141.png" alt="image-20230926142628141"></p>
 <p><img src="https://cxx-1304636603.cos.ap-beijing.myqcloud.com/picgo_update_img/image-20230926143033247.png" alt="image-20230926143033247"></p>
-<h2 id="2-8、打包部署"><a href="#2-8、打包部署" class="headerlink" title="2.8、打包部署"></a>2.8、打包部署</h2><p><img src="https://cxx-1304636603.cos.ap-beijing.myqcloud.com/picgo_update_img/image-20230926144530723.png" alt="image-20230926144530723"></p>
+<h2 id="打包部署"><a href="#打包部署" class="headerlink" title="打包部署"></a>打包部署</h2><p><img src="https://cxx-1304636603.cos.ap-beijing.myqcloud.com/picgo_update_img/image-20230926144530723.png" alt="image-20230926144530723"></p>
 <p><img src="https://cxx-1304636603.cos.ap-beijing.myqcloud.com/picgo_update_img/image-20230926144911898.png" alt="image-20230926144911898"></p>
 <p>下载-&gt;解压</p>
 <p><img src="https://cxx-1304636603.cos.ap-beijing.myqcloud.com/picgo_update_img/image-20230926145041780.png" alt="image-20230926145041780"></p>
@@ -361,17 +361,17 @@
   <entry>
     <title>JavaWeb-前端三剑客</title>
     <url>/2023/10/03/JavaWeb-%E5%89%8D%E7%AB%AF%E4%B8%89%E5%89%91%E5%AE%A2/</url>
-    <content><![CDATA[<h1 id="web前端开发"><a href="#web前端开发" class="headerlink" title="web前端开发"></a>web前端开发</h1><h2 id="、文档查阅-html-css"><a href="#、文档查阅-html-css" class="headerlink" title="$、文档查阅(html,css)"></a>$、文档查阅(html,css)</h2><p><a href="https://www.w3school.com.cn/index.html">https://www.w3school.com.cn/index.html</a></p>
-<h2 id="1、HTML文档查阅"><a href="#1、HTML文档查阅" class="headerlink" title="$.1、HTML文档查阅"></a>$.1、HTML文档查阅</h2><p>以video标签为例:</p>
+    <content><![CDATA[<h1 id="web前端开发"><a href="#web前端开发" class="headerlink" title="web前端开发"></a>web前端开发</h1><h2 id="文档查阅-html-css"><a href="#文档查阅-html-css" class="headerlink" title="文档查阅(html,css)"></a>文档查阅(html,css)</h2><p><a href="https://www.w3school.com.cn/index.html">https://www.w3school.com.cn/index.html</a></p>
+<h2 id="HTML文档查阅"><a href="#HTML文档查阅" class="headerlink" title="HTML文档查阅"></a>HTML文档查阅</h2><p>以video标签为例:</p>
 <p><img src="https://cxx-1304636603.cos.ap-beijing.myqcloud.com/picgo_update_img/image-20230924134626027.png" alt="image-20230924134626027"></p>
 <p><img src="https://cxx-1304636603.cos.ap-beijing.myqcloud.com/picgo_update_img/image-20230924134644643.png" alt="image-20230924134644643"></p>
 <p><img src="https://cxx-1304636603.cos.ap-beijing.myqcloud.com/picgo_update_img/image-20230924134817202.png" alt="image-20230924134817202"></p>
-<h2 id="2、CSS文档查阅"><a href="#2、CSS文档查阅" class="headerlink" title="$.2、CSS文档查阅"></a>$.2、CSS文档查阅</h2><p>以padding属性为例:</p>
+<h2 id="CSS文档查阅"><a href="#CSS文档查阅" class="headerlink" title="CSS文档查阅"></a>CSS文档查阅</h2><p>以padding属性为例:</p>
 <p><img src="https://cxx-1304636603.cos.ap-beijing.myqcloud.com/picgo_update_img/image-20230924134915211.png" alt="image-20230924134915211"></p>
 <p>同上html</p>
-<h2 id="3、JavaScript文档查阅"><a href="#3、JavaScript文档查阅" class="headerlink" title="$.3、JavaScript文档查阅"></a>$.3、JavaScript文档查阅</h2><p>同上</p>
-<h2 id="1-1、初识web前端"><a href="#1-1、初识web前端" class="headerlink" title="1.1、初识web前端"></a>1.1、初识web前端</h2><p><img src="https://cxx-1304636603.cos.ap-beijing.myqcloud.com/picgo_update_img/image-20230920152814182.png" alt="image-20230920152814182"></p>
-<h3 id="、安装vscode"><a href="#、安装vscode" class="headerlink" title="$、安装vscode"></a>$、安装vscode</h3><p>VS Code插件安装</p>
+<h2 id="JavaScript文档查阅"><a href="#JavaScript文档查阅" class="headerlink" title="JavaScript文档查阅"></a>JavaScript文档查阅</h2><p>同上</p>
+<h2 id="初识web前端"><a href="#初识web前端" class="headerlink" title="初识web前端"></a>初识web前端</h2><p><img src="https://cxx-1304636603.cos.ap-beijing.myqcloud.com/picgo_update_img/image-20230920152814182.png" alt="image-20230920152814182"></p>
+<h3 id="安装vscode"><a href="#安装vscode" class="headerlink" title="安装vscode"></a>安装vscode</h3><p>VS Code插件安装</p>
 <p><img src="https://cxx-1304636603.cos.ap-beijing.myqcloud.com/picgo_update_img/image-20220812153551951.png"> </p>
 <p>VS Code提供了非常丰富的插件功能，根据你的需要，安装对应的插件可以大大提高开发效率。</p>
 <p>完成前端开发，常见插件介绍：</p>
@@ -427,8 +427,8 @@
 <p><img src="https://cxx-1304636603.cos.ap-beijing.myqcloud.com/picgo_update_img/image-20220913194549794.png"> </p>
 <p><strong>前端三剑客：</strong></p>
 <p><img src="https://cxx-1304636603.cos.ap-beijing.myqcloud.com/picgo_update_img/image-20230920154223731.png" alt="image-20230920154223731"></p>
-<h3 id="1-1-1、html"><a href="#1-1-1、html" class="headerlink" title="1.1.1、html"></a>1.1.1、html</h3><p><img src="https://cxx-1304636603.cos.ap-beijing.myqcloud.com/picgo_update_img/image-20230920155353135.png" alt="image-20230920155353135"></p>
-<h4 id="1-1-1-1、表格标签："><a href="#1-1-1-1、表格标签：" class="headerlink" title="1.1.1.1、表格标签："></a>1.1.1.1、表格标签：</h4><ul>
+<h3 id="html"><a href="#html" class="headerlink" title="html"></a>html</h3><p><img src="https://cxx-1304636603.cos.ap-beijing.myqcloud.com/picgo_update_img/image-20230920155353135.png" alt="image-20230920155353135"></p>
+<h4 id="表格标签："><a href="#表格标签：" class="headerlink" title="表格标签："></a>表格标签：</h4><ul>
 <li><p>&lt;table&gt; : 用于定义整个表格, 可以包裹多个 &lt;tr&gt;， 常用属性如下： </p>
 <ul>
 <li>border：规定表格边框的宽度</li>
@@ -441,7 +441,7 @@
 <li><p>&lt;td&gt; : 表格单元格(普通)，可以包裹内容 , 如果是表头单元格，可以替换为 &lt;th&gt;</p>
 </li>
 </ul>
-<h4 id="1-1-1-2、表单"><a href="#1-1-1-2、表单" class="headerlink" title="1.1.1.2、表单"></a>1.1.1.2、表单</h4><p>在一个表单中，可以存在很多的表单项，而虽然表单项的形式各式各样，但是表单项的标签其实就只有三个，分别是：</p>
+<h4 id="表单"><a href="#表单" class="headerlink" title="表单"></a>表单</h4><p>在一个表单中，可以存在很多的表单项，而虽然表单项的形式各式各样，但是表单项的标签其实就只有三个，分别是：</p>
 <ul>
 <li><p>&lt;input&gt;: 表单项 , 通过type属性控制输入形式。</p>
 <table>
@@ -502,9 +502,9 @@
 
 
 
-<h3 id="1-1-2、css"><a href="#1-1-2、css" class="headerlink" title="1.1.2、css"></a>1.1.2、css</h3><p><img src="https://cxx-1304636603.cos.ap-beijing.myqcloud.com/picgo_update_img/image-20230920171731485.png" alt="image-20230920171731485"></p>
+<h3 id="css"><a href="#css" class="headerlink" title="css"></a>css</h3><p><img src="https://cxx-1304636603.cos.ap-beijing.myqcloud.com/picgo_update_img/image-20230920171731485.png" alt="image-20230920171731485"></p>
 <p>优先级：id&gt;类&gt;元素</p>
-<h4 id="1-1-2-1、页面布局-盒子模型"><a href="#1-1-2-1、页面布局-盒子模型" class="headerlink" title="1.1.2.1、页面布局-盒子模型"></a>1.1.2.1、页面布局-盒子模型</h4><ul>
+<h4 id="页面布局-盒子模型"><a href="#页面布局-盒子模型" class="headerlink" title="页面布局-盒子模型"></a>页面布局-盒子模型</h4><ul>
 <li><p>盒子：页面中所有的元素（标签），都可以看做是一个 盒子，由盒子将页面中的元素包含在一个矩形区域内，通过盒子的视角更方便的进行页面布局</p>
 </li>
 <li><p>盒子模型组成：内容区域（content）、内边距区域（padding）、边框区域（border）、外边距区域（margin）</p>
@@ -552,7 +552,7 @@
 
 
 
-<h3 id="1-1-3、js"><a href="#1-1-3、js" class="headerlink" title="1.1.3、js"></a>1.1.3、js</h3><p><img src="https://cxx-1304636603.cos.ap-beijing.myqcloud.com/picgo_update_img/image-20230920185306023.png" alt="image-20230920185306023"></p>
+<h3 id="js"><a href="#js" class="headerlink" title="js"></a>js</h3><p><img src="https://cxx-1304636603.cos.ap-beijing.myqcloud.com/picgo_update_img/image-20230920185306023.png" alt="image-20230920185306023"></p>
 <p>js引入方式</p>
 <ul>
 <li><p>内部脚本</p>
@@ -563,7 +563,7 @@
 <p><img src="https://cxx-1304636603.cos.ap-beijing.myqcloud.com/picgo_update_img/image-20230920185650282.png" alt="image-20230920185650282"></p>
 </li>
 </ul>
-<h4 id="1-1-3-1、js基础语法"><a href="#1-1-3-1、js基础语法" class="headerlink" title="1.1.3.1、js基础语法"></a>1.1.3.1、js基础语法</h4><p><em><strong>书写语法</strong></em></p>
+<h4 id="js基础语法"><a href="#js基础语法" class="headerlink" title="js基础语法"></a>js基础语法</h4><p><em><strong>书写语法</strong></em></p>
 <p><code>区分大小写（变量名，函数名）</code>、<code>建议每行结尾分号</code> ，<code>大括号表示代码块</code>，<code>单行注释</code>：<code>// 注释内容</code>，<code>多行注释：/* 注释内容 */</code></p>
 <p>演示书写语法：</p>
 <p><img src="https://cxx-1304636603.cos.ap-beijing.myqcloud.com/picgo_update_img/image-20230921145934103.png" alt="image-20230921145934103"></p>
@@ -667,7 +667,7 @@
 </tr>
 </tbody></table>
 <p><img src="https://cxx-1304636603.cos.ap-beijing.myqcloud.com/picgo_update_img/image-20230921151635037.png" alt="image-20230921151635037"></p>
-<h4 id="1-1-3-2、js函数"><a href="#1-1-3-2、js函数" class="headerlink" title="1.1.3.2、js函数"></a>1.1.3.2、js函数</h4><p><img src="https://cxx-1304636603.cos.ap-beijing.myqcloud.com/picgo_update_img/image-20230921152029047.png" alt="image-20230921152029047"></p>
+<h4 id="js函数"><a href="#js函数" class="headerlink" title="js函数"></a>js函数</h4><p><img src="https://cxx-1304636603.cos.ap-beijing.myqcloud.com/picgo_update_img/image-20230921152029047.png" alt="image-20230921152029047"></p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">add</span>(<span class="params">a,b</span>)&#123;</span><br><span class="line">    <span class="keyword">return</span> a+b;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> result = <span class="title function_">add</span>(<span class="number">1</span>,<span class="number">2</span>);</span><br><span class="line"><span class="title function_">alert</span>(result);</span><br></pre></td></tr></table></figure>
 
 <p><img src="https://cxx-1304636603.cos.ap-beijing.myqcloud.com/picgo_update_img/image-20230921152305518.png" alt="image-20230921152305518"></p>
@@ -675,7 +675,7 @@
 
 
 
-<h4 id="1-1-3-3、js对象"><a href="#1-1-3-3、js对象" class="headerlink" title="1.1.3.3、js对象"></a>1.1.3.3、js对象</h4><p><em><strong>基础对象：</strong></em></p>
+<h4 id="js对象"><a href="#js对象" class="headerlink" title="js对象"></a>js对象</h4><p><em><strong>基础对象：</strong></em></p>
 <ul>
 <li><p>array</p>
 <p>var arr&#x3D;[1,2,3,4,5];</p>
@@ -779,7 +779,7 @@
 
 
 
-<h4 id="1-1-3-4、js事件"><a href="#1-1-3-4、js事件" class="headerlink" title="1.1.3.4、js事件"></a>1.1.3.4、js事件</h4><p>什么是事件呢？HTML事件是发生在HTML元素上的 “事情”，例如：</p>
+<h4 id="js事件"><a href="#js事件" class="headerlink" title="js事件"></a>js事件</h4><p>什么是事件呢？HTML事件是发生在HTML元素上的 “事情”，例如：</p>
 <ul>
 <li>按钮被点击</li>
 <li>鼠标移到元素上</li>
@@ -840,7 +840,7 @@
   <entry>
     <title>JavaWeb-后端</title>
     <url>/2023/10/03/JavaWeb-%E5%90%8E%E7%AB%AF/</url>
-    <content><![CDATA[<h1 id="3、后端web开发"><a href="#3、后端web开发" class="headerlink" title="3、后端web开发"></a>3、后端web开发</h1><h2 id="3-1、Maven"><a href="#3-1、Maven" class="headerlink" title="3.1、Maven"></a>3.1、Maven</h2><p><img src="https://cxx-1304636603.cos.ap-beijing.myqcloud.com/picgo_update_img/image-20230926150948944.png" alt="image-20230926150948944"></p>
+    <content><![CDATA[<h1 id="后端web开发"><a href="#后端web开发" class="headerlink" title="后端web开发"></a>后端web开发</h1><h2 id="Maven"><a href="#Maven" class="headerlink" title="Maven"></a>Maven</h2><p><img src="https://cxx-1304636603.cos.ap-beijing.myqcloud.com/picgo_update_img/image-20230926150948944.png" alt="image-20230926150948944"></p>
 <p><img src="https://cxx-1304636603.cos.ap-beijing.myqcloud.com/picgo_update_img/image-20230926151014207.png" alt="image-20230926151014207"></p>
 <p><img src="https://cxx-1304636603.cos.ap-beijing.myqcloud.com/picgo_update_img/image-20230927111604069.png" alt="image-20230927111604069"></p>
 <h3 id="导入maven工程："><a href="#导入maven工程：" class="headerlink" title="导入maven工程："></a><strong>导入maven工程：</strong></h3><p><img src="https://cxx-1304636603.cos.ap-beijing.myqcloud.com/picgo_update_img/image-20230927111753342.png" alt="image-20230927111753342"></p>
@@ -852,14 +852,14 @@
 <p><img src="https://cxx-1304636603.cos.ap-beijing.myqcloud.com/picgo_update_img/image-20230927113449589.png" alt="image-20230927113449589"></p>
 <p><img src="https://cxx-1304636603.cos.ap-beijing.myqcloud.com/picgo_update_img/image-20230927113608265.png" alt="image-20230927113608265"></p>
 <p><img src="https://cxx-1304636603.cos.ap-beijing.myqcloud.com/picgo_update_img/image-20230927114021937.png" alt="image-20230927114021937"></p>
-<h2 id="3-2、SpringBootWeb基础篇"><a href="#3-2、SpringBootWeb基础篇" class="headerlink" title="3.2、SpringBootWeb基础篇"></a>3.2、SpringBootWeb基础篇</h2><p><img src="https://cxx-1304636603.cos.ap-beijing.myqcloud.com/picgo_update_img/image-20230927164330896.png" alt="image-20230927164330896"></p>
+<h2 id="SpringBootWeb基础篇"><a href="#SpringBootWeb基础篇" class="headerlink" title="SpringBootWeb基础篇"></a>SpringBootWeb基础篇</h2><p><img src="https://cxx-1304636603.cos.ap-beijing.myqcloud.com/picgo_update_img/image-20230927164330896.png" alt="image-20230927164330896"></p>
 <p><img src="https://cxx-1304636603.cos.ap-beijing.myqcloud.com/picgo_update_img/image-20230927164422275.png" alt="image-20230927164422275"></p>
 <p><img src="https://cxx-1304636603.cos.ap-beijing.myqcloud.com/picgo_update_img/image-20230927164436131.png" alt="image-20230927164436131"></p>
-<h3 id="3-2-1、Springbootweb入门"><a href="#3-2-1、Springbootweb入门" class="headerlink" title="3.2.1、Springbootweb入门"></a>3.2.1、Springbootweb入门</h3><p><img src="https://cxx-1304636603.cos.ap-beijing.myqcloud.com/picgo_update_img/image-20230927164839326.png" alt="image-20230927164839326"></p>
+<h3 id="Springbootweb入门"><a href="#Springbootweb入门" class="headerlink" title="Springbootweb入门"></a>Springbootweb入门</h3><p><img src="https://cxx-1304636603.cos.ap-beijing.myqcloud.com/picgo_update_img/image-20230927164839326.png" alt="image-20230927164839326"></p>
 <p><img src="https://cxx-1304636603.cos.ap-beijing.myqcloud.com/picgo_update_img/image-20230927165109982.png" alt="image-20230927165109982"></p>
 <p>注意：springboot用2.x，用jdk11（成功），3.x需要jdk17</p>
 <p><img src="https://cxx-1304636603.cos.ap-beijing.myqcloud.com/picgo_update_img/image-20230927175553082.png" alt="image-20230927175553082"></p>
-<h3 id="3-2-2、http协议"><a href="#3-2-2、http协议" class="headerlink" title="3.2.2、http协议"></a>3.2.2、http协议</h3><p><img src="https://cxx-1304636603.cos.ap-beijing.myqcloud.com/picgo_update_img/image-20230927180421451.png" alt="image-20230927180421451"></p>
+<h3 id="http协议"><a href="#http协议" class="headerlink" title="http协议"></a>http协议</h3><p><img src="https://cxx-1304636603.cos.ap-beijing.myqcloud.com/picgo_update_img/image-20230927180421451.png" alt="image-20230927180421451"></p>
 <p>请求</p>
 <p><img src="https://cxx-1304636603.cos.ap-beijing.myqcloud.com/picgo_update_img/image-20230927182641425.png" alt="image-20230927182641425"></p>
 <p><img src="https://cxx-1304636603.cos.ap-beijing.myqcloud.com/picgo_update_img/image-20230927182606562.png" alt="image-20230927182606562"></p>
@@ -937,17 +937,17 @@
 <p>状态码大全：<a href="https://cloud.tencent.com/developer/chapter/13553">https://cloud.tencent.com/developer/chapter/13553</a> </p>
 <p>http协议解析</p>
 <p><img src="https://cxx-1304636603.cos.ap-beijing.myqcloud.com/picgo_update_img/image-20230927201006879.png" alt="image-20230927201006879"></p>
-<h3 id="3-2-3Web服务器-Tomcat"><a href="#3-2-3Web服务器-Tomcat" class="headerlink" title="3.2.3Web服务器-Tomcat"></a>3.2.3Web服务器-Tomcat</h3><p>简介</p>
+<h3 id="Web服务器-Tomcat"><a href="#Web服务器-Tomcat" class="headerlink" title="Web服务器-Tomcat"></a>Web服务器-Tomcat</h3><p>简介</p>
 <p><img src="https://cxx-1304636603.cos.ap-beijing.myqcloud.com/picgo_update_img/image-20230927201710167.png" alt="image-20230927201710167"></p>
 <p>基本使用</p>
 <p><img src="https://cxx-1304636603.cos.ap-beijing.myqcloud.com/picgo_update_img/image-20230927202047123.png" alt="image-20230927202047123"></p>
 <p><img src="https://cxx-1304636603.cos.ap-beijing.myqcloud.com/picgo_update_img/image-20230927202209886.png" alt="image-20230927202209886"></p>
 <p><img src="https://cxx-1304636603.cos.ap-beijing.myqcloud.com/picgo_update_img/image-20230927202221453.png" alt="image-20230927202221453"></p>
 <p><img src="https://cxx-1304636603.cos.ap-beijing.myqcloud.com/picgo_update_img/image-20230927202318402.png" alt="image-20230927202318402"></p>
-<h3 id="3-2-4、SpringBootWeb入门程序解析"><a href="#3-2-4、SpringBootWeb入门程序解析" class="headerlink" title="3.2.4、SpringBootWeb入门程序解析"></a><strong>3.2.4、SpringBootWeb入门程序解析</strong></h3><p><img src="https://cxx-1304636603.cos.ap-beijing.myqcloud.com/picgo_update_img/image-20230927203406930.png" alt="image-20230927203406930"></p>
+<h3 id="SpringBootWeb入门程序解析"><a href="#SpringBootWeb入门程序解析" class="headerlink" title="SpringBootWeb入门程序解析"></a>SpringBootWeb入门程序解析</h3><p><img src="https://cxx-1304636603.cos.ap-beijing.myqcloud.com/picgo_update_img/image-20230927203406930.png" alt="image-20230927203406930"></p>
 <p><img src="https://cxx-1304636603.cos.ap-beijing.myqcloud.com/picgo_update_img/image-20230927203311863.png" alt="image-20230927203311863"></p>
-<h2 id="3-3、SpringBoot-Web请求响应"><a href="#3-3、SpringBoot-Web请求响应" class="headerlink" title="3.3、SpringBoot Web请求响应"></a>3.3、SpringBoot Web请求响应</h2><h3 id="概述"><a href="#概述" class="headerlink" title="$ 概述"></a>$ 概述</h3><p><img src="https://cxx-1304636603.cos.ap-beijing.myqcloud.com/picgo_update_img/image-20230927204454413.png" alt="image-20230927204454413"></p>
-<h3 id="3-3-1、请求"><a href="#3-3-1、请求" class="headerlink" title="3.3.1、请求"></a>3.3.1、请求</h3><h4 id="1-、postman"><a href="#1-、postman" class="headerlink" title="1)、postman"></a>1)、postman</h4><p><img src="https://cxx-1304636603.cos.ap-beijing.myqcloud.com/picgo_update_img/image-20230927212332487.png" alt="image-20230927212332487"></p>
+<h2 id="SpringBoot-Web请求响应"><a href="#SpringBoot-Web请求响应" class="headerlink" title="SpringBoot Web请求响应"></a>SpringBoot Web请求响应</h2><h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><p><img src="https://cxx-1304636603.cos.ap-beijing.myqcloud.com/picgo_update_img/image-20230927204454413.png" alt="image-20230927204454413"></p>
+<h3 id="请求"><a href="#请求" class="headerlink" title="请求"></a>请求</h3><h4 id="1-、postman"><a href="#1-、postman" class="headerlink" title="1)、postman"></a>1)、postman</h4><p><img src="https://cxx-1304636603.cos.ap-beijing.myqcloud.com/picgo_update_img/image-20230927212332487.png" alt="image-20230927212332487"></p>
 <p><img src="https://cxx-1304636603.cos.ap-beijing.myqcloud.com/picgo_update_img/image-20230927212350769.png" alt="image-20230927212350769"></p>
 <h4 id="2-、简单参数"><a href="#2-、简单参数" class="headerlink" title="2)、简单参数"></a>2)、简单参数</h4><p><img src="https://cxx-1304636603.cos.ap-beijing.myqcloud.com/picgo_update_img/image-20230927213014789.png" alt="image-20230927213014789"></p>
 <p><img src="https://cxx-1304636603.cos.ap-beijing.myqcloud.com/picgo_update_img/image-20230927215100632.png" alt="image-20230927215100632"></p>
@@ -963,10 +963,10 @@
 <p><img src="https://cxx-1304636603.cos.ap-beijing.myqcloud.com/picgo_update_img/image-20230927234231448.png" alt="image-20230927234231448"></p>
 <p>6)、总结</p>
 <p><img src="https://cxx-1304636603.cos.ap-beijing.myqcloud.com/picgo_update_img/image-20230927234537587.png" alt="image-20230927234537587"></p>
-<h3 id="3-3-2、响应"><a href="#3-3-2、响应" class="headerlink" title="3.3.2、响应"></a>3.3.2、响应</h3><p><img src="https://cxx-1304636603.cos.ap-beijing.myqcloud.com/picgo_update_img/image-20230928094425131.png" alt="image-20230928094425131"></p>
+<h3 id="响应"><a href="#响应" class="headerlink" title="响应"></a>响应</h3><p><img src="https://cxx-1304636603.cos.ap-beijing.myqcloud.com/picgo_update_img/image-20230928094425131.png" alt="image-20230928094425131"></p>
 <p><img src="https://cxx-1304636603.cos.ap-beijing.myqcloud.com/picgo_update_img/image-20230928095140738.png" alt="image-20230928095140738"></p>
 <p><img src="https://cxx-1304636603.cos.ap-beijing.myqcloud.com/picgo_update_img/image-20230928095314890.png" alt="image-20230928095314890"></p>
-<h3 id="3-3-3、分层解耦"><a href="#3-3-3、分层解耦" class="headerlink" title="3.3.3、分层解耦"></a>3.3.3、分层解耦</h3><p><img src="https://cxx-1304636603.cos.ap-beijing.myqcloud.com/picgo_update_img/image-20230930182055547.png" alt="image-20230930182055547"></p>
+<h3 id="分层解耦"><a href="#分层解耦" class="headerlink" title="分层解耦"></a>分层解耦</h3><p><img src="https://cxx-1304636603.cos.ap-beijing.myqcloud.com/picgo_update_img/image-20230930182055547.png" alt="image-20230930182055547"></p>
 <h4 id="1）、三层架构"><a href="#1）、三层架构" class="headerlink" title="1）、三层架构"></a>1）、三层架构</h4><p><img src="https://cxx-1304636603.cos.ap-beijing.myqcloud.com/picgo_update_img/image-20230930182650359.png" alt="image-20230930182650359"></p>
 <p><img src="https://cxx-1304636603.cos.ap-beijing.myqcloud.com/picgo_update_img/image-20230930183619265.png" alt="image-20230930183619265"></p>
 <p><img src="https://cxx-1304636603.cos.ap-beijing.myqcloud.com/picgo_update_img/image-20230930183728262.png" alt="image-20230930183728262"></p>
@@ -982,9 +982,9 @@
 <p><img src="https://cxx-1304636603.cos.ap-beijing.myqcloud.com/picgo_update_img/image-20231002194208613.png" alt="image-20231002194208613"></p>
 <p>面试题</p>
 <p><img src="https://cxx-1304636603.cos.ap-beijing.myqcloud.com/picgo_update_img/image-20231002195603443.png" alt="image-20231002195603443"></p>
-<h2 id="3-4、Mysql"><a href="#3-4、Mysql" class="headerlink" title="3.4、Mysql"></a>3.4、Mysql</h2><p><img src="https://cxx-1304636603.cos.ap-beijing.myqcloud.com/picgo_update_img/image-20231002200237283.png" alt="image-20231002200237283"></p>
+<h2 id="Mysql"><a href="#Mysql" class="headerlink" title="Mysql"></a>Mysql</h2><p><img src="https://cxx-1304636603.cos.ap-beijing.myqcloud.com/picgo_update_img/image-20231002200237283.png" alt="image-20231002200237283"></p>
 <p><img src="https://cxx-1304636603.cos.ap-beijing.myqcloud.com/picgo_update_img/image-20231002200552540.png" alt="image-20231002200552540"></p>
-<h3 id="1）、MySQL概述"><a href="#1）、MySQL概述" class="headerlink" title="1）、MySQL概述"></a>1）、MySQL概述</h3><h3 id="2）、数据库设计-DDL"><a href="#2）、数据库设计-DDL" class="headerlink" title="2）、数据库设计-DDL"></a>2）、数据库设计-DDL</h3><h3 id="3）、数据库操作-DML"><a href="#3）、数据库操作-DML" class="headerlink" title="3）、数据库操作-DML"></a>3）、数据库操作-DML</h3><h3 id="4）、数据库操作-DQL"><a href="#4）、数据库操作-DQL" class="headerlink" title="4）、数据库操作-DQL"></a>4）、数据库操作-DQL</h3><h3 id="5）、多表设计"><a href="#5）、多表设计" class="headerlink" title="5）、多表设计"></a>5）、多表设计</h3><h3 id="6）、事务"><a href="#6）、事务" class="headerlink" title="6）、事务"></a>6）、事务</h3><h3 id="7）、多表查询"><a href="#7）、多表查询" class="headerlink" title="7）、多表查询"></a>7）、多表查询</h3><h3 id="8）、索引"><a href="#8）、索引" class="headerlink" title="8）、索引"></a>8）、索引</h3><h2 id="3-5、SpringBoot-Mybatis"><a href="#3-5、SpringBoot-Mybatis" class="headerlink" title="3.5、SpringBoot Mybatis"></a>3.5、SpringBoot Mybatis</h2><h2 id="3-6、SpringBoot-Web开发篇"><a href="#3-6、SpringBoot-Web开发篇" class="headerlink" title="3.6、SpringBoot Web开发篇"></a>3.6、SpringBoot Web开发篇</h2><h2 id="3-7、SpringBoot-Web进阶篇"><a href="#3-7、SpringBoot-Web进阶篇" class="headerlink" title="3.7、SpringBoot Web进阶篇"></a>3.7、SpringBoot Web进阶篇</h2>]]></content>
+<h3 id="1）、MySQL概述"><a href="#1）、MySQL概述" class="headerlink" title="1）、MySQL概述"></a>1）、MySQL概述</h3><h3 id="2）、数据库设计-DDL"><a href="#2）、数据库设计-DDL" class="headerlink" title="2）、数据库设计-DDL"></a>2）、数据库设计-DDL</h3><h3 id="3）、数据库操作-DML"><a href="#3）、数据库操作-DML" class="headerlink" title="3）、数据库操作-DML"></a>3）、数据库操作-DML</h3><h3 id="4）、数据库操作-DQL"><a href="#4）、数据库操作-DQL" class="headerlink" title="4）、数据库操作-DQL"></a>4）、数据库操作-DQL</h3><h3 id="5）、多表设计"><a href="#5）、多表设计" class="headerlink" title="5）、多表设计"></a>5）、多表设计</h3><h3 id="6）、事务"><a href="#6）、事务" class="headerlink" title="6）、事务"></a>6）、事务</h3><h3 id="7）、多表查询"><a href="#7）、多表查询" class="headerlink" title="7）、多表查询"></a>7）、多表查询</h3><h3 id="8）、索引"><a href="#8）、索引" class="headerlink" title="8）、索引"></a>8）、索引</h3><h2 id="SpringBoot-Mybatis"><a href="#SpringBoot-Mybatis" class="headerlink" title="SpringBoot Mybatis"></a>SpringBoot Mybatis</h2><h2 id="SpringBoot-Web开发篇"><a href="#SpringBoot-Web开发篇" class="headerlink" title="SpringBoot Web开发篇"></a>SpringBoot Web开发篇</h2><h2 id="SpringBoot-Web进阶篇"><a href="#SpringBoot-Web进阶篇" class="headerlink" title="SpringBoot Web进阶篇"></a>SpringBoot Web进阶篇</h2>]]></content>
       <tags>
         <tag>Java</tag>
       </tags>
