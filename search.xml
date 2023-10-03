@@ -978,4 +978,531 @@
         <tag>Java</tag>
       </tags>
   </entry>
+  <entry>
+    <title>JavaWeb</title>
+    <url>/2023/10/02/Javaweb/</url>
+    <content><![CDATA[<h1 id="1、什么是web"><a href="#1、什么是web" class="headerlink" title="1、什么是web"></a>1、什么是web</h1><h2 id="1-1、web网站的工作流程"><a href="#1-1、web网站的工作流程" class="headerlink" title="1.1、web网站的工作流程"></a>1.1、web网站的工作流程</h2><p><img src="https://cxx-1304636603.cos.ap-beijing.myqcloud.com/picgo_update_img/image-20230920152222725.png" alt="image-20230920152222725"></p>
+<h2 id="1-2、课程安排"><a href="#1-2、课程安排" class="headerlink" title="1.2、课程安排"></a>1.2、课程安排</h2><p><img src="https://cxx-1304636603.cos.ap-beijing.myqcloud.com/picgo_update_img/image-20230920152425680.png" alt="image-20230920152425680"></p>
+<h1 id="2、web前端开发"><a href="#2、web前端开发" class="headerlink" title="2、web前端开发"></a>2、web前端开发</h1><h2 id="、文档查阅-html-css"><a href="#、文档查阅-html-css" class="headerlink" title="$、文档查阅(html,css)"></a>$、文档查阅(html,css)</h2><p><a href="https://www.w3school.com.cn/index.html">https://www.w3school.com.cn/index.html</a></p>
+<h2 id="1、HTML文档查阅"><a href="#1、HTML文档查阅" class="headerlink" title="$.1、HTML文档查阅"></a>$.1、HTML文档查阅</h2><p>以video标签为例:</p>
+<p><img src="https://cxx-1304636603.cos.ap-beijing.myqcloud.com/picgo_update_img/image-20230924134626027.png" alt="image-20230924134626027"></p>
+<p><img src="https://cxx-1304636603.cos.ap-beijing.myqcloud.com/picgo_update_img/image-20230924134644643.png" alt="image-20230924134644643"></p>
+<p><img src="https://cxx-1304636603.cos.ap-beijing.myqcloud.com/picgo_update_img/image-20230924134817202.png" alt="image-20230924134817202"></p>
+<h2 id="2、CSS文档查阅"><a href="#2、CSS文档查阅" class="headerlink" title="$.2、CSS文档查阅"></a>$.2、CSS文档查阅</h2><p>以padding属性为例:</p>
+<p><img src="https://cxx-1304636603.cos.ap-beijing.myqcloud.com/picgo_update_img/image-20230924134915211.png" alt="image-20230924134915211"></p>
+<p>同上html</p>
+<h2 id="3、JavaScript文档查阅"><a href="#3、JavaScript文档查阅" class="headerlink" title="$.3、JavaScript文档查阅"></a>$.3、JavaScript文档查阅</h2><p>同上</p>
+<h2 id="2-1、初识web前端"><a href="#2-1、初识web前端" class="headerlink" title="2.1、初识web前端"></a>2.1、初识web前端</h2><p><img src="https://cxx-1304636603.cos.ap-beijing.myqcloud.com/picgo_update_img/image-20230920152814182.png" alt="image-20230920152814182"></p>
+<h3 id="、安装vscode"><a href="#、安装vscode" class="headerlink" title="$、安装vscode"></a>$、安装vscode</h3><p>VS Code插件安装</p>
+<p><img src="https://cxx-1304636603.cos.ap-beijing.myqcloud.com/picgo_update_img/image-20220812153551951.png"> </p>
+<p>VS Code提供了非常丰富的插件功能，根据你的需要，安装对应的插件可以大大提高开发效率。</p>
+<p>完成前端开发，常见插件介绍：</p>
+<p> 1、Chinese (Simplified) Language Pack</p>
+<p>适用于 VS Code 的中文（简体）语言包</p>
+<p><img src="https://cxx-1304636603.cos.ap-beijing.myqcloud.com/picgo_update_img/image-20220522163955686.png" alt="image-20220522163955686"> </p>
+<p> 2、Code Spell Checker</p>
+<p>拼写检查器。比如 banana 单词写错成 banane ，会提示你是否修改成 banana ，也可以将 banane 添加至检查器的字典中。</p>
+<p><img src="https://cxx-1304636603.cos.ap-beijing.myqcloud.com/picgo_update_img/image-20220812153723201.png"> </p>
+<p> 3、HTML CSS Support</p>
+<p>在编写样式表的时候，自动补全功能大大缩减了编写时间。</p>
+<p><img src="https://cxx-1304636603.cos.ap-beijing.myqcloud.com/picgo_update_img/image-20220522164137867.png"> </p>
+<p>4、JavaScript (ES6) code snippets</p>
+<p>支持ES6语法提示</p>
+<p><img src="https://cxx-1304636603.cos.ap-beijing.myqcloud.com/picgo_update_img/image-20220522164226989.png"> </p>
+<p> 5、Mithril Emmet</p>
+<p>一个能大幅度提高前端开发效率的一个工具，用于补全代码</p>
+<p><img src="https://cxx-1304636603.cos.ap-beijing.myqcloud.com/picgo_update_img/image-20220522164445770.png"> </p>
+<p> 6、Path Intellisense</p>
+<p>路径提示插件</p>
+<p><img src="https://cxx-1304636603.cos.ap-beijing.myqcloud.com/picgo_update_img/123.png"> </p>
+<p> 7、Vue 3 Snippets</p>
+<p>在 Vue 2 或者 Vue 3 开发中提供代码片段，语法高亮和格式化的 VS Code 插件，能极大提高你的开发效率。</p>
+<p><img src="https://cxx-1304636603.cos.ap-beijing.myqcloud.com/picgo_update_img/image-20220522164651541.png"> </p>
+<p>8、VueHelper</p>
+<p>vscode最好的vue代码提示插件，不仅包括了vue2所有api，还含有vue-router2和vuex2的代码</p>
+<p><img src="https://cxx-1304636603.cos.ap-beijing.myqcloud.com/picgo_update_img/image-20220522164918079.png"> </p>
+<p> 9、Auto Close Tag</p>
+<p>自动闭合HTML&#x2F;XML标签</p>
+<p><img src="https://cxx-1304636603.cos.ap-beijing.myqcloud.com/picgo_update_img/image-20220522183524341.png"> </p>
+<p> 10、Auto Rename Tag</p>
+<p>自动完成另一侧标签的同步修改</p>
+<p><img src="https://cxx-1304636603.cos.ap-beijing.myqcloud.com/picgo_update_img/image-20220522183633805.png"> </p>
+<p>11、Beautify</p>
+<p>格式化 html ,js,css</p>
+<p><img src="https://cxx-1304636603.cos.ap-beijing.myqcloud.com/picgo_update_img/image-20220522183703756.png"> </p>
+<p>安装过程中, 如果提示是否需要继续安装, 选择 “仍要安装”。</p>
+<p>12、Bracket Pair Colorizer</p>
+<p>给括号加上不同的颜色，便于区分不同的区块，使用者可以定义不同括号类型和不同颜色 </p>
+<p><img src="https://cxx-1304636603.cos.ap-beijing.myqcloud.com/picgo_update_img/image-20220522183845187.png"> </p>
+<p>安装过程中, 如果提示是否需要继续安装, 选择 “仍要安装”。</p>
+<p>13、open in browser</p>
+<p>vscode不像IDE一样能够直接在浏览器中打开html，而该插件支持快捷键与鼠标右键快速在浏览器中打开html文件，支持自定义打开指定的浏览器，包括：Firefox，Chrome，Opera，IE以及Safari</p>
+<p><img src="https://cxx-1304636603.cos.ap-beijing.myqcloud.com/picgo_update_img/456.png"> </p>
+<p> 14、Vetur</p>
+<p>Vue多功能集成插件，包括：语法高亮，智能提示，emmet，错误提示，格式化，自动补全，debugger。vscode官方钦定Vue插件，Vue开发者必备。 </p>
+<p><img src="https://cxx-1304636603.cos.ap-beijing.myqcloud.com/picgo_update_img/image-20220522184107715.png"> </p>
+<p> 15、File Utils</p>
+<p>File Utils插件,可以方便快捷的来创建、复制、移动、重命名文件和目录。</p>
+<p><img src="https://cxx-1304636603.cos.ap-beijing.myqcloud.com/picgo_update_img/image-20230306101339092.png"> </p>
+<p>16、IntelliJ IDEA Keybindings</p>
+<p>安装VSCode的插件 IntelliJ IDEA Keybindings 即可在VSCode中使用IDEA的快捷键。</p>
+<p><img src="https://cxx-1304636603.cos.ap-beijing.myqcloud.com/picgo_update_img/image-20220913194549794.png"> </p>
+<p><strong>前端三剑客：</strong></p>
+<p><img src="https://cxx-1304636603.cos.ap-beijing.myqcloud.com/picgo_update_img/image-20230920154223731.png" alt="image-20230920154223731"></p>
+<h3 id="2-2-1、html"><a href="#2-2-1、html" class="headerlink" title="2.2.1、html"></a>2.2.1、html</h3><p><img src="https://cxx-1304636603.cos.ap-beijing.myqcloud.com/picgo_update_img/image-20230920155353135.png" alt="image-20230920155353135"></p>
+<h4 id="2-2-1-1、表格标签："><a href="#2-2-1-1、表格标签：" class="headerlink" title="2.2.1.1、表格标签："></a>2.2.1.1、表格标签：</h4><ul>
+<li><p>&lt;table&gt; : 用于定义整个表格, 可以包裹多个 &lt;tr&gt;， 常用属性如下： </p>
+<ul>
+<li>border：规定表格边框的宽度</li>
+<li>width：规定表格的宽度</li>
+<li>cellspacing: 规定单元之间的空间</li>
+</ul>
+</li>
+<li><p>&lt;tr&gt; : 表格的行，可以包裹多个 &lt;td&gt;  </p>
+</li>
+<li><p>&lt;td&gt; : 表格单元格(普通)，可以包裹内容 , 如果是表头单元格，可以替换为 &lt;th&gt;</p>
+</li>
+</ul>
+<h4 id="2-2-1-2、表单"><a href="#2-2-1-2、表单" class="headerlink" title="2.2.1.2、表单"></a>2.2.1.2、表单</h4><p>在一个表单中，可以存在很多的表单项，而虽然表单项的形式各式各样，但是表单项的标签其实就只有三个，分别是：</p>
+<ul>
+<li><p>&lt;input&gt;: 表单项 , 通过type属性控制输入形式。</p>
+<table>
+<thead>
+<tr>
+<th>type取值</th>
+<th><strong>描述</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>text</td>
+<td>默认值，定义单行的输入字段</td>
+</tr>
+<tr>
+<td>password</td>
+<td>定义密码字段</td>
+</tr>
+<tr>
+<td>radio</td>
+<td>定义单选按钮</td>
+</tr>
+<tr>
+<td>checkbox</td>
+<td>定义复选框</td>
+</tr>
+<tr>
+<td>file</td>
+<td>定义文件上传按钮</td>
+</tr>
+<tr>
+<td>date&#x2F;time&#x2F;datetime-local</td>
+<td>定义日期&#x2F;时间&#x2F;日期时间</td>
+</tr>
+<tr>
+<td>number</td>
+<td>定义数字输入框</td>
+</tr>
+<tr>
+<td>email</td>
+<td>定义邮件输入框</td>
+</tr>
+<tr>
+<td>hidden</td>
+<td>定义隐藏域</td>
+</tr>
+<tr>
+<td>submit &#x2F; reset &#x2F; button</td>
+<td>定义提交按钮 &#x2F; 重置按钮 &#x2F; 可点击按钮</td>
+</tr>
+</tbody></table>
+</li>
+<li><p>&lt;select&gt;: 定义下拉列表, &lt;option&gt; 定义列表项</p>
+</li>
+<li><p>&lt;textarea&gt;: 文本域</p>
+</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">&quot;X-UA-Compatible&quot;</span> <span class="attr">content</span>=<span class="string">&quot;IE=edge&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span> <span class="attr">content</span>=<span class="string">&quot;width=device-width, initial-scale=1.0&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>HTML-表单项标签<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- value: 表单项提交的值 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">&quot;&quot;</span> <span class="attr">method</span>=<span class="string">&quot;post&quot;</span>&gt;</span></span><br><span class="line">     姓名: <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">name</span>=<span class="string">&quot;name&quot;</span>&gt;</span> <span class="tag">&lt;<span class="name">br</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">     密码: <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;password&quot;</span> <span class="attr">name</span>=<span class="string">&quot;password&quot;</span>&gt;</span> <span class="tag">&lt;<span class="name">br</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span> </span><br><span class="line">     性别: <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;radio&quot;</span> <span class="attr">name</span>=<span class="string">&quot;gender&quot;</span> <span class="attr">value</span>=<span class="string">&quot;1&quot;</span>&gt;</span> 男</span><br><span class="line">          <span class="tag">&lt;<span class="name">label</span>&gt;</span><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;radio&quot;</span> <span class="attr">name</span>=<span class="string">&quot;gender&quot;</span> <span class="attr">value</span>=<span class="string">&quot;2&quot;</span>&gt;</span> 女 <span class="tag">&lt;/<span class="name">label</span>&gt;</span> <span class="tag">&lt;<span class="name">br</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">     爱好: <span class="tag">&lt;<span class="name">label</span>&gt;</span><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;checkbox&quot;</span> <span class="attr">name</span>=<span class="string">&quot;hobby&quot;</span> <span class="attr">value</span>=<span class="string">&quot;java&quot;</span>&gt;</span> java <span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">label</span>&gt;</span><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;checkbox&quot;</span> <span class="attr">name</span>=<span class="string">&quot;hobby&quot;</span> <span class="attr">value</span>=<span class="string">&quot;game&quot;</span>&gt;</span> game <span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">label</span>&gt;</span><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;checkbox&quot;</span> <span class="attr">name</span>=<span class="string">&quot;hobby&quot;</span> <span class="attr">value</span>=<span class="string">&quot;sing&quot;</span>&gt;</span> sing <span class="tag">&lt;/<span class="name">label</span>&gt;</span> <span class="tag">&lt;<span class="name">br</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">     图像: <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;file&quot;</span> <span class="attr">name</span>=<span class="string">&quot;image&quot;</span>&gt;</span>  <span class="tag">&lt;<span class="name">br</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">     生日: <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;date&quot;</span> <span class="attr">name</span>=<span class="string">&quot;birthday&quot;</span>&gt;</span> <span class="tag">&lt;<span class="name">br</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">     时间: <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;time&quot;</span> <span class="attr">name</span>=<span class="string">&quot;time&quot;</span>&gt;</span> <span class="tag">&lt;<span class="name">br</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">     日期时间: <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;datetime-local&quot;</span> <span class="attr">name</span>=<span class="string">&quot;datetime&quot;</span>&gt;</span> <span class="tag">&lt;<span class="name">br</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">     邮箱: <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;email&quot;</span> <span class="attr">name</span>=<span class="string">&quot;email&quot;</span>&gt;</span> <span class="tag">&lt;<span class="name">br</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">     年龄: <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;number&quot;</span> <span class="attr">name</span>=<span class="string">&quot;age&quot;</span>&gt;</span> <span class="tag">&lt;<span class="name">br</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">     学历: <span class="tag">&lt;<span class="name">select</span> <span class="attr">name</span>=<span class="string">&quot;degree&quot;</span>&gt;</span></span><br><span class="line">               <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">&quot;&quot;</span>&gt;</span>----------- 请选择 -----------<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">               <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">&quot;1&quot;</span>&gt;</span>大专<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">               <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">&quot;2&quot;</span>&gt;</span>本科<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">               <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">&quot;3&quot;</span>&gt;</span>硕士<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">               <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">&quot;4&quot;</span>&gt;</span>博士<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;/<span class="name">select</span>&gt;</span>  <span class="tag">&lt;<span class="name">br</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">     描述: <span class="tag">&lt;<span class="name">textarea</span> <span class="attr">name</span>=<span class="string">&quot;description&quot;</span> <span class="attr">cols</span>=<span class="string">&quot;30&quot;</span> <span class="attr">rows</span>=<span class="string">&quot;10&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">textarea</span>&gt;</span>  <span class="tag">&lt;<span class="name">br</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;hidden&quot;</span> <span class="attr">name</span>=<span class="string">&quot;id&quot;</span> <span class="attr">value</span>=<span class="string">&quot;1&quot;</span>&gt;</span></span><br><span class="line">	 	</span><br><span class="line">     <span class="comment">&lt;!-- 表单常见按钮 --&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;button&quot;</span> <span class="attr">value</span>=<span class="string">&quot;按钮&quot;</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;reset&quot;</span> <span class="attr">value</span>=<span class="string">&quot;重置&quot;</span>&gt;</span> </span><br><span class="line">     <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;submit&quot;</span> <span class="attr">value</span>=<span class="string">&quot;提交&quot;</span>&gt;</span>   </span><br><span class="line">     <span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="2-2-2、css"><a href="#2-2-2、css" class="headerlink" title="2.2.2、css"></a>2.2.2、css</h3><p><img src="https://cxx-1304636603.cos.ap-beijing.myqcloud.com/picgo_update_img/image-20230920171731485.png" alt="image-20230920171731485"></p>
+<p>优先级：id&gt;类&gt;元素</p>
+<h4 id="2-2-2-1、页面布局-盒子模型"><a href="#2-2-2-1、页面布局-盒子模型" class="headerlink" title="2.2.2.1、页面布局-盒子模型"></a>2.2.2.1、页面布局-盒子模型</h4><ul>
+<li><p>盒子：页面中所有的元素（标签），都可以看做是一个 盒子，由盒子将页面中的元素包含在一个矩形区域内，通过盒子的视角更方便的进行页面布局</p>
+</li>
+<li><p>盒子模型组成：内容区域（content）、内边距区域（padding）、边框区域（border）、外边距区域（margin）</p>
+</li>
+</ul>
+<img src="https://cxx-1304636603.cos.ap-beijing.myqcloud.com/picgo_update_img/image-20230310092820616.png" alt="image-20230310092820616" style="zoom:80%;" /> 
+
+<p>CSS盒子模型，其实和日常生活中的包装盒是非常类似的，就比如：</p>
+<p><img src="https://cxx-1304636603.cos.ap-beijing.myqcloud.com/picgo_update_img/image-20230310093247265.png"></p>
+<p>盒子的大小，其实就包括三个部分： border、padding、content，而margin外边距是不包括在盒子之内的。</p>
+<p><strong>布局标签</strong></p>
+<ul>
+<li><p>布局标签：实际开发网页中，会大量频繁的使用 div 和 span 这两个没有语义的布局标签。</p>
+</li>
+<li><p>标签：<div> <span></p>
+</li>
+<li><p>特点：</p>
+<ul>
+<li><p>div标签：</p>
+<ul>
+<li><p>一行只显示一个（独占一行）</p>
+</li>
+<li><p>宽度默认是父元素的宽度，高度默认由内容撑开</p>
+</li>
+<li><p>可以设置宽高（width、height）</p>
+</li>
+</ul>
+</li>
+<li><p>span标签：</p>
+<ul>
+<li><p>一行可以显示多个</p>
+</li>
+<li><p>宽度和高度默认由内容撑开</p>
+</li>
+<li><p>不可以设置宽高（width、height）</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">&quot;X-UA-Compatible&quot;</span> <span class="attr">content</span>=<span class="string">&quot;IE=edge&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span> <span class="attr">content</span>=<span class="string">&quot;width=device-width, initial-scale=1.0&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>盒子模型<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="language-css"></span></span><br><span class="line"><span class="language-css">        <span class="selector-tag">div</span> &#123;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">width</span>: <span class="number">200px</span>;  <span class="comment">/* 宽度 */</span></span></span><br><span class="line"><span class="language-css">            <span class="attribute">height</span>: <span class="number">200px</span>;  <span class="comment">/* 高度 */</span></span></span><br><span class="line"><span class="language-css">            <span class="attribute">box-sizing</span>: border-box; <span class="comment">/* 指定width height为盒子的高宽 */</span></span></span><br><span class="line"><span class="language-css">            <span class="attribute">background-color</span>: aquamarine; <span class="comment">/* 背景色 */</span></span></span><br><span class="line"><span class="language-css">            </span></span><br><span class="line"><span class="language-css">            <span class="attribute">padding</span>: <span class="number">20px</span> <span class="number">20px</span> <span class="number">20px</span> <span class="number">20px</span>; <span class="comment">/* 内边距, 上 右 下 左 , 边距都一行, 可以简写: padding: 20px;*/</span> </span></span><br><span class="line"><span class="language-css">            <span class="attribute">border</span>: <span class="number">10px</span> solid red; <span class="comment">/* 边框, 宽度 线条类型 颜色 */</span></span></span><br><span class="line"><span class="language-css">            <span class="attribute">margin</span>: <span class="number">30px</span> <span class="number">30px</span> <span class="number">30px</span> <span class="number">30px</span>; <span class="comment">/* 外边距, 上 右 下 左 , 边距都一行, 可以简写: margin: 30px; */</span></span></span><br><span class="line"><span class="language-css">        &#125;</span></span><br><span class="line"><span class="language-css">    </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    </span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">        A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A </span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h3 id="2-2-3、js"><a href="#2-2-3、js" class="headerlink" title="2.2.3、js"></a>2.2.3、js</h3><p><img src="https://cxx-1304636603.cos.ap-beijing.myqcloud.com/picgo_update_img/image-20230920185306023.png" alt="image-20230920185306023"></p>
+<p>js引入方式</p>
+<ul>
+<li><p>内部脚本</p>
+<p><img src="https://cxx-1304636603.cos.ap-beijing.myqcloud.com/picgo_update_img/image-20230920185601792.png" alt="image-20230920185601792"></p>
+</li>
+<li><p>外部脚本</p>
+<p>注意：引入标签不能自闭和</p>
+<p><img src="https://cxx-1304636603.cos.ap-beijing.myqcloud.com/picgo_update_img/image-20230920185650282.png" alt="image-20230920185650282"></p>
+</li>
+</ul>
+<h4 id="2-2-3-1、js基础语法"><a href="#2-2-3-1、js基础语法" class="headerlink" title="2.2.3.1、js基础语法"></a>2.2.3.1、js基础语法</h4><p><em><strong>书写语法</strong></em></p>
+<p><code>区分大小写（变量名，函数名）</code>、<code>建议每行结尾分号</code> ，<code>大括号表示代码块</code>，<code>单行注释</code>：<code>// 注释内容</code>，<code>多行注释：/* 注释内容 */</code></p>
+<p>演示书写语法：</p>
+<p><img src="https://cxx-1304636603.cos.ap-beijing.myqcloud.com/picgo_update_img/image-20230921145934103.png" alt="image-20230921145934103"></p>
+<p><em><strong>变量</strong></em></p>
+<table>
+<thead>
+<tr>
+<th>关键字</th>
+<th>解释</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>var</td>
+<td>早期ECMAScript5中用于变量声明的关键字</td>
+</tr>
+<tr>
+<td>let</td>
+<td>ECMAScript6中新增的用于变量声明的关键字，相比较var，let只在代码块内生效</td>
+</tr>
+<tr>
+<td>const</td>
+<td>声明常量的，常量一旦声明，不能修改</td>
+</tr>
+</tbody></table>
+<ul>
+<li>JavaScript 是一门弱类型语言，变量可以存放不同类型的值 。</li>
+<li>变量名需要遵循如下规则：<ul>
+<li>组成字符可以是任何字母、数字、下划线（_）或美元符号（$）</li>
+<li>数字不能开头</li>
+<li>建议使用驼峰命名</li>
+</ul>
+</li>
+</ul>
+<p><em><strong>数据类型和运算符</strong></em></p>
+<p>数据类型分为 ：原始类型 和 引用类型，具体有如下类型</p>
+<table>
+<thead>
+<tr>
+<th>数据类型</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>number</td>
+<td>数字（整数、小数、NaN(Not a Number)）</td>
+</tr>
+<tr>
+<td>string</td>
+<td>字符串，单双引皆可</td>
+</tr>
+<tr>
+<td>boolean</td>
+<td>布尔。true，false</td>
+</tr>
+<tr>
+<td>null</td>
+<td>对象为空</td>
+</tr>
+<tr>
+<td>undefined</td>
+<td>当声明的变量未初始化时，该变量的默认值是 undefined</td>
+</tr>
+</tbody></table>
+<p><strong>注：</strong>原始数据类型：Undefined，Null，<a href="https://so.csdn.net/so/search?q=Boolean&spm=1001.2101.3001.7020">Boolean</a>，Number、String。</p>
+<p>引用数据类型：对象、数组、函数。</p>
+<p>在js中，虽然不区分数据类型，但是有时候涉及到数值计算，还是需要进行类型转换的，js中可以通过parseInt()函数来进行将其他类型转换成数值类型。代码如下：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">// 类型转换 - 其他类型转为数字</span><br><span class="line">alert(parseInt(&quot;12&quot;)); //12</span><br><span class="line">alert(parseInt(&quot;12A45&quot;)); //12</span><br><span class="line">alert(parseInt(&quot;A45&quot;));//NaN (not a number)</span><br></pre></td></tr></table></figure>
+
+<p>除此之外，在js中，还有非常重要的一点是：0,null,undefined,””,NaN理解成false,反之理解成true。代码：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"> if(0)&#123; //false</span><br><span class="line">    alert(&quot;0 转换为false&quot;);</span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line">if(1)&#123; //true</span><br><span class="line">    alert(&quot;除0和NaN其他数字都转为 true&quot;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p><em><strong>运算符</strong></em></p>
+<table>
+<thead>
+<tr>
+<th>运算规则</th>
+<th>运算符</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>算术运算符</td>
+<td>+ , - , * , &#x2F; , % , ++ , –</td>
+</tr>
+<tr>
+<td>赋值运算符</td>
+<td>&#x3D; , +&#x3D; , -&#x3D; , *&#x3D; , &#x2F;&#x3D; , %&#x3D;</td>
+</tr>
+<tr>
+<td>比较运算符</td>
+<td>&gt; , &lt; , &gt;&#x3D; , &lt;&#x3D; , !&#x3D; , &#x3D;&#x3D; , &#x3D;&#x3D;&#x3D;   注意     &#x3D;&#x3D; 会进行类型转换，&#x3D;&#x3D;&#x3D; 不会进行类型转换</td>
+</tr>
+<tr>
+<td>逻辑运算符</td>
+<td>&amp;&amp; , || , !</td>
+</tr>
+<tr>
+<td>三元运算符</td>
+<td>条件表达式 ? true_value: false_value</td>
+</tr>
+</tbody></table>
+<p><img src="https://cxx-1304636603.cos.ap-beijing.myqcloud.com/picgo_update_img/image-20230921151635037.png" alt="image-20230921151635037"></p>
+<h4 id="2-2-3-2、js函数"><a href="#2-2-3-2、js函数" class="headerlink" title="2.2.3.2、js函数"></a>2.2.3.2、js函数</h4><p><img src="https://cxx-1304636603.cos.ap-beijing.myqcloud.com/picgo_update_img/image-20230921152029047.png" alt="image-20230921152029047"></p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">add</span>(<span class="params">a,b</span>)&#123;</span><br><span class="line">    <span class="keyword">return</span> a+b;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> result = <span class="title function_">add</span>(<span class="number">1</span>,<span class="number">2</span>);</span><br><span class="line"><span class="title function_">alert</span>(result);</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://cxx-1304636603.cos.ap-beijing.myqcloud.com/picgo_update_img/image-20230921152305518.png" alt="image-20230921152305518"></p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> add= <span class="keyword">function</span>(<span class="params">a,b</span>)&#123;</span><br><span class="line">    <span class="keyword">return</span> a+b;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> result =<span class="title function_">add</span>(<span class="number">3</span>,<span class="number">4</span>);  </span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="2-2-3-3、js对象"><a href="#2-2-3-3、js对象" class="headerlink" title="2.2.3.3、js对象"></a>2.2.3.3、js对象</h4><p><em><strong>基础对象：</strong></em></p>
+<ul>
+<li><p>array</p>
+<p>var arr&#x3D;[1,2,3,4,5];</p>
+<p>arr[10]&#x3D;”hello”;</p>
+<p>数组长度可变，类型可变</p>
+<p><img src="https://cxx-1304636603.cos.ap-beijing.myqcloud.com/picgo_update_img/image-20230921152810803.png" alt="image-20230921152810803"></p>
+<p><img src="https://cxx-1304636603.cos.ap-beijing.myqcloud.com/picgo_update_img/image-20230921153125930.png" alt="image-20230921153125930"></p>
+</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> array = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>];</span><br><span class="line">     <span class="keyword">for</span> (<span class="keyword">let</span> index = <span class="number">0</span>; index &lt; array.<span class="property">length</span>; index++) &#123;</span><br><span class="line">         <span class="variable language_">console</span>.<span class="title function_">log</span>(array[index]);</span><br><span class="line">         </span><br><span class="line">     &#125;</span><br><span class="line">     array.<span class="title function_">forEach</span>(<span class="function"><span class="params">element</span> =&gt;</span> &#123;</span><br><span class="line">         <span class="variable language_">console</span>.<span class="title function_">log</span>(element);</span><br><span class="line">     &#125;);</span><br><span class="line">     <span class="comment">/* 添加元素到尾部 */</span></span><br><span class="line">     array.<span class="title function_">push</span>(<span class="number">6</span>,<span class="number">7</span>,<span class="number">9</span>);</span><br><span class="line">     <span class="comment">/* 删除元素  从那个索引位置开始删，你要删几个*/</span></span><br><span class="line">     array.<span class="title function_">splice</span>(<span class="number">0</span>,<span class="number">1</span>);</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>String</p>
+<p><img src="https://cxx-1304636603.cos.ap-beijing.myqcloud.com/picgo_update_img/image-20230921154449800.png" alt="image-20230921154449800"></p>
+</li>
+<li><p>json</p>
+<figure class="highlight json"><table><tr><td class="code"><pre><span class="line">键值对形式，键需要加引号</span><br><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;name&quot;</span><span class="punctuation">:</span><span class="string">&quot;chengbiao&quot;</span>;</span><br><span class="line">    <span class="attr">&quot;age&quot;</span><span class="punctuation">:</span><span class="number">20</span>;</span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p><img src="https://cxx-1304636603.cos.ap-beijing.myqcloud.com/picgo_update_img/image-20230921155243549.png" alt="image-20230921155243549"></p>
+<p><img src="https://cxx-1304636603.cos.ap-beijing.myqcloud.com/picgo_update_img/image-20230921155502476.png" alt="image-20230921155502476"></p>
+<p><img src="https://cxx-1304636603.cos.ap-beijing.myqcloud.com/picgo_update_img/image-20230921155555161.png" alt="image-20230921155555161"></p>
+<p><img src="https://cxx-1304636603.cos.ap-beijing.myqcloud.com/picgo_update_img/image-20230921155944650.png" alt="image-20230921155944650"></p>
+</li>
+</ul>
+<p><em><strong>BOM对象：</strong></em></p>
+<p>我们要操作浏览器的部分功能，可以通过操作BOM对象的相关属性或者函数来完成</p>
+<p>例如：我们想要将浏览器的地址改为<code>http://www.baidu.com</code>,我们就可以通过BOM中提供的location对象的href属性来完成，代码如下：<code>location.href=&#39;http://www.baidu.com&#39;</code></p>
+<p>BOM中提供了如下5个对象：</p>
+<table>
+<thead>
+<tr>
+<th align="left">对象名称</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">Window</td>
+<td align="left"><strong>浏览器窗口对象</strong></td>
+</tr>
+<tr>
+<td align="left">Navigator</td>
+<td align="left">浏览器对象</td>
+</tr>
+<tr>
+<td align="left">Screen</td>
+<td align="left">屏幕对象</td>
+</tr>
+<tr>
+<td align="left">History</td>
+<td align="left">历史记录对象</td>
+</tr>
+<tr>
+<td align="left">Location</td>
+<td align="left"><strong>地址栏对象</strong></td>
+</tr>
+</tbody></table>
+<p>&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</p>
+<p><img src="https://cxx-1304636603.cos.ap-beijing.myqcloud.com/picgo_update_img/image-20210815194911914.png"></p>
+<p><strong>我么只需要了解两个：浏览器窗口对象，地址栏对象</strong></p>
+<ul>
+<li><p>window</p>
+<p><img src="https://cxx-1304636603.cos.ap-beijing.myqcloud.com/picgo_update_img/image-20230921160412509.png" alt="image-20230921160412509"></p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//返回值是布尔值</span></span><br><span class="line">       <span class="keyword">var</span> a=  <span class="title function_">confirm</span>(<span class="string">&quot;您确认要删除吗？&quot;</span>);</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://cxx-1304636603.cos.ap-beijing.myqcloud.com/picgo_update_img/image-20230921161237271.png" alt="image-20230921161237271"></p>
+</li>
+<li><p>Location</p>
+<p><img src="https://cxx-1304636603.cos.ap-beijing.myqcloud.com/picgo_update_img/image-20230921161418700.png" alt="image-20230921161418700"></p>
+<p>常用href属性</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">自动跳转到百度</span><br><span class="line">location.<span class="property">href</span> = <span class="string">&quot;https://www.baidu.com&quot;</span>;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<p><em><strong>DOM对象</strong></em></p>
+<p>DOM：Document Object Model 文档对象模型。也就是 JavaScript 将 HTML 文档的各个组成部分封装为对象</p>
+<p>HTML 文档是浏览器解析。封装的对象分为</p>
+<ul>
+<li>Document：整个文档对象</li>
+<li>Element：元素对象</li>
+<li>Attribute：属性对象</li>
+<li>Text：文本对象</li>
+<li>Comment：注释对象</li>
+</ul>
+<p>如下图，左边是 HTML 文档内容，右边是 DOM 树</p>
+<p><img src="https://cxx-1304636603.cos.ap-beijing.myqcloud.com/picgo_update_img/1668796698067.png"></p>
+<p>学习DOM技术主要作用如下：</p>
+<ul>
+<li>改变 HTML 元素的内容</li>
+<li>改变 HTML 元素的样式（CSS）</li>
+<li>对 HTML DOM 事件作出反应</li>
+<li>添加和删除 HTML 元素</li>
+</ul>
+<p><strong>获取DOM对象</strong></p>
+<p>我们知道DOM的作用是通过修改HTML元素的内容和样式等来实现页面的各种动态效果，但是我们要操作DOM对象的前提是先获取元素对象，然后才能操作，所以学习DOM,主要的核心就是学习如下2点：</p>
+<ul>
+<li>如何获取DOM中的元素对象（Element对象 ，也就是标签）</li>
+<li>如何操作Element对象的属性,也就是标签的属性。</li>
+</ul>
+<p><img src="https://cxx-1304636603.cos.ap-beijing.myqcloud.com/picgo_update_img/image-20230921195207742.png"></p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">&quot;X-UA-Compatible&quot;</span> <span class="attr">content</span>=<span class="string">&quot;IE=edge&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span> <span class="attr">content</span>=<span class="string">&quot;width=device-width, initial-scale=1.0&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>JS-对象-DOM<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">img</span> <span class="attr">id</span>=<span class="string">&quot;h1&quot;</span> <span class="attr">src</span>=<span class="string">&quot;img/off.gif&quot;</span>&gt;</span>  <span class="tag">&lt;<span class="name">br</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;cls&quot;</span>&gt;</span>啦啦啦啦啦<span class="tag">&lt;/<span class="name">div</span>&gt;</span>   <span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;cls&quot;</span>&gt;</span>哈哈哈哈哈<span class="tag">&lt;/<span class="name">div</span>&gt;</span>  <span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;checkbox&quot;</span> <span class="attr">name</span>=<span class="string">&quot;hobby&quot;</span>&gt;</span> 电影</span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;checkbox&quot;</span> <span class="attr">name</span>=<span class="string">&quot;hobby&quot;</span>&gt;</span> 旅游</span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;checkbox&quot;</span> <span class="attr">name</span>=<span class="string">&quot;hobby&quot;</span>&gt;</span> 游戏</span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    <span class="comment">//1. 获取Element元素</span></span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    <span class="comment">//1.1 获取元素-根据ID获取</span></span></span><br><span class="line"><span class="language-javascript">    <span class="comment">// var img = document.getElementById(&#x27;h1&#x27;);</span></span></span><br><span class="line"><span class="language-javascript">    <span class="comment">// alert(img);</span></span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    <span class="comment">//1.2 获取元素-根据标签获取 - div</span></span></span><br><span class="line"><span class="language-javascript">    <span class="comment">// var divs = document.getElementsByTagName(&#x27;div&#x27;);</span></span></span><br><span class="line"><span class="language-javascript">    <span class="comment">// for (let i = 0; i &lt; divs.length; i++) &#123;</span></span></span><br><span class="line"><span class="language-javascript">    <span class="comment">//     alert(divs[i]);</span></span></span><br><span class="line"><span class="language-javascript">    <span class="comment">// &#125;</span></span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    <span class="comment">//1.3 获取元素-根据name属性获取</span></span></span><br><span class="line"><span class="language-javascript">    <span class="comment">// var ins = document.getElementsByName(&#x27;hobby&#x27;);</span></span></span><br><span class="line"><span class="language-javascript">    <span class="comment">// for (let i = 0; i &lt; ins.length; i++) &#123;</span></span></span><br><span class="line"><span class="language-javascript">    <span class="comment">//     alert(ins[i]);</span></span></span><br><span class="line"><span class="language-javascript">    <span class="comment">// &#125;</span></span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    <span class="comment">//1.4 获取元素-根据class属性获取</span></span></span><br><span class="line"><span class="language-javascript">    <span class="comment">// var divs = document.getElementsByClassName(&#x27;cls&#x27;);</span></span></span><br><span class="line"><span class="language-javascript">    <span class="comment">// for (let i = 0; i &lt; divs.length; i++) &#123;</span></span></span><br><span class="line"><span class="language-javascript">    <span class="comment">//     alert(divs[i]);</span></span></span><br><span class="line"><span class="language-javascript">    <span class="comment">// &#125;</span></span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    <span class="comment">//2. 查询参考手册, 属性、方法</span></span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">var</span> divs = <span class="variable language_">document</span>.<span class="title function_">getElementsByClassName</span>(<span class="string">&#x27;cls&#x27;</span>);</span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">var</span> div1 = divs[<span class="number">0</span>];</span></span><br><span class="line"><span class="language-javascript">    </span></span><br><span class="line"><span class="language-javascript">    div1.<span class="property">innerHTML</span> = <span class="string">&quot;123456&quot;</span>;</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="2-2-3-4、js事件"><a href="#2-2-3-4、js事件" class="headerlink" title="2.2.3.4、js事件"></a>2.2.3.4、js事件</h4><p>什么是事件呢？HTML事件是发生在HTML元素上的 “事情”，例如：</p>
+<ul>
+<li>按钮被点击</li>
+<li>鼠标移到元素上</li>
+<li>输入框失去焦点</li>
+<li>……..</li>
+</ul>
+<p>而我们可以给这些<strong>事件绑定函数</strong>，当事件触发时，可以自动的完成对应的功能。这就是<strong>事件监听</strong>。</p>
+<p><img src="https://cxx-1304636603.cos.ap-beijing.myqcloud.com/picgo_update_img/image-20230923133103175.png" alt="image-20230923133103175"></p>
+<p><img src="https://cxx-1304636603.cos.ap-beijing.myqcloud.com/picgo_update_img/image-20230923133212378.png" alt="image-20230923133212378"></p>
+<p>方式一</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span> <span class="attr">content</span>=<span class="string">&quot;width=device-width, initial-scale=1.0&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Document<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;button&quot;</span> <span class="attr">value</span>=<span class="string">&quot;登录&quot;</span> <span class="attr">onclick</span>=<span class="string">&quot;on()&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">function</span> <span class="title function_">on</span>(<span class="params"></span>)&#123;</span></span><br><span class="line"><span class="language-javascript">        <span class="title function_">alert</span>(<span class="string">&quot;登录成功&quot;</span>);</span></span><br><span class="line"><span class="language-javascript">    &#125;</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>方式二</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span> <span class="attr">content</span>=<span class="string">&quot;width=device-width, initial-scale=1.0&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Document<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;button&quot;</span> <span class="attr">value</span>=<span class="string">&quot;傻逼&quot;</span> <span class="attr">id</span>=<span class="string">&quot;bt1&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&quot;bt1&quot;</span>).<span class="property">onclick</span>=<span class="keyword">function</span>(<span class="params"></span>)&#123;</span></span><br><span class="line"><span class="language-javascript">        <span class="title function_">alert</span>(<span class="string">&quot;傻逼&quot;</span>);</span></span><br><span class="line"><span class="language-javascript">    &#125;</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>比较常用的事件属性</p>
+<table>
+<thead>
+<tr>
+<th>事件属性名</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>onclick</td>
+<td>鼠标单击事件</td>
+</tr>
+<tr>
+<td>onblur</td>
+<td>元素失去焦点</td>
+</tr>
+<tr>
+<td>onfocus</td>
+<td>元素获得焦点</td>
+</tr>
+<tr>
+<td>onload</td>
+<td>某个页面或图像被完成加载</td>
+</tr>
+<tr>
+<td>onsubmit</td>
+<td>当表单提交时触发该事件</td>
+</tr>
+<tr>
+<td>onmouseover</td>
+<td>鼠标被移到某元素之上</td>
+</tr>
+<tr>
+<td>onmouseout</td>
+<td>鼠标从某元素移开</td>
+</tr>
+</tbody></table>
+<h2 id="2-2、Vue"><a href="#2-2、Vue" class="headerlink" title="2.2、Vue"></a>2.2、Vue</h2><p><img src="https://cxx-1304636603.cos.ap-beijing.myqcloud.com/picgo_update_img/image-20230923135400886.png" alt="image-20230923135400886"></p>
+<p><img src="https://cxx-1304636603.cos.ap-beijing.myqcloud.com/picgo_update_img/image-20230923170329145.png" alt="image-20230923170329145"></p>
+<p><img src="https://cxx-1304636603.cos.ap-beijing.myqcloud.com/picgo_update_img/image-20230923170654649.png" alt="image-20230923170654649"></p>
+<p><img src="https://cxx-1304636603.cos.ap-beijing.myqcloud.com/picgo_update_img/image-20230923172006812.png" alt="image-20230923172006812"></p>
+<h3 id="常用指令"><a href="#常用指令" class="headerlink" title="常用指令"></a>常用指令</h3><p><img src="https://cxx-1304636603.cos.ap-beijing.myqcloud.com/picgo_update_img/image-20230923172655225.png" alt="image-20230923172655225"></p>
+<p><img src="https://cxx-1304636603.cos.ap-beijing.myqcloud.com/picgo_update_img/image-20230923174122205.png" alt="image-20230923174122205"></p>
+<p><img src="https://cxx-1304636603.cos.ap-beijing.myqcloud.com/picgo_update_img/image-20230923175855348.png" alt="image-20230923175855348"></p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span> <span class="attr">content</span>=<span class="string">&quot;width=device-width, initial-scale=1.0&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Document<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;https://cdn.jsdelivr.net/npm/vue@2.7.14/dist/vue.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;app&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">v-model</span>=<span class="string">&quot;message&quot;</span>&gt;</span></span><br><span class="line">        &#123;&#123;message&#125;&#125;</span><br><span class="line"></span><br><span class="line">        <span class="tag">&lt;<span class="name">a</span> <span class="attr">:href</span>=<span class="string">&quot;url&quot;</span>&gt;</span>百度<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"></span><br><span class="line">        <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">v-model</span>=<span class="string">&quot;url&quot;</span>&gt;</span></span><br><span class="line">        </span><br><span class="line">        <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;button&quot;</span> <span class="attr">value</span>=<span class="string">&quot;点我&quot;</span> <span class="attr">v-on:click</span>=<span class="string">&quot;handle&quot;</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- v-if --&gt;</span></span><br><span class="line">        年龄：<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">v-model</span>=<span class="string">&quot;age&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">span</span> <span class="attr">v-if</span>=<span class="string">&quot;age&lt;=17&quot;</span>&gt;</span>小人<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">span</span> <span class="attr">v-else-if</span>=<span class="string">&quot;age&gt;=18&amp;&amp;age&lt;=60&quot;</span>&gt;</span>大人<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">span</span> <span class="attr">v-else</span>&gt;</span>老人<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- v-show --&gt;</span></span><br><span class="line">        年龄：<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">v-model</span>=<span class="string">&quot;age&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">span</span> <span class="attr">v-show</span>=<span class="string">&quot;age&lt;=17&quot;</span>&gt;</span>小人<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">span</span> <span class="attr">v-show</span>=<span class="string">&quot;age&gt;=18&amp;&amp;age&lt;=60&quot;</span>&gt;</span>大人<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">span</span> <span class="attr">v-show</span>=<span class="string">&quot;age&gt;60&quot;</span>&gt;</span>老人<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- v-for --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">li</span> <span class="attr">v-for</span>=<span class="string">&quot;item in addrs&quot;</span>&gt;</span>&#123;&#123;item&#125;&#125;<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    <span class="comment">//定义vue对象</span></span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">new</span> <span class="title class_">Vue</span>(&#123;</span></span><br><span class="line"><span class="language-javascript">        <span class="attr">el</span>:<span class="string">&quot;#app&quot;</span>,  <span class="comment">//vue接管的区域</span></span></span><br><span class="line"><span class="language-javascript">        <span class="attr">data</span>:&#123;  <span class="comment">//数据</span></span></span><br><span class="line"><span class="language-javascript">            <span class="attr">message</span>:<span class="string">&quot;hello world&quot;</span>,</span></span><br><span class="line"><span class="language-javascript">            <span class="attr">url</span>:<span class="string">&quot;http://www.baidu.com&quot;</span>,</span></span><br><span class="line"><span class="language-javascript">            <span class="attr">age</span>: <span class="number">20</span>,</span></span><br><span class="line"><span class="language-javascript">            <span class="attr">addrs</span>:[<span class="string">&#x27;北京&#x27;</span> , <span class="string">&#x27;上海&#x27;</span> , <span class="string">&#x27;广州&#x27;</span> , <span class="string">&#x27;深圳&#x27;</span>],</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">        &#125;,</span></span><br><span class="line"><span class="language-javascript">        <span class="attr">methods</span>:&#123;  <span class="comment">//方法</span></span></span><br><span class="line"><span class="language-javascript">            <span class="attr">handle</span>:<span class="keyword">function</span>(<span class="params"></span>)&#123;</span></span><br><span class="line"><span class="language-javascript">                <span class="title function_">alert</span>(<span class="string">&quot;hello world&quot;</span>)</span></span><br><span class="line"><span class="language-javascript">            &#125;</span></span><br><span class="line"><span class="language-javascript">        &#125;,</span></span><br><span class="line"><span class="language-javascript">    &#125;)</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="https://cxx-1304636603.cos.ap-beijing.myqcloud.com/picgo_update_img/image-20230923183513832.png" alt="image-20230923183513832"></p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">	<span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span> <span class="attr">content</span>=<span class="string">&quot;width=device-width, initial-scale=1.0&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Document<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;https://cdn.jsdelivr.net/npm/vue@2.7.14/dist/vue.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;app&quot;</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- table --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">table</span> <span class="attr">border</span>=<span class="string">&quot;1&quot;</span> <span class="attr">cellspacing</span>=<span class="string">&quot;0&quot;</span> <span class="attr">width</span>=<span class="string">&quot;60%&quot;</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">th</span>&gt;</span>编号<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">th</span>&gt;</span>姓名<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">th</span>&gt;</span>年龄<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">th</span>&gt;</span>性别<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">tr</span> <span class="attr">v-for</span>=<span class="string">&quot;(user,index) in users&quot;</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">td</span>&gt;</span>&#123;&#123;index+1&#125;&#125;<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">td</span>&gt;</span>&#123;&#123;user.name&#125;&#125;<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">td</span>&gt;</span>&#123;&#123;user.age&#125;&#125;<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">td</span>&gt;</span></span><br><span class="line">                        <span class="tag">&lt;<span class="name">span</span> <span class="attr">v-if</span>=<span class="string">&quot;user.gender==1&quot;</span>&gt;</span>男<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">                        <span class="tag">&lt;<span class="name">span</span> <span class="attr">v-if</span>=<span class="string">&quot;user.gender==2&quot;</span>&gt;</span>女<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">table</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">new</span> <span class="title class_">Vue</span>(&#123;</span></span><br><span class="line"><span class="language-javascript">        <span class="attr">el</span>:<span class="string">&#x27;#app&#x27;</span>,</span></span><br><span class="line"><span class="language-javascript">        <span class="attr">data</span>:&#123;</span></span><br><span class="line"><span class="language-javascript">            <span class="attr">users</span>:[</span></span><br><span class="line"><span class="language-javascript">                &#123;</span></span><br><span class="line"><span class="language-javascript">                    <span class="attr">name</span>:<span class="string">&#x27;程彪&#x27;</span>,</span></span><br><span class="line"><span class="language-javascript">                    <span class="attr">age</span>:<span class="number">18</span>,</span></span><br><span class="line"><span class="language-javascript">                    <span class="attr">gender</span>:<span class="number">1</span></span></span><br><span class="line"><span class="language-javascript">                &#125;, </span></span><br><span class="line"><span class="language-javascript">                &#123;</span></span><br><span class="line"><span class="language-javascript">                    <span class="attr">name</span>:<span class="string">&#x27;whoami&#x27;</span>,</span></span><br><span class="line"><span class="language-javascript">                    <span class="attr">age</span>:<span class="number">19</span>,</span></span><br><span class="line"><span class="language-javascript">                    <span class="attr">gender</span>:<span class="number">2</span></span></span><br><span class="line"><span class="language-javascript">                &#125;,</span></span><br><span class="line"><span class="language-javascript">                &#123;</span></span><br><span class="line"><span class="language-javascript">                    <span class="attr">name</span>:<span class="string">&#x27;宝贝&#x27;</span>,</span></span><br><span class="line"><span class="language-javascript">                    <span class="attr">age</span>:<span class="number">17</span>,</span></span><br><span class="line"><span class="language-javascript">                    <span class="attr">gender</span>:<span class="number">2</span></span></span><br><span class="line"><span class="language-javascript">                &#125;,</span></span><br><span class="line"><span class="language-javascript">                &#123;</span></span><br><span class="line"><span class="language-javascript">                    <span class="attr">name</span>:<span class="string">&#x27;傻逼&#x27;</span>,</span></span><br><span class="line"><span class="language-javascript">                    <span class="attr">age</span>:<span class="number">60</span>,</span></span><br><span class="line"><span class="language-javascript">                    <span class="attr">gender</span>:<span class="number">1</span></span></span><br><span class="line"><span class="language-javascript">                &#125;</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">            ]</span></span><br><span class="line"><span class="language-javascript">        &#125;</span></span><br><span class="line"><span class="language-javascript">    &#125;)</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="生命周期"><a href="#生命周期" class="headerlink" title="生命周期"></a>生命周期</h3><p><img src="https://cxx-1304636603.cos.ap-beijing.myqcloud.com/picgo_update_img/image-20230923183729776.png" alt="image-20230923183729776"></p>
+<p><img src="https://cxx-1304636603.cos.ap-beijing.myqcloud.com/picgo_update_img/image-20230923183943881.png" alt="image-20230923183943881"></p>
+<p><img src="https://cxx-1304636603.cos.ap-beijing.myqcloud.com/picgo_update_img/image-20230923184007781.png"></p>
+<p><img src="https://cxx-1304636603.cos.ap-beijing.myqcloud.com/picgo_update_img/image-20230923184430068.png" alt="image-20230923184430068"></p>
+<p>以后用来发送请求到服务端，加载数据</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">new</span> <span class="title class_">Vue</span>(&#123;</span></span><br><span class="line"><span class="language-javascript">        <span class="attr">el</span>:<span class="string">&#x27;#app&#x27;</span>,</span></span><br><span class="line"><span class="language-javascript">        <span class="attr">data</span>:&#123;&#125;,</span></span><br><span class="line"><span class="language-javascript">        <span class="attr">methods</span>:&#123;&#125;,</span></span><br><span class="line"><span class="language-javascript">        mounted () &#123;</span></span><br><span class="line"><span class="language-javascript">            <span class="title function_">alert</span>(<span class="string">&quot;vue挂载完成，请求发送到服务端&quot;</span>)</span></span><br><span class="line"><span class="language-javascript">        &#125;</span></span><br><span class="line"><span class="language-javascript">    &#125;)</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="2-3、Ajax"><a href="#2-3、Ajax" class="headerlink" title="2.3、Ajax"></a>2.3、Ajax</h3><p><img src="https://cxx-1304636603.cos.ap-beijing.myqcloud.com/picgo_update_img/image-20230923185601136.png" alt="image-20230923185601136"></p>
+<p>同步异步</p>
+<p><img src="https://cxx-1304636603.cos.ap-beijing.myqcloud.com/picgo_update_img/image-20230923185737392.png" alt="同步异步"></p>
+<p><img src="https://cxx-1304636603.cos.ap-beijing.myqcloud.com/picgo_update_img/image-20230923185951997.png" alt="image-20230923185951997"></p>
+<p>白学，不用这种方式</p>
+<p><img src="https://cxx-1304636603.cos.ap-beijing.myqcloud.com/picgo_update_img/image-20230923190409979.png" alt="image-20230923190409979"></p>
+<h4 id="2-3-1、Axios"><a href="#2-3-1、Axios" class="headerlink" title="2.3.1、Axios"></a>2.3.1、Axios</h4><p>很简单</p>
+<p><img src="https://cxx-1304636603.cos.ap-beijing.myqcloud.com/picgo_update_img/image-20230923190619371.png" alt="image-20230923190619371"></p>
+<p><img src="https://cxx-1304636603.cos.ap-beijing.myqcloud.com/picgo_update_img/image-20230923190927711.png" alt="image-20230923190927711"></p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span> <span class="attr">content</span>=<span class="string">&quot;width=device-width, initial-scale=1.0&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Document<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;button&quot;</span> <span class="attr">value</span>=<span class="string">&quot;获取数据get&quot;</span> <span class="attr">onclick</span>=<span class="string">&quot;get()&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;button&quot;</span> <span class="attr">value</span>=<span class="string">&quot;删除数据post&quot;</span> <span class="attr">onclick</span>=<span class="string">&quot;post()&quot;</span>&gt;</span></span><br><span class="line">    </span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">function</span> <span class="title function_">get</span>(<span class="params"></span>)&#123;</span></span><br><span class="line"><span class="language-javascript">        <span class="comment">//通过axios发送异步请求-get</span></span></span><br><span class="line"><span class="language-javascript">        <span class="title function_">axios</span>(&#123;</span></span><br><span class="line"><span class="language-javascript">            <span class="attr">method</span>:<span class="string">&#x27;get&#x27;</span>,</span></span><br><span class="line"><span class="language-javascript">            <span class="attr">url</span>:<span class="string">&#x27;https://mock.apifox.cn/m1/3128855-0-default/emp/list&#x27;</span>,</span></span><br><span class="line"><span class="language-javascript">        &#125;).<span class="title function_">then</span>(<span class="function"><span class="params">result</span>=&gt;</span>&#123;</span></span><br><span class="line"><span class="language-javascript">            <span class="variable language_">console</span>.<span class="title function_">log</span>(result.<span class="property">data</span>);</span></span><br><span class="line"><span class="language-javascript">        &#125;)</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    &#125;</span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">function</span> <span class="title function_">post</span>(<span class="params"></span>)&#123;</span></span><br><span class="line"><span class="language-javascript">        <span class="comment">//通过axios发送异步请求-post</span></span></span><br><span class="line"><span class="language-javascript">        <span class="title function_">axios</span>(&#123;</span></span><br><span class="line"><span class="language-javascript">            <span class="attr">method</span>:<span class="string">&#x27;post&#x27;</span>,</span></span><br><span class="line"><span class="language-javascript">            <span class="attr">url</span>:<span class="string">&#x27;https://mock.apifox.cn/m1/3128855-0-default/emp/deleteById&#x27;</span>,</span></span><br><span class="line"><span class="language-javascript">            <span class="attr">data</span>:<span class="string">&#x27;id=1&#x27;</span></span></span><br><span class="line"><span class="language-javascript">        &#125;).<span class="title function_">then</span>(<span class="function"><span class="params">result</span>=&gt;</span>&#123;</span></span><br><span class="line"><span class="language-javascript">            <span class="variable language_">console</span>.<span class="title function_">log</span>(result.<span class="property">data</span>);</span></span><br><span class="line"><span class="language-javascript">        &#125;)</span></span><br><span class="line"><span class="language-javascript">    &#125;</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>简化</p>
+<p><img src="https://cxx-1304636603.cos.ap-beijing.myqcloud.com/picgo_update_img/image-20230923192728995.png" alt="image-20230923192728995"></p>
+<p><img src="https://cxx-1304636603.cos.ap-beijing.myqcloud.com/picgo_update_img/image-20230923192823228.png" alt="image-20230923192823228"></p>
+<p><img src="https://cxx-1304636603.cos.ap-beijing.myqcloud.com/picgo_update_img/image-20230923193352727.png" alt="image-20230923193352727"></p>
+<p><img src="https://cxx-1304636603.cos.ap-beijing.myqcloud.com/picgo_update_img/image-20230923193437001.png" alt="image-20230923193437001"></p>
+<p>例子</p>
+<p>异步请求 用到了mounted ()，前面vue生命周期提及到过</p>
+<p><img src="https://cxx-1304636603.cos.ap-beijing.myqcloud.com/picgo_update_img/image-20230923193849126.png" alt="image-20230923193849126"></p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span> <span class="attr">content</span>=<span class="string">&quot;width=device-width, initial-scale=1.0&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Document<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;https://cdn.jsdelivr.net/npm/vue@2.7.14/dist/vue.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;app&quot;</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- 表格 --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">table</span> <span class="attr">border</span>=<span class="string">&quot;1&quot;</span> <span class="attr">cellspacing</span>=<span class="string">&quot;0&quot;</span> <span class="attr">width</span>=<span class="string">&quot;60%&quot;</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">th</span>&gt;</span>编号<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">th</span>&gt;</span>姓名<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">th</span>&gt;</span>图像<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">th</span>&gt;</span>性别<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">th</span>&gt;</span>职位<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">th</span>&gt;</span>入职日期<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">th</span>&gt;</span>最后操作时间<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line"></span><br><span class="line">            <span class="tag">&lt;<span class="name">tr</span> <span class="attr">align</span>=<span class="string">&quot;center&quot;</span> <span class="attr">v-for</span>=<span class="string">&quot;(emp,index) in emps&quot;</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">td</span>&gt;</span>&#123;&#123;index + 1&#125;&#125;<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">td</span>&gt;</span>&#123;&#123;emp.name&#125;&#125;<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">td</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">img</span> <span class="attr">:src</span>=<span class="string">&quot;emp.image&quot;</span> <span class="attr">width</span>=<span class="string">&quot;70px&quot;</span> <span class="attr">height</span>=<span class="string">&quot;50px&quot;</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">td</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">span</span> <span class="attr">v-if</span>=<span class="string">&quot;emp.gender == 1&quot;</span>&gt;</span>男<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">span</span> <span class="attr">v-if</span>=<span class="string">&quot;emp.gender == 2&quot;</span>&gt;</span>女<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">td</span>&gt;</span>&#123;&#123;emp.job&#125;&#125;<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">td</span>&gt;</span>&#123;&#123;emp.entrydate&#125;&#125;<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">td</span>&gt;</span>&#123;&#123;emp.updatetime&#125;&#125;<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">table</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    </span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">new</span> <span class="title class_">Vue</span>(&#123;</span></span><br><span class="line"><span class="language-javascript">        <span class="attr">el</span>:<span class="string">&#x27;#app&#x27;</span>,</span></span><br><span class="line"><span class="language-javascript">        <span class="attr">data</span>:&#123;</span></span><br><span class="line"><span class="language-javascript">            <span class="attr">emps</span>:[]</span></span><br><span class="line"><span class="language-javascript">        &#125;,</span></span><br><span class="line"><span class="language-javascript">        <span class="attr">methods</span>:&#123;&#125;,</span></span><br><span class="line"><span class="language-javascript">        mounted () &#123;</span></span><br><span class="line"><span class="language-javascript">            <span class="comment">/* result.data拿到了整体的数据，.再data我们只需要里面的data */</span></span></span><br><span class="line"><span class="language-javascript">            axios.<span class="title function_">get</span>(<span class="string">&#x27;https://mock.apifox.cn/m1/3128855-0-default/emp/list&#x27;</span>).<span class="title function_">then</span>(<span class="function"><span class="params">result</span>=&gt;</span>&#123;</span></span><br><span class="line"><span class="language-javascript">                <span class="comment">/* 把他赋值给当前对象（data中的）的emps，emps是自己定义的名字 */</span></span></span><br><span class="line"><span class="language-javascript">                <span class="variable language_">this</span>.<span class="property">emps</span> = result.<span class="property">data</span>.<span class="property">data</span></span></span><br><span class="line"><span class="language-javascript">            &#125;)</span></span><br><span class="line"><span class="language-javascript">        &#125;</span></span><br><span class="line"><span class="language-javascript">    &#125;)</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+]]></content>
+      <categories>
+        <category>Java</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+      </tags>
+  </entry>
 </search>
