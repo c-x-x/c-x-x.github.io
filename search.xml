@@ -1,193 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Hello World</title>
-    <url>/2023/09/29/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-]]></content>
-      <categories>
-        <category>HelloWord</category>
-      </categories>
-      <tags>
-        <tag>HelloWord</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>markdown的使用</title>
-    <url>/2021/06/07/markdown/</url>
-    <content><![CDATA[<h2 id="什么是MarkDown？"><a href="#什么是MarkDown？" class="headerlink" title="什么是MarkDown？"></a>什么是MarkDown？</h2><p>Markdown是一种<a href="https://baike.baidu.com/item/%E8%BD%BB%E9%87%8F%E7%BA%A7%E6%A0%87%E8%AE%B0%E8%AF%AD%E8%A8%80/52671915">轻量级标记语言</a>，创始人为约翰·格鲁伯（英语：John Gruber）。 它允许人们使用易读易写的<a href="https://baike.baidu.com/item/%E7%BA%AF%E6%96%87%E6%9C%AC%E6%A0%BC%E5%BC%8F/9862288">纯文本格式</a>编写文档，然后转换成有效的XHTML（或者HTML）文档。这种语言吸收了很多在电子邮件中已有的纯文本标记的特性。</p>
-<p>由于Markdown的轻量化、易读易写特性，并且对于图片，图表、数学式都有支持，许多网站都广泛使用Markdown来撰写帮助文档或是用于论坛上发表消息。 如<a href="https://baike.baidu.com/item/GitHub/10145341">GitHub</a>、<a href="https://baike.baidu.com/item/Reddit/1272010">Reddit</a>、<a href="https://baike.baidu.com/item/Diaspora/10726893">Diaspora</a>、[Stack Exchange](<a href="https://baike.baidu.com/item/Stack">https://baike.baidu.com/item/Stack</a> Exchange&#x2F;13777796)、<a href="https://baike.baidu.com/item/OpenStreetMap/3171606">OpenStreetMap</a> 、<a href="https://baike.baidu.com/item/SourceForge/6562141">SourceForge</a>、<a href="https://baike.baidu.com/item/%E7%AE%80%E4%B9%A6/5782216">简书</a>等，甚至还能被使用来撰写<a href="https://baike.baidu.com/item/%E7%94%B5%E5%AD%90%E4%B9%A6/346054">电子书</a>。</p>
-<p>——百度百科</p>
-<h2 id="为什么要使用Markdown？"><a href="#为什么要使用Markdown？" class="headerlink" title="为什么要使用Markdown？"></a>为什么要使用Markdown？</h2><p>您可能想知道为什么人们使用Markdown而不是WYSIWYG编辑器。当您可以按下界面中的按钮来设置文本格式时，为什么还要使用Markdown书写？事实证明，人们使用Markdown而不是WYSIWYG编辑器的原因有两个。</p>
-<ul>
-<li>Markdown可以用于一切。人们使用它来创建<a href="http://markdown.p2hp.com/getting-started/index.html#websites">网站</a>，<a href="http://markdown.p2hp.com/getting-started/index.html#documents">文档</a>，<a href="http://markdown.p2hp.com/getting-started/index.html#notes">便笺</a>，<a href="http://markdown.p2hp.com/getting-started/index.html#books">书籍</a>，<a href="http://markdown.p2hp.com/getting-started/index.html#presentations">演示文稿</a>，<a href="http://markdown.p2hp.com/getting-started/index.html#email">电子邮件</a>和<a href="http://markdown.p2hp.com/getting-started/index.html#documentation">技术文档</a>。</li>
-<li>Markdown是便携式的。几乎可以使用任何应用程序打开包含Markdown格式文本的文件。如果您决定不喜欢当前使用的Markdown应用程序，则可以将Markdown文件导入另一个Markdown应用程序。这与Microsoft Word等文字处理应用程序形成了鲜明的对比，Microsoft Word将文字内容锁定为专有文件格式。</li>
-<li>Markdown是独立于平台的。您可以在运行任何操作系统的任何设备上创建Markdown格式的文本。</li>
-<li>MarkDown是未来的证明。即使您正在使用的应用程序将来会在某个时候停止工作，您仍然可以使用文本编辑应用程序读取Markdown格式的文本。当涉及需要无限期保存的书籍，大学论文和其他里程碑文件时，这是一个重要的考虑因素。</li>
-<li>Markdown无处不在。Reddit和GitHub等网站都支持Markdown，许多桌面和基于Web的应用程序都支持它。</li>
-</ul>
-<h2 id="Markdown基本语法"><a href="#Markdown基本语法" class="headerlink" title="Markdown基本语法"></a>Markdown基本语法</h2><h3 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h3><p>markdown由两种标题标记格式</p>
-<p>1、使用&#x3D;和-标记一级和二级标题，在文本下方的行上，添加任意数量的<code>==</code>标题级别1的<code>--</code>字符或标题级别2的字符</p>
-<p>语法如下：</p>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="section">一级标题</span></span><br><span class="line"><span class="section">=======</span></span><br><span class="line"><span class="section">二级标题</span></span><br><span class="line"><span class="section">-------</span></span><br></pre></td></tr></table></figure>
-
-<p>2、使用#标记，使用#可以标记1-6级的标题，一级就是一个＃，几级就是几个#，#和文本之间要加一个空格</p>
-<p>语法如下：</p>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="section"># 一级标题</span></span><br><span class="line"><span class="section">## 二级标题</span></span><br><span class="line"><span class="section">### 三级标题</span></span><br><span class="line"><span class="section">#### 四级标题</span></span><br><span class="line"><span class="section">##### 五级标题</span></span><br><span class="line"><span class="section">###### 六级标题</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="段落"><a href="#段落" class="headerlink" title="段落"></a>段落</h3><p>段落没有特殊格式，直接编写文字就好</p>
-<h4 id="段落换行"><a href="#段落换行" class="headerlink" title="段落换行"></a>段落换行</h4><p>段落换行就是使用两个以上的空格加回车</p>
-<p>语法如下：</p>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">hello   </span><br><span class="line">word!</span><br></pre></td></tr></table></figure>
-
-<h4 id="字体"><a href="#字体" class="headerlink" title="字体"></a>字体</h4><p>markdown可以使用以下几种字体：</p>
-<p>语法如下：</p>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="emphasis">*斜体文本*</span></span><br><span class="line"><span class="emphasis">_斜体文本_</span></span><br><span class="line"><span class="strong">**粗体文本**</span></span><br><span class="line"><span class="strong">__粗体文本__</span></span><br><span class="line"><span class="strong">**<span class="emphasis">*粗斜体文本*</span>**</span></span><br><span class="line"><span class="strong">__<span class="emphasis">_粗斜体文本_</span>__</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="分割线"><a href="#分割线" class="headerlink" title="分割线"></a>分割线</h4><p>你可以在一行中用三个以上的星号、减号、底线来建立一个分隔线，行内不能有其他东西。你也可以在星号或是减号中间插入空格。</p>
-<p>语法如下：</p>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="section"><span class="strong">***</span></span></span><br><span class="line"><span class="strong"><span class="section">---</span></span></span><br><span class="line"><span class="strong"><span class="section">___</span></span></span><br><span class="line"><span class="strong"><span class="section">* * * *</span></span></span><br><span class="line"><span class="strong"><span class="section">- - -</span></span></span><br></pre></td></tr></table></figure>
-
-<h4 id="删除线"><a href="#删除线" class="headerlink" title="删除线"></a>删除线</h4><p>在文字的两端加上两个波浪线即可</p>
-<p>语法如下：</p>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">~~hello,word~~</span><br></pre></td></tr></table></figure>
-
-<h4 id="下划线"><a href="#下划线" class="headerlink" title="下划线"></a>下划线</h4><p>下划线可以通过html的<code>&lt;u&gt;</code>标签实现</p>
-<p>语法如下：</p>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">u</span>&gt;</span></span>hello,word<span class="language-xml"><span class="tag">&lt;/<span class="name">u</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
-
-<h4 id="脚注"><a href="#脚注" class="headerlink" title="脚注"></a>脚注</h4><p>脚注是对文本的补充说明</p>
-<p>语法如下：</p>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">[^hello,word]</span><br><span class="line">[<span class="symbol">^hello,word</span>]: <span class="link">你好，世界</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h3><h4 id="无序列表"><a href="#无序列表" class="headerlink" title="无序列表"></a>无序列表</h4><p>无序列表使用 * 、 <strong>+</strong> 或是 <strong>-</strong> 作为列表标记，这些标记后面要添加一个空格，然后再填写内容</p>
-<p>语法如下：</p>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="bullet">*</span> 第一项</span><br><span class="line"><span class="bullet">*</span> 第二项</span><br><span class="line"><span class="bullet">*</span> 第三项</span><br></pre></td></tr></table></figure>
-
-<h4 id="有序列表"><a href="#有序列表" class="headerlink" title="有序列表"></a>有序列表</h4><p>有序列表使用数字加上.来表示</p>
-<p>语法如下：</p>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="bullet">1.</span> 第一项</span><br><span class="line"><span class="bullet">2.</span> 第二项</span><br><span class="line"><span class="bullet">3.</span> 第三项</span><br></pre></td></tr></table></figure>
-
-<h4 id="列表嵌套"><a href="#列表嵌套" class="headerlink" title="列表嵌套"></a>列表嵌套</h4><p>列表嵌套只需在子列表中的选项前面添加四个空格即可</p>
-<p>语法如下：</p>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="bullet">1.</span> 第一项</span><br><span class="line"><span class="bullet">    -</span> 第1.1项</span><br></pre></td></tr></table></figure>
-
-<h3 id="区块"><a href="#区块" class="headerlink" title="区块"></a>区块</h3><p>区块引用实在段落开头使用 <strong>&gt;</strong> 符号，然后一个空格</p>
-<p>语法如下：</p>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="quote">&gt; 区块1</span></span><br><span class="line"><span class="quote">&gt; 区块2</span></span><br><span class="line"><span class="quote">&gt; 区块3</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="区块嵌套"><a href="#区块嵌套" class="headerlink" title="区块嵌套"></a>区块嵌套</h4><p>一个 <strong>&gt;</strong> 是最外层，两个 <strong>&gt;</strong> 是第一层嵌套，以此类推</p>
-<p>语法如下：</p>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="quote">&gt; 最外层</span></span><br><span class="line">&gt;&gt; 第一次嵌套</span><br><span class="line">&gt;&gt;&gt; 第二次嵌套</span><br></pre></td></tr></table></figure>
-
-<h4 id="区块中使用列表"><a href="#区块中使用列表" class="headerlink" title="区块中使用列表"></a>区块中使用列表</h4><p>语法如下：</p>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">&gt;区块中使用列表</span><br><span class="line">&gt;1.啦啦啦</span><br><span class="line">&gt;2.啦啦啦</span><br><span class="line">&gt;3.啦啦啦</span><br></pre></td></tr></table></figure>
-
-<h4 id="列表中使用区块"><a href="#列表中使用区块" class="headerlink" title="列表中使用区块"></a>列表中使用区块</h4><p>如果要在列表项目内放进区块，那么就需要在 <strong>&gt;</strong> 前添加四个空格的缩进。</p>
-<p>语法如下：</p>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="bullet">*</span> 第一项</span><br><span class="line"><span class="code">    &gt; xxxxx</span></span><br><span class="line"><span class="code">    &gt; xxxxx</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><h4 id="段落上的代码"><a href="#段落上的代码" class="headerlink" title="段落上的代码"></a>段落上的代码</h4><p>如果是段落上的一个函数或片段的代码可以用反引号&#96;把它包起来</p>
-<p>语法如下：</p>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">啦啦啦啦<span class="code">`printf()`</span>啦啦</span><br></pre></td></tr></table></figure>
-
-<h4 id="代码区块"><a href="#代码区块" class="headerlink" title="代码区块"></a>代码区块</h4><p>代码区块使用四个空格或者一个制表符</p>
-<p>你也可以用 <strong>&#96;&#96;&#96;</strong> 包裹一段代码，并指定一种语言</p>
-<p>语法如下：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/fristalpha/alpha/BlogPic/20210314120955.png" alt="image-20210314120953433"></p>
-<p>效果：</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.Scanner;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">C1</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        Scanner sc=<span class="keyword">new</span> <span class="title class_">Scanner</span>(System.in);</span><br><span class="line">        System.out.println(<span class="string">&quot;请输入杨辉三角的行数&quot;</span>);</span><br><span class="line">        <span class="type">int</span> n=sc.nextInt();</span><br><span class="line">        <span class="type">int</span> [][] arr=<span class="keyword">new</span> <span class="title class_">int</span>[n][];<span class="comment">//创建一个不规则数组</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;arr.length;i++) &#123;<span class="comment">//0 1 2 3 4 5 6 7</span></span><br><span class="line">            arr[i]=<span class="keyword">new</span> <span class="title class_">int</span>[i+<span class="number">1</span>];<span class="comment">//创建一个一维数组</span></span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">0</span>;j&lt;arr[i].length;j++) &#123;</span><br><span class="line">                <span class="keyword">if</span>(arr[i].length&lt;<span class="number">3</span>) &#123;</span><br><span class="line">                    arr[i][<span class="number">0</span>]=<span class="number">1</span>;<span class="comment">//头赋值为1</span></span><br><span class="line">                    arr[i][arr[i].length-<span class="number">1</span>]=<span class="number">1</span>;<span class="comment">//尾赋值为1</span></span><br><span class="line">                &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">                    <span class="keyword">if</span>(j==<span class="number">0</span>||j==arr[i].length-<span class="number">1</span>) &#123;</span><br><span class="line">                        arr[i][<span class="number">0</span>]=<span class="number">1</span>;<span class="comment">//头赋值为1</span></span><br><span class="line">                        arr[i][arr[i].length-<span class="number">1</span>]=<span class="number">1</span>;<span class="comment">//尾赋值为1</span></span><br><span class="line">                    &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">                        arr[i][j]=arr[i-<span class="number">1</span>][j-<span class="number">1</span>]+arr[i-<span class="number">1</span>][j];<span class="comment">//公式</span></span><br><span class="line">                    &#125;</span><br><span class="line"></span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; arr.length; i++) &#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> j=arr.length-<span class="number">1</span>-i;j&gt;<span class="number">0</span>;j--) &#123;<span class="comment">//显示更加好看</span></span><br><span class="line">                System.out.print(<span class="string">&quot;  &quot;</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">j</span> <span class="operator">=</span> <span class="number">0</span>; j &lt; arr[i].length; j++) &#123;</span><br><span class="line">                System.out.print(arr[i][j]+<span class="string">&quot;    &quot;</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            System.out.println();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h3><p>链接使用方法：</p>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">[<span class="string">链接名称</span>](<span class="link">链接地址</span>)</span><br><span class="line">或者</span><br><span class="line">&lt;链接地址&gt;</span><br></pre></td></tr></table></figure>
-
-<p>举例：</p>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">[<span class="string">百度</span>](<span class="link">https://www.baidu.com</span>)</span><br><span class="line"><span class="language-xml">&lt;https://www.baidu.com&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>效果如下：</p>
-<p><a href="https://www.baidu.com/">百度</a></p>
-<p><a href="https://www.baidu.com/">https://www.baidu.com</a></p>
-<h4 id="高级链接"><a href="#高级链接" class="headerlink" title="高级链接"></a>高级链接</h4><p>可以通过一个变量来设置链接，变量赋值在文档末尾进行</p>
-<p>举例：</p>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">[<span class="string">百度</span>][<span class="symbol">1</span>]</span><br><span class="line">[<span class="symbol">1</span>]: <span class="link">https://www.baidu.com</span></span><br></pre></td></tr></table></figure>
-
-<p>效果如下：</p>
-<p><a href="https://www.baidu.com/">百度</a></p>
-<h4 id="禁止自动URL链接"><a href="#禁止自动URL链接" class="headerlink" title="禁止自动URL链接"></a>禁止自动URL链接</h4><p>可以通过将URL表示为带有刻度线的代码来删除该链接</p>
-<p>举例：</p>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="code">`https://www.baidu.com`</span></span><br></pre></td></tr></table></figure>
-
-<p>效果如下：</p>
-<p><code>https://www.baidu.com</code></p>
-<h3 id="图片"><a href="#图片" class="headerlink" title="图片"></a>图片</h3><p>一个感叹号，一个方括号，里面放上图片的替代文字（可以留空），然后一个小括号，里面是图片的网址（可以加个引号，在里面写图片标题）</p>
-<p>语法如下：</p>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">![<span class="string">alt 属性文本</span>](<span class="link">图片地址</span>)</span><br><span class="line">![<span class="string">alt 属性文本</span>](<span class="link">图片地址 &quot;可选标题&quot;</span>)</span><br></pre></td></tr></table></figure>
-
-<p>也可以项网址那样对图片网址使用变量</p>
-<p>语法如下：</p>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">[<span class="string">啦啦啦</span>][<span class="symbol">1</span>]</span><br><span class="line">[<span class="symbol">1</span>]: <span class="link">https://cdn.jsdelivr.net/gh/fristalpha/alpha/BlogPic/20210310122224.jpg</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="图片指定高度"><a href="#图片指定高度" class="headerlink" title="图片指定高度"></a>图片指定高度</h4><p>Markdown 还没有办法指定图片的高度与宽度，如果你需要的话，你可以使用普通的<img>标签</p>
-<p>语法如下：</p>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;https://cdn.jsdelivr.net/gh/fristalpha/alpha/BlogPic/20210310122224.jpg&quot;</span> <span class="attr">width</span>=<span class="string">&quot;50%&quot;</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
-
-<h3 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h3><p>制作表格使用 <strong>|</strong> 来分割不同的单元格，使用 <strong>-</strong> 来分割表头和其他行</p>
-<p>语法如下：</p>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">|  表头  |  表头  |</span><br><span class="line">|  ---  |  ----  |</span><br><span class="line">| 单元格 | 单元格 |</span><br><span class="line">| 单元格 | mark单元格 |</span><br></pre></td></tr></table></figure>
-
-<p>效果如下：</p>
-<table>
-<thead>
-<tr>
-<th>表头</th>
-<th>表头</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>单元格</td>
-<td>单元格</td>
-</tr>
-<tr>
-<td>单元格</td>
-<td>mark单元格</td>
-</tr>
-</tbody></table>
-<h4 id="对齐方式"><a href="#对齐方式" class="headerlink" title="对齐方式"></a>对齐方式</h4><p>语法如下：</p>
-<ul>
-<li><strong>-:</strong> 内容和标题栏居中右对齐</li>
-<li><strong>:-</strong> 内容和标题栏剧中左对齐</li>
-<li><strong>:-:</strong> 内容和标题栏剧中对齐</li>
-</ul>
-<h3 id="转义字符"><a href="#转义字符" class="headerlink" title="转义字符"></a>转义字符</h3><p>要显示原义字符，请在字符前面添加反斜杠</p>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">\<span class="emphasis">*啦啦啦*</span></span><br></pre></td></tr></table></figure>
-
-<p>效果：</p>
-<p>*啦啦啦*</p>
-<p>如果没有反斜杠，将显示斜体字</p>
-]]></content>
-      <categories>
-        <category>MarkDown</category>
-      </categories>
-      <tags>
-        <tag>markdown</tag>
-        <tag>轻量标记语言</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Web前端开发-Vue</title>
     <url>/2023/10/03/JavaWeb-%E5%89%8D%E7%AB%AF-Vue/</url>
     <content><![CDATA[<h1 id="Vue"><a href="#Vue" class="headerlink" title="Vue"></a>Vue</h1><p><img src="https://cxx-1304636603.cos.ap-beijing.myqcloud.com/picgo_update_img/image-20230923135400886.png" alt="image-20230923135400886"></p>
@@ -987,6 +800,191 @@
 <h3 id="1）、MySQL概述"><a href="#1）、MySQL概述" class="headerlink" title="1）、MySQL概述"></a>1）、MySQL概述</h3><h3 id="2）、数据库设计-DDL"><a href="#2）、数据库设计-DDL" class="headerlink" title="2）、数据库设计-DDL"></a>2）、数据库设计-DDL</h3><h3 id="3）、数据库操作-DML"><a href="#3）、数据库操作-DML" class="headerlink" title="3）、数据库操作-DML"></a>3）、数据库操作-DML</h3><h3 id="4）、数据库操作-DQL"><a href="#4）、数据库操作-DQL" class="headerlink" title="4）、数据库操作-DQL"></a>4）、数据库操作-DQL</h3><h3 id="5）、多表设计"><a href="#5）、多表设计" class="headerlink" title="5）、多表设计"></a>5）、多表设计</h3><h3 id="6）、事务"><a href="#6）、事务" class="headerlink" title="6）、事务"></a>6）、事务</h3><h3 id="7）、多表查询"><a href="#7）、多表查询" class="headerlink" title="7）、多表查询"></a>7）、多表查询</h3><h3 id="8）、索引"><a href="#8）、索引" class="headerlink" title="8）、索引"></a>8）、索引</h3><h2 id="SpringBoot-Mybatis"><a href="#SpringBoot-Mybatis" class="headerlink" title="SpringBoot Mybatis"></a>SpringBoot Mybatis</h2><h2 id="SpringBoot-Web开发篇"><a href="#SpringBoot-Web开发篇" class="headerlink" title="SpringBoot Web开发篇"></a>SpringBoot Web开发篇</h2><h2 id="SpringBoot-Web进阶篇"><a href="#SpringBoot-Web进阶篇" class="headerlink" title="SpringBoot Web进阶篇"></a>SpringBoot Web进阶篇</h2>]]></content>
       <tags>
         <tag>Java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>markdown的使用</title>
+    <url>/2021/06/07/markdown/</url>
+    <content><![CDATA[<h2 id="什么是MarkDown？"><a href="#什么是MarkDown？" class="headerlink" title="什么是MarkDown？"></a>什么是MarkDown？</h2><p>Markdown是一种<a href="https://baike.baidu.com/item/%E8%BD%BB%E9%87%8F%E7%BA%A7%E6%A0%87%E8%AE%B0%E8%AF%AD%E8%A8%80/52671915">轻量级标记语言</a>，创始人为约翰·格鲁伯（英语：John Gruber）。 它允许人们使用易读易写的<a href="https://baike.baidu.com/item/%E7%BA%AF%E6%96%87%E6%9C%AC%E6%A0%BC%E5%BC%8F/9862288">纯文本格式</a>编写文档，然后转换成有效的XHTML（或者HTML）文档。这种语言吸收了很多在电子邮件中已有的纯文本标记的特性。</p>
+<p>由于Markdown的轻量化、易读易写特性，并且对于图片，图表、数学式都有支持，许多网站都广泛使用Markdown来撰写帮助文档或是用于论坛上发表消息。 如<a href="https://baike.baidu.com/item/GitHub/10145341">GitHub</a>、<a href="https://baike.baidu.com/item/Reddit/1272010">Reddit</a>、<a href="https://baike.baidu.com/item/Diaspora/10726893">Diaspora</a>、[Stack Exchange](<a href="https://baike.baidu.com/item/Stack">https://baike.baidu.com/item/Stack</a> Exchange&#x2F;13777796)、<a href="https://baike.baidu.com/item/OpenStreetMap/3171606">OpenStreetMap</a> 、<a href="https://baike.baidu.com/item/SourceForge/6562141">SourceForge</a>、<a href="https://baike.baidu.com/item/%E7%AE%80%E4%B9%A6/5782216">简书</a>等，甚至还能被使用来撰写<a href="https://baike.baidu.com/item/%E7%94%B5%E5%AD%90%E4%B9%A6/346054">电子书</a>。</p>
+<p>——百度百科</p>
+<h2 id="为什么要使用Markdown？"><a href="#为什么要使用Markdown？" class="headerlink" title="为什么要使用Markdown？"></a>为什么要使用Markdown？</h2><p>您可能想知道为什么人们使用Markdown而不是WYSIWYG编辑器。当您可以按下界面中的按钮来设置文本格式时，为什么还要使用Markdown书写？事实证明，人们使用Markdown而不是WYSIWYG编辑器的原因有两个。</p>
+<ul>
+<li>Markdown可以用于一切。人们使用它来创建<a href="http://markdown.p2hp.com/getting-started/index.html#websites">网站</a>，<a href="http://markdown.p2hp.com/getting-started/index.html#documents">文档</a>，<a href="http://markdown.p2hp.com/getting-started/index.html#notes">便笺</a>，<a href="http://markdown.p2hp.com/getting-started/index.html#books">书籍</a>，<a href="http://markdown.p2hp.com/getting-started/index.html#presentations">演示文稿</a>，<a href="http://markdown.p2hp.com/getting-started/index.html#email">电子邮件</a>和<a href="http://markdown.p2hp.com/getting-started/index.html#documentation">技术文档</a>。</li>
+<li>Markdown是便携式的。几乎可以使用任何应用程序打开包含Markdown格式文本的文件。如果您决定不喜欢当前使用的Markdown应用程序，则可以将Markdown文件导入另一个Markdown应用程序。这与Microsoft Word等文字处理应用程序形成了鲜明的对比，Microsoft Word将文字内容锁定为专有文件格式。</li>
+<li>Markdown是独立于平台的。您可以在运行任何操作系统的任何设备上创建Markdown格式的文本。</li>
+<li>MarkDown是未来的证明。即使您正在使用的应用程序将来会在某个时候停止工作，您仍然可以使用文本编辑应用程序读取Markdown格式的文本。当涉及需要无限期保存的书籍，大学论文和其他里程碑文件时，这是一个重要的考虑因素。</li>
+<li>Markdown无处不在。Reddit和GitHub等网站都支持Markdown，许多桌面和基于Web的应用程序都支持它。</li>
+</ul>
+<h2 id="Markdown基本语法"><a href="#Markdown基本语法" class="headerlink" title="Markdown基本语法"></a>Markdown基本语法</h2><h3 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h3><p>markdown由两种标题标记格式</p>
+<p>1、使用&#x3D;和-标记一级和二级标题，在文本下方的行上，添加任意数量的<code>==</code>标题级别1的<code>--</code>字符或标题级别2的字符</p>
+<p>语法如下：</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="section">一级标题</span></span><br><span class="line"><span class="section">=======</span></span><br><span class="line"><span class="section">二级标题</span></span><br><span class="line"><span class="section">-------</span></span><br></pre></td></tr></table></figure>
+
+<p>2、使用#标记，使用#可以标记1-6级的标题，一级就是一个＃，几级就是几个#，#和文本之间要加一个空格</p>
+<p>语法如下：</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="section"># 一级标题</span></span><br><span class="line"><span class="section">## 二级标题</span></span><br><span class="line"><span class="section">### 三级标题</span></span><br><span class="line"><span class="section">#### 四级标题</span></span><br><span class="line"><span class="section">##### 五级标题</span></span><br><span class="line"><span class="section">###### 六级标题</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="段落"><a href="#段落" class="headerlink" title="段落"></a>段落</h3><p>段落没有特殊格式，直接编写文字就好</p>
+<h4 id="段落换行"><a href="#段落换行" class="headerlink" title="段落换行"></a>段落换行</h4><p>段落换行就是使用两个以上的空格加回车</p>
+<p>语法如下：</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">hello   </span><br><span class="line">word!</span><br></pre></td></tr></table></figure>
+
+<h4 id="字体"><a href="#字体" class="headerlink" title="字体"></a>字体</h4><p>markdown可以使用以下几种字体：</p>
+<p>语法如下：</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="emphasis">*斜体文本*</span></span><br><span class="line"><span class="emphasis">_斜体文本_</span></span><br><span class="line"><span class="strong">**粗体文本**</span></span><br><span class="line"><span class="strong">__粗体文本__</span></span><br><span class="line"><span class="strong">**<span class="emphasis">*粗斜体文本*</span>**</span></span><br><span class="line"><span class="strong">__<span class="emphasis">_粗斜体文本_</span>__</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="分割线"><a href="#分割线" class="headerlink" title="分割线"></a>分割线</h4><p>你可以在一行中用三个以上的星号、减号、底线来建立一个分隔线，行内不能有其他东西。你也可以在星号或是减号中间插入空格。</p>
+<p>语法如下：</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="section"><span class="strong">***</span></span></span><br><span class="line"><span class="strong"><span class="section">---</span></span></span><br><span class="line"><span class="strong"><span class="section">___</span></span></span><br><span class="line"><span class="strong"><span class="section">* * * *</span></span></span><br><span class="line"><span class="strong"><span class="section">- - -</span></span></span><br></pre></td></tr></table></figure>
+
+<h4 id="删除线"><a href="#删除线" class="headerlink" title="删除线"></a>删除线</h4><p>在文字的两端加上两个波浪线即可</p>
+<p>语法如下：</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">~~hello,word~~</span><br></pre></td></tr></table></figure>
+
+<h4 id="下划线"><a href="#下划线" class="headerlink" title="下划线"></a>下划线</h4><p>下划线可以通过html的<code>&lt;u&gt;</code>标签实现</p>
+<p>语法如下：</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">u</span>&gt;</span></span>hello,word<span class="language-xml"><span class="tag">&lt;/<span class="name">u</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+
+<h4 id="脚注"><a href="#脚注" class="headerlink" title="脚注"></a>脚注</h4><p>脚注是对文本的补充说明</p>
+<p>语法如下：</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">[^hello,word]</span><br><span class="line">[<span class="symbol">^hello,word</span>]: <span class="link">你好，世界</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h3><h4 id="无序列表"><a href="#无序列表" class="headerlink" title="无序列表"></a>无序列表</h4><p>无序列表使用 * 、 <strong>+</strong> 或是 <strong>-</strong> 作为列表标记，这些标记后面要添加一个空格，然后再填写内容</p>
+<p>语法如下：</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="bullet">*</span> 第一项</span><br><span class="line"><span class="bullet">*</span> 第二项</span><br><span class="line"><span class="bullet">*</span> 第三项</span><br></pre></td></tr></table></figure>
+
+<h4 id="有序列表"><a href="#有序列表" class="headerlink" title="有序列表"></a>有序列表</h4><p>有序列表使用数字加上.来表示</p>
+<p>语法如下：</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="bullet">1.</span> 第一项</span><br><span class="line"><span class="bullet">2.</span> 第二项</span><br><span class="line"><span class="bullet">3.</span> 第三项</span><br></pre></td></tr></table></figure>
+
+<h4 id="列表嵌套"><a href="#列表嵌套" class="headerlink" title="列表嵌套"></a>列表嵌套</h4><p>列表嵌套只需在子列表中的选项前面添加四个空格即可</p>
+<p>语法如下：</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="bullet">1.</span> 第一项</span><br><span class="line"><span class="bullet">    -</span> 第1.1项</span><br></pre></td></tr></table></figure>
+
+<h3 id="区块"><a href="#区块" class="headerlink" title="区块"></a>区块</h3><p>区块引用实在段落开头使用 <strong>&gt;</strong> 符号，然后一个空格</p>
+<p>语法如下：</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="quote">&gt; 区块1</span></span><br><span class="line"><span class="quote">&gt; 区块2</span></span><br><span class="line"><span class="quote">&gt; 区块3</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="区块嵌套"><a href="#区块嵌套" class="headerlink" title="区块嵌套"></a>区块嵌套</h4><p>一个 <strong>&gt;</strong> 是最外层，两个 <strong>&gt;</strong> 是第一层嵌套，以此类推</p>
+<p>语法如下：</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="quote">&gt; 最外层</span></span><br><span class="line">&gt;&gt; 第一次嵌套</span><br><span class="line">&gt;&gt;&gt; 第二次嵌套</span><br></pre></td></tr></table></figure>
+
+<h4 id="区块中使用列表"><a href="#区块中使用列表" class="headerlink" title="区块中使用列表"></a>区块中使用列表</h4><p>语法如下：</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">&gt;区块中使用列表</span><br><span class="line">&gt;1.啦啦啦</span><br><span class="line">&gt;2.啦啦啦</span><br><span class="line">&gt;3.啦啦啦</span><br></pre></td></tr></table></figure>
+
+<h4 id="列表中使用区块"><a href="#列表中使用区块" class="headerlink" title="列表中使用区块"></a>列表中使用区块</h4><p>如果要在列表项目内放进区块，那么就需要在 <strong>&gt;</strong> 前添加四个空格的缩进。</p>
+<p>语法如下：</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="bullet">*</span> 第一项</span><br><span class="line"><span class="code">    &gt; xxxxx</span></span><br><span class="line"><span class="code">    &gt; xxxxx</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><h4 id="段落上的代码"><a href="#段落上的代码" class="headerlink" title="段落上的代码"></a>段落上的代码</h4><p>如果是段落上的一个函数或片段的代码可以用反引号&#96;把它包起来</p>
+<p>语法如下：</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">啦啦啦啦<span class="code">`printf()`</span>啦啦</span><br></pre></td></tr></table></figure>
+
+<h4 id="代码区块"><a href="#代码区块" class="headerlink" title="代码区块"></a>代码区块</h4><p>代码区块使用四个空格或者一个制表符</p>
+<p>你也可以用 <strong>&#96;&#96;&#96;</strong> 包裹一段代码，并指定一种语言</p>
+<p>语法如下：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/fristalpha/alpha/BlogPic/20210314120955.png" alt="image-20210314120953433"></p>
+<p>效果：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.Scanner;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">C1</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        Scanner sc=<span class="keyword">new</span> <span class="title class_">Scanner</span>(System.in);</span><br><span class="line">        System.out.println(<span class="string">&quot;请输入杨辉三角的行数&quot;</span>);</span><br><span class="line">        <span class="type">int</span> n=sc.nextInt();</span><br><span class="line">        <span class="type">int</span> [][] arr=<span class="keyword">new</span> <span class="title class_">int</span>[n][];<span class="comment">//创建一个不规则数组</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;arr.length;i++) &#123;<span class="comment">//0 1 2 3 4 5 6 7</span></span><br><span class="line">            arr[i]=<span class="keyword">new</span> <span class="title class_">int</span>[i+<span class="number">1</span>];<span class="comment">//创建一个一维数组</span></span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">0</span>;j&lt;arr[i].length;j++) &#123;</span><br><span class="line">                <span class="keyword">if</span>(arr[i].length&lt;<span class="number">3</span>) &#123;</span><br><span class="line">                    arr[i][<span class="number">0</span>]=<span class="number">1</span>;<span class="comment">//头赋值为1</span></span><br><span class="line">                    arr[i][arr[i].length-<span class="number">1</span>]=<span class="number">1</span>;<span class="comment">//尾赋值为1</span></span><br><span class="line">                &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">                    <span class="keyword">if</span>(j==<span class="number">0</span>||j==arr[i].length-<span class="number">1</span>) &#123;</span><br><span class="line">                        arr[i][<span class="number">0</span>]=<span class="number">1</span>;<span class="comment">//头赋值为1</span></span><br><span class="line">                        arr[i][arr[i].length-<span class="number">1</span>]=<span class="number">1</span>;<span class="comment">//尾赋值为1</span></span><br><span class="line">                    &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">                        arr[i][j]=arr[i-<span class="number">1</span>][j-<span class="number">1</span>]+arr[i-<span class="number">1</span>][j];<span class="comment">//公式</span></span><br><span class="line">                    &#125;</span><br><span class="line"></span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; arr.length; i++) &#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> j=arr.length-<span class="number">1</span>-i;j&gt;<span class="number">0</span>;j--) &#123;<span class="comment">//显示更加好看</span></span><br><span class="line">                System.out.print(<span class="string">&quot;  &quot;</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">j</span> <span class="operator">=</span> <span class="number">0</span>; j &lt; arr[i].length; j++) &#123;</span><br><span class="line">                System.out.print(arr[i][j]+<span class="string">&quot;    &quot;</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            System.out.println();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h3><p>链接使用方法：</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">[<span class="string">链接名称</span>](<span class="link">链接地址</span>)</span><br><span class="line">或者</span><br><span class="line">&lt;链接地址&gt;</span><br></pre></td></tr></table></figure>
+
+<p>举例：</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">[<span class="string">百度</span>](<span class="link">https://www.baidu.com</span>)</span><br><span class="line"><span class="language-xml">&lt;https://www.baidu.com&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>效果如下：</p>
+<p><a href="https://www.baidu.com/">百度</a></p>
+<p><a href="https://www.baidu.com/">https://www.baidu.com</a></p>
+<h4 id="高级链接"><a href="#高级链接" class="headerlink" title="高级链接"></a>高级链接</h4><p>可以通过一个变量来设置链接，变量赋值在文档末尾进行</p>
+<p>举例：</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">[<span class="string">百度</span>][<span class="symbol">1</span>]</span><br><span class="line">[<span class="symbol">1</span>]: <span class="link">https://www.baidu.com</span></span><br></pre></td></tr></table></figure>
+
+<p>效果如下：</p>
+<p><a href="https://www.baidu.com/">百度</a></p>
+<h4 id="禁止自动URL链接"><a href="#禁止自动URL链接" class="headerlink" title="禁止自动URL链接"></a>禁止自动URL链接</h4><p>可以通过将URL表示为带有刻度线的代码来删除该链接</p>
+<p>举例：</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="code">`https://www.baidu.com`</span></span><br></pre></td></tr></table></figure>
+
+<p>效果如下：</p>
+<p><code>https://www.baidu.com</code></p>
+<h3 id="图片"><a href="#图片" class="headerlink" title="图片"></a>图片</h3><p>一个感叹号，一个方括号，里面放上图片的替代文字（可以留空），然后一个小括号，里面是图片的网址（可以加个引号，在里面写图片标题）</p>
+<p>语法如下：</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">![<span class="string">alt 属性文本</span>](<span class="link">图片地址</span>)</span><br><span class="line">![<span class="string">alt 属性文本</span>](<span class="link">图片地址 &quot;可选标题&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>也可以项网址那样对图片网址使用变量</p>
+<p>语法如下：</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">[<span class="string">啦啦啦</span>][<span class="symbol">1</span>]</span><br><span class="line">[<span class="symbol">1</span>]: <span class="link">https://cdn.jsdelivr.net/gh/fristalpha/alpha/BlogPic/20210310122224.jpg</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="图片指定高度"><a href="#图片指定高度" class="headerlink" title="图片指定高度"></a>图片指定高度</h4><p>Markdown 还没有办法指定图片的高度与宽度，如果你需要的话，你可以使用普通的<img>标签</p>
+<p>语法如下：</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;https://cdn.jsdelivr.net/gh/fristalpha/alpha/BlogPic/20210310122224.jpg&quot;</span> <span class="attr">width</span>=<span class="string">&quot;50%&quot;</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+
+<h3 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h3><p>制作表格使用 <strong>|</strong> 来分割不同的单元格，使用 <strong>-</strong> 来分割表头和其他行</p>
+<p>语法如下：</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">|  表头  |  表头  |</span><br><span class="line">|  ---  |  ----  |</span><br><span class="line">| 单元格 | 单元格 |</span><br><span class="line">| 单元格 | mark单元格 |</span><br></pre></td></tr></table></figure>
+
+<p>效果如下：</p>
+<table>
+<thead>
+<tr>
+<th>表头</th>
+<th>表头</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>单元格</td>
+<td>单元格</td>
+</tr>
+<tr>
+<td>单元格</td>
+<td>mark单元格</td>
+</tr>
+</tbody></table>
+<h4 id="对齐方式"><a href="#对齐方式" class="headerlink" title="对齐方式"></a>对齐方式</h4><p>语法如下：</p>
+<ul>
+<li><strong>-:</strong> 内容和标题栏居中右对齐</li>
+<li><strong>:-</strong> 内容和标题栏剧中左对齐</li>
+<li><strong>:-:</strong> 内容和标题栏剧中对齐</li>
+</ul>
+<h3 id="转义字符"><a href="#转义字符" class="headerlink" title="转义字符"></a>转义字符</h3><p>要显示原义字符，请在字符前面添加反斜杠</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">\<span class="emphasis">*啦啦啦*</span></span><br></pre></td></tr></table></figure>
+
+<p>效果：</p>
+<p>*啦啦啦*</p>
+<p>如果没有反斜杠，将显示斜体字</p>
+]]></content>
+      <categories>
+        <category>MarkDown</category>
+      </categories>
+      <tags>
+        <tag>markdown</tag>
+        <tag>轻量标记语言</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>/2023/09/29/hello-world/</url>
+    <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="Oh, this is an invalid password. Check and try again, please." data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
+  <script id="hbeData" type="hbeData" data-hmacdigest="0e2d1b384999776e30c5f800a7e7d9761fe0ab61e5895247300077102ac5a27c">4630436162ade97ba2718b7d0c4b3b63f97fe7f487088031e1ec7f30c37889e17af4f6297068ec459b8609dd5e773f884c55009995b4e2fa14cd0ad5eff0ada9f9fb8fb348a39322f64a27b4e67198e9d0918355853825b4a8b859e1b0997d0838db13d93eb663a75abf26151a4cd6693bc3399e41eef6d4a0d8ac518bee9c9ddee4d733ecfde4f1c7c01610b2139c3f919d321e3580e4ea4d25333a1eb6a757138158c91746eb650d2bd292b639e6c34cbf144f87d98390fac9f8662146f06c3a6438c2b9ee94e1d311e783b3870047c72629be8369de61aafcfd95d1a6b146908a00176e823191858046b0d3068b0efa543f002c4411ac17d84cfbc5419db7d33e0dec60d5febc26877845ea4a0c78edbec57ec484cb94f4a5981b779247299a083552613550cf2067f03e18806e1d8b7363322598e505c747f93d1e38576db45e8de5d1770b452a4fb1219a730e7968e9f6fbb48dd64088b4f6b768d41ae0fde1188c840a5b26f4bcf87fc459371861bccf009fd56466bfb6189998e9e6a70ba3621ca8bdf949e5cadcc118f51f12983682d54b3fadc89599f99b3bc97b0ac705b13416a1e530d1e06e17469a74ffce4af1c9c1c3a7fe2e7d43f0a4553f309b55a680d4ba0eff5e1480ff40e6cca6cf09c8d0ab9d3d27139e5f1fa8ce760b2b398ec79fa2325ce353708b5fd4928897ec368d0027fa2da6b5a0fd8e4e9b7529ca09bebcdd4ee3a67b8793bf535765eccd25777435299c4f7eaac3b37aa14cd4e771f0d59050e41a2121cab03ed0afccb01338cfaa270444513ab17731861d2e4818cce309b9ff34abf619216411da184092968ba15dba46fd74305d671fcc251530f5b9827fa2b99f113bdb279c693dd1704ca3a9977b3cf3a9ef9e6e9aea7a55f4fc6fc7431430f1e9e124491e51c5a917d50a11cab0f41057afdd9d73a5b0f657430a3c64f5cccf357d0d9856fee046d25013db776f12ec1e7ad6592acb4844d59e963b6bdb1ad421958ca4277ee6a182e97f821ec873a0dfb246898d8097fd152dc7be793d873efa90345070846910891df727caf7fe46825615886c81443b18c01359a3b0b57a3e525b3b82cc5ad0617fe1b4ffc14ecf43e0ec5373ed96bd76e3d7342209f8f831e3291390515ebccc8b4709a12cf46daf072ae1737e9df362d00682af97584881e0d585e61d6fe989a6e7ec3a2c95ada9e30c2b5d8d0f1220f9cacb81a21ad498c82b88a01c2ab5f12b9cb6fedd45eee12197d6997ddb3997b8d8fae4b1dbc45ef40006402dc2a76e8767f145d6048661f720a17513f66144c35adcdf13bdb59153e3a0f3073634b3d40919654380c19bdc616e4f3894a8907126e8b15c8846dbab81ce4331cb40b2e04d9129870806c6ea023f7804790fa75145de34280fa8345c82a61495bc6f28c427a94d901e75a87506e11b949694b288a0ca14e3ec2d292816e4de47698fa358952ae8edc74a545c0d127dec251d6c29436de160d11dc1b82630ed49d41f39bf291570a234ae4448d8e472c7ed44563d46e159c65f1214777d0bca5588aef68f8e14f3033160b28a181746ea12adaac06b337d1d016d5d4376e5f2491a83ca620ef5bc5e5b811abb2cf77add703880c71d8a6ef3afdc7423fb8067e616b5d5d53db0baa99ac285fd4db42deb63ca73bd5f7d40ec315e5e5323efe22f9203984ccb7684f3d99ab83a8c82ea5c7c3a3a9f7bb5f81331e5aca751162887d1043635264fdd4f8445fc0befee7d34038cb5efdb9146e2d69eb82728ee25b7a968f32b747c67419832e26afd280c0d5a29863f45ebd9768160362bf526e95e25b97be62416e10627d1c46220c380d6260d135976349eeeeb01ba4b50752ed00b313e2504a85f873b2ec15d58a1aa92a28072d3d1bde97ed0aaf6c3154e4d69fb52b47282096b820869b3a5cee5cb7162647361a625b15cf7c81d2249990c7d177986757006538aa5d1ac6967cbc7c8baf6661a978b7a800fb027655b8bd26d0b31d6da163454b551428561d4128e53d08515ebfed4e97017fdabb2a52a9a1f6c74d07539c400cc5e1bd644f994a24259a197f56f4d46edc2c9e6dea8ec28c4fc5434c67d436e2209f3adc2242d9e31a161cacbed7945ad218ad80b5e5122a265505d64e71ef69cb73bc6534b665506251a8c04cd2bc56f046c3857b579885bcd94f0b43ada2e82bc5178ca1cef9bb8deaaa71f93625b576b9873341d22a40e87a64b4aade2289f63ed901e44376be458d3bd9b1da9b64207b0f18b0793412ad7a404c16df75fc39c4c37cafcea65b3ad41e86dc8cb3fbcae782cc7deb8d2d9d01d63bb1cb8c9f09f5b66fcc6241ebd6daec3935f51c7e9808d7c5d259063ed8fb6db13ab4aad820e8d1359d46504575ca9b49c62f4f467f46a88dc5ecdc57ba4d4fc7c791aa52ebafc23f8bd95a45704053e48adab477e7cfb78df3d5f3699353d572af903fdf645b860f10b09b2fa762517dadd7945aa79cda0c8e5334585ee23dc0474841f1fcb9602edfe2898cf2e6d1dbeaa8a7bba0e704d6644ef71b36c55e960adb83fd4f5e635a20f68ca799669faa5c26d0e43009a402838047b1ff27caa750f42b73b02580b70f59f51a3dbc5b7add9c2a89b8fa98f7f56cbc6a865c74cf827543923df17cf580af7d7bd4691fb0c443bf30d3b5f21e932e84c93b89a004ee0884b9106b5e8b1f0e53cc554300f464e8a5943665256af625fb69be5c02c1f5a81cb237810c0c48ceb8123cf8ce8eaa0a953cdb12624b3b262ae76</script>
+  <div class="hbe hbe-content">
+    <div class="hbe hbe-input hbe-input-default">
+      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
+      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">
+        <span class="hbe hbe-input-label-content hbe-input-label-content-default">这里需要密码</span>
+      </label>
+    </div>
+  </div>
+</div>
+<script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">]]></content>
+      <categories>
+        <category>HelloWord</category>
+      </categories>
+      <tags>
+        <tag>HelloWord</tag>
       </tags>
   </entry>
 </search>
