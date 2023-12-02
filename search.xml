@@ -163,4 +163,966 @@
         <tag>轻量标记语言</tag>
       </tags>
   </entry>
+  <entry>
+    <title>Linux</title>
+    <url>/2023/12/02/Linux/</url>
+    <content><![CDATA[<h1 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h1><h2 id="grep命令"><a href="#grep命令" class="headerlink" title="grep命令"></a>grep命令</h2><p>从文件中通过关键字过滤文件行</p>
+<p>语法：grep [-n] 关键字 文件路径</p>
+<ul>
+<li>选项-n，可选，表示在结果中显示匹配的行的行号</li>
+<li>参数，关键字，必填，表示过滤的关键字，建议用””包裹</li>
+<li>参数，文件路径，必填，表示要过滤内容的文件路径，可作为内容的输入端口</li>
+</ul>
+<h2 id="wc"><a href="#wc" class="headerlink" title="wc"></a>wc</h2><p>通过wc命令统计文件的行数、单词数量等</p>
+<p>语法：wc [-c -m -l -w] 文件路径</p>
+<ul>
+<li>-c 统计bytes数量</li>
+<li>-m 统计字符数量</li>
+<li>-l 统计行数</li>
+<li>-w 统计单词数量</li>
+<li>文件路径，被统计的文件</li>
+</ul>
+<h2 id="管道符"><a href="#管道符" class="headerlink" title="管道符 |"></a>管道符 |</h2><p>将管道符左边的命令结果，作为右边的输入</p>
+<h2 id="echo"><a href="#echo" class="headerlink" title="echo"></a>echo</h2><p>echo命令可以在命令行内输出指定内容</p>
+<p>语法： echo 输出的内容</p>
+<h2 id="反引号"><a href="#反引号" class="headerlink" title="反引号 &#96;"></a>反引号 &#96;</h2><p>被&#96;包围的内容，会被作为命令执行，而非普通字符</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="built_in">pwd</span></span><br><span class="line"><span class="comment"># pwd</span></span><br><span class="line"><span class="built_in">echo</span> `<span class="built_in">pwd</span>`</span><br><span class="line"><span class="comment"># /home</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="重定型符-和"><a href="#重定型符-和" class="headerlink" title="重定型符  &gt;和&gt;&gt;"></a>重定型符  &gt;和&gt;&gt;</h2><ul>
+<li><code>&gt;</code>  将左侧命令结果，<strong>覆盖</strong>写入到符号右侧指定的文件中</li>
+<li><code>&gt;&gt;</code>  将左侧命令的结果，<strong>追加</strong>写入到符号右侧指定的文件中</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[root@whoami1 cxx]<span class="comment"># cat 1.txt</span></span><br><span class="line">hello</span><br><span class="line">[root@whoami1 cxx]<span class="comment"># echo &quot;123&quot; &gt; 1.txt</span></span><br><span class="line">[root@whoami1 cxx]<span class="comment"># cat 1.txt</span></span><br><span class="line">123</span><br><span class="line">[root@whoami1 cxx]<span class="comment"># echo &quot;456&quot; &gt;&gt; 1.txt</span></span><br><span class="line">[root@whoami1 cxx]<span class="comment"># cat 1.txt</span></span><br><span class="line">123</span><br><span class="line">456</span><br><span class="line">[root@whoami1 cxx]<span class="comment"># ls &gt; 1.txt</span></span><br><span class="line">[root@whoami1 cxx]<span class="comment"># cat 1.txt</span></span><br><span class="line">1.txt</span><br><span class="line">[root@whoami1 cxx]<span class="comment"># ls -ll &gt;1.txt</span></span><br><span class="line">[root@whoami1 cxx]<span class="comment"># cat 1.txt</span></span><br><span class="line">总用量 0</span><br><span class="line">-rw-r--r--. 1 root root 0 11月 10 11:34 1.txt</span><br><span class="line">[root@whoami1 cxx]<span class="comment">#</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="tail命令"><a href="#tail命令" class="headerlink" title="tail命令"></a>tail命令</h2><p>可以查看文件尾部内容，跟踪文件最新更改</p>
+<p>tail [-f -num] Linux路径</p>
+<ul>
+<li>-f 表示持续跟踪</li>
+<li>-num 表示查看尾部多少行，不填默认10行</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">[root@whoami1 cxx]# ls / &gt; 1.txt</span><br><span class="line">[root@whoami1 cxx]# cat 1.txt</span><br><span class="line">bin</span><br><span class="line">boot</span><br><span class="line">data</span><br><span class="line">dev</span><br><span class="line">etc</span><br><span class="line">home</span><br><span class="line">lib</span><br><span class="line">lib64</span><br><span class="line">media</span><br><span class="line">mnt</span><br><span class="line">opt</span><br><span class="line">proc</span><br><span class="line">root</span><br><span class="line">run</span><br><span class="line">sbin</span><br><span class="line">srv</span><br><span class="line">sys</span><br><span class="line">tmp</span><br><span class="line">usr</span><br><span class="line">var</span><br><span class="line">[root@whoami1 cxx]# tail -3 1.txt</span><br><span class="line">tmp</span><br><span class="line">usr</span><br><span class="line">var</span><br><span class="line">[root@whoami1 cxx]#</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="vi、vim编辑器"><a href="#vi、vim编辑器" class="headerlink" title="vi、vim编辑器"></a>vi、vim编辑器</h2><h3 id="三种工作模式"><a href="#三种工作模式" class="headerlink" title="三种工作模式"></a>三种工作模式</h3><h4 id="命令模式"><a href="#命令模式" class="headerlink" title="命令模式"></a>命令模式</h4><p>0	移动光标到<strong>当前行</strong>的开头</p>
+<p>$	移动光标到<strong>当前行</strong>的结尾</p>
+<p>pageup	向上翻页</p>
+<p>pagedown	向下翻页</p>
+<p>&#x2F; 进入搜索模式（&#x2F;后面加空格）</p>
+<p>n	向下继续搜索</p>
+<p>N	向上继续搜索</p>
+<p>dd	删除光标所在行的内容</p>
+<p>ndd	n是数字，删除当前光标向下n行</p>
+<p>yy	复制当前行</p>
+<p>nyy	n是数字，复制当前光标向下n行</p>
+<p>p	粘贴复制的内容</p>
+<p>u	撤销修改</p>
+<p>ctrl+r	反向撤销修改</p>
+<p>gg	跳到首行</p>
+<p>G	跳到尾行</p>
+<p>dG	从当前行开始，向下全部删除</p>
+<p>dgg	从当前行开始，向上全部删除</p>
+<p>d$	从当前光标开始，删除到本行的结尾</p>
+<p>d0	从当前光标开始，删除到本行的开头</p>
+<h4 id="输入模式"><a href="#输入模式" class="headerlink" title="输入模式"></a>输入模式</h4><h4 id="底线命令模式"><a href="#底线命令模式" class="headerlink" title="底线命令模式"></a>底线命令模式</h4><p>:wq	保存并退出</p>
+<p>:q	仅退出</p>
+<p>:w	仅保存</p>
+<p>:set nu	显示行号</p>
+<p>:set paste	设置粘贴模式（用于从外部复制内容时使用）</p>
+<p><img src="https://cxx-1304636603.cos.ap-beijing.myqcloud.com/picgo_update_img/image-20231110114155204.png" alt="image-20231110114155204"></p>
+<h1 id="用户和权限"><a href="#用户和权限" class="headerlink" title="用户和权限"></a>用户和权限</h1><h2 id="su"><a href="#su" class="headerlink" title="su"></a>su</h2><p>用于账户切换的系统命令 来源于：Switch User</p>
+<p>语法：su [-]  [用户名]</p>
+<ul>
+<li><code>-</code>符号是可选的，表示是否在切换用户后加载环境变量，建议加上</li>
+<li>参数：用户名，表示要切换的用户，不写是root用户</li>
+<li>exit退回上一个用户</li>
+</ul>
+<h2 id="sudo"><a href="#sudo" class="headerlink" title="sudo"></a>sudo</h2><p>当我们知道root密码，可以用su切换到root</p>
+<p>不建议长期使用root用户</p>
+<p>sudo，为普通命令授权，临时以root身份执行</p>
+<p>语法：sudo 其他命令</p>
+<ul>
+<li>并不是所有的用户，都有权利使用sudo，我们需要为普通用户配置sudo认证</li>
+</ul>
+<p>为普通用户配置sudo认证</p>
+<ul>
+<li>root用户执行<code>visudo</code>命令，会通过vi编辑器打开&#x2F;etc&#x2F;sudoers文件</li>
+<li>在文件的最后添加:  用户名 ALL&#x3D;(ALL)    NOPASSWD:ALL<ul>
+<li>NOPASSWD:ALL 表示使用sudo命令无需输入密码</li>
+</ul>
+</li>
+<li>:wq保存</li>
+</ul>
+<h1 id="用户用户组"><a href="#用户用户组" class="headerlink" title="用户用户组"></a>用户用户组</h1><p>一个用户可以加入多个用户组</p>
+<h2 id="用户组管理"><a href="#用户组管理" class="headerlink" title="用户组管理"></a>用户组管理</h2><h3 id="groupadd"><a href="#groupadd" class="headerlink" title="groupadd"></a>groupadd</h3><p>创建用户组</p>
+<p>语法：groupadd 用户组名</p>
+<h3 id="groupdel"><a href="#groupdel" class="headerlink" title="groupdel"></a>groupdel</h3><p>删除用户组</p>
+<p>语法：groupdel 用户组名</p>
+<h2 id="用户管理"><a href="#用户管理" class="headerlink" title="用户管理"></a>用户管理</h2><h3 id="useradd"><a href="#useradd" class="headerlink" title="useradd"></a>useradd</h3><p>创建用户</p>
+<p>语法：useradd [-g -a] 用户名</p>
+<ul>
+<li>-g 指定用户的组，不-g指定，会创建同名组并自动加入</li>
+<li>-d 指定用户home路径，不指定，默认在：&#x2F;home&#x2F;用户名</li>
+</ul>
+<h3 id="userdel"><a href="#userdel" class="headerlink" title="userdel"></a>userdel</h3><p>删除用户</p>
+<p>语法：userdel [-r] 用户名</p>
+<ul>
+<li>-r 删除用户的home目录，不-r home目录保留</li>
+</ul>
+<h3 id="id"><a href="#id" class="headerlink" title="id"></a>id</h3><p>查看用户所属组</p>
+<p>语法：id [用户名]</p>
+<p>如果不加用户名，默认查看自身</p>
+<h3 id="usermod"><a href="#usermod" class="headerlink" title="usermod"></a>usermod</h3><p>修改用户所在组</p>
+<p>语法：usermod -aG 用户组 用户名    </p>
+<p>将指定用户加入指定用户组</p>
+<h3 id="getent"><a href="#getent" class="headerlink" title="getent"></a>getent</h3><p>查看系统中有哪些用户</p>
+<p>语法：getent passwd</p>
+<p>共七份信息：</p>
+<p>用户名:密码(x):用户ID:组ID:描述信息(无用):HOME目录:执行终端(默认bash)</p>
+<h1 id="软件安装"><a href="#软件安装" class="headerlink" title="软件安装"></a>软件安装</h1><h2 id="yum"><a href="#yum" class="headerlink" title="yum"></a>yum</h2><p>rpm包软件管理器，用于自动化安装配置Linux软件，并自动解决依赖问题</p>
+<h2 id="apt"><a href="#apt" class="headerlink" title="apt"></a>apt</h2><p>dep包软件管理器，用于自动化安装配置Linux软件，并自动解决依赖</p>
+<h1 id="systemctl"><a href="#systemctl" class="headerlink" title="systemctl"></a>systemctl</h1><p>Linux系统很多软件（内置或第三方）均支持使用systemctl命令控制启动、停止、开机自启</p>
+<p>能够被systemctl管理的软件，一般也称为：服务</p>
+<p>语法：systemctl start|stop|status|enable|disable 服务名</p>
+<ul>
+<li>start 启动</li>
+<li>stop 关闭</li>
+<li>status 查看状态</li>
+<li>enable 开启开机自启</li>
+<li>disable 关闭开机自启</li>
+</ul>
+<p>防火墙服务：firewalld</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 关闭防火墙</span></span><br><span class="line">systemctl stop firewalld</span><br></pre></td></tr></table></figure>
+
+<h1 id="ln"><a href="#ln" class="headerlink" title="ln"></a>ln</h1><p>软链接</p>
+<p>类似于Windows中的快捷方式</p>
+<p>语法：ln -s 参数1 参数2</p>
+<ul>
+<li>-s，创建软链接</li>
+<li>参数一：被链接的文件或文件夹</li>
+<li>参数二：要链接去的目的地</li>
+</ul>
+<h1 id="日期和时区"><a href="#日期和时区" class="headerlink" title="日期和时区"></a>日期和时区</h1><h2 id="date"><a href="#date" class="headerlink" title="date"></a>date</h2><p>查看系统的时间</p>
+<p>语法：date [-d] [+格式化字符串]</p>
+<ul>
+<li>-d 按照给定的字符串显示日期，一般用于日期计算</li>
+<li>格式化字符串： 通过特定的字符串标记，来控制显示日期的格式<ul>
+<li>%Y 年</li>
+<li>%y 年份后两位数字</li>
+<li>%m 月份</li>
+<li>%d 日</li>
+<li>%H 小时</li>
+<li>%M 分钟</li>
+<li>%S 秒</li>
+<li>%s 自1970-01-01 00:00:00 UTC 到现在的秒数</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[root@whoami1 ~]<span class="comment"># date &quot;+%Y-%m-%d %H:%M:%S&quot;</span></span><br><span class="line">2023-11-10 14:47:54</span><br><span class="line">[root@whoami1 ~]<span class="comment">#</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="修改时区"><a href="#修改时区" class="headerlink" title="修改时区"></a>修改时区</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">rm</span> -f /etc/localtime</span><br><span class="line"><span class="keyword">in</span> -s /usr/share/zoneinfo/Asia/Shanghai /etc/localtime</span><br></pre></td></tr></table></figure>
+
+<h2 id="ntp"><a href="#ntp" class="headerlink" title="ntp"></a>ntp</h2><p>我们可以通过ntp程序自动校准系统时间</p>
+<p>安装ntp：yum install -y ntp</p>
+<p>启动并开机自启：</p>
+<p>systemctl start ntpd</p>
+<p>systemctl enable ntpd</p>
+<p>自动定期校准</p>
+<p>手动校准：ntpdate -u ntp.aliyun.com</p>
+<h1 id="IP地址和主机名"><a href="#IP地址和主机名" class="headerlink" title="IP地址和主机名"></a>IP地址和主机名</h1><h2 id="IP地址"><a href="#IP地址" class="headerlink" title="IP地址"></a>IP地址</h2><p>IPv4格式：a.b.c.d，其中abcd表示0-255的数字</p>
+<p>ens33：主网卡</p>
+<p>127.0.0.1：代表本机</p>
+<p>0.0.0.0：特殊IP地址</p>
+<ul>
+<li>可以用于指代本机</li>
+<li>可以在端口绑定中用来确定绑定关系</li>
+<li>在一些ip地址限制中，表示所有ip的意思，如放行规则设置为0.0.0.0，表示允许任意ip访问</li>
+</ul>
+<h2 id="主机名"><a href="#主机名" class="headerlink" title="主机名"></a>主机名</h2><p>每一台电脑出了对外联络地址（IP地址）以外，也可以有一个名字，称之为主机名</p>
+<p>命令：hostname</p>
+<p>修改主机名：hostnamectl set-hostname 新名字</p>
+<h2 id="域名解析"><a href="#域名解析" class="headerlink" title="域名解析"></a>域名解析</h2><p><img src="https://cxx-1304636603.cos.ap-beijing.myqcloud.com/picgo_update_img/image-20231111162132749.png" alt="image-20231111162132749"></p>
+<h1 id="虚拟机配置固定IP"><a href="#虚拟机配置固定IP" class="headerlink" title="虚拟机配置固定IP"></a>虚拟机配置固定IP</h1><h2 id="为什么需要固定IP"><a href="#为什么需要固定IP" class="headerlink" title="为什么需要固定IP"></a>为什么需要固定IP</h2><p>当前我们虚拟机的Linux系统，其IP地址是通过DHCP服务获取的</p>
+<p>DHCP：动态获取IP地址，即每次重启设备后都会获取一次，可能导致IP地址频繁变更</p>
+<h2 id="在VMware-Workstation中配置固定IP"><a href="#在VMware-Workstation中配置固定IP" class="headerlink" title="在VMware Workstation中配置固定IP"></a>在VMware Workstation中配置固定IP</h2><h3 id="第一步"><a href="#第一步" class="headerlink" title="第一步"></a>第一步</h3><p>编辑–&gt;虚拟网络编辑器</p>
+<p><img src="https://cxx-1304636603.cos.ap-beijing.myqcloud.com/picgo_update_img/image-20231111163359158.png" alt="image-20231111163359158"></p>
+<p><img src="https://cxx-1304636603.cos.ap-beijing.myqcloud.com/picgo_update_img/image-20231111163450875.png" alt="image-20231111163450875"></p>
+<h3 id="第二步"><a href="#第二步" class="headerlink" title="第二步"></a>第二步</h3><p>在Linux系统中修改固定IP</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vi /etc/sysconfig/network-scripts/ifcfg-ens33</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://cxx-1304636603.cos.ap-beijing.myqcloud.com/picgo_update_img/image-20231111164537693.png" alt="image-20231111164537693"></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">IPADDR=<span class="string">&quot;192.168.52.141&quot;</span></span><br><span class="line">NETMASK=<span class="string">&quot;255.255.255.0&quot;</span></span><br><span class="line">GATEWAY=<span class="string">&quot;192.168.52.2&quot;</span></span><br><span class="line">DNS1=<span class="string">&quot;192.168.52.2&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>然后执行systemctl restart network重启网卡即可</p>
+<h1 id="网络传输"><a href="#网络传输" class="headerlink" title="网络传输"></a>网络传输</h1><h2 id="ping"><a href="#ping" class="headerlink" title="ping"></a>ping</h2><p>检查指定网络服务请是否可以连通</p>
+<p>语法：ping [-c num] ip或者主机名</p>
+<ul>
+<li>-c：检查的次数，不适用-c，将无限次数持续检查</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 检查4次</span></span><br><span class="line">ping -c 4 www.baidu.com </span><br></pre></td></tr></table></figure>
+
+<h2 id="wget"><a href="#wget" class="headerlink" title="wget"></a>wget</h2><p>wget是非交互式的文件下载器，可以在命令行中下载网络文件</p>
+<p>语法：wget [-b] url</p>
+<ul>
+<li>-b：可选，后台下载，会将日志写在当前工作目录下的wget-log文件<ul>
+<li>可以tail -f wget-log持续查看</li>
+</ul>
+</li>
+<li>url：下载链接</li>
+</ul>
+<h2 id="curl"><a href="#curl" class="headerlink" title="curl"></a>curl</h2><p>可以发送http网络请求，可用于：下载文件、获取信息等</p>
+<p>语法：curl [-O] url	O是大写</p>
+<ul>
+<li>-O：用于下载文件，当url是下载连接时，可以使用次选项保存文件</li>
+<li>url：要发起请求的网络地址</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[root@<span class="built_in">whoami</span> ~]<span class="comment"># curl cip.cc</span></span><br><span class="line">IP      : 101.66.216.162</span><br><span class="line">地址    : 中国  浙江  舟山</span><br><span class="line">运营商  : 联通</span><br><span class="line"></span><br><span class="line">数据二  : 浙江省金华市 | 联通</span><br><span class="line"></span><br><span class="line">数据三  : 中国浙江省舟山市 | 联通</span><br><span class="line"></span><br><span class="line">URL     : http://www.cip.cc/101.66.216.162</span><br><span class="line">[root@<span class="built_in">whoami</span> ~]<span class="comment">#</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="端口"><a href="#端口" class="headerlink" title="端口"></a>端口</h2><p>端口是设备和外界通信交流的出入口。可分为物理端口和虚拟端口</p>
+<ul>
+<li>物理端口：又可以称之为接口，是可见端口，如usb接口RJ45网口，HDMI端口等</li>
+<li>虚拟端口：值计算机内部端口，是不可见的，是用来操作系统和外部进行交互使用的</li>
+</ul>
+<p>在Linux中支持65535个端口，分为三类进行使用：</p>
+<ul>
+<li>公认端口：1~1023，通常用于一些系统内置或知名程序的预留使用，如ssh服务的22端口，HTTPS服务的443端口，非特殊需要，不要占用</li>
+<li>注册端口：1024~49151，通常可以随意使用，用于松散的绑定一些程序或服务</li>
+<li>动态端口：49152~65535，通常不会绑定固定的程序，而是当程序对外进行网络链接时，临时使用</li>
+</ul>
+<h2 id="查看端口占用"><a href="#查看端口占用" class="headerlink" title="查看端口占用"></a>查看端口占用</h2><p>使用nmap命令，查看对外暴露的端口</p>
+<p>安装nmap：yum install nmap</p>
+<p>语法：nmap 被查看的IP地址</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[root@<span class="built_in">whoami</span> ~]<span class="comment"># nmap 127.0.0.1</span></span><br><span class="line"></span><br><span class="line">Starting Nmap 6.40 ( http://nmap.org ) at 2023-11-11 00:22 CST</span><br><span class="line">Nmap scan report <span class="keyword">for</span> localhost (127.0.0.1)</span><br><span class="line">Host is up (0.000016s latency).</span><br><span class="line">Not shown: 998 closed ports</span><br><span class="line">PORT   STATE SERVICE</span><br><span class="line">22/tcp open  ssh</span><br><span class="line">25/tcp open  smtp</span><br><span class="line"></span><br><span class="line">Nmap <span class="keyword">done</span>: 1 IP address (1 host up) scanned <span class="keyword">in</span> 1.68 seconds</span><br><span class="line">[root@<span class="built_in">whoami</span> ~]<span class="comment">#</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p>使用netstat命令：查看指定端口的占用情况</p>
+<p>安装：yum install net-tools</p>
+<p>语法：netstat -anp | grep 端口号</p>
+<h1 id="进程管理"><a href="#进程管理" class="headerlink" title="进程管理"></a>进程管理</h1><p>程序运行在操作系统中，是被操作系统管理的</p>
+<p>为了管理运行的程序，每一个程序在运行的时候，便会被操作系统注册为系统中的一个进程</p>
+<p>并为每个进程都分配一个独有的：进程ID（进程号）</p>
+<h2 id="查看进程"><a href="#查看进程" class="headerlink" title="查看进程"></a>查看进程</h2><p>语法：ps [-e -f]</p>
+<ul>
+<li>-e 显示出全部的进程</li>
+<li>-f 以完全格式化的形式展示信息（展示全部信息）</li>
+</ul>
+<p>固定用法：ps -ef 列出全部进程的全部信息</p>
+<table>
+<thead>
+<tr>
+<th>uid</th>
+<th>pid</th>
+<th>ppid</th>
+<th>c</th>
+<th>stime</th>
+<th>tty</th>
+<th>time</th>
+<th>cmd</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>进程所属的用户id</td>
+<td>进程的进程号id</td>
+<td>进程的父id（启动此进程的其他进程）</td>
+<td>此进程的cpu占用率</td>
+<td>进程启动时间</td>
+<td>启动此进程的终端序号，如？，表示非终端启动，而是系统内置启动</td>
+<td>进程占用cpu的时间</td>
+<td>进程对应的名称或启动路径或启动命令</td>
+</tr>
+</tbody></table>
+<h2 id="关闭进程"><a href="#关闭进程" class="headerlink" title="关闭进程"></a>关闭进程</h2><p>kill</p>
+<p>语法：kill [-9] 进程id</p>
+<p>-9：表示强制关闭。不使用-9，表示向进程发送信号要求其关闭，是否关闭看进程自身的处理机制</p>
+<h1 id="主机状态"><a href="#主机状态" class="headerlink" title="主机状态"></a>主机状态</h1><h2 id="top"><a href="#top" class="headerlink" title="top"></a>top</h2><p>查看系统资源占用</p>
+<p><img src="https://cxx-1304636603.cos.ap-beijing.myqcloud.com/picgo_update_img/image-20231111180451451.png" alt="image-20231111180451451"></p>
+<p><img src="https://cxx-1304636603.cos.ap-beijing.myqcloud.com/picgo_update_img/image-20231111181353474.png" alt="image-20231111181353474"></p>
+<p><img src="https://cxx-1304636603.cos.ap-beijing.myqcloud.com/picgo_update_img/image-20231111181428856.png" alt="image-20231111181428856"></p>
+<h2 id="df"><a href="#df" class="headerlink" title="df"></a>df</h2><p>磁盘信息监控</p>
+<p>语法：df [-h]</p>
+<p>-h：以更加人性化的单位显示</p>
+<h2 id="网络状态监控"><a href="#网络状态监控" class="headerlink" title="网络状态监控"></a>网络状态监控</h2><p><img src="https://cxx-1304636603.cos.ap-beijing.myqcloud.com/picgo_update_img/image-20231111182427296.png" alt="image-20231111182427296"></p>
+<h1 id="环境变量"><a href="#环境变量" class="headerlink" title="环境变量"></a>环境变量</h1><p>在Linux中执行：env 可以查看当前系统中记录的环境变量</p>
+<p>env | grep PATH</p>
+<p>$ 取出变量</p>
+<p>echo $PATH</p>
+<h2 id="自行设置环境变量"><a href="#自行设置环境变量" class="headerlink" title="自行设置环境变量"></a>自行设置环境变量</h2><ul>
+<li>临时设置 语法：exprot 变量名&#x3D;变量值</li>
+<li>永久生效<ul>
+<li>针对当前用户生效，配置在当前用户的：~&#x2F;.bashrc文件中</li>
+<li>针对所有用户生效，配置在系统的：&#x2F;etc&#x2F;profile文件中</li>
+<li>并通过语法：source 配置文件，进行立刻生效，或者重新登陆ssh工具</li>
+</ul>
+</li>
+</ul>
+<h2 id="自定义环境变量PATH"><a href="#自定义环境变量PATH" class="headerlink" title="自定义环境变量PATH"></a>自定义环境变量PATH</h2><p>环境变量PATH这个项目记录了系统执行命令的搜索路径</p>
+<p>这些搜索路径我们也可以自行添加到PATH中去</p>
+<ul>
+<li>临时修改PATH：export PATH&#x3D;$PATH:&#x2F;home&#x2F;whoami&#x2F;cxx,再次执行hello，无论在哪都可以执行了</li>
+<li>永久修改PATH：将<code>export PATH=$PATH:/home/whoami/cxx</code>填入环境变量文件：用户：~&#x2F;.bashrc   所有：&#x2F;etc&#x2F;profile，再source 配置文件</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[root@<span class="built_in">whoami</span> ~]<span class="comment"># mkdir cxx</span></span><br><span class="line">[root@<span class="built_in">whoami</span> ~]<span class="comment"># ls</span></span><br><span class="line">anaconda-ks.cfg  cxx  mysql</span><br><span class="line">[root@<span class="built_in">whoami</span> ~]<span class="comment"># cd cxx/</span></span><br><span class="line">[root@<span class="built_in">whoami</span> cxx]<span class="comment"># vi hello</span></span><br><span class="line">[root@<span class="built_in">whoami</span> cxx]<span class="comment"># chmod +x ./hello</span></span><br><span class="line">[root@<span class="built_in">whoami</span> cxx]<span class="comment"># ls -ll</span></span><br><span class="line">总用量 4</span><br><span class="line">-rwxr-xr-x. 1 root root 12 11月 11 19:31 hello</span><br><span class="line">[root@<span class="built_in">whoami</span> cxx]<span class="comment"># vi /etc/profile</span></span><br><span class="line">[root@<span class="built_in">whoami</span> cxx]<span class="comment"># source /etc/profile</span></span><br><span class="line">[root@<span class="built_in">whoami</span> cxx]<span class="comment"># hello</span></span><br><span class="line">hello,linux</span><br><span class="line">[root@<span class="built_in">whoami</span> cxx]<span class="comment"># cd /</span></span><br><span class="line">[root@<span class="built_in">whoami</span> /]<span class="comment"># hello</span></span><br><span class="line">hello,linux</span><br><span class="line">[root@<span class="built_in">whoami</span> /]<span class="comment">#</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="上传下载"><a href="#上传下载" class="headerlink" title="上传下载"></a>上传下载</h1><h2 id="rz、sz"><a href="#rz、sz" class="headerlink" title="rz、sz"></a>rz、sz</h2><p>要使用rz、sz命令需要安装，yum install lrzsz</p>
+<ul>
+<li>rz 上传 输入rz</li>
+<li>sz下载 输入sz 要下载的文件</li>
+</ul>
+<p>文件会自动下载到桌面的fsdownload文件夹中</p>
+<h1 id="压缩解压"><a href="#压缩解压" class="headerlink" title="压缩解压"></a>压缩解压</h1><h2 id="tar"><a href="#tar" class="headerlink" title="tar"></a>tar</h2><p>Linux和Mac系统中常用的2中压缩格式分别是：</p>
+<ul>
+<li>.tar，称之为tarball，归档文件，简单的将文件组装到一个.tar文件内，没有太多的文件体积减少，仅仅是简单的封装</li>
+<li>.gz，也常见为.tar.gz，gzip格式压缩文件，即使用gzip压缩算法将文件压缩到一个文件内，可以极大减少压缩后的体积</li>
+</ul>
+<p>针对这两种格式，使用tar命令均可以进行压缩和解压</p>
+<p>语法：tar [-c -v -x -f -z -C] 参数1 参数2 … 参数n</p>
+<p>-c 创建压缩文件，用于压缩模式</p>
+<p>-v 显示压缩，解压过程，用于查看进度</p>
+<p>-x 解压模式</p>
+<p>-f 要创建的文件，或要解压的文件，-f选项必须在所有选项中位置处于最后一个</p>
+<p>-z gzip模式，不适用-z就是不同的tarball格式，如果使用，一般处于选项的第一位</p>
+<p>-c 选择我解压的目的地，用于解压模式</p>
+<p><img src="https://cxx-1304636603.cos.ap-beijing.myqcloud.com/picgo_update_img/image-20231111213729372.png" alt="image-20231111213729372"></p>
+<h2 id="zip"><a href="#zip" class="headerlink" title="zip"></a>zip</h2><p>可以使用zip命令，压缩文件为zip压缩包</p>
+<p>语法：zip [-r] 参数1 参数2 … 参数n</p>
+<ul>
+<li>-r，被压缩东西的包含文件夹的时候，需要使用-r，和rm、cp等命令的-r效果一致</li>
+</ul>
+<h2 id="unzip"><a href="#unzip" class="headerlink" title="unzip"></a>unzip</h2><p>使用unzip命令，可以方便的解压zip压缩包</p>
+<p>语法：unzip [-d] 参数</p>
+<p>-d 适当要解压去的位置，同tar的-C选项</p>
+<p>参数 被压缩的zip压缩包文件</p>
+<h1 id="集群"><a href="#集群" class="headerlink" title="集群"></a>集群</h1><h2 id="配置多台Linux虚拟机"><a href="#配置多台Linux虚拟机" class="headerlink" title="配置多台Linux虚拟机"></a>配置多台Linux虚拟机</h2><p>克隆3台centos7</p>
+<p>改名：分别改为123：hostnamectl set-hostname node1    2 3</p>
+<p>配置IP地址：vi  &#x2F;etc&#x2F;sysconfig&#x2F;network-scripts&#x2F;ifcfg-ens33</p>
+<p>只需要修改IP地址 （第二台，第三台改一下UUID（只需要改一个数字就行））</p>
+<p>然后重启网卡 systemctl restart network</p>
+<h2 id="准备主机名映射"><a href="#准备主机名映射" class="headerlink" title="准备主机名映射"></a>准备主机名映射</h2><h3 id="Windows中："><a href="#Windows中：" class="headerlink" title="Windows中："></a>Windows中：</h3><p>C:\Windows\System32\drivers\etc</p>
+<p>管理员身份打开记事本打开hosts，在最后写上</p>
+<p>192.168.52.161 node1</p>
+<p>192.168.52.162 node2</p>
+<p>192.168.52.163 node3</p>
+<h3 id="三台Linux中："><a href="#三台Linux中：" class="headerlink" title="三台Linux中："></a>三台Linux中：</h3><p>vi &#x2F;etc&#x2F;hosts 下填入</p>
+<p>192.168.52.161 node1</p>
+<p>192.168.52.162 node2</p>
+<p>192.168.52.163 node3</p>
+<h2 id="配置SSH免密登录"><a href="#配置SSH免密登录" class="headerlink" title="配置SSH免密登录"></a>配置SSH免密登录</h2><p>1、在每台机器上都执行：<code>ssh-keygen -t rsa -b 4096</code>，一路回车</p>
+<p>2、在每台机器都执行：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ssh-copy-id node1</span><br><span class="line">ssh-copy-id node2</span><br><span class="line">ssh-copy-id node3</span><br><span class="line"></span><br><span class="line"><span class="comment"># 记得输入yes  之后还有密码</span></span><br></pre></td></tr></table></figure>
+
+<p>然后就可以ssh node2 …. 三台主机之间随意穿梭</p>
+<h2 id="配置jdk环境"><a href="#配置jdk环境" class="headerlink" title="配置jdk环境"></a>配置jdk环境</h2><p><a href="https://www.oracle.com/java/technologies/downloads/">https://www.oracle.com/java/technologies/downloads/</a></p>
+<p><img src="https://cxx-1304636603.cos.ap-beijing.myqcloud.com/picgo_update_img/image-20231112155235298.png" alt="image-20231112155235298"></p>
+<p>上传到Linux的root目录</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 创建一个目录</span></span><br><span class="line">[root@node1 ~]<span class="comment"># mkdir -p /export/server</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#解压到这个目录</span></span><br><span class="line">[root@node1 ~]<span class="comment"># tar -zxvf jdk-8u391-linux-x64.tar.gz -C /export/server/</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 进入这个目录</span></span><br><span class="line">[root@node1 ~]<span class="comment"># cd /export/server/</span></span><br><span class="line">[root@node1 server]<span class="comment"># ls -l</span></span><br><span class="line">总用量 4</span><br><span class="line">drwxr-xr-x. 8 root root 4096 11月 12 15:56 jdk1.8.0_391</span><br><span class="line"></span><br><span class="line"><span class="comment"># 软链接 把jdk1.8.0_391 链接为 jdk</span></span><br><span class="line">[root@node1 server]<span class="comment"># ln -s /export/server/jdk1.8.0_391 /export/server/jdk</span></span><br><span class="line">[root@node1 server]<span class="comment"># ls -ll</span></span><br><span class="line">总用量 4</span><br><span class="line">lrwxrwxrwx. 1 root root   27 11月 12 15:57 jdk -&gt; /export/server/jdk1.8.0_391</span><br><span class="line">drwxr-xr-x. 8 root root 4096 11月 12 15:56 jdk1.8.0_391</span><br><span class="line"></span><br><span class="line"><span class="comment"># 配置环境变量 --&gt;1.编辑这个文件</span></span><br><span class="line">[root@node1 server]<span class="comment"># vi /etc/profile</span></span><br><span class="line"><span class="comment"># 2.最底部填写如下：</span></span><br><span class="line"><span class="built_in">export</span> JAVA_HOME=/exprot/server/jdk</span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$PATH</span>:<span class="variable">$JAVA_HOME</span>/bin</span><br><span class="line"></span><br><span class="line"><span class="comment"># 3.使其生效</span></span><br><span class="line">[root@node1 server]<span class="comment"># source /etc/profile</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 检查是否生效</span></span><br><span class="line">[root@node1 server]<span class="comment"># echo $JAVA_HOME</span></span><br><span class="line">/exprot/server/jdk</span><br><span class="line">[root@node1 server]<span class="comment"># echo $PATH</span></span><br><span class="line">/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/root/bin:/exprot/server/jdk/bin</span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除系统自带的Java（有可能没有自带）</span></span><br><span class="line">[root@node1 server]<span class="comment"># rm -f /usr/bin/java</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建软链接</span></span><br><span class="line">[root@node1 server]<span class="comment"># ln -s /export/server/jdk/bin/java /usr/bin/java</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 显示Java版本号</span></span><br><span class="line">[root@node1 server]<span class="comment"># java -version</span></span><br><span class="line">java version <span class="string">&quot;1.8.0_391&quot;</span></span><br><span class="line">Java(TM) SE Runtime Environment (build 1.8.0_391-b13)</span><br><span class="line">Java HotSpot(TM) 64-Bit Server VM (build 25.391-b13, mixed mode)</span><br><span class="line">[root@node1 server]<span class="comment">#</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="关闭防火墙和SELinux"><a href="#关闭防火墙和SELinux" class="headerlink" title="关闭防火墙和SELinux"></a>关闭防火墙和SELinux</h2><p>集群化软件之间需要通过端口相互通讯，为了避免出现网络不通的问题，我们可以简单的在集群内部关闭防火墙</p>
+<p>关闭防火墙（每台都执行）：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">systemctl stop firewalld</span><br><span class="line">systemctl <span class="built_in">disable</span> firewalld</span><br></pre></td></tr></table></figure>
+
+<p>Linux有一个安全模块：SELinux，用以限制用户和程序的相关权限，用来确保系统的安全稳定</p>
+<p>SELinux的配置同防火墙一样，非常复杂</p>
+<p>当前，我们只需要关闭SELinux功能，避免后面的软件运行出现问题</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vi /etc/sysconfig/selinux</span><br><span class="line"><span class="comment"># 将SELINUX=enforcing（第七行）改为</span></span><br><span class="line">SELINUX=disabled</span><br><span class="line"><span class="comment"># 保存退出后，重启虚拟机即可 disabled不要写错，写错就开不了机了</span></span><br></pre></td></tr></table></figure>
+
+<p>输入：init 0 关机 ，init 6 是重启</p>
+<h1 id="防火墙"><a href="#防火墙" class="headerlink" title="防火墙"></a>防火墙</h1><h2 id="查看防火墙状态"><a href="#查看防火墙状态" class="headerlink" title="查看防火墙状态"></a>查看防火墙状态</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">systemctl status firewalld</span><br></pre></td></tr></table></figure>
+
+<h2 id="启动防火墙"><a href="#启动防火墙" class="headerlink" title="启动防火墙"></a>启动防火墙</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">systemctl start firewalld</span><br></pre></td></tr></table></figure>
+
+<h2 id="停止防火墙"><a href="#停止防火墙" class="headerlink" title="停止防火墙"></a>停止防火墙</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">systemctl stop firewalld</span><br></pre></td></tr></table></figure>
+
+<h2 id="查看防火墙已经开放的端口"><a href="#查看防火墙已经开放的端口" class="headerlink" title="查看防火墙已经开放的端口"></a>查看防火墙已经开放的端口</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">firewall-cmd --list-port</span><br></pre></td></tr></table></figure>
+
+<h2 id="添加开放指定端口"><a href="#添加开放指定端口" class="headerlink" title="添加开放指定端口"></a>添加开放指定端口</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">firewall-cmd --zone=public --add-port=需要开启的端口号/tcp --permanent</span><br><span class="line"></span><br><span class="line"><span class="comment"># 注</span></span><br><span class="line">--permanent参数是永久生效</span><br><span class="line">但是需要重新加载防火墙才能生效</span><br></pre></td></tr></table></figure>
+
+<h2 id="关闭指定端口"><a href="#关闭指定端口" class="headerlink" title="关闭指定端口"></a>关闭指定端口</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">firewall-cmd --zone=public --remove-port=需要开启的端口号/tcp --permanent</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="设置完成后要重新加载防火墙"><a href="#设置完成后要重新加载防火墙" class="headerlink" title="设置完成后要重新加载防火墙"></a>设置完成后要重新加载防火墙</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">firewall-cmd --reload</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>docker</title>
+    <url>/2023/12/02/Docker/</url>
+    <content><![CDATA[<h1 id="快速入门"><a href="#快速入门" class="headerlink" title="快速入门"></a>快速入门</h1><h2 id="安装Docker"><a href="#安装Docker" class="headerlink" title="安装Docker"></a>安装Docker</h2><h3 id="1-根据官网文档安装"><a href="#1-根据官网文档安装" class="headerlink" title="1.根据官网文档安装"></a>1.根据官网文档安装</h3><p><a href="https://docs.docker.com/engine/install/centos/">https://docs.docker.com/engine/install/centos/</a></p>
+<h3 id="2-启动和校验"><a href="#2-启动和校验" class="headerlink" title="2.启动和校验"></a>2.启动和校验</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 启动Docker</span></span><br><span class="line">systemctl start docker</span><br><span class="line"></span><br><span class="line"><span class="comment"># 停止Docker</span></span><br><span class="line">systemctl stop docker</span><br><span class="line"></span><br><span class="line"><span class="comment"># 重启</span></span><br><span class="line">systemctl restart docker</span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置开机自启</span></span><br><span class="line">systemctl <span class="built_in">enable</span> docker</span><br><span class="line"></span><br><span class="line"><span class="comment"># 执行docker ps命令，如果不报错，说明安装启动成功</span></span><br><span class="line">docker ps</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-配置镜像加速"><a href="#3-配置镜像加速" class="headerlink" title="3.配置镜像加速"></a>3.配置镜像加速</h3><p>打开阿里云官网—-&gt;产品—-&gt;容器—-&gt;容器镜像服务ACR—-&gt;进入控制台—-&gt;镜像加速器选择对应的系统—-&gt;按文档输入命令</p>
+<h2 id="部署MySQL"><a href="#部署MySQL" class="headerlink" title="部署MySQL"></a>部署MySQL</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker run -d \</span><br><span class="line">  --name mysql \</span><br><span class="line">  -p 3306:3306 \</span><br><span class="line">  -e TZ=Asia/Shanghai \</span><br><span class="line">  -e MYSQL_ROOT_PASSWORD=123 \</span><br><span class="line">  mysql</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://cxx-1304636603.cos.ap-beijing.myqcloud.com/picgo_update_img/image-20231105122256594.png" alt="image-20231105122256594"></p>
+<p>MySQL安装完毕！通过任意客户端工具即可连接到MySQL.（密码123）</p>
+<p>Docker本身包含一个后台服务，我们可以利用Docker命令告诉Docker服务，帮助我们快速部署指定的应用。Docker服务部署应用时，首先要去搜索并下载应用对应的镜像，然后根据镜像创建并允许容器，应用就部署完成了。</p>
+<p><img src="https://cxx-1304636603.cos.ap-beijing.myqcloud.com/picgo_update_img/image-20231105122414189.png" alt="image-20231105122414189"></p>
+<h2 id="命令解读"><a href="#命令解读" class="headerlink" title="命令解读"></a>命令解读</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker run -d \</span><br><span class="line">  --name mysql \</span><br><span class="line">  -p 3306:3306 \</span><br><span class="line">  -e TZ=Asia/Shanghai \</span><br><span class="line">  -e MYSQL_ROOT_PASSWORD=123 \</span><br><span class="line">  mysql</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>docker run</strong>：创建并运行一个容器，**-d**是让容器在后台运行<ul>
+<li>不<strong>run</strong>的话就只会创建一个容器单不运行，还需要手动运行，所以一般都会加<strong>run</strong></li>
+<li>不**-d<strong>的话输入完命令就会在前台运行，就会把命令行卡到那，所以一般都会加</strong>-d**</li>
+</ul>
+</li>
+<li><strong>– name mysql：</strong>给容器起一个名字，必须唯一</li>
+<li><strong>-p 3306:3306：</strong>设置端口映射<ul>
+<li><strong>容器是隔离环境</strong>，有自己独立的内存空间，有自己独立的文件系统，甚至有自己独立的网络环境，有自己的IP地址，外界不可访问。但是可以<strong>将宿主机端口映射容器内到端口</strong>，当访问宿主机指定端口时，就是在访问容器内的端口了。</li>
+<li>容器内端口往往是由容器内的进程决定，例如MySQL进程默认端口是3306，因此容器内端口一定是3306；而宿主机端口则可以任意指定，一般与容器内保持一致。</li>
+<li>格式： <code>-p 宿主机端口:容器内端口</code>，示例中就是将宿主机的3306映射到容器内的3306端口</li>
+</ul>
+</li>
+<li><strong>-e KEY&#x3D;VALUE：</strong>是设置环境变量，这个是由镜像的制作者决定的，<strong>那么我们怎么知道呢</strong>，就需要查看镜像的文档说明<ul>
+<li>进入<strong>docker hub</strong> <a href="https://hub.docker.com/">https://hub.docker.com/</a> ，搜索mysql</li>
+<li>进入mysql，找到Environment Variables（环境变量）就可以看到有哪些参数</li>
+</ul>
+</li>
+<li><strong>mysql：</strong>指定运行的镜像的名字<ul>
+<li><strong>镜像命名规范：</strong>[repository]:[tag]，<strong>repository</strong>是镜像名，<strong>tag</strong>是镜像的版本，例如<strong>mysql:5.7</strong></li>
+<li>如果没有指定<strong>tag</strong>，默认是latest，代表最新版本的镜像</li>
+</ul>
+</li>
+</ul>
+<h1 id="Docker基础"><a href="#Docker基础" class="headerlink" title="Docker基础"></a>Docker基础</h1><h2 id="常见命令"><a href="#常见命令" class="headerlink" title="常见命令"></a>常见命令</h2><p>Docker最常见的命令就是操作镜像、容器的命令，官方文档：<a href="https://docs.docker.com/">https://docs.docker.com/</a></p>
+<p>其中，比较常见的命令有：</p>
+<table>
+<thead>
+<tr>
+<th align="left"><strong>命令</strong></th>
+<th align="left"><strong>说明</strong></th>
+<th align="left"><strong>文档地址</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">docker pull</td>
+<td align="left">拉取镜像</td>
+<td align="left"><a href="https://docs.docker.com/engine/reference/commandline/pull/">docker pull</a></td>
+</tr>
+<tr>
+<td align="left">docker push</td>
+<td align="left">推送镜像到DockerRegistry</td>
+<td align="left"><a href="https://docs.docker.com/engine/reference/commandline/push/">docker push</a></td>
+</tr>
+<tr>
+<td align="left">docker images</td>
+<td align="left">查看本地镜像</td>
+<td align="left"><a href="https://docs.docker.com/engine/reference/commandline/images/">docker images</a></td>
+</tr>
+<tr>
+<td align="left">docker rmi</td>
+<td align="left">删除本地镜像</td>
+<td align="left"><a href="https://docs.docker.com/engine/reference/commandline/rmi/">docker rmi</a></td>
+</tr>
+<tr>
+<td align="left">docker run</td>
+<td align="left">创建并运行容器（不能重复创建）</td>
+<td align="left"><a href="https://docs.docker.com/engine/reference/commandline/run/">docker run</a></td>
+</tr>
+<tr>
+<td align="left">docker stop</td>
+<td align="left">停止指定容器</td>
+<td align="left"><a href="https://docs.docker.com/engine/reference/commandline/stop/">docker stop</a></td>
+</tr>
+<tr>
+<td align="left">docker start</td>
+<td align="left">启动指定容器</td>
+<td align="left"><a href="https://docs.docker.com/engine/reference/commandline/start/">docker start</a></td>
+</tr>
+<tr>
+<td align="left">docker restart</td>
+<td align="left">重新启动容器</td>
+<td align="left"><a href="https://docs.docker.com/engine/reference/commandline/restart/">docker restart</a></td>
+</tr>
+<tr>
+<td align="left">docker rm</td>
+<td align="left">删除指定容器</td>
+<td align="left"><a href="https://docs.docker.com/engine/reference/commandline/rm/">docs.docker.com</a></td>
+</tr>
+<tr>
+<td align="left">docker ps</td>
+<td align="left">查看容器</td>
+<td align="left"><a href="https://docs.docker.com/engine/reference/commandline/ps/">docker ps</a></td>
+</tr>
+<tr>
+<td align="left">docker logs</td>
+<td align="left">查看容器运行日志</td>
+<td align="left"><a href="https://docs.docker.com/engine/reference/commandline/logs/">docker logs</a></td>
+</tr>
+<tr>
+<td align="left">docker exec</td>
+<td align="left">进入容器</td>
+<td align="left"><a href="https://docs.docker.com/engine/reference/commandline/exec/">docker exec</a></td>
+</tr>
+<tr>
+<td align="left">docker save</td>
+<td align="left">保存镜像到本地压缩文件</td>
+<td align="left"><a href="https://docs.docker.com/engine/reference/commandline/save/">docker save</a></td>
+</tr>
+<tr>
+<td align="left">docker load</td>
+<td align="left">加载本地压缩文件到镜像</td>
+<td align="left"><a href="https://docs.docker.com/engine/reference/commandline/load/">docker load</a></td>
+</tr>
+<tr>
+<td align="left">docker inspect</td>
+<td align="left">查看容器详细信息</td>
+<td align="left"><a href="https://docs.docker.com/engine/reference/commandline/inspect/">docker inspect</a></td>
+</tr>
+</tbody></table>
+<p>用一副图来表示这些命令的关系：</p>
+<p><img src="https://cxx-1304636603.cos.ap-beijing.myqcloud.com/picgo_update_img/image-20231105131726454.png" alt="image-20231105131726454"></p>
+<p>docker save –help </p>
+<p>–help就是帮助，教你怎么去写，后面加什么参数</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 拉取Nginx镜像</span></span><br><span class="line">docker pull nginx</span><br><span class="line"><span class="comment"># 把下载好的镜像保存下来给大家用（这个是保存到本地目录）</span></span><br><span class="line">docker save -0 nginx.tar nginx:latest</span><br><span class="line"><span class="comment"># 删除镜像（docker的本地仓库）</span></span><br><span class="line">docker rmi nginx:latest</span><br><span class="line"><span class="comment"># 读取本地镜像（本地目录）</span></span><br><span class="line">docker load -i nginx.tar</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h3 id="演示"><a href="#演示" class="headerlink" title="演示"></a>演示</h3><p>查看DockerHub，拉取Nginx镜像，创建并运行Nginx容器</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 在DockerHub中搜索Nginx镜像，查看镜像名称</span></span><br><span class="line"><span class="comment"># https://hub.docker.com/_/nginx</span></span><br><span class="line"><span class="comment"># 拉取Nginx镜像</span></span><br><span class="line">docker pull nginx</span><br><span class="line"><span class="comment"># 查看本地镜像列表</span></span><br><span class="line">docker images </span><br><span class="line"><span class="comment"># 创建并运行Nginx容器</span></span><br><span class="line">docker run -d --name nginx -p 80:80 nginx</span><br><span class="line"><span class="comment"># 查看容器</span></span><br><span class="line">docker ps</span><br><span class="line"><span class="comment"># 加上 -a，就可以查看所有的容器，包括已经停止的</span></span><br><span class="line"><span class="comment"># 也可以加格式化方式访问，格式会更加清爽</span></span><br><span class="line">docker ps --format <span class="string">&quot;table &#123;&#123;.ID&#125;&#125;\t&#123;&#123;.Image&#125;&#125;\t&#123;&#123;.Ports&#125;&#125;\t&#123;&#123;.Status&#125;&#125;\t&#123;&#123;.Names&#125;&#125;&quot;</span></span><br><span class="line"><span class="comment"># 停止容器</span></span><br><span class="line">docker stop nginx</span><br><span class="line"><span class="comment"># 再次启动容器</span></span><br><span class="line">docker start nginx</span><br><span class="line"><span class="comment"># 查看日志</span></span><br><span class="line">docker logs nginx</span><br><span class="line"><span class="comment"># 持续查看日志</span></span><br><span class="line">docker logs -f nginx</span><br><span class="line"><span class="comment"># 进入Nginx容器 -it就是一个可交互终端的意思</span></span><br><span class="line">docker <span class="built_in">exec</span> -it nginx bash</span><br><span class="line"><span class="comment"># 进入mysql容器，就可以mysql -uroot -p123 来连接mysql客户端 </span></span><br><span class="line">docker <span class="built_in">exec</span> -it mysql bash</span><br><span class="line">mysql -uroot -p123</span><br><span class="line"><span class="comment"># 也可以这样写（不用先进入容器控制台）</span></span><br><span class="line">docker <span class="built_in">exec</span> -it mysql bash mysql -uroot -p123</span><br><span class="line"><span class="comment"># 删除容器</span></span><br><span class="line">docker <span class="built_in">rm</span> nginx </span><br><span class="line"><span class="comment"># 会提示不让删除（因为容器正在运行中）</span></span><br><span class="line"><span class="comment"># 可以先把它停掉再删</span></span><br><span class="line">docker stop nginx </span><br><span class="line">docker <span class="built_in">rm</span> nginx</span><br><span class="line"><span class="comment"># 也可以加-f强制删除</span></span><br><span class="line">docker <span class="built_in">rm</span> mysql -f</span><br></pre></td></tr></table></figure>
+
+<h3 id="命名别名"><a href="#命名别名" class="headerlink" title="命名别名"></a>命名别名</h3><p><strong>用途：</strong>向上文提到的<code>docker ps --format &quot;table &#123;&#123;.ID&#125;&#125;\t&#123;&#123;.Image&#125;&#125;\t&#123;&#123;.Ports&#125;&#125;\t&#123;&#123;.Status&#125;&#125;\t&#123;&#123;.Names&#125;&#125;&quot;</code>这个命令太长了，十分的不方便</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 修改/root/.bashrc文件</span></span><br><span class="line">vi /root/.bashrc</span><br><span class="line">内容如下：</span><br><span class="line"><span class="comment"># .bashrc</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># User specific aliases and functions</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">alias</span> <span class="built_in">rm</span>=<span class="string">&#x27;rm -i&#x27;</span></span><br><span class="line"><span class="built_in">alias</span> <span class="built_in">cp</span>=<span class="string">&#x27;cp -i&#x27;</span></span><br><span class="line"><span class="built_in">alias</span> <span class="built_in">mv</span>=<span class="string">&#x27;mv -i&#x27;</span></span><br><span class="line"><span class="built_in">alias</span> dps=<span class="string">&#x27;docker ps --format &quot;table &#123;&#123;.ID&#125;&#125;\t&#123;&#123;.Image&#125;&#125;\t&#123;&#123;.Ports&#125;&#125;\t&#123;&#123;.Status&#125;&#125;\t&#123;&#123;.Names&#125;&#125;&quot;&#x27;</span></span><br><span class="line"><span class="built_in">alias</span> dis=<span class="string">&#x27;docker images&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Source global definitions</span></span><br><span class="line"><span class="keyword">if</span> [ -f /etc/bashrc ]; <span class="keyword">then</span></span><br><span class="line">        . /etc/bashrc</span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 这是咋们添加的</span></span><br><span class="line"><span class="built_in">alias</span> dps=<span class="string">&#x27;docker ps --format &quot;table &#123;&#123;.ID&#125;&#125;\t&#123;&#123;.Image&#125;&#125;\t&#123;&#123;.Ports&#125;&#125;\t&#123;&#123;.Status&#125;&#125;\t&#123;&#123;.Names&#125;&#125;&quot;&#x27;</span></span><br><span class="line"><span class="built_in">alias</span> dis=<span class="string">&#x27;docker images&#x27;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>然后，执行命令使别名生效</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">source</span> /root/.bashrc</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="数据卷"><a href="#数据卷" class="headerlink" title="数据卷"></a>数据卷</h2><p>容器是隔离环境，容器内程序的文件、配置、运行时产生的容器都在容器内部，我们要读写容器内的文件非常不方便。大家思考几个问题：</p>
+<ul>
+<li>如果要升级MySQL版本，需要销毁旧容器，那么数据岂不是跟着被销毁了？</li>
+<li>MySQL、Nginx容器运行后，如果我要修改其中的某些配置该怎么办？</li>
+<li>我想要让Nginx代理我的静态资源怎么办？</li>
+</ul>
+<p>因此，容器提供程序的运行环境，但是<strong>程序运行产生的数据、程序运行依赖的配置都应该与容器解耦</strong>。</p>
+<h3 id="什么是数据卷"><a href="#什么是数据卷" class="headerlink" title="什么是数据卷"></a>什么是数据卷</h3><p><strong>数据卷（volume）</strong>是一个虚拟目录，是<strong>容器内目录与宿主机目录</strong>之间映射的桥梁。</p>
+<p>以Nginx为例，我们知道Nginx中有两个关键的目录：</p>
+<ul>
+<li><code>html</code>：放置一些静态资源</li>
+<li><code>conf</code>：放置配置文件</li>
+</ul>
+<p>如果我们要让Nginx代理我们的静态资源，最好是放到<code>html</code>目录；如果我们要修改Nginx的配置，最好是找到<code>conf</code>下的<code>nginx.conf</code>文件。</p>
+<p>但遗憾的是，容器运行的Nginx所有的文件都在容器内部。所以我们必须利用数据卷将两个目录与宿主机目录关联，方便我们操作。如图：</p>
+<p><img src="https://cxx-1304636603.cos.ap-beijing.myqcloud.com/picgo_update_img/image-20231105143936617.png" alt="image-20231105143936617"></p>
+<p>在上图中：</p>
+<ul>
+<li>我们创建了两个数据卷：<code>conf</code>、<code>html</code></li>
+<li>Nginx容器内部的<code>conf</code>目录和<code>html</code>目录分别与两个数据卷关联。</li>
+<li>而数据卷conf和html分别指向了宿主机的<code>/var/lib/docker/volumes/conf/_data</code>目录和<code>/var/lib/docker/volumes/html/_data</code>目录</li>
+</ul>
+<p>这样以来，容器内的<code>conf</code>和<code>html</code>目录就 与宿主机的<code>conf</code>和<code>html</code>目录关联起来，我们称为<strong>挂载</strong>。此时，我们操作宿主机的<code>/var/lib/docker/volumes/html/_data</code>就是在操作容器内的<code>/usr/share/nginx/html/_data</code>目录。只要我们将静态资源放入宿主机对应目录，就可以被Nginx代理了。</p>
+<h4 id="注意："><a href="#注意：" class="headerlink" title="注意："></a>注意：</h4><p><code>/var/lib/docker/volumes</code>这个目录就是默认的存放所有容器数据卷的目录，其下再根据数据卷名称创建新目录，格式为<code>/数据卷名/_data</code>。</p>
+<p><strong>为什么不让容器目录直接指向宿主机目录呢</strong>？</p>
+<ul>
+<li>因为直接指向宿主机目录就与宿主机强耦合了，如果切换了环境，宿主机目录就可能发生改变了。由于容器一旦创建，目录挂载就无法修改，这样容器就无法正常工作了。</li>
+<li>但是容器指向数据卷，一个逻辑名称，而数据卷再指向宿主机目录，就不存在强耦合。如果宿主机目录发生改变，只要改变数据卷与宿主机目录之间的映射关系即可。</li>
+</ul>
+<p>不过，我们通过由于数据卷目录比较深，不好寻找，通常我们也<strong>允许让容器直接与宿主机目录挂载而不使用数据卷</strong>—-&gt;挂载本地目录或文件</p>
+<h3 id="数据卷命令"><a href="#数据卷命令" class="headerlink" title="数据卷命令"></a>数据卷命令</h3><p>数据卷的相关命令有：</p>
+<table>
+<thead>
+<tr>
+<th align="left"><strong>命令</strong></th>
+<th align="left"><strong>说明</strong></th>
+<th align="left"><strong>文档地址</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">docker volume create</td>
+<td align="left">创建数据卷</td>
+<td align="left"><a href="https://docs.docker.com/engine/reference/commandline/volume_create/">docker volume create</a></td>
+</tr>
+<tr>
+<td align="left">docker volume ls</td>
+<td align="left">查看所有数据卷</td>
+<td align="left"><a href="https://docs.docker.com/engine/reference/commandline/volume_ls/">docs.docker.com</a></td>
+</tr>
+<tr>
+<td align="left">docker volume rm</td>
+<td align="left">删除指定数据卷</td>
+<td align="left"><a href="https://docs.docker.com/engine/reference/commandline/volume_prune/">docs.docker.com</a></td>
+</tr>
+<tr>
+<td align="left">docker volume inspect</td>
+<td align="left">查看某个数据卷的详情</td>
+<td align="left"><a href="https://docs.docker.com/engine/reference/commandline/volume_inspect/">docs.docker.com</a></td>
+</tr>
+<tr>
+<td align="left">docker volume prune</td>
+<td align="left">清除数据卷</td>
+<td align="left"><a href="https://docs.docker.com/engine/reference/commandline/volume_prune/">docker volume prune</a></td>
+</tr>
+</tbody></table>
+<p>注意：容器与数据卷的挂载要在创建容器时配置，对于创建好的容器，是不能设置数据卷的。而且<strong>创建容器的过程中，数据卷会自动创建</strong>。</p>
+<p><em><strong>演示Nginx的html目录挂载</strong></em></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 删除原有的nginx</span></span><br><span class="line">docker <span class="built_in">rm</span> -f nginx</span><br><span class="line"><span class="comment"># 首先创建容器并指定数据卷，注意通过 -v 参数来指定数据卷</span></span><br><span class="line"><span class="comment"># html是数据卷的名字（自己起的）</span></span><br><span class="line">docker run -d --name nginx -p 80:80 -v html:/usr/share/nginx/html nginx</span><br><span class="line"><span class="comment"># 然后查看数据卷</span></span><br><span class="line">docker volume <span class="built_in">ls</span></span><br><span class="line"><span class="comment"># 展示券的详细信息（可以看到挂在到宿主机的哪个位置）</span></span><br><span class="line">docker volume inspect html</span><br><span class="line"><span class="comment"># 查看/var/lib/docker/volumes/html/_data目录</span></span><br><span class="line">ll /var/lib/docker/volumes/html/_data</span><br><span class="line"><span class="comment"># 进入该目录，并随意修改index.html内容</span></span><br><span class="line"><span class="built_in">cd</span> /var/lib/docker/volumes/html/_data</span><br><span class="line">vi index.html</span><br><span class="line"><span class="comment"># 当然也可以不用vi，如下图1</span></span><br><span class="line"><span class="comment"># 打开页面，查看效果（这个是我的ip）</span></span><br><span class="line">http://192.168.52.136/</span><br><span class="line"><span class="comment"># 进入容器内部，查看/usr/share/nginx/html目录内的文件是否变化</span></span><br><span class="line">docker <span class="built_in">exec</span> -it nginx bash</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://cxx-1304636603.cos.ap-beijing.myqcloud.com/picgo_update_img/image-20231105151035439.png" alt="1"></p>
+<p><em><strong>演示一下MySQL的匿名数据卷</strong></em></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 1.查看MySQL容器详细信息</span></span><br><span class="line">docker inspect mysql</span><br><span class="line"><span class="comment"># 关注其中.Config.Volumes部分和.Mounts部分(图一、图二)</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="https://cxx-1304636603.cos.ap-beijing.myqcloud.com/picgo_update_img/image-20231105153644565.png" alt="1"></p>
+<p>可以发现这个容器声明了一个本地目录，需要挂载数据卷，但是<strong>数据卷未定义</strong>。这就是匿名卷。</p>
+<p><img src="https://cxx-1304636603.cos.ap-beijing.myqcloud.com/picgo_update_img/image-20231105154001588.png" alt="2"></p>
+<p>可以发现，其中有几个关键属性：</p>
+<ul>
+<li>Name：数据卷名称。由于定义容器未设置容器名，这里的就是匿名卷自动生成的名字，一串hash值。</li>
+<li>Source：宿主机目录</li>
+<li>Destination : 容器内的目录</li>
+</ul>
+<p>上述配置是将容器内的<code>/var/lib/mysql</code>这个目录，与数据卷<code>f7c86c89300f004c87166c8d33d14b43b8691bfe7b402047beeeb4bd9a83a5c2</code>挂载。于是在宿主机中就有了<code>/var/lib/docker/volumes/f7c86c89300f004c87166c8d33d14b43b8691bfe7b402047beeeb4bd9a83a5c2/_data</code>这个目录。这就是匿名数据卷对应的目录，其使用方式与普通数据卷没有差别。</p>
+<p>接下来，可以查看该目录下的MySQL的data文件：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">ls</span> -l /var/lib/docker/volumes/f7c86c89300f004c87166c8d33d14b43b8691bfe7b402047beeeb4bd9a83a5c2/_data</span><br></pre></td></tr></table></figure>
+
+<p>那么为什么MySQL要把data挂在到宿主机呢</p>
+<p>因为随着不断的建表，容器会越来越大，到时候迁移会很麻烦</p>
+<p>但是，虽然可以迁移，但是问题出现了，匿名卷数据名称太长，所以我们需要一种新的挂在方式—-&gt;下一章</p>
+<h3 id="挂载本地目录或文件"><a href="#挂载本地目录或文件" class="headerlink" title="挂载本地目录或文件"></a>挂载本地目录或文件</h3><p>可以发现，数据卷的目录结构较深，如果我们去操作数据卷目录会不太方便。在很多情况下，我们会直接将容器目录与宿主机指定目录挂载。挂载语法与数据卷类似：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 挂载本地目录</span></span><br><span class="line">-v 本地目录:容器内目录</span><br><span class="line"><span class="comment"># 挂载本地文件</span></span><br><span class="line">-v 本地文件:容器内文件</span><br></pre></td></tr></table></figure>
+
+<p><strong>注意</strong>：本地目录或文件必须以 <code>/</code> 或 <code>./</code>开头，如果直接以名字开头，会被识别为数据卷名而非本地目录名。</p>
+<p>例如：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">-v mysql:/var/lib/mysql <span class="comment"># 会被识别为一个数据卷叫mysql，运行时会自动创建这个数据卷</span></span><br><span class="line">-v ./mysql:/var/lib/mysql <span class="comment"># 会被识别为当前目录下的mysql目录，运行时如果不存在会创建目录</span></span><br></pre></td></tr></table></figure>
+
+<p>演示：</p>
+<p>删除并重新创建mysql容器，并完成本地目录挂载：</p>
+<ul>
+<li>挂载<code>/root/mysql/data</code>到容器内的<code>/var/lib/mysql</code>目录</li>
+<li>挂载<code>/root/mysql/init</code>到容器内的<code>/docker-entrypoint-initdb.d</code>目录（初始化的SQL脚本目录）</li>
+<li>挂载<code>/root/mysql/conf</code>到容器内的<code>/etc/mysql/conf.d</code>目录（这个是MySQL配置文件目录）</li>
+</ul>
+<p>我们直接在&#x2F;root目录下创建mysql文件夹在mysql文件夹中创建conf文件夹和init文件夹，上传对应的文件</p>
+<p>本地目录挂载：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 删除原来的MySQL容器</span></span><br><span class="line">docker <span class="built_in">rm</span> -f mysql</span><br><span class="line"><span class="comment"># 进入root目录</span></span><br><span class="line"><span class="built_in">cd</span> ~</span><br><span class="line"><span class="comment"># 创建并运行新mysql容器，挂载本地目录</span></span><br><span class="line">docker run -d \</span><br><span class="line">  --name mysql \</span><br><span class="line">  -p 3306:3306 \</span><br><span class="line">  -e TZ=Asia/Shanghai \</span><br><span class="line">  -e MYSQL_ROOT_PASSWORD=123 \</span><br><span class="line">  -v ./mysql/data:/var/lib/mysql \</span><br><span class="line">  -v ./mysql/conf:/etc/mysql/conf.d \</span><br><span class="line">  -v ./mysql/init:/docker-entrypoint-initdb.d \</span><br><span class="line">  mysql</span><br><span class="line"><span class="comment"># 查看root目录，可以发现~/mysql/data目录已经自动创建好了</span></span><br><span class="line"><span class="built_in">ls</span> -l mysql</span><br><span class="line"><span class="comment"># 查看data目录，会发现里面有大量数据库数据，说明数据库完成了初始化</span></span><br><span class="line"><span class="built_in">ls</span> -l data</span><br><span class="line"><span class="comment"># 查看MySQL容器内数据 进入MySQL</span></span><br><span class="line">docker <span class="built_in">exec</span> -it mysql mysql -uroot -p123</span><br><span class="line"><span class="comment"># 查看编码表</span></span><br><span class="line">show variables like <span class="string">&quot;%char%&quot;</span>;</span><br><span class="line"><span class="comment"># 查看数据 查看数据库</span></span><br><span class="line">show databases;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>这个时候哪怕我把MySQL的容器删了，从新创建，数据都不会丢失</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 删除容器</span></span><br><span class="line">docker <span class="built_in">rm</span> mysql -f</span><br><span class="line"><span class="comment"># 创建容器</span></span><br><span class="line">docker run -d \</span><br><span class="line">  --name mysql \</span><br><span class="line">  -p 3306:3306 \</span><br><span class="line">  -e TZ=Asia/Shanghai \</span><br><span class="line">  -e MYSQL_ROOT_PASSWORD=123 \</span><br><span class="line">  -v ./mysql/data:/var/lib/mysql \</span><br><span class="line">  -v ./mysql/conf:/etc/mysql/conf.d \</span><br><span class="line">  -v ./mysql/init:/docker-entrypoint-initdb.d \</span><br><span class="line">  mysql</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="自定义镜像"><a href="#自定义镜像" class="headerlink" title="自定义镜像"></a>自定义镜像</h2><p>前面我们一直在使用别人准备好的镜像，那如果我要部署一个Java项目，把它打包为一个镜像该怎么做呢？</p>
+<h3 id="镜像结构"><a href="#镜像结构" class="headerlink" title="镜像结构"></a>镜像结构</h3><p>要想自己构建镜像，必须先了解镜像的结构。</p>
+<p>之前我们说过，镜像之所以能让我们快速跨操作系统部署应用而忽略其运行环境、配置，就是因为镜像中包含了程序运行需要的系统函数库、环境、配置、依赖。</p>
+<p>因此，自定义镜像本质就是依次准备好程序运行的基础环境、依赖、应用本身、运行配置等文件，并且打包而成。</p>
+<p>举个例子，我们要从0部署一个Java应用，大概流程是这样：</p>
+<ul>
+<li>准备一个linux服务（CentOS或者Ubuntu均可）</li>
+<li>安装并配置JDK</li>
+<li>上传Jar包</li>
+<li>运行jar包</li>
+</ul>
+<p>那因此，我们打包镜像也是分成这么几步：</p>
+<ul>
+<li>准备Linux运行环境（java项目并不需要完整的操作系统，仅仅是基础运行环境即可）</li>
+<li>安装并配置JDK</li>
+<li>拷贝jar包</li>
+<li>配置启动脚本</li>
+</ul>
+<p>上述步骤中的每一次操作其实都是在生产一些文件（系统运行环境、函数库、配置最终都是磁盘文件），所以<strong>镜像就是一堆文件的集合</strong>。</p>
+<p>但需要注意的是，镜像文件不是随意堆放的，而是按照操作的步骤分层叠加而成，每一层形成的文件都会单独打包并标记一个唯一id，称为<strong>Layer</strong>（<strong>层</strong>）。这样，如果我们构建时用到的某些层其他人已经制作过，就可以直接拷贝使用这些层，而不用重复制作。</p>
+<p>例如，第一步中需要的Linux运行环境，通用性就很强，所以Docker官方就制作了这样的只包含Linux运行环境的镜像。我们在制作java镜像时，就无需重复制作，直接使用Docker官方提供的CentOS或Ubuntu镜像作为基础镜像。然后再搭建其它层即可，这样逐层搭建，最终整个Java项目的镜像结构如图1所示：</p>
+<p><img src="https://cxx-1304636603.cos.ap-beijing.myqcloud.com/picgo_update_img/image-20231105164641989.png" alt="1"></p>
+<h3 id="Dockerfile"><a href="#Dockerfile" class="headerlink" title="Dockerfile"></a>Dockerfile</h3><p>由于制作镜像的过程中，需要逐层处理和打包，比较复杂，所以Docker就提供了自动打包镜像的功能。我们只需要将打包的过程，每一层要做的事情用固定的语法写下来，交给Docker去执行即可。</p>
+<p>而这种记录镜像结构的文件就称为<strong>Dockerfile</strong>，其对应的语法可以参考官方文档：</p>
+<p><a href="https://docs.docker.com/engine/reference/builder/">https://docs.docker.com/engine/reference/builder/</a></p>
+<p>其中的语法比较多，比较常用的有：</p>
+<table>
+<thead>
+<tr>
+<th align="left"><strong>指令</strong></th>
+<th align="left"><strong>说明</strong></th>
+<th align="left"><strong>示例</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>FROM</strong></td>
+<td align="left">指定基础镜像</td>
+<td align="left"><code>FROM centos:6</code></td>
+</tr>
+<tr>
+<td align="left"><strong>ENV</strong></td>
+<td align="left">设置环境变量，可在后面指令使用</td>
+<td align="left"><code>ENV key value</code></td>
+</tr>
+<tr>
+<td align="left"><strong>COPY</strong></td>
+<td align="left">拷贝本地文件到镜像的指定目录</td>
+<td align="left"><code>COPY ./xx.jar /tmp/app.jar</code></td>
+</tr>
+<tr>
+<td align="left"><strong>RUN</strong></td>
+<td align="left">执行Linux的shell命令，一般是安装过程的命令</td>
+<td align="left"><code>RUN yum install gcc</code></td>
+</tr>
+<tr>
+<td align="left"><strong>EXPOSE</strong></td>
+<td align="left">指定容器运行时监听的端口，是给镜像使用者看的</td>
+<td align="left">EXPOSE 8080</td>
+</tr>
+<tr>
+<td align="left"><strong>ENTRYPOINT</strong></td>
+<td align="left">镜像中应用的启动命令，容器运行时调用</td>
+<td align="left">ENTRYPOINT java -jar xx.jar</td>
+</tr>
+</tbody></table>
+<p>例如，要基于Ubuntu镜像来构建一个Java应用，其Dockerfile内容如下：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 指定基础镜像</span></span><br><span class="line">FROM ubuntu:16.04</span><br><span class="line"><span class="comment"># 配置环境变量，JDK的安装目录、容器内时区</span></span><br><span class="line">ENV JAVA_DIR=/usr/local</span><br><span class="line">ENV TZ=Asia/Shanghai</span><br><span class="line"><span class="comment"># 拷贝jdk和java项目的包</span></span><br><span class="line">COPY ./jdk8.tar.gz <span class="variable">$JAVA_DIR</span>/</span><br><span class="line">COPY ./docker-demo.jar /tmp/app.jar</span><br><span class="line"><span class="comment"># 设定时区</span></span><br><span class="line">RUN <span class="built_in">ln</span> -snf /usr/share/zoneinfo/<span class="variable">$TZ</span> /etc/localtime &amp;&amp; <span class="built_in">echo</span> <span class="variable">$TZ</span> &gt; /etc/timezone</span><br><span class="line"><span class="comment"># 安装JDK</span></span><br><span class="line">RUN <span class="built_in">cd</span> <span class="variable">$JAVA_DIR</span> \</span><br><span class="line"> &amp;&amp; tar -xf ./jdk8.tar.gz \</span><br><span class="line"> &amp;&amp; <span class="built_in">mv</span> ./jdk1.8.0_144 ./java8</span><br><span class="line"><span class="comment"># 配置环境变量</span></span><br><span class="line">ENV JAVA_HOME=<span class="variable">$JAVA_DIR</span>/java8</span><br><span class="line">ENV PATH=<span class="variable">$PATH</span>:<span class="variable">$JAVA_HOME</span>/bin</span><br><span class="line"><span class="comment"># 指定项目监听的端口</span></span><br><span class="line">EXPOSE 8080</span><br><span class="line"><span class="comment"># 入口，java项目的启动命令</span></span><br><span class="line">ENTRYPOINT [<span class="string">&quot;java&quot;</span>, <span class="string">&quot;-jar&quot;</span>, <span class="string">&quot;/app.jar&quot;</span>]</span><br></pre></td></tr></table></figure>
+
+<p>以后我们会有很多很多java项目需要打包为镜像，他们都需要Linux系统环境、JDK环境这两层，只有上面的3层不同（因为jar包不同）。如果每次制作java镜像都重复制作前两层镜像，是不是很麻烦。</p>
+<p>所以，就有人提供了基础的系统加JDK环境，我们在此基础上制作java镜像，就可以省去JDK的配置了：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 基础镜像</span></span><br><span class="line">FROM openjdk:11.0-jre-buster</span><br><span class="line"><span class="comment"># 设定时区</span></span><br><span class="line">ENV TZ=Asia/Shanghai</span><br><span class="line">RUN <span class="built_in">ln</span> -snf /usr/share/zoneinfo/<span class="variable">$TZ</span> /etc/localtime &amp;&amp; <span class="built_in">echo</span> <span class="variable">$TZ</span> &gt; /etc/timezone</span><br><span class="line"><span class="comment"># 拷贝jar包</span></span><br><span class="line">COPY docker-demo.jar /app.jar</span><br><span class="line"><span class="comment"># 入口</span></span><br><span class="line">ENTRYPOINT [<span class="string">&quot;java&quot;</span>, <span class="string">&quot;-jar&quot;</span>, <span class="string">&quot;/app.jar&quot;</span>]</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="构建镜像"><a href="#构建镜像" class="headerlink" title="构建镜像"></a>构建镜像</h3><p>当Dockerfile文件写好以后，就可以利用命令来构建镜像了。</p>
+<p>首先，将我们写好的<code>docker-demo.jar</code>包以及<code>Dockerfile</code>拷贝到虚拟机的<code>/root/demo</code>目录：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 进入镜像目录</span></span><br><span class="line"><span class="built_in">cd</span> /root/demo</span><br><span class="line"><span class="comment"># 开始构建</span></span><br><span class="line">docker build -t docker-demo:1.0 .</span><br></pre></td></tr></table></figure>
+
+<p>命令说明：</p>
+<ul>
+<li><code>docker build </code>: 就是构建一个docker镜像</li>
+<li><code>-t docker-demo:1.0</code> ：<code>-t</code>参数是指定镜像的名称（<code>repository</code>和<code>tag</code>）</li>
+<li><code>.</code> : 最后的点是指构建时Dockerfile所在路径，由于我们进入了demo目录，所以指定的是<code>.</code>代表当前目录，也可以直接指定Dockerfile目录：</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 直接指定Dockerfile目录</span></span><br><span class="line">docker build -t docker-demo:1.0 /root/demo</span><br></pre></td></tr></table></figure>
+
+<p>查看镜像列表：<code>docker images</code></p>
+<p>运行该镜像：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 创建并运行容器</span></span><br><span class="line">docker run -d --name <span class="built_in">dd</span> -p 8080:8080 docker-demo:1.0</span><br><span class="line"><span class="comment"># 查看容器</span></span><br><span class="line">dps</span><br><span class="line"><span class="comment"># 访问</span></span><br><span class="line">curl localhost:8080/hello/count</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="容器网络"><a href="#容器网络" class="headerlink" title="容器网络"></a>容器网络</h2><p>Java项目往往需要访问其它各种中间件，例如MySQL、Redis等。现在，我们的容器之间能否互相访问呢？我们来测试一下</p>
+<p>首先，我们查看下MySQL容器的详细信息，重点关注其中的网络IP地址：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 1.用基本命令，寻找Networks.bridge.IPAddress属性</span></span><br><span class="line">docker inspect mysql</span><br><span class="line"><span class="comment"># 也可以使用format过滤结果</span></span><br><span class="line">docker inspect --format=<span class="string">&#x27;&#123;&#123;range .NetworkSettings.Networks&#125;&#125;&#123;&#123;println .IPAddress&#125;&#125;&#123;&#123;end&#125;&#125;&#x27;</span> mysql</span><br><span class="line"><span class="comment"># 得到IP地址如下：</span></span><br><span class="line">172.17.0.2</span><br><span class="line"></span><br><span class="line"><span class="comment"># 2.然后通过命令进入dd容器</span></span><br><span class="line">docker <span class="built_in">exec</span> -it <span class="built_in">dd</span> bash</span><br><span class="line"></span><br><span class="line"><span class="comment"># 3.在容器内，通过ping命令测试网络</span></span><br><span class="line">ping 172.17.0.2</span><br><span class="line"><span class="comment"># 结果</span></span><br><span class="line">PING 172.17.0.2 (172.17.0.2) 56(84) bytes of data.</span><br><span class="line">64 bytes from 172.17.0.2: icmp_seq=1 ttl=64 time=0.053 ms</span><br><span class="line">64 bytes from 172.17.0.2: icmp_seq=2 ttl=64 time=0.059 ms</span><br><span class="line">64 bytes from 172.17.0.2: icmp_seq=3 ttl=64 time=0.058 ms</span><br></pre></td></tr></table></figure>
+
+<p>发现可以互联，没有问题。</p>
+<p>但是，容器的网络IP其实是一个虚拟的IP，其值并不固定与某一个容器绑定，如果我们在开发时写死某个IP，而在部署时很可能MySQL容器的IP会发生变化，连接会失败。</p>
+<p>所以我们需要自定义网络（docker的网络功能）</p>
+<p><strong>注意：</strong>加入自定义网络的容器才可以<strong>通过容器名相互访问</strong></p>
+<p>官方文档：</p>
+<p><a href="https://docs.docker.com/engine/reference/commandline/network/">https://docs.docker.com/engine/reference/commandline/network/</a></p>
+<p>常见命令有：</p>
+<table>
+<thead>
+<tr>
+<th align="left"><strong>命令</strong></th>
+<th align="left"><strong>说明</strong></th>
+<th align="left"><strong>文档地址</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">docker network create</td>
+<td align="left">创建一个网络</td>
+<td align="left"><a href="https://docs.docker.com/engine/reference/commandline/network_create/">docker network create</a></td>
+</tr>
+<tr>
+<td align="left">docker network ls</td>
+<td align="left">查看所有网络</td>
+<td align="left"><a href="https://docs.docker.com/engine/reference/commandline/network_ls/">docs.docker.com</a></td>
+</tr>
+<tr>
+<td align="left">docker network rm</td>
+<td align="left">删除指定网络</td>
+<td align="left"><a href="https://docs.docker.com/engine/reference/commandline/network_rm/">docs.docker.com</a></td>
+</tr>
+<tr>
+<td align="left">docker network prune</td>
+<td align="left">清除未使用的网络</td>
+<td align="left"><a href="https://docs.docker.com/engine/reference/commandline/network_prune/">docs.docker.com</a></td>
+</tr>
+<tr>
+<td align="left">docker network connect</td>
+<td align="left">使指定容器连接加入某网络</td>
+<td align="left"><a href="https://docs.docker.com/engine/reference/commandline/network_connect/">docs.docker.com</a></td>
+</tr>
+<tr>
+<td align="left">docker network disconnect</td>
+<td align="left">使指定容器连接离开某网络</td>
+<td align="left"><a href="https://docs.docker.com/engine/reference/commandline/network_disconnect/">docker network disconnect</a></td>
+</tr>
+<tr>
+<td align="left">docker network inspect</td>
+<td align="left">查看网络详细信息</td>
+<td align="left"><a href="https://docs.docker.com/engine/reference/commandline/network_inspect/">docker network inspect</a></td>
+</tr>
+</tbody></table>
+<p>演示：自定义网络</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 首先通过命令创建一个网络</span></span><br><span class="line">docker network create cxx</span><br><span class="line"></span><br><span class="line"><span class="comment"># 然后查看网络</span></span><br><span class="line">docker network <span class="built_in">ls</span></span><br><span class="line"><span class="comment"># 其中，除了cxx以外，其它都是默认的网络</span></span><br><span class="line"><span class="comment"># 让dd和mysql都加入该网络，注意，在加入网络时可以通过--alias给容器起别名</span></span><br><span class="line"><span class="comment"># 这样该网络内的其它容器可以用别名互相访问！</span></span><br><span class="line"><span class="comment"># mysql容器，指定别名为db，另外每一个容器都有一个别名是容器名</span></span><br><span class="line">docker network connect cxx mysql --<span class="built_in">alias</span> db</span><br><span class="line"><span class="comment"># dd容器，也就是我们的java项目</span></span><br><span class="line">docker network connect cxx <span class="built_in">dd</span></span><br><span class="line"><span class="comment"># 进入dd容器，尝试利用别名访问db</span></span><br><span class="line"><span class="comment"># 进入容器</span></span><br><span class="line">docker <span class="built_in">exec</span> -it <span class="built_in">dd</span> bash</span><br><span class="line"><span class="comment"># 用db别名访问</span></span><br><span class="line">ping db</span><br><span class="line"><span class="comment"># 用容器名访问</span></span><br><span class="line">ping mysql</span><br></pre></td></tr></table></figure>
+
+<p>OK，现在无需记住IP地址也可以实现容器互联了。</p>
+<p>其实我们也可以让一个容器创建的时候就加入这个网络</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker run -f --name <span class="built_in">dd</span> -p 8080:8080 --network cxx docker-demo</span><br></pre></td></tr></table></figure>
+
+
+
+<p>在自定义网络中，可以给容器起多个别名，默认的别名是容器名本身</p>
+<p>在同一个自定义网络中的容器，可以通过别名互相访问</p>
+<h1 id="项目部署"><a href="#项目部署" class="headerlink" title="项目部署"></a>项目部署</h1><h2 id="部署Java项目"><a href="#部署Java项目" class="headerlink" title="部署Java项目"></a>部署Java项目</h2><p><img src="https://cxx-1304636603.cos.ap-beijing.myqcloud.com/picgo_update_img/image-20231105180542110.png" alt="image-20231105180542110"></p>
+<p>将生成的jar包和Dockerfile以前上传到虚拟机上</p>
+<p>部署项目：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 构建项目镜像，不指定tag，则默认为latest</span></span><br><span class="line">docker build -t hmall .</span><br><span class="line"><span class="comment"># 查看镜像</span></span><br><span class="line">docker images</span><br><span class="line"><span class="comment"># 创建并运行容器，并通过--network将其加入cxx网络，这样才能通过容器名访问mysql</span></span><br><span class="line">docker run -d --name hmall --network cxx -p 8080:8080 hmall</span><br><span class="line"><span class="comment"># 查看日志</span></span><br><span class="line">docker logs -f hmall</span><br></pre></td></tr></table></figure>
+
+<p><a href="http://192.168.52.136:8080/search/list?pageNo=1&pageSize=5">http://192.168.52.136:8080/search/list?pageNo=1&amp;pageSize=5</a></p>
+<h2 id="部署前端"><a href="#部署前端" class="headerlink" title="部署前端"></a>部署前端</h2><p><code>hmall-portal</code>和<code>hmall-admin</code>是前端代码，需要基于nginx部署</p>
+<p>其中：</p>
+<ul>
+<li><code>html</code>是静态资源目录，我们需要把<code>hmall-portal</code>以及<code>hmall-admin</code>都复制进去</li>
+<li><code>nginx.conf</code>是nginx的配置文件，主要是完成对<code>html</code>下的两个静态资源目录做代理</li>
+</ul>
+<p>我们现在要做的就是把整个nginx目录上传到虚拟机的<code>/root</code>目录下：</p>
+<p>然后创建nginx容器并完成两个挂载：</p>
+<ul>
+<li>把<code>/root/nginx/nginx.conf</code>挂载到<code>/etc/nginx/nginx.conf</code></li>
+<li>把<code>/root/nginx/html</code>挂载到<code>/usr/share/nginx/html</code></li>
+</ul>
+<p>由于需要让nginx同时代理hmall-portal和hmall-admin两套前端资源，因此我们需要暴露两个端口：</p>
+<ul>
+<li>18080：对应hmall-portal</li>
+<li>18081：对应hmall-admin</li>
+</ul>
+<p>命令如下：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker run -d \</span><br><span class="line">  --name nginx \</span><br><span class="line">  -p 18080:18080 \</span><br><span class="line">  -p 18081:18081 \</span><br><span class="line">  -v /root/nginx/html:/usr/share/nginx/html \</span><br><span class="line">  -v /root/nginx/nginx.conf:/etc/nginx/nginx.conf \</span><br><span class="line">  --network cxx \</span><br><span class="line">  nginx</span><br></pre></td></tr></table></figure>
+
+<p><a href="http://192.168.52.136:18080/">http://192.168.52.136:18080/</a></p>
+<h2 id="DockerCompose"><a href="#DockerCompose" class="headerlink" title="DockerCompose"></a>DockerCompose</h2><p>大家可以看到，我们部署一个简单的java项目，其中包含3个容器：</p>
+<ul>
+<li>MySQL</li>
+<li>Nginx</li>
+<li>Java项目</li>
+</ul>
+<p>而稍微复杂的项目，其中还会有各种各样的其它中间件，需要部署的东西远不止3个。如果还像之前那样手动的逐一部署，就太麻烦了。</p>
+<p>而Docker Compose就可以帮助我们实现<strong>多个相互关联的Docker容器的快速部署</strong>。它允许用户通过一个单独的 docker-compose.yml 模板文件（YAML 格式）来定义一组相关联的应用容器。</p>
+<h3 id="基本语法"><a href="#基本语法" class="headerlink" title="基本语法"></a>基本语法</h3><p>docker-compose.yml文件的基本语法可以参考官方文档：</p>
+<p><a href="https://docs.docker.com/compose/compose-file/compose-file-v3/">https://docs.docker.com/compose/compose-file/compose-file-v3/</a></p>
+<p>docker-compose文件中可以定义多个相互关联的应用容器，每一个应用容器被称为一个服务（service）。由于service就是在定义某个应用的运行时参数，因此与<code>docker run</code>参数非常相似。</p>
+<p>举例来说，用docker run部署MySQL的命令如下：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker run -d \</span><br><span class="line">  --name mysql \</span><br><span class="line">  -p 3306:3306 \</span><br><span class="line">  -e TZ=Asia/Shanghai \</span><br><span class="line">  -e MYSQL_ROOT_PASSWORD=123 \</span><br><span class="line">  -v ./mysql/data:/var/lib/mysql \</span><br><span class="line">  -v ./mysql/conf:/etc/mysql/conf.d \</span><br><span class="line">  -v ./mysql/init:/docker-entrypoint-initdb.d \</span><br><span class="line">  --network cxx</span><br><span class="line">  mysql</span><br></pre></td></tr></table></figure>
+
+<p>如果用<code>docker-compose.yml</code>文件来定义，就是这样：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">version: <span class="string">&quot;3.8&quot;</span></span><br><span class="line"></span><br><span class="line">services:</span><br><span class="line">  mysql:</span><br><span class="line">    image: mysql</span><br><span class="line">    container_name: mysql</span><br><span class="line">    ports:</span><br><span class="line">      - <span class="string">&quot;3306:3306&quot;</span></span><br><span class="line">    environment:</span><br><span class="line">      TZ: Asia/Shanghai</span><br><span class="line">      MYSQL_ROOT_PASSWORD: 123</span><br><span class="line">    volumes:</span><br><span class="line">      - <span class="string">&quot;./mysql/conf:/etc/mysql/conf.d&quot;</span></span><br><span class="line">      - <span class="string">&quot;./mysql/data:/var/lib/mysql&quot;</span></span><br><span class="line">    networks:</span><br><span class="line">      - new</span><br><span class="line">networks:</span><br><span class="line">  new:</span><br><span class="line">    name: cxx</span><br></pre></td></tr></table></figure>
+
+<p>对比如下：</p>
+<table>
+<thead>
+<tr>
+<th align="left"><strong>docker run 参数</strong></th>
+<th align="left"><strong>docker compose 指令</strong></th>
+<th align="left"><strong>说明</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">–name</td>
+<td align="left">container_name</td>
+<td align="left">容器名称</td>
+</tr>
+<tr>
+<td align="left">-p</td>
+<td align="left">ports</td>
+<td align="left">端口映射</td>
+</tr>
+<tr>
+<td align="left">-e</td>
+<td align="left">environment</td>
+<td align="left">环境变量</td>
+</tr>
+<tr>
+<td align="left">-v</td>
+<td align="left">volumes</td>
+<td align="left">数据卷配置</td>
+</tr>
+<tr>
+<td align="left">–network</td>
+<td align="left">networks</td>
+<td align="left">网络</td>
+</tr>
+</tbody></table>
+<p>明白了其中的对应关系，相信编写<code>docker-compose</code>文件应该难不倒大家。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">version: <span class="string">&quot;3.8&quot;</span></span><br><span class="line"></span><br><span class="line">services:</span><br><span class="line">  mysql:</span><br><span class="line">    image: mysql</span><br><span class="line">    container_name: mysql</span><br><span class="line">    ports:</span><br><span class="line">      - <span class="string">&quot;3306:3306&quot;</span></span><br><span class="line">    environment:</span><br><span class="line">      TZ: Asia/Shanghai</span><br><span class="line">      MYSQL_ROOT_PASSWORD: 123</span><br><span class="line">    volumes:</span><br><span class="line">      - <span class="string">&quot;./mysql/conf:/etc/mysql/conf.d&quot;</span></span><br><span class="line">      - <span class="string">&quot;./mysql/data:/var/lib/mysql&quot;</span></span><br><span class="line">      - <span class="string">&quot;./mysql/init:/docker-entrypoint-initdb.d&quot;</span></span><br><span class="line">    networks:</span><br><span class="line">      - cb-net</span><br><span class="line">  hmall:</span><br><span class="line">    build: </span><br><span class="line">      context: .</span><br><span class="line">      dockerfile: Dockerfile</span><br><span class="line">    container_name: hmall</span><br><span class="line">    ports:</span><br><span class="line">      - <span class="string">&quot;8080:8080&quot;</span></span><br><span class="line">    networks:</span><br><span class="line">      - cb-net</span><br><span class="line">    depends_on:</span><br><span class="line">      - mysql</span><br><span class="line">  nginx:</span><br><span class="line">    image: nginx</span><br><span class="line">    container_name: nginx</span><br><span class="line">    ports:</span><br><span class="line">      - <span class="string">&quot;18080:18080&quot;</span></span><br><span class="line">      - <span class="string">&quot;18081:18081&quot;</span></span><br><span class="line">    volumes:</span><br><span class="line">      - <span class="string">&quot;./nginx/nginx.conf:/etc/nginx/nginx.conf&quot;</span></span><br><span class="line">      - <span class="string">&quot;./nginx/html:/usr/share/nginx/html&quot;</span></span><br><span class="line">    depends_on:</span><br><span class="line">      - hmall</span><br><span class="line">    networks:</span><br><span class="line">      - cb-net</span><br><span class="line">networks:</span><br><span class="line">  cb-net:</span><br><span class="line">    name: cxx</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="基础命令"><a href="#基础命令" class="headerlink" title="基础命令"></a>基础命令</h3><p>编写好docker-compose.yml文件，就可以部署项目了。常见的命令：</p>
+<p><a href="https://docs.docker.com/compose/reference/">https://docs.docker.com/compose/reference/</a></p>
+<p>语法格式：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker compose [OPTIONS] [COMMAND]</span><br><span class="line">docker compose [选项] [命令]</span><br></pre></td></tr></table></figure>
+
+<p>其中，OPTIONS和COMMAND都是可选参数，比较常见的有：</p>
+<table>
+  <thead>
+    <tr>
+      <th>类型</th>
+      <th >参数或指令</th>
+      <th>说明</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td rowspan="2">Options</td>
+      <td>-f</td>
+      <td>指定compose文件的路径和名称</td>
+    </tr>
+    <tr>
+      <td>-p</td>
+      <td>指定project名称。project就是当前compose文件中设置的多个service的集合，是逻辑概念</td>
+    </tr>
+    <tr>
+        <td rowspan="9">Options</td>
+        <td>up</td>
+        <td>创建并启动所有service容器</td>
+    </tr>
+    <tr>
+        <td>down</td>
+        <td>停止并移除所有容器、网络</td>
+    </tr>
+    <tr>
+        <td>ps</td>
+        <td>列出所有启动的容器</td>
+    </tr>
+    <tr>
+        <td>logs</td>
+        <td>查看指定容器的日志</td>
+    </tr>
+    <tr>
+        <td>stop</td>
+        <td>停止容器</td>
+    </tr>
+    <tr>
+        <td>start</td>
+        <td>启动容器</td>
+    </tr>
+    <tr>
+        <td>restart</td>
+        <td>重启容器</td>
+    </tr>
+    <tr>
+        <td>top</td>
+        <td>查看运行的进程</td>
+    </tr>
+    <tr>
+        <td>exec</td>
+        <td>在指定的运行中容器中执行命令</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>演示：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 进入root目录</span></span><br><span class="line"><span class="built_in">cd</span> /root</span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除旧容器</span></span><br><span class="line">docker <span class="built_in">rm</span> -f $(docker ps -qa)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除hmall镜像</span></span><br><span class="line">docker rmi hmall</span><br><span class="line"></span><br><span class="line"><span class="comment"># 清空MySQL数据</span></span><br><span class="line"><span class="built_in">rm</span> -rf mysql/data</span><br><span class="line"></span><br><span class="line"><span class="comment"># 启动所有, -d 参数是后台启动</span></span><br><span class="line">docker compose up -d</span><br><span class="line"><span class="comment"># 查看镜像</span></span><br><span class="line">docker compose images</span><br><span class="line"><span class="comment"># 查看容器</span></span><br><span class="line">docker compose ps</span><br></pre></td></tr></table></figure>
+
+<p><a href="http://192.168.52.136:18080/">http://192.168.52.136:18080/</a></p>
+]]></content>
+      <categories>
+        <category>docker</category>
+      </categories>
+      <tags>
+        <tag>docker</tag>
+      </tags>
+  </entry>
 </search>
