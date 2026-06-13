@@ -397,10 +397,20 @@ li {
   border-radius: 20px; /* 增大圆角 */
   background: rgba(0, 0, 0, 0.03);
   overflow: visible; /* 允许滑块突出 */
+
+  /* 增强菜单框轮廓 - 展示玻璃层次感 */
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.5),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.05);
 }
 
 [data-theme="dark"] .navbar-menu {
   background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.1),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.2);
 }
 
 .navbar-menu li {
@@ -417,7 +427,7 @@ li {
   height: calc(100% - 0.8rem);
   width: 0;
 
-  /* 液态玻璃效果 */
+  /* 液态玻璃效果 - 半透明，显示背后轮廓 */
   background: var(--navbar-indicator-bg);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
@@ -445,7 +455,7 @@ li {
 
 /* 悬停时滑块放大并突出菜单框 - 上下对称放大 */
 .navbar-menu:hover::before {
-  transform: scale(1.3);
+  transform: scale(1.35); /* 放大更多，展示背后轮廓 */
   box-shadow:
     0 0 40px var(--navbar-indicator-glow),
     0 12px 32px rgba(0, 0, 0, 0.18),
