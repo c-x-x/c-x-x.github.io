@@ -283,7 +283,7 @@
   });
 
   // ============================================
-  // Navbar Dock Style - 导航栏 Dock 风格滑动指示器
+  // Liquid Glass Navbar - iOS 风格液态玻璃导航栏
   // ============================================
   // 使用前面已声明的 navbarMenu
 
@@ -302,23 +302,35 @@
       }
     });
 
-    // 滑动指示器函数
-    function updateIndicator(link) {
+    // 液态玻璃滑动指示器函数
+    function updateLiquidIndicator(link, instant = false) {
       const linkRect = link.getBoundingClientRect();
       const menuRect = navbarMenu.getBoundingClientRect();
-      const left = linkRect.left - menuRect.left - 5.6; // 0.35rem = 5.6px
+
+      // 计算位置 - 考虑 padding
+      const left = linkRect.left - menuRect.left - 6.4; // 0.4rem = 6.4px
       const width = linkRect.width;
 
+      // 使用 CSS 变量控制位置和宽度
       navbarMenu.style.setProperty('--indicator-left', `${left}px`);
       navbarMenu.style.setProperty('--indicator-width', `${width}px`);
+
+      // 即时切换时禁用过渡动画
+      if (instant) {
+        navbarMenu.style.setProperty('--indicator-transition', 'none');
+        requestAnimationFrame(() => {
+          navbarMenu.style.removeProperty('--indicator-transition');
+        });
+      }
     }
 
     // 添加 CSS 变量支持
     const style = document.createElement('style');
     style.textContent = `
       .navbar-menu::before {
-        left: var(--indicator-left, 0.35rem) !important;
+        left: var(--indicator-left, 0.4rem) !important;
         width: var(--indicator-width, 0) !important;
+        transition: var(--indicator-transition, all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1));
       }
     `;
     document.head.appendChild(style);
@@ -326,31 +338,55 @@
     // 初始化激活链接的指示器
     const activeLink = navbarMenu.querySelector('a.active');
     if (activeLink) {
-      setTimeout(() => updateIndicator(activeLink), 100);
+      // 页面加载时延迟显示，营造流畅感
+      setTimeout(() => {
+        updateLiquidIndicator(activeLink, true);
+      }, 300);
     }
 
-    // 鼠标悬停效果
+    // 鼠标悬停效果 - 液态滑动到悬停项
+    let hoverTimeout;
     menuLinks.forEach(link => {
       link.addEventListener('mouseenter', () => {
-        updateIndicator(link);
+        clearTimeout(hoverTimeout);
+        updateLiquidIndicator(link);
       });
     });
 
-    // 鼠标离开后返回到激活项
+    // 鼠标离开后带弹性动画返回到激活项
     navbarMenu.addEventListener('mouseleave', () => {
-      const activeLink = navbarMenu.querySelector('a.active');
-      if (activeLink) {
-        updateIndicator(activeLink);
-      } else {
-        navbarMenu.style.setProperty('--indicator-width', '0');
-      }
+      hoverTimeout = setTimeout(() => {
+        const activeLink = navbarMenu.querySelector('a.active');
+        if (activeLink) {
+          updateLiquidIndicator(activeLink);
+        } else {
+          // 如果没有激活项，滑块缩小消失
+          navbarMenu.style.setProperty('--indicator-width', '0');
+        }
+      }, 50); // 轻微延迟，避免抖动
     });
 
-    // 窗口大小改变时重新计算
+    // 窗口大小改变时重新计算 - 防抖优化
+    let resizeTimeout;
     window.addEventListener('resize', () => {
-      const activeLink = navbarMenu.querySelector('a.active');
-      if (activeLink) {
-        updateIndicator(activeLink);
+      clearTimeout(resizeTimeout);
+      resizeTimeout = setTimeout(() => {
+        const activeLink = navbarMenu.querySelector('a.active');
+        if (activeLink) {
+          updateLiquidIndicator(activeLink, true);
+        }
+      }, 100);
+    });
+
+    // 页面可见性变化时重新计算（解决某些浏览器的布局问题）
+    document.addEventListener('visibilitychange', () => {
+      if (!document.hidden) {
+        setTimeout(() => {
+          const activeLink = navbarMenu.querySelector('a.active');
+          if (activeLink) {
+            updateLiquidIndicator(activeLink, true);
+          }
+        }, 100);
       }
     });
   }
