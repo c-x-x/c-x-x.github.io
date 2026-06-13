@@ -8,21 +8,6 @@
     {{ end }}
     <h1 class="hero-title">{{ .Site.Title }}</h1>
     <p class="hero-subtitle">{{ .Site.Params.subtitle }}</p>
-
-    {{ if .Site.Params.social }}
-    <div class="hero-social">
-      {{ if .Site.Params.social.github }}
-      <a href="{{ .Site.Params.social.github }}" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-        <svg width="24" height="24" fill="currentColor"><use href="#icon-github"></use></svg>
-      </a>
-      {{ end }}
-      {{ if .Site.Params.social.email }}
-      <a href="mailto:{{ .Site.Params.social.email }}" class="social-link" aria-label="Email">
-        <svg width="24" height="24" fill="currentColor"><use href="#icon-mail"></use></svg>
-      </a>
-      {{ end }}
-    </div>
-    {{ end }}
   </div>
 
   <div class="scroll-indicator">
