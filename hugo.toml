@@ -12,7 +12,7 @@ theme = 'imx-theme'
 
   [params.social]
     github = 'https://github.com/c-x-x'
-    email = 'your-email@example.com'
+    email = 'cxxpub@proton.me'
 
   [params.giscus]
     enabled = true
