@@ -54,21 +54,21 @@
     {{ if and .TableOfContents (ne .Params.toc false) }}
     <aside class="sidebar">
       <div class="toc">
-        <!-- 评论跳转按钮 -->
-        {{ if .Site.Params.giscus.enabled }}
-        <a href="#comments" class="comment-jump-btn" aria-label="跳转到评论" title="跳转到评论">
-          <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </a>
-        {{ end }}
-
         <h3 class="toc-title">目录</h3>
         {{ .TableOfContents }}
       </div>
     </aside>
     {{ end }}
   </div>
+
+  <!-- Comment Jump Button (Above Sidebar Toggle) -->
+  {{ if .Site.Params.giscus.enabled }}
+  <a href="#comments" class="comment-jump-btn" aria-label="跳转到评论" title="跳转到评论">
+    <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+      <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </a>
+  {{ end }}
 
   <!-- Sidebar Toggle Button -->
   {{ if and .TableOfContents (ne .Params.toc false) }}
