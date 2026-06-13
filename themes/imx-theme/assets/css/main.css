@@ -439,13 +439,13 @@ li {
   z-index: 0;
   pointer-events: none;
 
-  /* 允许放大时不被裁剪 */
-  transform-origin: center;
+  /* 设置缩放中心点为中心，实现上下对称放大 */
+  transform-origin: center center;
 }
 
-/* 悬停时滑块放大并突出菜单框 - 增强效果 */
+/* 悬停时滑块放大并突出菜单框 - 上下对称放大 */
 .navbar-menu:hover::before {
-  transform: scale(1.3) translateY(-5px);
+  transform: scale(1.3);
   box-shadow:
     0 0 40px var(--navbar-indicator-glow),
     0 12px 32px rgba(0, 0, 0, 0.18),
