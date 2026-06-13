@@ -290,44 +290,56 @@
   if (navbarMenu) {
     const menuLinks = navbarMenu.querySelectorAll('a');
 
-    // 设置当前激活页面 - 修复路径匹配逻辑
-    const currentPath = window.location.pathname;
+    // 设置当前激活页面 - 优化路径匹配逻辑
+    function setActiveLink() {
+      const currentPath = window.location.pathname;
 
-    // 移除所有 active 类
-    menuLinks.forEach(link => link.classList.remove('active'));
+      // 移除所有 active 类
+      menuLinks.forEach(link => link.classList.remove('active'));
 
-    // 精确匹配当前页面
-    let hasActiveLink = false;
-    menuLinks.forEach(link => {
-      const linkPath = new URL(link.href).pathname;
-
-      // 规范化路径（去除末尾斜杠）
-      const normalizedLinkPath = linkPath.replace(/\/$/, '') || '/';
-      const normalizedCurrentPath = currentPath.replace(/\/$/, '') || '/';
-
-      // 匹配规则
-      if (normalizedLinkPath === normalizedCurrentPath) {
-        // 精确匹配
-        link.classList.add('active');
-        hasActiveLink = true;
-      } else if (normalizedLinkPath === '/posts' && normalizedCurrentPath.startsWith('/posts/')) {
-        // 文章详情页，高亮"文章"菜单
-        link.classList.add('active');
-        hasActiveLink = true;
-      } else if (normalizedLinkPath === '/categories' && normalizedCurrentPath.startsWith('/categories/')) {
-        // 分类详情页，高亮"分类"菜单
-        link.classList.add('active');
-        hasActiveLink = true;
-      } else if (normalizedLinkPath === '/tags' && normalizedCurrentPath.startsWith('/tags/')) {
-        // 标签详情页，高亮"标签"菜单
-        link.classList.add('active');
-        hasActiveLink = true;
-      } else if (normalizedLinkPath === '/about' && normalizedCurrentPath.startsWith('/about')) {
-        // 关于页面
-        link.classList.add('active');
-        hasActiveLink = true;
+      // 规范化路径函数
+      function normalizePath(path) {
+        // 去除末尾斜杠，空路径返回 '/'
+        return path.replace(/\/$/, '') || '/';
       }
-    });
+
+      const normalizedCurrentPath = normalizePath(currentPath);
+
+      // 精确匹配当前页面
+      let hasActiveLink = false;
+      menuLinks.forEach(link => {
+        const linkPath = new URL(link.href).pathname;
+        const normalizedLinkPath = normalizePath(linkPath);
+
+        // 调试日志（可选）
+        // console.log('Current:', normalizedCurrentPath, 'Link:', normalizedLinkPath);
+
+        // 匹配规则
+        if (normalizedLinkPath === normalizedCurrentPath) {
+          // 精确匹配
+          link.classList.add('active');
+          hasActiveLink = true;
+        } else if (normalizedLinkPath === '/posts' && normalizedCurrentPath.startsWith('/posts')) {
+          // 文章列表页或文章详情页，高亮"文章"菜单
+          link.classList.add('active');
+          hasActiveLink = true;
+        } else if (normalizedLinkPath === '/categories' && normalizedCurrentPath.startsWith('/categories')) {
+          // 分类列表页或分类详情页，高亮"分类"菜单
+          link.classList.add('active');
+          hasActiveLink = true;
+        } else if (normalizedLinkPath === '/tags' && normalizedCurrentPath.startsWith('/tags')) {
+          // 标签列表页或标签详情页，高亮"标签"菜单
+          link.classList.add('active');
+          hasActiveLink = true;
+        } else if (normalizedLinkPath === '/about' && normalizedCurrentPath.startsWith('/about')) {
+          // 关于页面
+          link.classList.add('active');
+          hasActiveLink = true;
+        }
+      });
+
+      return hasActiveLink;
+    }
 
     // 液态玻璃滑动指示器函数
     function updateLiquidIndicator(link, instant = false) {
@@ -365,12 +377,16 @@
     document.head.appendChild(style);
 
     // 初始化激活链接的指示器
+    setActiveLink();
     const activeLink = navbarMenu.querySelector('a.active');
     if (activeLink) {
       // 页面加载时延迟显示，营造流畅感
       setTimeout(() => {
         updateLiquidIndicator(activeLink, true);
       }, 300);
+    } else {
+      // 没有匹配的链接，隐藏滑块
+      navbarMenu.style.setProperty('--indicator-width', '0');
     }
 
     // 点击菜单项时立即设置 active 并更新滑块
@@ -380,7 +396,7 @@
         menuLinks.forEach(l => l.classList.remove('active'));
         // 添加到点击的链接
         link.classList.add('active');
-        // 立即更新滑块位置
+        // 立即更新滑块位置（带动画）
         updateLiquidIndicator(link, false);
       });
     });
@@ -423,6 +439,8 @@
     document.addEventListener('visibilitychange', () => {
       if (!document.hidden) {
         setTimeout(() => {
+          // 重新设置 active 状态
+          setActiveLink();
           const activeLink = navbarMenu.querySelector('a.active');
           if (activeLink) {
             updateLiquidIndicator(activeLink, true);
