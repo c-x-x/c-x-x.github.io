@@ -1,0 +1,61 @@
+baseURL = 'https://blog.cxx.pub/'
+languageCode = 'zh-cn'
+title = 'IMXBlog'
+theme = 'imx-theme'
+
+[params]
+  description = '弱小和无知从来不是生存的障碍，傲慢才是'
+  subtitle = '弱小和无知从来不是生存的障碍，傲慢才是'
+  author = 'IMX'
+  avatar = 'https://raw.githubusercontent.com/c-x-x/picture/4d2e409881161ab3398a56004664f7aa36b91f42/img/tx.jpg'
+  keywords = ['技术博客', 'JavaScript', 'Python', 'Go', 'Java', 'C++', '编程']
+
+  [params.social]
+    github = 'https://github.com/c-x-x'
+    email = 'your-email@example.com'
+
+  [params.giscus]
+    enabled = true
+    repo = "c-x-x/blog-comments"
+    repoId = "R_kgDOS5n9Lw"
+    category = "Announcements"
+    categoryId = "DIC_kwDOS5n9L84C_FGp"
+
+[markup]
+  [markup.highlight]
+    anchorLineNos = false
+    codeFences = true
+    guessSyntax = false
+    hl_Lines = ''
+    lineAnchors = ''
+    lineNoStart = 1
+    lineNos = false
+    lineNumbersInTable = true
+    noClasses = false
+    noHl = false
+    style = 'dracula'
+    tabWidth = 4
+
+  [markup.tableOfContents]
+    endLevel = 4
+    ordered = false
+    startLevel = 2
+
+  [markup.goldmark.renderer]
+    unsafe = true
+
+  [markup.goldmark.parser]
+    autoHeadingID = true
+    autoHeadingIDType = "github"
+
+  [markup.goldmark.parser.attribute]
+    block = true
+    title = true
+
+[outputs]
+  home = ['HTML', 'RSS', 'JSON']
+
+[outputFormats.JSON]
+  mediaType = 'application/json'
+  baseName = 'index'
+  isPlainText = true

@@ -1,0 +1,37 @@
+{{ define "main" }}
+
+<section class="featured-section">
+  <div class="container">
+    <h1 class="section-title">关于</h1>
+
+    <div class="article-content" style="max-width: 900px; margin: 2rem auto;">
+      <div style="text-align: center; margin-bottom: 3rem;">
+        {{ if .Site.Params.avatar }}
+        <img src="{{ .Site.Params.avatar }}" alt="{{ .Site.Title }}" style="width: 150px; height: 150px; border-radius: 50%; border: 4px solid var(--color-primary); margin-bottom: 1.5rem;">
+        {{ end }}
+        <h2>{{ .Site.Title }}</h2>
+        <p style="font-size: 1.1rem; color: var(--color-text-secondary);">{{ .Site.Params.subtitle }}</p>
+      </div>
+
+      {{ .Content }}
+
+      <div style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--color-border);">
+        <h3>联系方式</h3>
+        <div style="display: flex; gap: 1rem; justify-content: center; margin-top: 1.5rem;">
+          {{ if .Site.Params.social.github }}
+          <a href="{{ .Site.Params.social.github }}" class="social-link" target="_blank" rel="noopener noreferrer">
+            <svg width="24" height="24" fill="currentColor"><use href="#icon-github"></use></svg>
+          </a>
+          {{ end }}
+          {{ if .Site.Params.social.email }}
+          <a href="mailto:{{ .Site.Params.social.email }}" class="social-link">
+            <svg width="24" height="24" fill="currentColor"><use href="#icon-mail"></use></svg>
+          </a>
+          {{ end }}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{{ end }}

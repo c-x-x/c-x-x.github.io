@@ -1,0 +1,27 @@
+<nav class="navbar">
+  <div class="navbar-container">
+    <a href="/" class="navbar-brand">
+      {{ if .Site.Params.avatar }}
+      <img src="{{ .Site.Params.avatar }}" alt="Logo" class="navbar-logo">
+      {{ end }}
+      <span>{{ .Site.Title }}</span>
+    </a>
+
+    <ul class="navbar-menu">
+      <li><a href="/">首页</a></li>
+      <li><a href="/posts">文章</a></li>
+      <li><a href="/categories">分类</a></li>
+      <li><a href="/tags">标签</a></li>
+      <li><a href="/about">关于</a></li>
+    </ul>
+
+    <div style="display: flex; align-items: center; gap: 1rem;">
+      <button class="theme-toggle" aria-label="切换主题">
+        <svg width="20" height="20" fill="currentColor"><use href="#icon-moon"></use></svg>
+      </button>
+      <button class="mobile-menu-toggle" aria-label="菜单">
+        <svg width="24" height="24" fill="currentColor"><use href="#icon-menu"></use></svg>
+      </button>
+    </div>
+  </div>
+</nav>

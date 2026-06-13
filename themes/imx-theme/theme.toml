@@ -1,0 +1,12 @@
+name = "IMX Theme"
+license = "MIT"
+licenselink = "https://github.com/yourname/imx-theme/blob/main/LICENSE"
+description = "A beautiful, elegant Hugo theme with glassmorphism effects and purple color scheme"
+homepage = "https://github.com/yourname/imx-theme"
+tags = ["blog", "elegant", "responsive", "modern", "glassmorphism"]
+features = ["responsive", "dark mode", "search", "toc", "code highlighting"]
+min_version = "0.112.0"
+
+[author]
+  name = "IMX"
+  homepage = "https://imxblog.com"

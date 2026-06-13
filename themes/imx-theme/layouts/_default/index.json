@@ -1,0 +1,14 @@
+{{- $pages := where .Site.RegularPages "Type" "in" .Site.Params.mainSections -}}
+{{- $data := slice -}}
+{{- range $pages -}}
+  {{- $data = $data | append (dict
+    "title" .Title
+    "content" (.Plain | truncate 500)
+    "summary" (.Summary | plainify)
+    "permalink" .Permalink
+    "date" .Date
+    "categories" .Params.categories
+    "tags" .Params.tags
+  ) -}}
+{{- end -}}
+{{- $data | jsonify -}}
