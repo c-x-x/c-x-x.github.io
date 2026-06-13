@@ -11,36 +11,38 @@
 
 /* CSS Variables for Light/Dark Mode */
 :root {
-  /* Light Mode - 淡紫色系 */
-  --color-primary: #C084FC;
-  --color-primary-light: #E9D5FF;
-  --color-primary-dark: #A855F7;
+  /* Light Mode - 苹果官网蓝白配色 */
+  --color-primary: #0071E3;
+  --color-primary-light: #0077ED;
+  --color-primary-dark: #0055B3;
+  --color-primary-rgb: 0, 113, 227;
+  --color-primary-hover: #0077ED;
 
-  --color-bg: #FAFAFA;
-  --color-bg-secondary: #FFFFFF;
-  --color-bg-glass: rgba(255, 255, 255, 0.7);
-  --color-bg-card: rgba(255, 255, 255, 0.6);
+  --color-bg: #FFFFFF;
+  --color-bg-secondary: #FAFAFA;
+  --color-bg-glass: rgba(255, 255, 255, 0.8);
+  --color-bg-card: rgba(255, 255, 255, 0.7);
 
-  --color-text: #1F2937;
-  --color-text-secondary: #6B7280;
-  --color-text-muted: #9CA3AF;
+  --color-text: #1D1D1F;
+  --color-text-secondary: #6E6E73;
+  --color-text-muted: #86868B;
 
-  --color-border: rgba(196, 132, 252, 0.2);
-  --color-shadow: rgba(196, 132, 252, 0.15);
+  --color-border: rgba(0, 0, 0, 0.1);
+  --color-shadow: rgba(0, 0, 0, 0.1);
 
   /* Claude-style code blocks */
-  --color-code-bg: #F8F8F8;
-  --color-code-border: #E5E7EB;
-  --color-code-text: #1F2937;
-  --color-code-comment: #6B7280;
-  --color-code-keyword: #7C3AED;
-  --color-code-string: #059669;
-  --color-code-function: #DC2626;
-  --color-code-number: #EA580C;
+  --color-code-bg: #F5F5F7;
+  --color-code-border: #D2D2D7;
+  --color-code-text: #1D1D1F;
+  --color-code-comment: #6E6E73;
+  --color-code-keyword: #0071E3;
+  --color-code-string: #1A8D5B;
+  --color-code-function: #D14343;
+  --color-code-number: #F5821F;
 
   /* Gradient Effects */
-  --gradient-primary: linear-gradient(135deg, #C084FC 0%, #E9D5FF 100%);
-  --gradient-accent: radial-gradient(circle at 20% 50%, rgba(192, 132, 252, 0.15) 0%, transparent 50%);
+  --gradient-primary: linear-gradient(135deg, #0071E3 0%, #00A8E8 100%);
+  --gradient-accent: radial-gradient(circle at 20% 50%, rgba(0, 113, 227, 0.08) 0%, transparent 50%);
 
   /* Shadows */
   --shadow-sm: 0 2px 8px var(--color-shadow);
@@ -56,22 +58,24 @@
 }
 
 [data-theme="dark"] {
-  /* Dark Mode */
+  /* Dark Mode - 紫色系 */
   --color-primary: #C084FC;
   --color-primary-light: #A855F7;
   --color-primary-dark: #E9D5FF;
+  --color-primary-rgb: 192, 132, 252;
+  --color-primary-hover: #A855F7;
 
   --color-bg: #0F172A;
   --color-bg-secondary: #1E293B;
-  --color-bg-glass: rgba(30, 41, 59, 0.7);
-  --color-bg-card: rgba(30, 41, 59, 0.6);
+  --color-bg-glass: rgba(30, 41, 59, 0.8);
+  --color-bg-card: rgba(30, 41, 59, 0.7);
 
   --color-text: #F1F5F9;
   --color-text-secondary: #CBD5E1;
   --color-text-muted: #94A3B8;
 
-  --color-border: rgba(192, 132, 252, 0.3);
-  --color-shadow: rgba(192, 132, 252, 0.25);
+  --color-border: rgba(192, 132, 252, 0.2);
+  --color-shadow: rgba(192, 132, 252, 0.2);
 
   /* Claude-style dark code blocks */
   --color-code-bg: #1E293B;
@@ -107,8 +111,6 @@ body {
   line-height: 1.7;
   color: var(--color-text);
   background: var(--color-bg);
-  background-image: var(--gradient-accent);
-  background-attachment: fixed;
   transition: var(--transition-smooth);
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
@@ -271,7 +273,7 @@ li {
 }
 
 .navbar-container {
-  background: var(--color-bg-glass);
+  background: var(--color-bg);
   backdrop-filter: var(--blur-glass) saturate(180%);
   -webkit-backdrop-filter: var(--blur-glass) saturate(180%);
   border: 1px solid var(--color-border);
@@ -281,8 +283,7 @@ li {
   justify-content: space-between;
   align-items: center;
   gap: 2rem;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1),
-              0 0 0 1px rgba(255, 255, 255, 0.5) inset;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
   transition: var(--transition-smooth);
 }
 
@@ -464,6 +465,7 @@ li {
   justify-content: center;
   position: relative;
   overflow: hidden;
+  background: var(--color-bg);
 }
 
 .hero::before {
@@ -474,7 +476,7 @@ li {
   right: 0;
   bottom: 0;
   background: var(--gradient-primary);
-  opacity: 0.05;
+  opacity: 0.03;
   z-index: -1;
 }
 
