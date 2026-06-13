@@ -108,7 +108,7 @@
   // TOC Active Link - 目录激活
   // ============================================
   const tocLinks = document.querySelectorAll('.toc a');
-  const headings = document.querySelectorAll('.article-content h2, .article-content h3, .article-content h4');
+  const headings = document.querySelectorAll('.article-content h2, .article-content h3, .article-content h4, .article-content h5, .article-content h6');
 
   if (tocLinks.length > 0 && headings.length > 0) {
     const observerOptions = {
@@ -120,18 +120,22 @@
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           const id = entry.target.getAttribute('id');
-          tocLinks.forEach(link => {
-            link.classList.remove('active');
-            if (link.getAttribute('href') === '#' + id) {
-              link.classList.add('active');
-            }
-          });
+          if (id) {
+            tocLinks.forEach(link => {
+              link.classList.remove('active');
+              if (link.getAttribute('href') === '#' + id) {
+                link.classList.add('active');
+              }
+            });
+          }
         }
       });
     }, observerOptions);
 
     headings.forEach(heading => {
-      observer.observe(heading);
+      if (heading.getAttribute('id')) {
+        observer.observe(heading);
+      }
     });
   }
 

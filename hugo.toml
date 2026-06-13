@@ -37,7 +37,7 @@ theme = 'imx-theme'
     tabWidth = 4
 
   [markup.tableOfContents]
-    endLevel = 4
+    endLevel = 5
     ordered = false
     startLevel = 2
 
