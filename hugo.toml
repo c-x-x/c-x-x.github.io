@@ -7,7 +7,7 @@ theme = 'imx-theme'
   description = '弱小和无知从来不是生存的障碍，傲慢才是'
   subtitle = '弱小和无知从来不是生存的障碍，傲慢才是'
   author = 'IMX'
-  avatar = '/images/imx/imx.png'
+  avatar = '/images/imx/imx.jpg'
   keywords = ['技术博客', 'JavaScript', 'Python', 'Go', 'Java', 'C++', '编程']
 
   [params.social]
