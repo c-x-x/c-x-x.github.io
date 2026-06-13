@@ -393,8 +393,8 @@ li {
   align-items: center;
   list-style: none;
   position: relative;
-  padding: 0.6rem; /* 增大 padding，显示一圈间隙 */
-  border-radius: 32px; /* 再次增大外框圆角 */
+  padding: 0; /* 移除 padding，让滑块与外框完全重叠 */
+  border-radius: 32px; /* 外框圆角 */
   background: rgba(0, 0, 0, 0.03);
   overflow: visible; /* 允许滑块突出 */
 
@@ -422,10 +422,10 @@ li {
 .navbar-menu::before {
   content: '';
   position: absolute;
-  /* 四边等宽间隙 - 显示一圈小间隙 */
-  top: 0.6rem;
-  bottom: 0.6rem;
-  left: calc(var(--indicator-left, 0.6rem));
+  /* 上下左右与外框完全对齐，边缘重叠 */
+  top: 0;
+  bottom: 0;
+  left: calc(var(--indicator-left, 0rem));
   height: auto;
   width: var(--indicator-width, 0);
 
@@ -436,7 +436,7 @@ li {
 
   /* 玻璃边框 */
   border: 1px solid var(--navbar-indicator-border);
-  border-radius: 32px; /* 与外框圆角一致 */
+  border-radius: 50px; /* 椭圆形，与外框 32px 不同 */
 
   /* 多层阴影 - 发光 + 深度 */
   box-shadow:
@@ -476,7 +476,7 @@ li {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   font-weight: 500;
   font-size: 0.95rem;
-  padding: 0.5rem 1.3rem; /* 减小上下 padding，让上下间隙与左右一致 */
+  padding: 0.8rem 1.6rem; /* 再增大一点 */
   border-radius: 12px;
   transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   position: relative;

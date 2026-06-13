@@ -349,9 +349,13 @@
       const linkRect = link.getBoundingClientRect();
       const menuRect = navbarMenu.getBoundingClientRect();
 
-      // 计算位置 - 考虑 padding (0.6rem = 9.6px)
-      const left = linkRect.left - menuRect.left - 9.6;
-      const width = linkRect.width;
+      // 获取父元素 li 的位置（包含 gap）
+      const li = link.parentElement;
+      const liRect = li.getBoundingClientRect();
+
+      // 计算位置 - 上下左右完全对齐外框（无 padding）
+      const left = liRect.left - menuRect.left;
+      const width = liRect.width;
 
       // 使用 CSS 变量控制位置和宽度
       navbarMenu.style.setProperty('--indicator-left', `${left}px`);
@@ -366,11 +370,80 @@
       }
     }
 
+    // 根据鼠标位置更新滑块 - 可以停留在两个标签之间
+    function updateIndicatorByMousePosition(mouseX) {
+      const menuRect = navbarMenu.getBoundingClientRect();
+      const links = Array.from(menuLinks);
+
+      // 找到最接近鼠标的菜单项
+      let closestLink = null;
+      let minDistance = Infinity;
+
+      links.forEach(link => {
+        const li = link.parentElement;
+        const liRect = li.getBoundingClientRect();
+        const linkCenter = liRect.left + liRect.width / 2;
+        const distance = Math.abs(mouseX - linkCenter);
+
+        if (distance < minDistance) {
+          minDistance = distance;
+          closestLink = link;
+        }
+      });
+
+      // 如果找到了最近的链接，计算插值位置
+      if (closestLink) {
+        const closestLi = closestLink.parentElement;
+        const closestRect = closestLi.getBoundingClientRect();
+        const closestCenter = closestRect.left + closestRect.width / 2;
+
+        // 找到相邻的菜单项
+        const closestIndex = links.indexOf(closestLink);
+        let neighborLink = null;
+        let neighborRect = null;
+
+        if (mouseX < closestCenter && closestIndex > 0) {
+          // 鼠标在左侧，找左边的邻居
+          neighborLink = links[closestIndex - 1];
+        } else if (mouseX > closestCenter && closestIndex < links.length - 1) {
+          // 鼠标在右侧，找右边的邻居
+          neighborLink = links[closestIndex + 1];
+        }
+
+        if (neighborLink) {
+          const neighborLi = neighborLink.parentElement;
+          neighborRect = neighborLi.getBoundingClientRect();
+
+          // 计算插值比例
+          const start = Math.min(closestRect.left, neighborRect.left);
+          const end = Math.max(closestRect.right, neighborRect.right);
+          const totalDistance = end - start;
+          const mouseOffset = mouseX - start;
+          const ratio = Math.max(0, Math.min(1, mouseOffset / totalDistance));
+
+          // 插值计算位置和宽度
+          const left1 = closestRect.left - menuRect.left;
+          const left2 = neighborRect.left - menuRect.left;
+          const width1 = closestRect.width;
+          const width2 = neighborRect.width;
+
+          const interpolatedLeft = left1 + (left2 - left1) * ratio;
+          const interpolatedWidth = width1 + (width2 - width1) * ratio;
+
+          navbarMenu.style.setProperty('--indicator-left', `${interpolatedLeft}px`);
+          navbarMenu.style.setProperty('--indicator-width', `${interpolatedWidth}px`);
+        } else {
+          // 没有邻居，直接设置到当前项
+          updateLiquidIndicator(closestLink, false);
+        }
+      }
+    }
+
     // 添加 CSS 变量支持
     const style = document.createElement('style');
     style.textContent = `
       .navbar-menu::before {
-        left: var(--indicator-left, 0.6rem) !important;
+        left: var(--indicator-left, 0rem) !important;
         width: var(--indicator-width, 0) !important;
         transition: var(--indicator-transition, all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94));
       }
@@ -425,8 +498,25 @@
       });
     });
 
+    // 鼠标在菜单上移动 - 实时跟随鼠标，可以停留在两个标签之间
+    let mouseMoveRAF = null;
+    navbarMenu.addEventListener('mousemove', (e) => {
+      if (mouseMoveRAF) {
+        cancelAnimationFrame(mouseMoveRAF);
+      }
+
+      mouseMoveRAF = requestAnimationFrame(() => {
+        updateIndicatorByMousePosition(e.clientX);
+      });
+    });
+
     // 鼠标离开后带动画返回到激活项
     navbarMenu.addEventListener('mouseleave', () => {
+      if (mouseMoveRAF) {
+        cancelAnimationFrame(mouseMoveRAF);
+        mouseMoveRAF = null;
+      }
+
       hoverTimeout = setTimeout(() => {
         const activeLink = navbarMenu.querySelector('a.active');
         if (activeLink) {
