@@ -349,8 +349,8 @@
       const linkRect = link.getBoundingClientRect();
       const menuRect = navbarMenu.getBoundingClientRect();
 
-      // 计算位置 - 考虑 padding (0.5rem = 8px)
-      const left = linkRect.left - menuRect.left - 8;
+      // 计算位置 - 考虑 padding (0.6rem = 9.6px)
+      const left = linkRect.left - menuRect.left - 9.6;
       const width = linkRect.width;
 
       // 使用 CSS 变量控制位置和宽度
@@ -370,7 +370,7 @@
     const style = document.createElement('style');
     style.textContent = `
       .navbar-menu::before {
-        left: var(--indicator-left, 0.5rem) !important;
+        left: var(--indicator-left, 0.6rem) !important;
         width: var(--indicator-width, 0) !important;
         transition: var(--indicator-transition, all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94));
       }

@@ -393,8 +393,8 @@ li {
   align-items: center;
   list-style: none;
   position: relative;
-  padding: 0.5rem; /* 四边统一 padding */
-  border-radius: 28px; /* 进一步增大圆角 */
+  padding: 0.6rem; /* 增大 padding，显示一圈间隙 */
+  border-radius: 32px; /* 再次增大外框圆角 */
   background: rgba(0, 0, 0, 0.03);
   overflow: visible; /* 允许滑块突出 */
 
@@ -422,11 +422,11 @@ li {
 .navbar-menu::before {
   content: '';
   position: absolute;
-  /* 四边等宽间隙 */
-  top: 0.5rem;
-  bottom: 0.5rem;
-  left: calc(var(--indicator-left, 0.5rem));
-  height: auto; /* 使用 top/bottom 控制高度，确保四边等宽 */
+  /* 四边等宽间隙 - 显示一圈小间隙 */
+  top: 0.6rem;
+  bottom: 0.6rem;
+  left: calc(var(--indicator-left, 0.6rem));
+  height: auto;
   width: var(--indicator-width, 0);
 
   /* 液态玻璃效果 - 半透明，显示背后轮廓 */
@@ -436,7 +436,7 @@ li {
 
   /* 玻璃边框 */
   border: 1px solid var(--navbar-indicator-border);
-  border-radius: 22px; /* 进一步增大圆角 */
+  border-radius: 32px; /* 与外框圆角一致 */
 
   /* 多层阴影 - 发光 + 深度 */
   box-shadow:
@@ -457,7 +457,7 @@ li {
 
 /* 悬停时滑块放大并超出外框，显示外框轮廓 */
 .navbar-menu:hover::before {
-  transform: scale(1.45); /* 再增大放大倍数 */
+  transform: scale(1.45); /* 放大超出外框 */
   box-shadow:
     0 0 60px var(--navbar-indicator-glow),
     0 20px 50px rgba(0, 0, 0, 0.22),
