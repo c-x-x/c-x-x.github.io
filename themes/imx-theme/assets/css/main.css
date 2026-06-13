@@ -393,13 +393,13 @@ li {
   align-items: center;
   list-style: none;
   position: relative;
-  padding: 0.4rem;
-  border-radius: 20px; /* 增大圆角 */
+  padding: 0.5rem; /* 增大 padding，让滑块四边间隙等宽 */
+  border-radius: 24px; /* 增大圆角 */
   background: rgba(0, 0, 0, 0.03);
   overflow: visible; /* 允许滑块突出 */
 
   /* 增强菜单框轮廓 - 展示玻璃层次感 */
-  border: 1px solid rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(0, 0, 0, 0.1);
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.5),
     inset 0 -1px 0 rgba(0, 0, 0, 0.05);
@@ -407,7 +407,7 @@ li {
 
 [data-theme="dark"] .navbar-menu {
   background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.12);
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.1),
     inset 0 -1px 0 rgba(0, 0, 0, 0.2);
@@ -422,9 +422,9 @@ li {
 .navbar-menu::before {
   content: '';
   position: absolute;
-  top: 0.4rem;
-  left: 0.4rem;
-  height: calc(100% - 0.8rem);
+  top: 0.5rem; /* 与外框 padding 一致 */
+  left: 0.5rem;
+  height: calc(100% - 1rem); /* 四边等宽间隙 */
   width: 0;
 
   /* 液态玻璃效果 - 半透明，显示背后轮廓 */
@@ -434,7 +434,7 @@ li {
 
   /* 玻璃边框 */
   border: 1px solid var(--navbar-indicator-border);
-  border-radius: 16px; /* 增大圆角 */
+  border-radius: 18px; /* 增大圆角，与外框协调 */
 
   /* 多层阴影 - 发光 + 深度 */
   box-shadow:
@@ -453,12 +453,12 @@ li {
   transform-origin: center center;
 }
 
-/* 悬停时滑块放大并突出菜单框 - 上下对称放大 */
+/* 悬停时滑块放大并超出外框，显示外框轮廓 */
 .navbar-menu:hover::before {
-  transform: scale(1.35); /* 放大更多，展示背后轮廓 */
+  transform: scale(1.4); /* 放大更多，确保超出外框 */
   box-shadow:
-    0 0 40px var(--navbar-indicator-glow),
-    0 12px 32px rgba(0, 0, 0, 0.18),
+    0 0 50px var(--navbar-indicator-glow),
+    0 16px 40px rgba(0, 0, 0, 0.2),
     inset 0 1px 0 rgba(255, 255, 255, 0.5),
     inset 0 -1px 0 rgba(0, 0, 0, 0.15);
 }
