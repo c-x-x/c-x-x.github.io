@@ -270,6 +270,7 @@ li {
   --navbar-indicator-bg: rgba(0, 113, 227, 0.15);
   --navbar-indicator-border: rgba(0, 113, 227, 0.25);
   --navbar-indicator-glow: rgba(0, 113, 227, 0.3);
+  --navbar-border-radius: 32px; /* 增大圆角 */
 }
 
 [data-theme="dark"] {
@@ -300,7 +301,7 @@ li {
 
   /* 玻璃边框和高光 */
   border: 1px solid var(--navbar-glass-border);
-  border-radius: 24px;
+  border-radius: var(--navbar-border-radius); /* 使用变量 */
 
   /* 多层阴影营造深度 */
   box-shadow:
@@ -339,7 +340,7 @@ li {
     rgba(255, 255, 255, 0.6) 70%,
     transparent
   );
-  border-radius: 24px 24px 0 0;
+  border-radius: var(--navbar-border-radius) var(--navbar-border-radius) 0 0;
 }
 
 [data-theme="dark"] .navbar-container::before {
@@ -361,7 +362,7 @@ li {
   gap: 0.5rem;
   transition: var(--transition-smooth);
   padding: 0.5rem 0.75rem;
-  border-radius: 12px;
+  border-radius: 16px; /* 增大圆角 */
   letter-spacing: -0.01em;
 }
 
@@ -374,7 +375,7 @@ li {
 .navbar-logo {
   width: 32px;
   height: 32px;
-  border-radius: 10px;
+  border-radius: 12px; /* 增大圆角 */
   object-fit: cover;
   border: 2px solid var(--color-primary);
   transition: var(--transition-smooth);
@@ -393,8 +394,9 @@ li {
   list-style: none;
   position: relative;
   padding: 0.4rem;
-  border-radius: 16px;
+  border-radius: 20px; /* 增大圆角 */
   background: rgba(0, 0, 0, 0.03);
+  overflow: visible; /* 允许滑块突出 */
 }
 
 [data-theme="dark"] .navbar-menu {
@@ -422,7 +424,7 @@ li {
 
   /* 玻璃边框 */
   border: 1px solid var(--navbar-indicator-border);
-  border-radius: 12px;
+  border-radius: 16px; /* 增大圆角 */
 
   /* 多层阴影 - 发光 + 深度 */
   box-shadow:
@@ -431,14 +433,24 @@ li {
     inset 0 1px 0 rgba(255, 255, 255, 0.3),
     inset 0 -1px 0 rgba(0, 0, 0, 0.1);
 
-  /* 弹性动画 - 果冻感 */
-  transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+  /* 平滑动画 - 去除弹性，更丝滑 */
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   opacity: 0;
   z-index: 0;
   pointer-events: none;
 
-  /* 轻微折射感 */
-  transform: perspective(500px) rotateX(0deg);
+  /* 允许放大时不被裁剪 */
+  transform-origin: center;
+}
+
+/* 悬停时滑块放大并突出菜单框 */
+.navbar-menu:hover::before {
+  transform: scale(1.15) translateY(-3px);
+  box-shadow:
+    0 0 30px var(--navbar-indicator-glow),
+    0 8px 24px rgba(0, 0, 0, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.4),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.12);
 }
 
 /* 激活状态显示滑块 */

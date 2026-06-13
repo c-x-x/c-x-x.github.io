@@ -311,9 +311,6 @@
         const linkPath = new URL(link.href).pathname;
         const normalizedLinkPath = normalizePath(linkPath);
 
-        // 调试日志（可选）
-        // console.log('Current:', normalizedCurrentPath, 'Link:', normalizedLinkPath);
-
         // 匹配规则
         if (normalizedLinkPath === normalizedCurrentPath) {
           // 精确匹配
@@ -343,7 +340,11 @@
 
     // 液态玻璃滑动指示器函数
     function updateLiquidIndicator(link, instant = false) {
-      if (!link) return;
+      if (!link) {
+        // 没有链接，隐藏滑块
+        navbarMenu.style.setProperty('--indicator-width', '0');
+        return;
+      }
 
       const linkRect = link.getBoundingClientRect();
       const menuRect = navbarMenu.getBoundingClientRect();
@@ -371,7 +372,7 @@
       .navbar-menu::before {
         left: var(--indicator-left, 0.4rem) !important;
         width: var(--indicator-width, 0) !important;
-        transition: var(--indicator-transition, all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1));
+        transition: var(--indicator-transition, all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94));
       }
     `;
     document.head.appendChild(style);
@@ -379,15 +380,29 @@
     // 初始化激活链接的指示器
     setActiveLink();
     const activeLink = navbarMenu.querySelector('a.active');
+
+    // 页面加载时立即设置滑块位置（无动画）
     if (activeLink) {
-      // 页面加载时延迟显示，营造流畅感
+      // 先立即设置位置，避免从第一个位置滑过来
+      updateLiquidIndicator(activeLink, true);
+
+      // 然后延迟显示透明度，营造淡入效果
       setTimeout(() => {
-        updateLiquidIndicator(activeLink, true);
-      }, 300);
+        navbarMenu.style.setProperty('--indicator-opacity', '1');
+      }, 100);
     } else {
       // 没有匹配的链接，隐藏滑块
       navbarMenu.style.setProperty('--indicator-width', '0');
     }
+
+    // 添加透明度控制
+    const opacityStyle = document.createElement('style');
+    opacityStyle.textContent = `
+      .navbar-menu::before {
+        opacity: var(--indicator-opacity, 0) !important;
+      }
+    `;
+    document.head.appendChild(opacityStyle);
 
     // 点击菜单项时立即设置 active 并更新滑块
     menuLinks.forEach(link => {
@@ -396,7 +411,7 @@
         menuLinks.forEach(l => l.classList.remove('active'));
         // 添加到点击的链接
         link.classList.add('active');
-        // 立即更新滑块位置（带动画）
+        // 立即更新滑块位置（带丝滑动画）
         updateLiquidIndicator(link, false);
       });
     });
@@ -406,16 +421,16 @@
     menuLinks.forEach(link => {
       link.addEventListener('mouseenter', () => {
         clearTimeout(hoverTimeout);
-        updateLiquidIndicator(link);
+        updateLiquidIndicator(link, false);
       });
     });
 
-    // 鼠标离开后带弹性动画返回到激活项
+    // 鼠标离开后带动画返回到激活项
     navbarMenu.addEventListener('mouseleave', () => {
       hoverTimeout = setTimeout(() => {
         const activeLink = navbarMenu.querySelector('a.active');
         if (activeLink) {
-          updateLiquidIndicator(activeLink);
+          updateLiquidIndicator(activeLink, false);
         } else {
           // 如果没有激活项，滑块缩小消失
           navbarMenu.style.setProperty('--indicator-width', '0');
