@@ -1,6 +1,6 @@
 +++
 title = "Hugo 博客部署到 GitHub Pages 完全指南"
-date = 2026-06-14
+date = 2026-06-13
 draft = false
 tags = ["Hugo", "GitHub Pages", "GitHub Actions", "部署", "CI/CD"]
 categories = ["教程"]
