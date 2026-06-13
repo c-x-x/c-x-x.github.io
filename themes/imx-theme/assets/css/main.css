@@ -825,8 +825,8 @@ li {
 
 .tag {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  background: var(--color-primary-light);
-  color: var(--color-primary-dark);
+  background: var(--color-primary);
+  color: white;
   padding: 0.25rem 0.75rem;
   border-radius: 16px;
   font-size: 0.875rem;
@@ -835,8 +835,10 @@ li {
 }
 
 .tag:hover {
-  background: var(--color-primary);
+  background: var(--color-primary-dark);
   color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px var(--navbar-indicator-glow);
 }
 
 /* ============================================
