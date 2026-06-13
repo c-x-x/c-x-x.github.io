@@ -372,7 +372,7 @@
       .navbar-menu::before {
         left: var(--indicator-left, 0.4rem) !important;
         width: var(--indicator-width, 0) !important;
-        transition: var(--indicator-transition, all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94));
+        transition: var(--indicator-transition, all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94));
       }
     `;
     document.head.appendChild(style);
