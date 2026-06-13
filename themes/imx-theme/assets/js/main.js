@@ -88,21 +88,8 @@
   // ============================================
   // Smooth Scroll - 平滑滚动
   // ============================================
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
-      const href = this.getAttribute('href');
-      if (href !== '#') {
-        e.preventDefault();
-        const target = document.querySelector(href);
-        if (target) {
-          target.scrollIntoView({
-            behavior: 'smooth',
-            block: 'start'
-          });
-        }
-      }
-    });
-  });
+  // CSS 中已经有 scroll-behavior: smooth 和 scroll-margin-top
+  // 锚点跳转使用浏览器原生行为即可，无需 JavaScript 干预
 
   // ============================================
   // TOC Active Link - 目录激活
