@@ -290,20 +290,49 @@
   if (navbarMenu) {
     const menuLinks = navbarMenu.querySelectorAll('a');
 
-    // 设置当前激活页面
+    // 设置当前激活页面 - 修复路径匹配逻辑
     const currentPath = window.location.pathname;
+
+    // 移除所有 active 类
+    menuLinks.forEach(link => link.classList.remove('active'));
+
+    // 精确匹配当前页面
+    let hasActiveLink = false;
     menuLinks.forEach(link => {
       const linkPath = new URL(link.href).pathname;
-      if (linkPath === currentPath ||
-          (currentPath.startsWith('/posts/') && linkPath === '/posts/') ||
-          (currentPath.startsWith('/categories/') && linkPath === '/categories/') ||
-          (currentPath.startsWith('/tags/') && linkPath === '/tags/')) {
+
+      // 规范化路径（去除末尾斜杠）
+      const normalizedLinkPath = linkPath.replace(/\/$/, '') || '/';
+      const normalizedCurrentPath = currentPath.replace(/\/$/, '') || '/';
+
+      // 匹配规则
+      if (normalizedLinkPath === normalizedCurrentPath) {
+        // 精确匹配
         link.classList.add('active');
+        hasActiveLink = true;
+      } else if (normalizedLinkPath === '/posts' && normalizedCurrentPath.startsWith('/posts/')) {
+        // 文章详情页，高亮"文章"菜单
+        link.classList.add('active');
+        hasActiveLink = true;
+      } else if (normalizedLinkPath === '/categories' && normalizedCurrentPath.startsWith('/categories/')) {
+        // 分类详情页，高亮"分类"菜单
+        link.classList.add('active');
+        hasActiveLink = true;
+      } else if (normalizedLinkPath === '/tags' && normalizedCurrentPath.startsWith('/tags/')) {
+        // 标签详情页，高亮"标签"菜单
+        link.classList.add('active');
+        hasActiveLink = true;
+      } else if (normalizedLinkPath === '/about' && normalizedCurrentPath.startsWith('/about')) {
+        // 关于页面
+        link.classList.add('active');
+        hasActiveLink = true;
       }
     });
 
     // 液态玻璃滑动指示器函数
     function updateLiquidIndicator(link, instant = false) {
+      if (!link) return;
+
       const linkRect = link.getBoundingClientRect();
       const menuRect = navbarMenu.getBoundingClientRect();
 
@@ -343,6 +372,18 @@
         updateLiquidIndicator(activeLink, true);
       }, 300);
     }
+
+    // 点击菜单项时立即设置 active 并更新滑块
+    menuLinks.forEach(link => {
+      link.addEventListener('click', (e) => {
+        // 移除所有 active
+        menuLinks.forEach(l => l.classList.remove('active'));
+        // 添加到点击的链接
+        link.classList.add('active');
+        // 立即更新滑块位置
+        updateLiquidIndicator(link, false);
+      });
+    });
 
     // 鼠标悬停效果 - 液态滑动到悬停项
     let hoverTimeout;
