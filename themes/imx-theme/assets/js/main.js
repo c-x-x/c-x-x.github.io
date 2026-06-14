@@ -202,6 +202,7 @@
   // Code Copy Button - 代码复制按钮
   // ============================================
   document.querySelectorAll('.highlight').forEach((block, index) => {
+    // 添加复制按钮
     const button = document.createElement('button');
     button.className = 'copy-code-button';
     button.textContent = '复制';
@@ -217,6 +218,22 @@
     });
 
     block.appendChild(button);
+
+    // 添加语言标签（右下角）
+    const codeElement = block.querySelector('code[data-lang]');
+    if (codeElement) {
+      const lang = codeElement.getAttribute('data-lang') || 'bash';
+      const langLabel = document.createElement('span');
+      langLabel.className = 'code-lang-label';
+      langLabel.textContent = lang;
+      block.appendChild(langLabel);
+    } else {
+      // 没有 data-lang，默认显示 bash
+      const langLabel = document.createElement('span');
+      langLabel.className = 'code-lang-label';
+      langLabel.textContent = 'bash';
+      block.appendChild(langLabel);
+    }
   });
 
   // ============================================

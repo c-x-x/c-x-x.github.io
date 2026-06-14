@@ -1514,133 +1514,214 @@ li {
 /* ============================================
    Code Highlighting - Apple Style
    ============================================ */
-
 /* ============================================
-   Code Blocks - Claude Official Style
+   Code Blocks - GitHub Style
+   支持深色/浅色主题切换
    ============================================ */
 
+/* Light Theme - GitHub Light */
+:root {
+  --code-bg: #f6f8fa;
+  --code-border: #d0d7de;
+  --code-text: #24292f;
+  --code-comment: #6e7781;
+  --code-keyword: #cf222e;
+  --code-string: #0a3069;
+  --code-function: #8250df;
+  --code-number: #0550ae;
+  --code-operator: #cf222e;
+  --code-variable: #953800;
+  --code-constant: #0550ae;
+  --code-class: #953800;
+  --code-tag: #116329;
+  --code-attr: #0550ae;
+  --code-builtin: #8250df;
+}
+
+/* Dark Theme - GitHub Dark */
+[data-theme="dark"] {
+  --code-bg: #161b22;
+  --code-border: #30363d;
+  --code-text: #e6edf3;
+  --code-comment: #8b949e;
+  --code-keyword: #ff7b72;
+  --code-string: #a5d6ff;
+  --code-function: #d2a8ff;
+  --code-number: #79c0ff;
+  --code-operator: #ff7b72;
+  --code-variable: #ffa657;
+  --code-constant: #79c0ff;
+  --code-class: #ffa657;
+  --code-tag: #7ee787;
+  --code-attr: #79c0ff;
+  --code-builtin: #d2a8ff;
+}
+
+/* Code Block Container */
 .highlight {
   position: relative;
   margin: 1.5rem 0;
-  border-radius: 12px;
+  border-radius: 6px;
   overflow: hidden;
-  border: 1px solid var(--color-code-border);
-  background: var(--color-code-bg);
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  border: 1px solid var(--code-border);
+  background: var(--code-bg);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
 }
 
 .highlight pre {
   margin: 0;
-  padding: 1.25rem;
+  padding: 16px;
   background: transparent;
   border: none;
   border-radius: 0;
+  overflow-x: auto;
 }
 
 .highlight pre code {
-  font-family: 'Roboto Mono', 'SF Mono', Monaco, 'Cascadia Code', Consolas, monospace;
-  font-size: 0.9rem;
-  line-height: 1.7;
+  font-family: 'SF Mono', 'Consolas', 'Monaco', 'Courier New', monospace;
+  font-size: 12px;
+  line-height: 1.6;
   font-weight: 400;
-  color: var(--color-code-text);
-}
-
-/* Language Label - Claude style */
-.highlight::before {
-  content: attr(data-lang);
-  position: absolute;
-  top: 0;
-  right: 0;
-  padding: 0.5rem 1rem;
-  font-size: 0.75rem;
-  color: var(--color-text-muted);
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  font-weight: 600;
-  font-family: 'Inter', sans-serif;
-  background: linear-gradient(to bottom, var(--color-code-bg) 0%, transparent 100%);
-  border-bottom-left-radius: 8px;
-}
-
-/* Copy Button - Claude style */
-.copy-code-button {
-  position: absolute;
-  top: 0.5rem;
-  right: 5rem;
-  padding: 0.4rem 0.9rem;
+  color: var(--code-text);
   background: transparent;
-  border: 1px solid var(--color-code-border);
-  border-radius: 8px;
-  color: var(--color-text-secondary);
-  font-size: 0.75rem;
-  font-family: 'Inter', sans-serif;
-  font-weight: 500;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  opacity: 0;
 }
 
-.highlight:hover .copy-code-button {
-  opacity: 1;
+/* Inline Code */
+code {
+  font-family: 'SF Mono', 'Consolas', 'Monaco', 'Courier New', monospace;
+  font-size: 0.9em;
+  background: var(--code-bg);
+  color: var(--code-text);
+  padding: 0.2em 0.4em;
+  border-radius: 3px;
+  border: 1px solid var(--code-border);
+  font-weight: 400;
 }
 
-.copy-code-button:hover {
-  background: var(--color-primary);
-  color: white;
-  border-color: var(--color-primary);
-  transform: translateY(-1px);
-}
+/* ============================================
+   Syntax Highlighting - GitHub Style
+   ============================================ */
 
-.copy-code-button:active {
-  transform: translateY(0);
-}
-
-/* Syntax Highlighting - Claude style */
+/* Comments */
 .highlight .c,
 .highlight .cm,
-.highlight .c1 { color: var(--color-code-comment); font-style: italic; } /* Comments */
+.highlight .c1,
+.highlight .cs {
+  color: var(--code-comment);
+  font-style: italic;
+}
 
+/* Keywords */
 .highlight .k,
 .highlight .kd,
 .highlight .kn,
 .highlight .kr,
-.highlight .kt { color: var(--color-code-keyword); font-weight: 600; } /* Keywords */
+.highlight .kt,
+.highlight .kp {
+  color: var(--code-keyword);
+  font-weight: 600;
+}
 
+/* Strings */
 .highlight .s,
 .highlight .s1,
 .highlight .s2,
 .highlight .sb,
-.highlight .sc { color: var(--color-code-string); } /* Strings */
+.highlight .sc,
+.highlight .sd,
+.highlight .se,
+.highlight .sh,
+.highlight .si,
+.highlight .sr,
+.highlight .sx {
+  color: var(--code-string);
+}
 
+/* Functions */
 .highlight .nf,
-.highlight .fm { color: var(--color-code-function); font-weight: 500; } /* Functions */
+.highlight .fm {
+  color: var(--code-function);
+  font-weight: 600;
+}
 
+/* Numbers */
 .highlight .m,
-.highlight .mi,
 .highlight .mf,
-.highlight .mh { color: var(--color-code-number); } /* Numbers */
+.highlight .mh,
+.highlight .mi,
+.highlight .mo,
+.highlight .il {
+  color: var(--code-number);
+}
 
-.highlight .n,
-.highlight .na,
-.highlight .nb { color: var(--color-code-text); } /* Names */
-
+/* Operators */
 .highlight .o,
-.highlight .ow { color: var(--color-text-secondary); } /* Operators */
-
-/* Line Numbers */
-.highlight .ln {
-  color: var(--color-text-muted);
-  user-select: none;
-  padding-right: 1rem;
-  opacity: 0.5;
+.highlight .ow {
+  color: var(--code-operator);
+  font-weight: 600;
 }
 
-.highlight .line {
-  display: block;
+/* Variables */
+.highlight .n,
+.highlight .nv,
+.highlight .nb,
+.highlight .bp {
+  color: var(--code-variable);
 }
 
-.highlight .line:hover {
-  background: rgba(192, 132, 252, 0.05);
+/* Constants */
+.highlight .kc,
+.highlight .no {
+  color: var(--code-constant);
+  font-weight: 600;
+}
+
+/* Classes */
+.highlight .nc,
+.highlight .nn {
+  color: var(--code-class);
+  font-weight: 600;
+}
+
+/* Tags (HTML/XML) */
+.highlight .nt {
+  color: var(--code-tag);
+  font-weight: 600;
+}
+
+/* Attributes */
+.highlight .na {
+  color: var(--code-attr);
+}
+
+/* Built-in */
+.highlight .nb,
+.highlight .bp {
+  color: var(--code-builtin);
+}
+
+/* Punctuation */
+.highlight .p {
+  color: var(--code-text);
+}
+
+/* Whitespace */
+.highlight .w {
+  color: transparent;
+}
+
+/* Error */
+.highlight .err {
+  color: var(--code-keyword);
+}
+
+/* Generic */
+.highlight .ge {
+  font-style: italic;
+}
+
+.highlight .gs {
+  font-weight: 600;
 }
 
 /* ============================================
@@ -1684,4 +1765,55 @@ li {
     box-shadow: none;
     border: none;
   }
+}
+/* Language Label - 右下角显示（通过 JS 添加） */
+.code-lang-label {
+  position: absolute;
+  bottom: 0.5rem;
+  right: 0.75rem;
+  padding: 0.25rem 0.6rem;
+  font-size: 0.7rem;
+  color: var(--code-comment);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 600;
+  font-family: 'Inter', sans-serif;
+  background: var(--code-bg);
+  border-radius: 4px;
+  opacity: 0.6;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Copy Button - 右上角显示 */
+.copy-code-button {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.75rem;
+  padding: 0.4rem 0.9rem;
+  background: transparent;
+  border: 1px solid var(--code-border);
+  border-radius: 6px;
+  color: var(--code-text);
+  font-size: 0.75rem;
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  opacity: 0;
+  z-index: 2;
+}
+
+.highlight:hover .copy-code-button {
+  opacity: 1;
+}
+
+.copy-code-button:hover {
+  background: var(--color-primary);
+  color: white;
+  border-color: var(--color-primary);
+}
+
+.copy-code-button:active {
+  transform: translateY(1px);
 }
