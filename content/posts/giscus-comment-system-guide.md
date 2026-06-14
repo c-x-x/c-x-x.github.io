@@ -4,7 +4,7 @@ date = '2026-06-13T21:30:10+08:00'
 draft = false
 categories = ['技术', '教程']
 tags = ['Hugo', 'Giscus', '评论系统', 'GitHub', '博客搭建']
-image = '/images/posts/giscus-guide.svg'
+image = '/images/posts/giscus-guide.png'
 description = '从零开始，手把手教你为 Hugo 博客集成基于 GitHub Discussions 的 Giscus 评论系统，包含完整配置和主题适配。'
 +++
 

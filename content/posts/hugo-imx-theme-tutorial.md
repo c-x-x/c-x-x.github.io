@@ -4,7 +4,7 @@ date = '2026-06-13T22:00:00+08:00'
 draft = false
 categories = ['技术', '教程']
 tags = ['Hugo', 'IMX Theme', '博客搭建', '静态网站', 'Markdown']
-image = '/images/posts/hugo-imx-theme.svg'
+image = '/images/posts/hugo-imx-theme.png'
 description = '从零开始学习 Hugo 静态网站生成器，详细讲解 IMX 主题的使用、配置、写作技巧和部署方法。'
 +++
 
