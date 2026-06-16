@@ -556,6 +556,13 @@ li {
   background: rgba(255, 255, 255, 0.08);
 }
 
+.theme-toggle[data-theme-mode="auto"] {
+  color: var(--color-primary);
+  box-shadow:
+    0 0 0 1px rgba(var(--color-primary-rgb), 0.18),
+    0 4px 16px rgba(var(--color-primary-rgb), 0.12);
+}
+
 .theme-toggle:hover {
   background: var(--color-primary);
   color: white;
