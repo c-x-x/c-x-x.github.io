@@ -9,6 +9,7 @@
   // ============================================
   const themeToggle = document.querySelector('.theme-toggle');
   const htmlElement = document.documentElement;
+  const mobileQuery = window.matchMedia('(max-width: 768px)');
 
   // 获取保存的主题或默认浅色
   function getTheme() {
@@ -51,22 +52,48 @@
   const sidebar = document.querySelector('.sidebar');
 
   if (sidebarToggle && sidebar) {
-    // 获取侧边栏状态
-    const sidebarState = localStorage.getItem('sidebarCollapsed') === 'true';
-    if (sidebarState) {
-      sidebar.classList.add('collapsed');
+    function updateSidebarIcon(isOpen) {
+      sidebarToggle.innerHTML = isOpen
+        ? '<svg width="24" height="24" fill="currentColor"><use href="#icon-close"></use></svg>'
+        : '<svg width="24" height="24" fill="currentColor"><use href="#icon-menu"></use></svg>';
     }
 
-    sidebarToggle.addEventListener('click', () => {
-      sidebar.classList.toggle('collapsed');
-      sidebar.classList.toggle('active');
-      const isCollapsed = sidebar.classList.contains('collapsed');
-      localStorage.setItem('sidebarCollapsed', isCollapsed);
+    function syncSidebarMode() {
+      if (mobileQuery.matches) {
+        sidebar.classList.remove('collapsed');
+        sidebar.classList.remove('active');
+        sidebarToggle.classList.remove('active');
+        updateSidebarIcon(false);
+        return;
+      }
 
-      // 更新按钮图标
-      sidebarToggle.innerHTML = isCollapsed
-        ? '<svg width="24" height="24" fill="currentColor"><use href="#icon-menu"></use></svg>'
-        : '<svg width="24" height="24" fill="currentColor"><use href="#icon-close"></use></svg>';
+      sidebar.classList.remove('active');
+      sidebarToggle.classList.remove('active');
+      const isCollapsed = localStorage.getItem('sidebarCollapsed') === 'true';
+      sidebar.classList.toggle('collapsed', isCollapsed);
+      updateSidebarIcon(!isCollapsed);
+    }
+
+    syncSidebarMode();
+
+    sidebarToggle.addEventListener('click', () => {
+      if (mobileQuery.matches) {
+        const isOpen = !sidebar.classList.contains('active');
+        sidebar.classList.toggle('active', isOpen);
+        sidebarToggle.classList.toggle('active', isOpen);
+        updateSidebarIcon(isOpen);
+        return;
+      }
+
+      sidebarToggle.classList.remove('active');
+      const isCollapsed = sidebar.classList.contains('collapsed');
+      sidebar.classList.toggle('collapsed', !isCollapsed);
+      localStorage.setItem('sidebarCollapsed', !isCollapsed);
+      updateSidebarIcon(isCollapsed);
+    });
+
+    mobileQuery.addEventListener('change', () => {
+      syncSidebarMode();
     });
   }
 
@@ -243,9 +270,41 @@
   const navbarMenu = document.querySelector('.navbar-menu');
 
   if (mobileMenuToggle && navbarMenu) {
+    mobileMenuToggle.setAttribute('aria-expanded', 'false');
+
+    function setMobileMenu(open) {
+      navbarMenu.classList.toggle('active', open);
+      mobileMenuToggle.classList.toggle('active', open);
+      mobileMenuToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+      document.body.classList.toggle('mobile-menu-open', open);
+    }
+
     mobileMenuToggle.addEventListener('click', () => {
-      navbarMenu.classList.toggle('active');
-      mobileMenuToggle.classList.toggle('active');
+      setMobileMenu(!navbarMenu.classList.contains('active'));
+    });
+
+    navbarMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        if (mobileQuery.matches) {
+          setMobileMenu(false);
+        }
+      });
+    });
+
+    document.addEventListener('click', (e) => {
+      if (
+        mobileQuery.matches &&
+        navbarMenu.classList.contains('active') &&
+        !e.target.closest('.navbar-container')
+      ) {
+        setMobileMenu(false);
+      }
+    });
+
+    window.addEventListener('resize', () => {
+      if (!mobileQuery.matches) {
+        setMobileMenu(false);
+      }
     });
   }
 
