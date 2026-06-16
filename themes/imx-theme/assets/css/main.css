@@ -425,9 +425,9 @@ li {
   /* 上下左右与外框完全对齐，边缘重叠 */
   top: 0;
   bottom: 0;
-  left: calc(var(--indicator-left, 0rem));
+  left: 0;
   height: auto;
-  width: var(--indicator-width, 0);
+  width: var(--indicator-width, 0px);
 
   /* 液态玻璃效果 - 半透明，显示背后轮廓 */
   background: var(--navbar-indicator-bg);
@@ -445,19 +445,24 @@ li {
     inset 0 1px 0 rgba(255, 255, 255, 0.3),
     inset 0 -1px 0 rgba(0, 0, 0, 0.1);
 
-  /* 更快速的动画 - 跟随鼠标更灵敏 */
-  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  opacity: 0;
+  transform: translate3d(var(--indicator-x, 0px), 0, 0) scaleY(var(--indicator-scale-y, 1));
+  transform-origin: center center;
+  transition: var(
+    --indicator-transition,
+    transform 0.18s cubic-bezier(0.2, 0.8, 0.2, 1),
+    width 0.18s cubic-bezier(0.2, 0.8, 0.2, 1),
+    opacity 0.12s ease,
+    box-shadow 0.18s ease
+  );
+  opacity: var(--indicator-opacity, 0);
+  will-change: transform, width, opacity;
   z-index: 0;
   pointer-events: none;
-
-  /* 设置缩放中心点为中心，实现上下对称放大 */
-  transform-origin: center center;
 }
 
 /* 悬停时滑块放大并超出外框，显示外框轮廓 */
 .navbar-menu:hover::before {
-  transform: scale(1.45); /* 放大超出外框 */
+  --indicator-scale-y: 1.45; /* 上下对称放大，显示外框轮廓 */
   box-shadow:
     0 0 60px var(--navbar-indicator-glow),
     0 20px 50px rgba(0, 0, 0, 0.22),
@@ -467,7 +472,7 @@ li {
 
 /* 激活状态显示滑块 */
 .navbar-menu:has(a.active)::before {
-  opacity: 1;
+  --indicator-opacity: 1;
 }
 
 /* 菜单项样式 */

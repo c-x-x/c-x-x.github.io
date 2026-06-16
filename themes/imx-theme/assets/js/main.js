@@ -364,7 +364,13 @@
   // 使用前面已声明的 navbarMenu
 
   if (navbarMenu) {
-    const menuLinks = navbarMenu.querySelectorAll('a');
+    const menuLinks = Array.from(navbarMenu.querySelectorAll('a'));
+    let menuRect = null;
+    let itemMetrics = [];
+    let pointerX = null;
+    let pointerFrame = null;
+    let isPointerTracking = false;
+    let resizeTimeout = null;
 
     // 设置当前激活页面 - 优化路径匹配逻辑
     function setActiveLink() {
@@ -414,218 +420,248 @@
       return hasActiveLink;
     }
 
-    // 液态玻璃滑动指示器函数
+    function isDesktopNavbar() {
+      return !mobileQuery.matches;
+    }
+
+    function clamp(value, min, max) {
+      return Math.min(Math.max(value, min), max);
+    }
+
+    function refreshNavbarMetrics() {
+      menuRect = navbarMenu.getBoundingClientRect();
+      itemMetrics = menuLinks
+        .map(link => {
+          const item = link.parentElement;
+          if (!item) return null;
+          const itemRect = item.getBoundingClientRect();
+          const left = itemRect.left - menuRect.left;
+          const width = itemRect.width;
+
+          return {
+            link,
+            left,
+            width,
+            center: left + width / 2
+          };
+        })
+        .filter(Boolean);
+    }
+
+    function setIndicatorTransition(instant) {
+      if (instant) {
+        navbarMenu.style.setProperty('--indicator-transition', 'none');
+      } else {
+        navbarMenu.style.removeProperty('--indicator-transition');
+      }
+    }
+
+    function setIndicatorPosition(left, width, options = {}) {
+      if (!Number.isFinite(left) || !Number.isFinite(width)) return;
+
+      setIndicatorTransition(Boolean(options.instant));
+      navbarMenu.style.setProperty('--indicator-x', `${left.toFixed(3)}px`);
+      navbarMenu.style.setProperty('--indicator-width', `${width.toFixed(3)}px`);
+      navbarMenu.style.setProperty('--indicator-opacity', '1');
+    }
+
+    function hideIndicator(instant = false) {
+      setIndicatorTransition(instant);
+      navbarMenu.style.setProperty('--indicator-width', '0px');
+      navbarMenu.style.setProperty('--indicator-opacity', '0');
+    }
+
+    function metricForLink(link) {
+      return itemMetrics.find(metric => metric.link === link);
+    }
+
     function updateLiquidIndicator(link, instant = false) {
-      if (!link) {
-        // 没有链接，隐藏滑块
-        navbarMenu.style.setProperty('--indicator-width', '0');
+      if (!isDesktopNavbar()) return;
+
+      refreshNavbarMetrics();
+
+      const metric = metricForLink(link);
+      if (!metric) {
+        hideIndicator(instant);
         return;
       }
 
-      const linkRect = link.getBoundingClientRect();
-      const menuRect = navbarMenu.getBoundingClientRect();
+      setIndicatorPosition(metric.left, metric.width, { instant });
 
-      // 获取父元素 li 的位置（包含 gap）
-      const li = link.parentElement;
-      const liRect = li.getBoundingClientRect();
-
-      // 计算位置 - 上下左右完全对齐外框（无 padding）
-      const left = liRect.left - menuRect.left;
-      const width = liRect.width;
-
-      // 使用 CSS 变量控制位置和宽度
-      navbarMenu.style.setProperty('--indicator-left', `${left}px`);
-      navbarMenu.style.setProperty('--indicator-width', `${width}px`);
-
-      // 即时切换时禁用过渡动画
       if (instant) {
-        navbarMenu.style.setProperty('--indicator-transition', 'none');
         requestAnimationFrame(() => {
-          navbarMenu.style.removeProperty('--indicator-transition');
+          if (!isPointerTracking) {
+            navbarMenu.style.removeProperty('--indicator-transition');
+          }
         });
       }
     }
 
-    // 根据鼠标位置更新滑块 - 可以停留在两个标签之间
-    function updateIndicatorByMousePosition(mouseX) {
-      const menuRect = navbarMenu.getBoundingClientRect();
-      const links = Array.from(menuLinks);
+    // 根据鼠标位置更新滑块：中心点跟随指针，宽度在相邻菜单项之间平滑插值。
+    function updateIndicatorByPointer(clientX) {
+      if (!isDesktopNavbar()) return;
 
-      // 找到最接近鼠标的菜单项
-      let closestLink = null;
-      let minDistance = Infinity;
+      if (!menuRect || itemMetrics.length !== menuLinks.length) {
+        refreshNavbarMetrics();
+      }
 
-      links.forEach(link => {
-        const li = link.parentElement;
-        const liRect = li.getBoundingClientRect();
-        const linkCenter = liRect.left + liRect.width / 2;
-        const distance = Math.abs(mouseX - linkCenter);
+      if (!menuRect || itemMetrics.length === 0) return;
 
-        if (distance < minDistance) {
-          minDistance = distance;
-          closestLink = link;
+      const localX = clamp(clientX - menuRect.left, 0, menuRect.width);
+      let leftMetric = itemMetrics[0];
+      let rightMetric = itemMetrics[itemMetrics.length - 1];
+
+      for (let index = 0; index < itemMetrics.length - 1; index += 1) {
+        const current = itemMetrics[index];
+        const next = itemMetrics[index + 1];
+
+        if (localX >= current.center && localX <= next.center) {
+          leftMetric = current;
+          rightMetric = next;
+          break;
+        }
+
+        if (localX < itemMetrics[0].center) {
+          rightMetric = itemMetrics[0];
+          break;
+        }
+
+        if (localX > itemMetrics[itemMetrics.length - 1].center) {
+          leftMetric = itemMetrics[itemMetrics.length - 1];
+          break;
+        }
+      }
+
+      const distance = rightMetric.center - leftMetric.center;
+      const ratio = distance === 0
+        ? 0
+        : clamp((localX - leftMetric.center) / distance, 0, 1);
+      const width = leftMetric.width + (rightMetric.width - leftMetric.width) * ratio;
+      const maxLeft = menuRect.width - width;
+      const left = clamp(localX - width / 2, 0, Math.max(0, maxLeft));
+
+      setIndicatorPosition(left, width, { instant: true });
+    }
+
+    function schedulePointerUpdate(clientX) {
+      pointerX = clientX;
+
+      if (pointerFrame !== null) return;
+
+      pointerFrame = requestAnimationFrame(() => {
+        pointerFrame = null;
+
+        if (isPointerTracking && pointerX !== null) {
+          updateIndicatorByPointer(pointerX);
         }
       });
+    }
 
-      // 如果找到了最近的链接，计算插值位置
-      if (closestLink) {
-        const closestLi = closestLink.parentElement;
-        const closestRect = closestLi.getBoundingClientRect();
-        const closestCenter = closestRect.left + closestRect.width / 2;
+    function restoreActiveIndicator() {
+      const activeLink = navbarMenu.querySelector('a.active');
 
-        // 找到相邻的菜单项
-        const closestIndex = links.indexOf(closestLink);
-        let neighborLink = null;
-        let neighborRect = null;
-
-        if (mouseX < closestCenter && closestIndex > 0) {
-          // 鼠标在左侧，找左边的邻居
-          neighborLink = links[closestIndex - 1];
-        } else if (mouseX > closestCenter && closestIndex < links.length - 1) {
-          // 鼠标在右侧，找右边的邻居
-          neighborLink = links[closestIndex + 1];
-        }
-
-        if (neighborLink) {
-          const neighborLi = neighborLink.parentElement;
-          neighborRect = neighborLi.getBoundingClientRect();
-
-          // 计算插值比例
-          const start = Math.min(closestRect.left, neighborRect.left);
-          const end = Math.max(closestRect.right, neighborRect.right);
-          const totalDistance = end - start;
-          const mouseOffset = mouseX - start;
-          const ratio = Math.max(0, Math.min(1, mouseOffset / totalDistance));
-
-          // 插值计算位置和宽度
-          const left1 = closestRect.left - menuRect.left;
-          const left2 = neighborRect.left - menuRect.left;
-          const width1 = closestRect.width;
-          const width2 = neighborRect.width;
-
-          const interpolatedLeft = left1 + (left2 - left1) * ratio;
-          const interpolatedWidth = width1 + (width2 - width1) * ratio;
-
-          navbarMenu.style.setProperty('--indicator-left', `${interpolatedLeft}px`);
-          navbarMenu.style.setProperty('--indicator-width', `${interpolatedWidth}px`);
-        } else {
-          // 没有邻居，直接设置到当前项
-          updateLiquidIndicator(closestLink, false);
-        }
+      if (activeLink) {
+        updateLiquidIndicator(activeLink, false);
+      } else {
+        hideIndicator(false);
       }
     }
 
-    // 添加 CSS 变量支持
-    const style = document.createElement('style');
-    style.textContent = `
-      .navbar-menu::before {
-        left: var(--indicator-left, 0rem) !important;
-        width: var(--indicator-width, 0) !important;
-        transition: var(--indicator-transition, all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94));
-      }
-    `;
-    document.head.appendChild(style);
-
-    // 初始化激活链接的指示器
-    setActiveLink();
-    const activeLink = navbarMenu.querySelector('a.active');
-
-    // 页面加载时立即设置滑块位置（无动画）
-    if (activeLink) {
-      // 先立即设置位置，避免从第一个位置滑过来
-      updateLiquidIndicator(activeLink, true);
-
-      // 然后延迟显示透明度，营造淡入效果
-      setTimeout(() => {
-        navbarMenu.style.setProperty('--indicator-opacity', '1');
-      }, 100);
-    } else {
-      // 没有匹配的链接，隐藏滑块
-      navbarMenu.style.setProperty('--indicator-width', '0');
-    }
-
-    // 添加透明度控制
-    const opacityStyle = document.createElement('style');
-    opacityStyle.textContent = `
-      .navbar-menu::before {
-        opacity: var(--indicator-opacity, 0) !important;
-      }
-    `;
-    document.head.appendChild(opacityStyle);
-
-    // 点击菜单项时立即设置 active 并更新滑块
     menuLinks.forEach(link => {
-      link.addEventListener('click', (e) => {
+      link.addEventListener('click', () => {
         // 移除所有 active
         menuLinks.forEach(l => l.classList.remove('active'));
         // 添加到点击的链接
         link.classList.add('active');
-        // 立即更新滑块位置（带丝滑动画）
-        updateLiquidIndicator(link, false);
-      });
-    });
 
-    // 鼠标悬停效果 - 液态滑动到悬停项
-    let hoverTimeout;
-    menuLinks.forEach(link => {
-      link.addEventListener('mouseenter', () => {
-        clearTimeout(hoverTimeout);
-        updateLiquidIndicator(link, false);
-      });
-    });
-
-    // 鼠标在菜单上移动 - 实时跟随鼠标，可以停留在两个标签之间
-    let mouseMoveRAF = null;
-    navbarMenu.addEventListener('mousemove', (e) => {
-      if (mouseMoveRAF) {
-        cancelAnimationFrame(mouseMoveRAF);
-      }
-
-      mouseMoveRAF = requestAnimationFrame(() => {
-        updateIndicatorByMousePosition(e.clientX);
-      });
-    });
-
-    // 鼠标离开后带动画返回到激活项
-    navbarMenu.addEventListener('mouseleave', () => {
-      if (mouseMoveRAF) {
-        cancelAnimationFrame(mouseMoveRAF);
-        mouseMoveRAF = null;
-      }
-
-      hoverTimeout = setTimeout(() => {
-        const activeLink = navbarMenu.querySelector('a.active');
-        if (activeLink) {
-          updateLiquidIndicator(activeLink, false);
-        } else {
-          // 如果没有激活项，滑块缩小消失
-          navbarMenu.style.setProperty('--indicator-width', '0');
+        if (isDesktopNavbar()) {
+          updateLiquidIndicator(link, false);
         }
-      }, 50); // 轻微延迟，避免抖动
+      });
     });
+
+    navbarMenu.addEventListener('pointerenter', (event) => {
+      if (!isDesktopNavbar() || event.pointerType === 'touch') return;
+
+      isPointerTracking = true;
+      refreshNavbarMetrics();
+      navbarMenu.style.setProperty('--indicator-transition', 'none');
+      schedulePointerUpdate(event.clientX);
+    });
+
+    navbarMenu.addEventListener('pointermove', (event) => {
+      if (!isPointerTracking || event.pointerType === 'touch') return;
+
+      schedulePointerUpdate(event.clientX);
+    });
+
+    function stopPointerTracking() {
+      isPointerTracking = false;
+      pointerX = null;
+
+      if (pointerFrame !== null) {
+        cancelAnimationFrame(pointerFrame);
+        pointerFrame = null;
+      }
+
+      navbarMenu.style.removeProperty('--indicator-transition');
+      restoreActiveIndicator();
+    }
+
+    navbarMenu.addEventListener('pointerleave', stopPointerTracking);
+    navbarMenu.addEventListener('pointercancel', stopPointerTracking);
+
+    function initializeIndicator() {
+      setActiveLink();
+
+      if (!isDesktopNavbar()) {
+        hideIndicator(true);
+        return;
+      }
+
+      const activeLink = navbarMenu.querySelector('a.active');
+
+      if (activeLink) {
+        updateLiquidIndicator(activeLink, true);
+      } else {
+        hideIndicator(true);
+      }
+    }
+
+    initializeIndicator();
 
     // 窗口大小改变时重新计算 - 防抖优化
-    let resizeTimeout;
     window.addEventListener('resize', () => {
       clearTimeout(resizeTimeout);
       resizeTimeout = setTimeout(() => {
-        const activeLink = navbarMenu.querySelector('a.active');
-        if (activeLink) {
-          updateLiquidIndicator(activeLink, true);
-        }
+        refreshNavbarMetrics();
+        initializeIndicator();
       }, 100);
     });
+
+    if ('ResizeObserver' in window) {
+      const navbarResizeObserver = new ResizeObserver(() => {
+        if (isPointerTracking) {
+          refreshNavbarMetrics();
+        } else {
+          initializeIndicator();
+        }
+      });
+
+      navbarResizeObserver.observe(navbarMenu);
+      menuLinks.forEach(link => {
+        if (link.parentElement) {
+          navbarResizeObserver.observe(link.parentElement);
+        }
+      });
+    }
 
     // 页面可见性变化时重新计算（解决某些浏览器的布局问题）
     document.addEventListener('visibilitychange', () => {
       if (!document.hidden) {
         setTimeout(() => {
           // 重新设置 active 状态
-          setActiveLink();
-          const activeLink = navbarMenu.querySelector('a.active');
-          if (activeLink) {
-            updateLiquidIndicator(activeLink, true);
-          }
+          initializeIndicator();
         }, 100);
       }
     });
