@@ -103,12 +103,11 @@ git init
 ```
 my-blog/
 ├── archetypes/     # 内容模板
-├── assets/         # 需要处理的资源（CSS、JS）
+├── assets/         # 站点资源
 ├── content/        # 网站内容（Markdown 文件）
-├── data/           # 数据文件
-├── layouts/        # 自定义模板
-├── static/         # 静态资源（图片、字体）
-├── themes/         # 主题目录
+├── layouts/        # 可选的模板覆盖
+├── static/         # 图片等静态资源
+├── go.mod          # Hugo Module 依赖
 └── hugo.toml       # 配置文件
 ```
 
@@ -116,23 +115,25 @@ my-blog/
 
 ### 1.3 安装主题
 
-#### 方法 1：Git Submodule（推荐）
+IMX 只通过 Hugo Module 分发。先初始化站点模块：
 
 ```bash
-# 添加主题作为子模块
-git submodule add https://github.com/你的用户名/imx-theme.git themes/imx-theme
+hugo mod init github.com/你的用户名/你的站点仓库
 ```
 
-#### 方法 2：直接克隆
+然后在 `hugo.toml` 中导入主题：
+
+```toml
+[module]
+  [[module.imports]]
+    path = "github.com/c-x-x/hugo-theme-imx"
+```
+
+下载依赖：
 
 ```bash
-# 克隆主题到 themes 目录
-git clone https://github.com/你的用户名/imx-theme.git themes/imx-theme
+hugo mod get
 ```
-
-#### 方法 3：使用本地主题
-
-如果你已经有 IMX 主题的代码，直接复制到 `themes/imx-theme` 目录。
 
 ---
 
@@ -144,7 +145,6 @@ git clone https://github.com/你的用户名/imx-theme.git themes/imx-theme
 baseURL = 'https://你的域名.com/'
 languageCode = 'zh-cn'
 title = '你的博客名称'
-theme = 'imx-theme'
 
 [params]
   description = '你的博客描述'
@@ -163,6 +163,15 @@ theme = 'imx-theme'
     repoId = "你的repo-id"
     category = "Announcements"
     categoryId = "你的category-id"
+    lightTheme = "light"
+    darkTheme = "dark"
+
+[outputs]
+  home = ["HTML", "RSS", "JSON"]
+
+[module]
+  [[module.imports]]
+    path = "github.com/c-x-x/hugo-theme-imx"
 
 [markup]
   [markup.highlight]
@@ -437,21 +446,16 @@ content/
 
 ### 2.7 主题自定义
 
-#### 修改配色
+#### 覆盖主题模板
 
-编辑 `themes/imx-theme/assets/css/main.css`：
+Hugo Module 不需要复制完整主题。确实需要调整模板时，只把同路径文件放进站点的 `layouts/`，Hugo 会优先使用站点文件。
 
-```css
-:root {
-  --color-primary: #C084FC;      /* 主色调 */
-  --color-primary-dark: #A855F7; /* 深色主色 */
-  --color-primary-light: #E9D5FF; /* 浅色主色 */
-}
+更新主题可运行：
+
+```bash
+hugo mod get -u github.com/c-x-x/hugo-theme-imx
+hugo mod tidy
 ```
-
-#### 自定义 CSS
-
-创建 `assets/css/custom.css` 并在配置中引入。
 
 ---
 
@@ -581,12 +585,13 @@ hugo --minify
 
 ### 问题 1：主题没有生效
 
-**原因**：配置文件中主题名称错误。
+**原因**：模块尚未下载，或 `hugo.toml` 中没有导入主题。
 
 **解决**：
 
-```toml
-theme = 'imx-theme'  # 必须与 themes/ 目录下的文件夹名一致
+```bash
+hugo mod get
+hugo mod graph
 ```
 
 ### 问题 2：文章不显示

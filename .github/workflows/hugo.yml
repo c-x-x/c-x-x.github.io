@@ -22,8 +22,12 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+
+      - name: Setup Go
+        uses: actions/setup-go@v5
         with:
-          submodules: recursive
+          go-version: '1.20'
+          cache: true
 
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2
@@ -32,7 +36,9 @@ jobs:
           extended: true
 
       - name: Build
-        run: hugo --minify
+        run: |
+          hugo mod get
+          hugo --minify
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
