@@ -4,8 +4,8 @@ locale = 'zh-CN'
 title = 'IMXBlog'
 
 [params]
-  description = '弱小和无知从来不是生存的障碍，傲慢才是'
-  subtitle = '弱小和无知从来不是生存的障碍，傲慢才是'
+  description = '真相一旦入眼，你无法视而不见！'
+  subtitle = '真相一旦入眼，你无法视而不见。'
   author = 'IMX'
   avatar = '/images/imx/imx.jpg'
   mainSections = ['posts']
