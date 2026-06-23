@@ -31,9 +31,8 @@ my-blog/
 ├── archetypes/
 ├── content/
 │   └── posts/                # 文章目录
-├── themes/
-│   └── imx-theme/           # 主题
 ├── static/
+├── go.mod                    # Hugo Module 依赖
 ├── hugo.toml                 # Hugo 配置文件
 └── .gitignore
 ```
@@ -128,8 +127,12 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+
+      - name: Setup Go
+        uses: actions/setup-go@v5
         with:
-          submodules: recursive
+          go-version: '1.20'
+          cache: true
 
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2
@@ -138,7 +141,9 @@ jobs:
           extended: true
 
       - name: Build
-        run: hugo --minify
+        run: |
+          hugo mod get
+          hugo --minify
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
@@ -165,10 +170,11 @@ jobs:
 - `workflow_dispatch` 允许手动触发
 
 **构建步骤：**
-1. **Checkout** - 检出代码，包括子模块（主题）
-2. **Setup Hugo** - 安装 Hugo Extended 最新版本
-3. **Build** - 执行 `hugo --minify` 构建静态文件
-4. **Upload artifact** - 上传构建产物到 GitHub
+1. **Checkout** - 检出站点源码
+2. **Setup Go** - 提供 Hugo Module 所需的 Go 环境
+3. **Setup Hugo** - 安装 Hugo Extended
+4. **Build** - 下载模块并构建静态文件
+5. **Upload artifact** - 上传构建产物到 GitHub
 
 **部署步骤：**
 - 将构建产物部署到 GitHub Pages
@@ -444,8 +450,8 @@ git push
 # 1. 修改配置文件
 vim hugo.toml
 
-# 2. 或修改主题文件
-vim themes/imx-theme/assets/css/main.css
+# 2. 更新主题模块
+hugo mod get -u github.com/c-x-x/hugo-theme-imx
 
 # 3. 本地测试
 hugo server

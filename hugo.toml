@@ -1,13 +1,14 @@
 baseURL = 'https://blog.cxx.pub/'
-languageCode = 'zh-cn'
+defaultContentLanguage = 'zh-cn'
+locale = 'zh-CN'
 title = 'IMXBlog'
-theme = 'imx-theme'
 
 [params]
   description = '弱小和无知从来不是生存的障碍，傲慢才是'
   subtitle = '弱小和无知从来不是生存的障碍，傲慢才是'
   author = 'IMX'
   avatar = '/images/imx/imx.jpg'
+  mainSections = ['posts']
   keywords = ['技术博客', 'JavaScript', 'Python', 'Go', 'Java', 'C++', '编程']
 
   [params.social]
@@ -20,6 +21,10 @@ theme = 'imx-theme'
     repoId = "R_kgDOS5n9Lw"
     category = "Announcements"
     categoryId = "DIC_kwDOS5n9L84C_FGp"
+    mapping = "pathname"
+    lang = "zh-CN"
+    lightTheme = "light"
+    darkTheme = "dark"
 
 [markup]
   [markup.highlight]
@@ -59,3 +64,7 @@ theme = 'imx-theme'
   mediaType = 'application/json'
   baseName = 'index'
   isPlainText = true
+
+[module]
+  [[module.imports]]
+    path = 'github.com/c-x-x/hugo-theme-imx'
