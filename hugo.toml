@@ -1,7 +1,7 @@
 baseURL = 'https://blog.cxx.pub/'
 defaultContentLanguage = 'zh-cn'
 locale = 'zh-CN'
-title = 'IMXBlog'
+title = 'imx-blog'
 
 [params]
   description = '真相一旦入眼，你无法视而不见！'
