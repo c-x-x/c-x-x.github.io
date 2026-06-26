@@ -17,6 +17,7 @@ concurrency:
 
 jobs:
   build:
+    if: github.repository == 'c-x-x/c-x-x.github.io'
     runs-on: ubuntu-latest
 
     steps:
@@ -46,6 +47,7 @@ jobs:
           path: ./public
 
   deploy:
+    if: github.repository == 'c-x-x/c-x-x.github.io'
     runs-on: ubuntu-latest
     needs: build
 
