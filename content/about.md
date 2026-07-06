@@ -5,9 +5,9 @@ draft = false
 toc = false
 +++
 
-## 欢迎来到 IMXBlog
+## 欢迎
 
-弱小和无知从来不是生存的障碍，傲慢才是。
+![头像](D:\cxx\ClaudeSpace\my-blog\static\images\posts\me.jpg)
 
 ### 关于我
 
@@ -15,9 +15,9 @@ toc = false
 
 ### 技术栈
 
-- **前端:** JavaScript, TypeScript, Vue, React
+- **前端:** JavaScript, TypeScript, Vue, React 
 - **后端:** Python, Go, Java
-- **其他:** C++, 算法, 系统设计
+- **其他:** CodeX, Claude Code
 
 ### 博客内容
 
@@ -25,5 +25,3 @@ toc = false
 - 📚 学习笔记
 - 🤔 思考总结
 - 📝 生活随笔
-
-感谢你的访问！

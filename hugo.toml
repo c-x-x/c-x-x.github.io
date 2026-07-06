@@ -1,12 +1,12 @@
 baseURL = 'https://blog.cxx.pub/'
 defaultContentLanguage = 'zh-cn'
 locale = 'zh-CN'
-title = 'imx-blog'
+title = 'IMX-博客'
 
 [params]
   description = '真相一旦入眼，你无法视而不见！'
   subtitle = '真相一旦入眼，你无法视而不见。'
-  author = 'IMX'
+  author = 'CB'
   avatar = '/images/imx/imx.jpg'
   mainSections = ['posts']
   keywords = ['技术博客', 'JavaScript', 'Python', 'Go', 'Java', 'C++', '编程']
