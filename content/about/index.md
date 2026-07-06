@@ -3,11 +3,12 @@ title = '关于'
 date = 2026-06-13
 draft = false
 toc = false
+
 +++
 
 ## 欢迎
 
-![头像](D:\cxx\ClaudeSpace\my-blog\static\images\posts\me.jpg)
+![me](images/me.jpg)
 
 ### 关于我
 
@@ -15,7 +16,8 @@ toc = false
 
 ### 技术栈
 
-- **前端:** JavaScript, TypeScript, Vue, React 
+* **前端:** JavaScript, TypeScript, Vue, React 
+
 - **后端:** Python, Go, Java
 - **其他:** CodeX, Claude Code
 
