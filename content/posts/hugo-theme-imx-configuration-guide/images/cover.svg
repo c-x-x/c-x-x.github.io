@@ -1,0 +1,112 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">Hugo Theme IMX 配置指南封面</title>
+  <desc id="desc">黑白蓝配色的 IMX 主题配置指南封面，包含雪花标志、配置文件面板和导航预览。</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#f8fbff"/>
+      <stop offset="0.52" stop-color="#eef6ff"/>
+      <stop offset="1" stop-color="#ffffff"/>
+    </linearGradient>
+    <linearGradient id="blue" x1="0" x2="1">
+      <stop offset="0" stop-color="#0071e3"/>
+      <stop offset="1" stop-color="#38bdf8"/>
+    </linearGradient>
+    <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="24" stdDeviation="28" flood-color="#0f172a" flood-opacity="0.13"/>
+    </filter>
+    <filter id="lineShadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="7" stdDeviation="8" flood-color="#0071e3" flood-opacity="0.18"/>
+    </filter>
+  </defs>
+  <rect width="1600" height="900" fill="url(#bg)"/>
+  <g opacity="0.24" font-family="SFMono-Regular, Menlo, Consolas, monospace" font-size="34" font-weight="700" fill="#94a3b8">
+    <text x="-40" y="90">baseURL = "https://example.com/"  [params] avatar logo favicon</text>
+    <text x="80" y="170">[[module.imports]] path = "github.com/c-x-x/hugo-theme-imx"</text>
+    <text x="-120" y="250">outputs.home = ["HTML", "RSS", "JSON"]  markup.goldmark.renderer.unsafe = true</text>
+    <text x="160" y="330">layout = "about"  image = "/posts/.../images/cover.svg"</text>
+    <text x="-60" y="410">giscus repo repoId category categoryId mapping pathname lang zh-CN</text>
+    <text x="120" y="490">logoDark faviconDark mainSections tags categories toc false</text>
+    <text x="-80" y="570">hugo mod get github.com/c-x-x/hugo-theme-imx@latest</text>
+    <text x="180" y="650">hugo server  hugo mod tidy  hugo --minify</text>
+    <text x="-20" y="730">content/about/index.md  static/images  page bundle images</text>
+    <text x="100" y="810">IMX Blog configuration map</text>
+  </g>
+  <rect x="120" y="92" width="1360" height="716" rx="56" fill="rgba(255,255,255,0.78)" stroke="rgba(15,23,42,0.08)" filter="url(#softShadow)"/>
+  <g transform="translate(188 158)">
+    <g filter="url(#lineShadow)" stroke="#0f172a" stroke-width="9" stroke-linecap="round" stroke-linejoin="round" fill="none">
+      <circle cx="78" cy="78" r="20" fill="#ffffff"/>
+      <g transform="translate(78 78)">
+        <g>
+          <path d="M0-24v-62"/>
+          <path d="M0-52l-22-18"/>
+          <path d="M0-52l22-18"/>
+          <path d="M0-73l-26-20"/>
+          <path d="M0-73l26-20"/>
+        </g>
+        <g transform="rotate(60)">
+          <path d="M0-24v-62"/>
+          <path d="M0-52l-22-18"/>
+          <path d="M0-52l22-18"/>
+          <path d="M0-73l-26-20"/>
+          <path d="M0-73l26-20"/>
+        </g>
+        <g transform="rotate(120)">
+          <path d="M0-24v-62"/>
+          <path d="M0-52l-22-18"/>
+          <path d="M0-52l22-18"/>
+          <path d="M0-73l-26-20"/>
+          <path d="M0-73l26-20"/>
+        </g>
+        <g transform="rotate(180)">
+          <path d="M0-24v-62"/>
+          <path d="M0-52l-22-18"/>
+          <path d="M0-52l22-18"/>
+          <path d="M0-73l-26-20"/>
+          <path d="M0-73l26-20"/>
+        </g>
+        <g transform="rotate(240)">
+          <path d="M0-24v-62"/>
+          <path d="M0-52l-22-18"/>
+          <path d="M0-52l22-18"/>
+          <path d="M0-73l-26-20"/>
+          <path d="M0-73l26-20"/>
+        </g>
+        <g transform="rotate(300)">
+          <path d="M0-24v-62"/>
+          <path d="M0-52l-22-18"/>
+          <path d="M0-52l22-18"/>
+          <path d="M0-73l-26-20"/>
+          <path d="M0-73l26-20"/>
+        </g>
+      </g>
+    </g>
+  </g>
+  <text x="380" y="254" font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="82" font-weight="850" fill="#111827">Hugo Theme IMX</text>
+  <text x="380" y="340" font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="58" font-weight="760" fill="url(#blue)">完整配置指南</text>
+  <text x="386" y="404" font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="28" font-weight="520" fill="#64748b">从 Hugo Module、导航、头像、关于页到 Giscus 评论与部署</text>
+  <g transform="translate(206 492)">
+    <rect width="512" height="214" rx="30" fill="#0b1220"/>
+    <circle cx="42" cy="38" r="9" fill="#ef4444"/>
+    <circle cx="72" cy="38" r="9" fill="#f59e0b"/>
+    <circle cx="102" cy="38" r="9" fill="#22c55e"/>
+    <g font-family="SFMono-Regular, Menlo, Consolas, monospace" font-size="24" fill="#e5eefb">
+      <text x="36" y="92">[params]</text>
+      <text x="36" y="132"><tspan fill="#60a5fa">avatar</tspan> = "/images/avatar.jpg"</text>
+      <text x="36" y="170"><tspan fill="#60a5fa">mainSections</tspan> = ["posts"]</text>
+    </g>
+  </g>
+  <g transform="translate(800 492)">
+    <rect width="536" height="214" rx="30" fill="#ffffff" stroke="#dbe7f3"/>
+    <rect x="32" y="34" width="472" height="62" rx="31" fill="#f8fafc" stroke="#cbd5e1"/>
+    <text x="76" y="75" font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', sans-serif" font-size="26" font-weight="700" fill="#111827">IMX 博客</text>
+    <rect x="248" y="44" width="86" height="42" rx="21" fill="#eaf4ff" stroke="#93c5fd"/>
+    <text x="269" y="73" font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', sans-serif" font-size="22" font-weight="760" fill="#0071e3">首页</text>
+    <circle cx="458" cy="65" r="28" fill="#f8fafc" stroke="#e5e7eb"/>
+    <g transform="translate(458 65)" stroke="#111827" stroke-width="5" stroke-linecap="round">
+      <path d="M0-10v20"/>
+      <path d="M-10 0h20"/>
+    </g>
+    <text x="32" y="148" font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', sans-serif" font-size="26" font-weight="760" fill="#111827">关于页、文章封面、评论配置</text>
+    <text x="32" y="184" font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', sans-serif" font-size="20" fill="#64748b">每个配置项都应该知道放在哪里、解决什么问题</text>
+  </g>
+</svg>

@@ -3,12 +3,10 @@ title = '关于'
 date = 2026-06-13
 draft = false
 toc = false
-
+layout = 'about'
 +++
 
 ## 欢迎
-
-![me](images/me.jpg)
 
 ### 关于我
 

@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="760" viewBox="0 0 1400 760" role="img" aria-labelledby="title desc">
+  <title id="title">IMX 图片路径规则</title>
+  <desc id="desc">说明 static 全局图片和文章 Page Bundle 图片在 IMX 主题中的推荐写法。</desc>
+  <defs>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="16" stdDeviation="20" flood-color="#0f172a" flood-opacity="0.12"/>
+    </filter>
+  </defs>
+  <rect width="1400" height="760" rx="42" fill="#ffffff"/>
+  <text x="76" y="92" font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', sans-serif" font-size="46" font-weight="840" fill="#111827">图片路径：全局资源与文章资源分开</text>
+  <text x="78" y="132" font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', sans-serif" font-size="21" fill="#64748b">头像、Logo、默认封面适合放 static；单篇文章配图适合放 Page Bundle。</text>
+  <g transform="translate(82 206)" filter="url(#shadow)">
+    <rect width="580" height="384" rx="32" fill="#f8fafc" stroke="#dbe7f3"/>
+    <text x="36" y="62" font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', sans-serif" font-size="30" font-weight="800" fill="#111827">全局图片</text>
+    <text x="36" y="112" font-family="SFMono-Regular, Menlo, Consolas, monospace" font-size="23" fill="#0f172a">static/images/imx/imx.jpg</text>
+    <text x="36" y="158" font-family="SFMono-Regular, Menlo, Consolas, monospace" font-size="23" fill="#0071e3">avatar = "/images/imx/imx.jpg"</text>
+    <text x="36" y="218" font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', sans-serif" font-size="21" fill="#475569">适合：头像、默认封面、Logo、favicon</text>
+    <text x="36" y="266" font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', sans-serif" font-size="21" fill="#475569">特点：整个站点都能通过 /images/... 访问</text>
+  </g>
+  <g transform="translate(738 206)" filter="url(#shadow)">
+    <rect width="580" height="384" rx="32" fill="#0b1220"/>
+    <text x="36" y="62" font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', sans-serif" font-size="30" font-weight="800" fill="#ffffff">文章 Page Bundle</text>
+    <text x="36" y="112" font-family="SFMono-Regular, Menlo, Consolas, monospace" font-size="22" fill="#e5eefb">content/posts/guide/index.md</text>
+    <text x="36" y="154" font-family="SFMono-Regular, Menlo, Consolas, monospace" font-size="22" fill="#e5eefb">content/posts/guide/images/cover.svg</text>
+    <text x="36" y="214" font-family="SFMono-Regular, Menlo, Consolas, monospace" font-size="22" fill="#93c5fd">image = "/posts/guide/images/cover.svg"</text>
+    <text x="36" y="272" font-family="SFMono-Regular, Menlo, Consolas, monospace" font-size="22" fill="#93c5fd">![说明图](images/map.svg)</text>
+  </g>
+  <g transform="translate(472 640)">
+    <rect width="456" height="52" rx="26" fill="#eaf4ff" stroke="#93c5fd"/>
+    <text x="228" y="35" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', sans-serif" font-size="21" font-weight="760" fill="#0071e3">封面走公开 URL，正文图可走相对路径</text>
+  </g>
+</svg>
