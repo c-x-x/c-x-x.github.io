@@ -4,7 +4,7 @@ date = '2026-06-13T22:00:00+08:00'
 draft = false
 categories = ['技术', '工具']
 tags = ['Claude Code', 'AI', 'CLI', '开发工具', '效率']
-image = '/images/posts/claude-code.png'
+image = '/posts/claude-code-tutorial/images/cover.webp'
 description = '详细介绍 Claude Code CLI 的安装、配置、常用命令和高级功能，帮助你充分发挥 AI 编程助手的能力。'
 +++
 

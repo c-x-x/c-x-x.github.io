@@ -7,7 +7,7 @@ title = 'IMX-博客'
   description = '真相一旦入眼，你无法视而不见！'
   subtitle = '真相一旦入眼，你无法视而不见。'
   author = 'CB'
-  avatar = '/images/imx/imx.jpg'
+  avatar = '/images/imx/imx.webp'
   mainSections = ['posts']
   keywords = ['技术博客', 'JavaScript', 'Python', 'Go', 'Java', 'C++', '编程']
 

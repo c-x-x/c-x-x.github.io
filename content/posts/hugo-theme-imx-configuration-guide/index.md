@@ -4,18 +4,18 @@ date = '2026-07-07T10:00:00+08:00'
 draft = false
 categories = ['技术', '教程']
 tags = ['Hugo', 'IMX Theme', '主题配置', 'Hugo Module', '博客']
-image = '/posts/hugo-theme-imx-configuration-guide/images/cover.svg'
+image = '/posts/hugo-theme-imx-configuration-guide/images/cover.webp'
 description = '一篇面向实际使用的 Hugo Theme IMX 配置指南，覆盖 Hugo Module、站点参数、导航、头像、关于页面、文章封面、Giscus 评论、Markdown 渲染、搜索和部署更新流程。'
 toc = true
 +++
 
-![Hugo Theme IMX 配置指南封面](images/cover.svg)
+![Hugo Theme IMX 配置指南封面](images/cover.webp)
 
 IMX 是一个通过 Hugo Module 使用的中文博客主题。它不需要放进 `themes/` 目录，也不需要在配置里写 `theme = "..."`，站点通过 Go Module 引入主题，然后由 Hugo 在构建时合并主题模板、资源和默认配置。
 
 这篇文章不讲“从零认识 Hugo”，只讲一件事：**如何把 IMX 主题配置清楚**。如果你已经有一个 Hugo 站点，照着本文检查一遍，基本可以把首页、文章列表、关于页、评论、搜索、图片和部署流程都理顺。
 
-![IMX 主题配置地图](images/config-map.svg)
+![IMX 主题配置地图](images/config-map.webp)
 
 ## 一、配置文件放在哪里
 
@@ -180,7 +180,7 @@ IMX 的主要主题配置都在 `[params]` 下：
   description = '真相一旦入眼，你无法视而不见！'
   subtitle = '真相一旦入眼，你无法视而不见。'
   author = 'CB'
-  avatar = '/images/imx/imx.jpg'
+  avatar = '/images/imx/imx.webp'
   mainSections = ['posts']
   keywords = ['技术博客', 'JavaScript', 'Python', 'Go', 'Java', 'C++', '编程']
 ```
@@ -250,7 +250,7 @@ mainSections = ['posts', 'notes', 'essays']
 [params]
   logo = '/images/imx/logo.svg'
   logoDark = '/images/imx/logo-dark.svg'
-  avatar = '/images/imx/imx.jpg'
+  avatar = '/images/imx/imx.webp'
   favicon = '/images/imx/favicon.svg'
   faviconDark = '/images/imx/favicon-dark.svg'
   defaultImage = '/images/imx/default-cover.jpg'
@@ -282,7 +282,7 @@ logoDark = '/images/imx/logo-dark.svg'
 `avatar` 是头像：
 
 ```toml
-avatar = '/images/imx/imx.jpg'
+avatar = '/images/imx/imx.webp'
 ```
 
 它会用于：
@@ -297,7 +297,7 @@ avatar = '/images/imx/imx.jpg'
 
 ```toml
 [params]
-  avatar = '/images/imx/imx.jpg'
+  avatar = '/images/imx/imx.webp'
 ```
 
 然后关于页使用主题模板渲染头像。
@@ -331,7 +331,7 @@ defaultOGImage = '/images/imx/default-og.jpg'
 
 IMX 主题里图片有两类常见放法。
 
-![IMX 图片路径规则](images/image-paths.svg)
+![IMX 图片路径规则](images/image-paths.webp)
 
 ### 全局图片放 static
 
@@ -350,7 +350,7 @@ IMX 主题里图片有两类常见放法。
 static/
 └── images/
     └── imx/
-        ├── imx.jpg
+        ├── imx.webp
         ├── logo.svg
         ├── logo-dark.svg
         ├── favicon.svg
@@ -360,7 +360,7 @@ static/
 配置时从站点根路径写起：
 
 ```toml
-avatar = '/images/imx/imx.jpg'
+avatar = '/images/imx/imx.webp'
 logo = '/images/imx/logo.svg'
 favicon = '/images/imx/favicon.svg'
 ```
@@ -373,21 +373,21 @@ favicon = '/images/imx/favicon.svg'
 content/posts/hugo-theme-imx-configuration-guide/
 ├── index.md
 └── images/
-    ├── cover.svg
-    ├── config-map.svg
-    └── about-page.svg
+    ├── cover.webp
+    ├── config-map.webp
+    └── about-page.webp
 ```
 
 正文中可以用相对路径：
 
 ```md
-![配置地图](images/config-map.svg)
+![配置地图](images/config-map.webp)
 ```
 
 但是文章封面 `image` 要注意：IMX 当前会把 `image` 当作公开 URL 处理。Page Bundle 文章的封面建议写成发布后的公开路径：
 
 ```toml
-image = '/posts/hugo-theme-imx-configuration-guide/images/cover.svg'
+image = '/posts/hugo-theme-imx-configuration-guide/images/cover.webp'
 ```
 
 如果你把封面放在 `static/images/posts/cover.jpg`，则写：
@@ -479,7 +479,7 @@ weight = 30
 
 关于页是最容易踩坑的地方。IMX 的关于页模板不是普通文章模板，它会额外渲染头像、站点名称、副标题和联系方式。
 
-![关于页面配置示意图](images/about-page.svg)
+![关于页面配置示意图](images/about-page.webp)
 
 推荐目录结构：
 
@@ -526,14 +526,14 @@ layout = 'about'
 头像不要写成：
 
 ```md
-![头像](/images/imx/imx.jpg)
+![头像](/images/imx/imx.webp)
 ```
 
 这会被当成正文图片，尺寸会很大。正确做法是写在 `hugo.toml`：
 
 ```toml
 [params]
-  avatar = '/images/imx/imx.jpg'
+  avatar = '/images/imx/imx.webp'
 ```
 
 关于页模板会自动读取它。
@@ -721,7 +721,7 @@ noClasses = false
 这允许你给 Markdown 元素加属性。比如：
 
 ```md
-![说明图](images/config-map.svg "配置地图")
+![说明图](images/config-map.webp "配置地图")
 ```
 
 或者在支持的场景里加 class。是否使用取决于文章写法，开启后更灵活。
@@ -761,19 +761,13 @@ IMX 的搜索依赖首页 JSON 输出。必须有：
 
 ## 十三、文章 Front Matter
 
-普通文章可以是单文件：
-
-```text
-content/posts/my-post.md
-```
-
-也可以是 Page Bundle：
+本站文章统一使用 Page Bundle：
 
 ```text
 content/posts/my-post/
 ├── index.md
 └── images/
-    └── cover.svg
+    └── cover.webp
 ```
 
 推荐 Page Bundle，尤其是文章有多张配图时。
@@ -787,7 +781,7 @@ date = '2026-07-07T10:00:00+08:00'
 draft = false
 categories = ['技术', '教程']
 tags = ['Hugo', 'IMX Theme']
-image = '/posts/my-post/images/cover.svg'
+image = '/posts/my-post/images/cover.webp'
 description = '文章摘要，会用于列表卡片和搜索结果。'
 toc = true
 +++
@@ -904,7 +898,7 @@ title = 'IMX-博客'
   description = '这里是站点描述。'
   subtitle = '这里是首页副标题。'
   author = 'CB'
-  avatar = '/images/imx/imx.jpg'
+  avatar = '/images/imx/imx.webp'
   logo = '/images/imx/logo.svg'
   logoDark = '/images/imx/logo-dark.svg'
   favicon = '/images/imx/favicon.svg'
@@ -1000,7 +994,7 @@ title = 'IMX-博客'
 
 ## 十六、本地预览与发布检查
 
-![IMX 本地检查与发布流程](images/deploy-flow.svg)
+![IMX 本地检查与发布流程](images/deploy-flow.webp)
 
 本地预览：
 
@@ -1051,7 +1045,7 @@ layout = 'about'
 
 ```toml
 [params]
-  avatar = '/images/imx/imx.jpg'
+  avatar = '/images/imx/imx.webp'
 ```
 
 不要把头像直接插进关于页正文。
@@ -1163,12 +1157,12 @@ your-site/
 │       └── hugo-theme-imx-configuration-guide/
 │           ├── index.md
 │           └── images/
-│               ├── cover.svg
-│               └── config-map.svg
+│               ├── cover.webp
+│               └── config-map.webp
 ├── static/
 │   └── images/
 │       └── imx/
-│           ├── imx.jpg
+│           ├── imx.webp
 │           ├── logo.svg
 │           └── favicon.svg
 ├── hugo.toml

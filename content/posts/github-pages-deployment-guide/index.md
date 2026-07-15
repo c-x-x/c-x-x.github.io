@@ -4,7 +4,7 @@ date = 2026-06-13
 draft = false
 tags = ["Hugo", "GitHub Pages", "GitHub Actions", "部署", "CI/CD"]
 categories = ["教程"]
-image = "/images/posts/github-pages-deploy.png"
+image = "/posts/github-pages-deployment-guide/images/cover.webp"
 description = "完整的 Hugo 博客部署教程，从创建 GitHub 仓库到配置 Actions 自动化部署，包含自定义域名和日常更新流程。"
 +++
 
