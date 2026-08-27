@@ -1,7 +1,7 @@
 +++
 title = "测试"
 date = "2026-08-10T14:00:14+08:00"
-draft = true
+draft = false
 categories = []
 tags = []
 image = "/posts/ce-shi/images/cover.webp"
