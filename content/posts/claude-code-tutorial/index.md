@@ -7,8 +7,9 @@ tags = ['Claude Code', 'AI', 'CLI', '开发工具', '效率']
 image = '/posts/claude-code-tutorial/images/cover.webp'
 description = '详细介绍 Claude Code CLI 的安装、配置、常用命令和高级功能，帮助你充分发挥 AI 编程助手的能力。'
 +++
-
 ## 前言
+
+哈喽
 
 Claude Code 是 Anthropic 推出的官方命令行工具，让你可以直接在终端中与 Claude AI 交互，进行代码编写、调试、重构等工作。
 
@@ -71,7 +72,7 @@ claude "如何在 Python 中读取 JSON 文件？"
 ### 核心命令
 
 | 命令 | 功能 | 示例 |
-|------|------|------|
+| --- | --- | --- |
 | `/help` | 显示帮助 | `/help` |
 | `/model` | 切换模型 | `/model opus` |
 | `/clear` | 清除历史 | `/clear` |
@@ -143,11 +144,13 @@ claude "如何在 Python 中读取 JSON 文件？"
 ### 4.1 清晰沟通
 
 ❌ **不好的提问**：
+
 ```
 > 改一下这个
 ```
 
 ✅ **好的提问**：
+
 ```
 > 将 getUserData 函数改为异步函数，使用 async/await
 ```
@@ -310,7 +313,7 @@ claude "问题"                    # 快速提问
 ### 模型对比
 
 | 模型 | 特点 | 适用场景 |
-|------|------|----------|
+| --- | --- | --- |
 | Opus | 最强大 | 复杂任务、架构设计 |
 | Sonnet | 平衡 | 日常开发、代码编写 |
 | Haiku | 最快 | 简单问题、快速回答 |
@@ -336,8 +339,8 @@ claude "问题"                    # 快速提问
 
 ### 推荐资源
 
-- **Claude Code 官网**：https://claude.ai/code
-- **官方文档**：https://docs.anthropic.com/
+- **Claude Code 官网**：[https://claude.ai/code](https://claude.ai/code)
+- **官方文档**：[https://docs.anthropic.com/](https://docs.anthropic.com/)
 
 现在你已经准备好使用 Claude Code 提升开发效率了！记住，AI 是你的助手，但决策权始终在你手中。
 
