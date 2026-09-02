@@ -57,6 +57,13 @@ title = 'IMX-博客'
     block = true
     title = true
 
+  [markup.goldmark.extensions.passthrough]
+    enable = true
+
+    [markup.goldmark.extensions.passthrough.delimiters]
+      block = [['$$', '$$'], ['\[', '\]']]
+      inline = [['$', '$'], ['\(', '\)']]
+
 [outputs]
   home = ['HTML', 'RSS', 'JSON']
 
