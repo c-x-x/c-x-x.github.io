@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="720" viewBox="0 0 1400 720" role="img" aria-label="关于页：头像由模板显示">
+<defs><pattern id="grid" width="56" height="56" patternUnits="userSpaceOnUse"><path d="M 56 0 L 0 0 0 56" fill="none" stroke="#ded8ce" stroke-width="1" opacity=".35"/></pattern><filter id="shadow"><feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#32291f" flood-opacity=".12"/></filter></defs>
+<rect width="1400" height="720" fill="#f3efe7"/><rect width="1400" height="720" fill="url(#grid)"/>
+<text x="80" y="105" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="43" font-weight="700" fill="#292b2d">关于页：头像由模板显示</text>
+<text x="82" y="153" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="22" fill="#68717a">站点参数负责头像，文章正文只写个人介绍</text>
+<rect x="80" y="205" width="393" height="335" rx="22" fill="#fbf9f4" filter="url(#shadow)"/>
+<circle cx="115" cy="245" r="9" fill="#8ca9b9"/>
+<text x="138" y="255" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="28" font-weight="700" fill="#292b2d">hugo.toml</text>
+<text x="115" y="306" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="20" fill="#68717a">[params]</text>
+<text x="115" y="346" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="20" fill="#68717a">avatar = &#x27;/images/avatar.webp&#x27;</text>
+<text x="115" y="386" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="20" fill="#68717a">subtitle = &#x27;关于这个博客&#x27;</text>
+<rect x="503" y="205" width="393" height="335" rx="22" fill="#292b2d" filter="url(#shadow)"/>
+<circle cx="538" cy="245" r="9" fill="#8ca9b9"/>
+<text x="561" y="255" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="28" font-weight="700" fill="#f8f6f0">关于页模板</text>
+<text x="538" y="306" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="20" fill="#c5d3da">读取 avatar 与 subtitle</text>
+<text x="538" y="346" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="20" fill="#c5d3da">渲染头像和联系信息</text>
+<rect x="926" y="205" width="393" height="335" rx="22" fill="#fbf9f4" filter="url(#shadow)"/>
+<circle cx="961" cy="245" r="9" fill="#8ca9b9"/>
+<text x="984" y="255" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="28" font-weight="700" fill="#292b2d">content/about/index.md</text>
+<text x="961" y="306" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="20" fill="#68717a">layout = &#x27;about&#x27;</text>
+<text x="961" y="346" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="20" fill="#68717a">toc = false</text>
+<text x="961" y="386" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="20" fill="#68717a">正文写个人介绍</text>
+<text x="80" y="674" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="22" fill="#8b7156">不要在关于页正文再次插入头像图片</text>
+</svg>

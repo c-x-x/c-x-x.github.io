@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="720" viewBox="0 0 1400 720" role="img" aria-label="hugo.toml 配置地图">
+<defs><pattern id="grid" width="56" height="56" patternUnits="userSpaceOnUse"><path d="M 56 0 L 0 0 0 56" fill="none" stroke="#ded8ce" stroke-width="1" opacity=".35"/></pattern><filter id="shadow"><feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#32291f" flood-opacity=".12"/></filter></defs>
+<rect width="1400" height="720" fill="#f3efe7"/><rect width="1400" height="720" fill="url(#grid)"/>
+<text x="80" y="105" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="43" font-weight="700" fill="#292b2d">hugo.toml 配置地图</text>
+<text x="82" y="153" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="22" fill="#68717a">从站点身份到内容呈现，按依赖顺序整理配置</text>
+<rect x="80" y="205" width="393" height="205" rx="22" fill="#fbf9f4" filter="url(#shadow)"/>
+<circle cx="115" cy="245" r="9" fill="#8ca9b9"/>
+<text x="138" y="255" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="28" font-weight="700" fill="#292b2d">站点基础</text>
+<text x="115" y="306" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="20" fill="#68717a">baseURL · title · locale</text>
+<text x="115" y="346" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="20" fill="#68717a">defaultContentLanguage</text>
+<rect x="503" y="205" width="393" height="205" rx="22" fill="#292b2d" filter="url(#shadow)"/>
+<circle cx="538" cy="245" r="9" fill="#8ca9b9"/>
+<text x="561" y="255" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="28" font-weight="700" fill="#f8f6f0">主题参数</text>
+<text x="538" y="306" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="20" fill="#c5d3da">description · subtitle · avatar</text>
+<text x="538" y="346" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="20" fill="#c5d3da">logo · favicon · defaultImage</text>
+<rect x="926" y="205" width="393" height="205" rx="22" fill="#fbf9f4" filter="url(#shadow)"/>
+<circle cx="961" cy="245" r="9" fill="#8ca9b9"/>
+<text x="984" y="255" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="28" font-weight="700" fill="#292b2d">导航菜单</text>
+<text x="961" y="306" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="20" fill="#68717a">menus.main</text>
+<text x="961" y="346" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="20" fill="#68717a">pageRef · url · weight</text>
+<rect x="80" y="440" width="393" height="205" rx="22" fill="#fbf9f4" filter="url(#shadow)"/>
+<circle cx="115" cy="480" r="9" fill="#8ca9b9"/>
+<text x="138" y="490" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="28" font-weight="700" fill="#292b2d">内容渲染</text>
+<text x="115" y="541" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="20" fill="#68717a">markup.highlight</text>
+<text x="115" y="581" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="20" fill="#68717a">Goldmark · tableOfContents</text>
+<rect x="503" y="440" width="393" height="205" rx="22" fill="#fbf9f4" filter="url(#shadow)"/>
+<circle cx="538" cy="480" r="9" fill="#8ca9b9"/>
+<text x="561" y="490" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="28" font-weight="700" fill="#292b2d">站内搜索</text>
+<text x="538" y="541" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="20" fill="#68717a">outputs.home</text>
+<text x="538" y="581" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="20" fill="#68717a">HTML · RSS · JSON</text>
+<rect x="926" y="440" width="393" height="205" rx="22" fill="#fbf9f4" filter="url(#shadow)"/>
+<circle cx="961" cy="480" r="9" fill="#8ca9b9"/>
+<text x="984" y="490" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="28" font-weight="700" fill="#292b2d">外部服务</text>
+<text x="961" y="541" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="20" fill="#68717a">social · giscus</text>
+<text x="961" y="581" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="20" fill="#68717a">repoId · categoryId</text>
+<text x="80" y="674" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="22" fill="#8b7156">IMX 主题配置 · 先让最小站点构建成功，再逐项增加功能</text>
+</svg>

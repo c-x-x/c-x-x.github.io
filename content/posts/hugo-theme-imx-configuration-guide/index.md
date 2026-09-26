@@ -1,21 +1,22 @@
 +++
 title = 'Hugo Theme IMX 主题配置指南'
 date = '2026-07-07T10:00:00+08:00'
+lastmod = 2026-09-26T12:00:00+08:00
 draft = false
 categories = ['技术', '教程']
 tags = ['Hugo', 'IMX Theme', '主题配置', 'Hugo Module', '博客']
-image = '/posts/hugo-theme-imx-configuration-guide/images/cover.webp'
-description = '一篇面向实际使用的 Hugo Theme IMX 配置指南，覆盖 Hugo Module、站点参数、导航、头像、关于页面、文章封面、Giscus 评论、Markdown 渲染、搜索和部署更新流程。'
+image = '/posts/hugo-theme-imx-configuration-guide/images/cover-v2.webp'
+description = '一篇以 IMX v1.5.6 和本站配置为例的 Hugo Theme IMX 配置指南，覆盖 Hugo Module、站点参数、导航、头像、关于页面、文章封面、Giscus 评论、Markdown 渲染、搜索和部署更新流程。'
 toc = true
 +++
 
-![Hugo Theme IMX 配置指南封面](images/cover.webp)
+![以纸艺模块展示 IMX 配置关系的封面](images/cover-v2.webp)
 
 IMX 是一个通过 Hugo Module 使用的中文博客主题。它不需要放进 `themes/` 目录，也不需要在配置里写 `theme = "..."`，站点通过 Go Module 引入主题，然后由 Hugo 在构建时合并主题模板、资源和默认配置。
 
-这篇文章不讲“从零认识 Hugo”，只讲一件事：**如何把 IMX 主题配置清楚**。如果你已经有一个 Hugo 站点，照着本文检查一遍，基本可以把首页、文章列表、关于页、评论、搜索、图片和部署流程都理顺。
+这篇文章集中说明 **如何把 IMX 主题配置清楚**。第一次搭建站点，可先读 [Hugo 与 IMX 入门指南](/posts/hugo-imx-theme-tutorial/)；准备上线时再读 [GitHub Pages 部署指南](/posts/github-pages-deployment-guide/)。如果你已经有一个 Hugo 站点，照着本文检查一遍，基本可以把首页、文章列表、关于页、评论、搜索、图片和部署流程都理顺。
 
-![IMX 主题配置地图](images/config-map.webp)
+![IMX 主题配置地图](images/config-map-v2.svg)
 
 ## 一、配置文件放在哪里
 
@@ -88,14 +89,14 @@ hugo mod tidy
 如果你希望固定在某个版本，可以把 `@latest` 换成具体版本号：
 
 ```bash
-hugo mod get github.com/c-x-x/hugo-theme-imx@v1.1.3
+hugo mod get github.com/c-x-x/hugo-theme-imx@v1.5.6
 hugo mod tidy
 ```
 
 更新主题时再执行一次：
 
 ```bash
-hugo mod get -u github.com/c-x-x/hugo-theme-imx
+hugo mod get github.com/c-x-x/hugo-theme-imx@v1.5.6
 hugo mod tidy
 ```
 
@@ -331,7 +332,7 @@ defaultOGImage = '/images/imx/default-og.jpg'
 
 IMX 主题里图片有两类常见放法。
 
-![IMX 图片路径规则](images/image-paths.webp)
+![IMX 图片路径规则](images/image-paths-v2.svg)
 
 ### 全局图片放 static
 
@@ -479,7 +480,7 @@ weight = 30
 
 关于页是最容易踩坑的地方。IMX 的关于页模板不是普通文章模板，它会额外渲染头像、站点名称、副标题和联系方式。
 
-![关于页面配置示意图](images/about-page.webp)
+![关于页面配置示意图](images/about-page-v2.svg)
 
 推荐目录结构：
 
@@ -994,7 +995,7 @@ title = 'IMX-博客'
 
 ## 十六、本地预览与发布检查
 
-![IMX 本地检查与发布流程](images/deploy-flow.webp)
+![IMX 本地检查与发布流程](images/deploy-flow-v2.svg)
 
 本地预览：
 
@@ -1025,7 +1026,7 @@ hugo --minify
 更新主题：
 
 ```bash
-hugo mod get -u github.com/c-x-x/hugo-theme-imx
+hugo mod get github.com/c-x-x/hugo-theme-imx@v1.5.6
 hugo mod tidy
 ```
 
@@ -1134,14 +1135,14 @@ cat go.mod
 如果还没有变化，执行：
 
 ```bash
-hugo mod get -u github.com/c-x-x/hugo-theme-imx
+hugo mod get github.com/c-x-x/hugo-theme-imx@v1.5.6
 hugo mod tidy
 ```
 
 如果你想固定版本：
 
 ```bash
-hugo mod get github.com/c-x-x/hugo-theme-imx@v1.1.3
+hugo mod get github.com/c-x-x/hugo-theme-imx@v1.5.6
 ```
 
 ## 十八、推荐的站点目录

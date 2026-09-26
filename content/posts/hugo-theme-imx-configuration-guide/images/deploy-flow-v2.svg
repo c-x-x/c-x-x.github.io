@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="720" viewBox="0 0 1400 720" role="img" aria-label="本地检查与发布流程">
+<defs><pattern id="grid" width="56" height="56" patternUnits="userSpaceOnUse"><path d="M 56 0 L 0 0 0 56" fill="none" stroke="#ded8ce" stroke-width="1" opacity=".35"/></pattern><filter id="shadow"><feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#32291f" flood-opacity=".12"/></filter></defs>
+<rect width="1400" height="720" fill="#f3efe7"/><rect width="1400" height="720" fill="url(#grid)"/>
+<text x="80" y="105" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="43" font-weight="700" fill="#292b2d">本地检查与发布流程</text>
+<text x="82" y="153" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="22" fill="#68717a">每一步都能单独验证，出现问题时更容易定位</text>
+<rect x="80" y="205" width="393" height="205" rx="22" fill="#fbf9f4" filter="url(#shadow)"/>
+<circle cx="115" cy="245" r="9" fill="#8ca9b9"/>
+<text x="138" y="255" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="28" font-weight="700" fill="#292b2d">编辑内容</text>
+<text x="115" y="306" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="20" fill="#68717a">content · static · hugo.toml</text>
+<rect x="503" y="205" width="393" height="205" rx="22" fill="#292b2d" filter="url(#shadow)"/>
+<circle cx="538" cy="245" r="9" fill="#8ca9b9"/>
+<text x="561" y="255" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="28" font-weight="700" fill="#f8f6f0">本地预览</text>
+<text x="538" y="306" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="20" fill="#c5d3da">hugo server -D</text>
+<rect x="926" y="205" width="393" height="205" rx="22" fill="#fbf9f4" filter="url(#shadow)"/>
+<circle cx="961" cy="245" r="9" fill="#8ca9b9"/>
+<text x="984" y="255" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="28" font-weight="700" fill="#292b2d">构建检查</text>
+<text x="961" y="306" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="20" fill="#68717a">hugo --minify</text>
+<rect x="80" y="440" width="393" height="205" rx="22" fill="#fbf9f4" filter="url(#shadow)"/>
+<circle cx="115" cy="480" r="9" fill="#8ca9b9"/>
+<text x="138" y="490" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="28" font-weight="700" fill="#292b2d">提交推送</text>
+<text x="115" y="541" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="20" fill="#68717a">git add · commit · push</text>
+<rect x="503" y="440" width="393" height="205" rx="22" fill="#fbf9f4" filter="url(#shadow)"/>
+<circle cx="538" cy="480" r="9" fill="#8ca9b9"/>
+<text x="561" y="490" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="28" font-weight="700" fill="#292b2d">Pages 部署</text>
+<text x="538" y="541" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="20" fill="#68717a">检查 Actions 与线上页面</text>
+<text x="80" y="674" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="22" fill="#8b7156">主题升级前先固定版本并本地构建</text>
+</svg>

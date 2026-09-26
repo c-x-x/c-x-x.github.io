@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="720" viewBox="0 0 1400 720" role="img" aria-label="图片路径：全站与单篇文章">
+<defs><pattern id="grid" width="56" height="56" patternUnits="userSpaceOnUse"><path d="M 56 0 L 0 0 0 56" fill="none" stroke="#ded8ce" stroke-width="1" opacity=".35"/></pattern><filter id="shadow"><feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#32291f" flood-opacity=".12"/></filter></defs>
+<rect width="1400" height="720" fill="#f3efe7"/><rect width="1400" height="720" fill="url(#grid)"/>
+<text x="80" y="105" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="43" font-weight="700" fill="#292b2d">图片路径：全站与单篇文章</text>
+<text x="82" y="153" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="22" fill="#68717a">文件放在哪里，决定引用时使用什么路径</text>
+<rect x="80" y="205" width="605" height="335" rx="22" fill="#fbf9f4" filter="url(#shadow)"/>
+<circle cx="115" cy="245" r="9" fill="#8ca9b9"/>
+<text x="138" y="255" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="28" font-weight="700" fill="#292b2d">全站资源</text>
+<text x="115" y="306" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="20" fill="#68717a">static/images/avatar.webp</text>
+<text x="115" y="346" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="20" fill="#68717a">params.avatar = &#x27;/images/avatar.webp&#x27;</text>
+<text x="115" y="386" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="20" fill="#68717a">多篇文章可复用</text>
+<rect x="715" y="205" width="605" height="335" rx="22" fill="#292b2d" filter="url(#shadow)"/>
+<circle cx="750" cy="245" r="9" fill="#8ca9b9"/>
+<text x="773" y="255" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="28" font-weight="700" fill="#f8f6f0">Page Bundle</text>
+<text x="750" y="306" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="20" fill="#c5d3da">content/posts/guide/images/cover.webp</text>
+<text x="750" y="346" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="20" fill="#c5d3da">image = &#x27;/posts/guide/images/cover.webp&#x27;</text>
+<text x="750" y="386" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="20" fill="#c5d3da">正文：images/cover.webp</text>
+<text x="80" y="674" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="22" fill="#8b7156">封面字段用公开 URL；正文图片可以用相对路径</text>
+</svg>
