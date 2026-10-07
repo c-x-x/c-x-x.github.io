@@ -16,7 +16,7 @@ toc = true
 
 ---
 
-# 隐私说明
+## 隐私说明
 
 本文中的所有账号、邮箱、域名、IP、Nameserver、DNSSEC 参数、密钥标记、摘要等示例均为**虚构或保留测试值**，不对应真实账户。
 
@@ -42,7 +42,7 @@ lyra.ns.cloudflare.example
 
 ---
 
-# 一、先理解我们到底在做什么
+## 一、先理解我们到底在做什么
 
 这次操作不是“把域名转到 Cloudflare”，而是：
 
@@ -76,11 +76,11 @@ Squarespace / GitHub Pages / Vercel / VPS 等
 
 ---
 
-# 二、最重要：不要点 Transfer Domain
+## 二、最重要：不要点 Transfer Domain
 
 Cloudflare 里经常会看到两类操作：
 
-## Add / Connect Domain
+### Add / Connect Domain
 
 这是我们需要的：
 
@@ -89,7 +89,7 @@ Cloudflare 里经常会看到两类操作：
 只是把 DNS 托管给 Cloudflare
 ```
 
-## Transfer Domain
+### Transfer Domain
 
 **这次不要做。**
 
@@ -107,9 +107,9 @@ Cloudflare 里经常会看到两类操作：
 
 ---
 
-# 三、DNS、Nameserver、注册商分别是什么
+## 三、DNS、Nameserver、注册商分别是什么
 
-## Registrar：注册商
+### Registrar：注册商
 
 负责：
 
@@ -120,7 +120,7 @@ Cloudflare 里经常会看到两类操作：
 - 域名转移
 - 指定 Nameserver
 
-## Nameserver
+### Nameserver
 
 Nameserver 可以理解为：
 
@@ -142,7 +142,7 @@ lyra.ns.cloudflare.example
 
 之后全世界查询你的域名 DNS 时，就会去问 Cloudflare。
 
-## DNS Record
+### DNS Record
 
 DNS 记录是：
 
@@ -166,7 +166,7 @@ DNS Record = DNS 里具体写了什么
 
 ---
 
-# 四、迁移前的四条原则
+## 四、迁移前的四条原则
 
 1. **先复制，再切换**
 2. **先 1:1 迁移，再优化**
@@ -185,7 +185,7 @@ DNS Record = DNS 里具体写了什么
 
 ---
 
-# 五、第一步：在 Cloudflare 添加域名
+## 五、第一步：在 Cloudflare 添加域名
 
 登录 Cloudflare：
 
@@ -225,7 +225,7 @@ Free
 
 ---
 
-# 六、AI 爬虫和 Bot 设置
+## 六、AI 爬虫和 Bot 设置
 
 这些与 DNS 是否能正常托管没有直接关系。
 
@@ -242,7 +242,7 @@ DNS Import：自动
 
 ---
 
-# 七、第二步：让 Cloudflare 扫描现有 DNS
+## 七、第二步：让 Cloudflare 扫描现有 DNS
 
 Cloudflare 会自动扫描原 DNS。
 
@@ -254,7 +254,7 @@ Cloudflare 会自动扫描原 DNS。
 
 ---
 
-# 八、第三步：打开原注册商 DNS 页面逐条核对
+## 八、第三步：打开原注册商 DNS 页面逐条核对
 
 同时打开两个标签页：
 
@@ -276,9 +276,9 @@ Cloudflare 会自动扫描原 DNS。
 
 ---
 
-# 九、常见 DNS 记录解释
+## 九、常见 DNS 记录解释
 
-## A
+### A
 
 ```text
 A
@@ -292,7 +292,7 @@ aurora-lab.example
 域名 → IPv4
 ```
 
-## AAAA
+### AAAA
 
 表示：
 
@@ -300,7 +300,7 @@ aurora-lab.example
 域名 → IPv6
 ```
 
-## CNAME
+### CNAME
 
 ```text
 CNAME
@@ -315,11 +315,11 @@ www.aurora-lab.example
 → site-host.example
 ```
 
-## MX
+### MX
 
 决定自定义域名邮箱的收件服务器。
 
-## TXT
+### TXT
 
 常用于：
 
@@ -332,7 +332,7 @@ www.aurora-lab.example
 
 第一次迁移时，不要因为“看不懂”就删除。
 
-## HTTPS Record
+### HTTPS Record
 
 可能长这样：
 
@@ -359,7 +359,7 @@ alpn="h2,http/1.1" ipv4hint="192.0.2.44,192.0.2.45"
 
 ---
 
-# 十、第四步：第一次迁移先全部使用 DNS Only
+## 十、第四步：第一次迁移先全部使用 DNS Only
 
 Cloudflare 的 A / AAAA / CNAME 记录通常可以选择：
 
@@ -376,9 +376,9 @@ Cloudflare 的 A / AAAA / CNAME 记录通常可以选择：
 
 ---
 
-# 十一、DNS Only 和 Proxied 的区别
+## 十一、DNS Only 和 Proxied 的区别
 
-## DNS Only
+### DNS Only
 
 ```text
 用户
@@ -388,7 +388,7 @@ Cloudflare DNS
 直接访问源站
 ```
 
-## Proxied
+### Proxied
 
 ```text
 用户
@@ -410,7 +410,7 @@ Cloudflare 可以参与：
 
 ---
 
-# 十二、哪些记录应该开橙云
+## 十二、哪些记录应该开橙云
 
 迁移稳定后，真正承载 Web 流量的记录通常可以代理：
 
@@ -436,7 +436,7 @@ DMARC
 
 ---
 
-# 十三、第五步：关闭旧 DNSSEC
+## 十三、第五步：关闭旧 DNSSEC
 
 在 Squarespace：
 
@@ -469,7 +469,7 @@ SERVFAIL
 
 ---
 
-# 十四、第六步：获取 Cloudflare Nameserver
+## 十四、第六步：获取 Cloudflare Nameserver
 
 Cloudflare 会给每个域名分配两个 Nameserver。
 
@@ -484,7 +484,7 @@ lyra.ns.cloudflare.example
 
 ---
 
-# 十五、第七步：在 Squarespace 修改 Nameserver
+## 十五、第七步：在 Squarespace 修改 Nameserver
 
 路径：
 
@@ -517,7 +517,7 @@ Nameserver Registration
 
 ---
 
-# 十六、第八步：回 Cloudflare 确认激活
+## 十六、第八步：回 Cloudflare 确认激活
 
 修改 Nameserver 后回 Cloudflare，确认：
 
@@ -539,7 +539,7 @@ Active
 
 ---
 
-# 十七、激活后先测试网站
+## 十七、激活后先测试网站
 
 测试：
 
@@ -560,7 +560,7 @@ https://www.aurora-lab.example
 
 ---
 
-# 十八、第九步：开启 Cloudflare 橙云代理
+## 十八、第九步：开启 Cloudflare 橙云代理
 
 确认网站正常后，把真正的网站记录改成：
 
@@ -588,7 +588,7 @@ TXT DMARC
 
 ---
 
-# 十九、手动 HTTPS Record 怎么处理
+## 十九、手动 HTTPS Record 怎么处理
 
 如果迁移阶段手动复制了：
 
@@ -617,7 +617,7 @@ Cloudflare 会自动生成 HTTPS Service Record。
 
 ---
 
-# 二十、第十步：检查 SSL/TLS
+## 二十、第十步：检查 SSL/TLS
 
 路径：
 
@@ -636,7 +636,7 @@ Full
 Full (strict)
 ```
 
-## 不推荐 Flexible
+### 不推荐 Flexible
 
 它是：
 
@@ -647,7 +647,7 @@ Cloudflare → 源站：HTTP
 
 可能导致重定向循环。
 
-## Full
+### Full
 
 ```text
 浏览器 → Cloudflare：HTTPS
@@ -656,7 +656,7 @@ Cloudflare → 源站：HTTPS
 
 迁移初期常用。
 
-## Full (strict)
+### Full (strict)
 
 ```text
 浏览器 → Cloudflare：HTTPS
@@ -667,7 +667,7 @@ Cloudflare → 源站：HTTPS + 严格验证源站证书
 
 ---
 
-# 二十一、第十一步：重新开启 Cloudflare DNSSEC
+## 二十一、第十一步：重新开启 Cloudflare DNSSEC
 
 等以下条件都满足后：
 
@@ -700,7 +700,7 @@ Digest:
 
 ---
 
-# 二十二、在 Squarespace 添加 Cloudflare DS Record
+## 二十二、在 Squarespace 添加 Cloudflare DS Record
 
 路径通常是：
 
@@ -727,7 +727,7 @@ Domains
 
 ---
 
-# 二十三、Multi-Signer DNSSEC 要不要开
+## 二十三、Multi-Signer DNSSEC 要不要开
 
 普通用户：
 
@@ -737,7 +737,7 @@ Domains
 
 ---
 
-# 二十四、最终推荐架构
+## 二十四、最终推荐架构
 
 ```text
                 域名注册局
@@ -774,15 +774,15 @@ Domains
 
 ---
 
-# 二十五、迁移后哪里改什么
+## 二十五、迁移后哪里改什么
 
-## 域名续费、锁定、转移
+### 域名续费、锁定、转移
 
 ```text
 Squarespace / 原注册商
 ```
 
-## A / AAAA / CNAME / MX / TXT
+### A / AAAA / CNAME / MX / TXT
 
 ```text
 Cloudflare
@@ -790,13 +790,13 @@ Cloudflare
 → Records
 ```
 
-## SSL / CDN / 缓存 / WAF
+### SSL / CDN / 缓存 / WAF
 
 ```text
 Cloudflare
 ```
 
-## 网站内容
+### 网站内容
 
 ```text
 Squarespace / GitHub / Vercel / VPS
@@ -804,7 +804,7 @@ Squarespace / GitHub / Vercel / VPS
 
 ---
 
-# 二十六、原 Squarespace DNS 记录要不要删
+## 二十六、原 Squarespace DNS 记录要不要删
 
 通常：
 
@@ -816,7 +816,7 @@ Nameserver 已指向 Cloudflare 后，原 Squarespace DNS 区域里的普通记�
 
 ---
 
-# 二十七、旧邮件记录能不能删
+## 二十七、旧邮件记录能不能删
 
 如果以前使用过企业邮箱，可能残留：
 
@@ -842,9 +842,9 @@ TXT DKIM
 
 ---
 
-# 二十八、常见故障排查
+## 二十八、常见故障排查
 
-## Cloudflare 一直 Pending
+### Cloudflare 一直 Pending
 
 检查：
 
@@ -856,7 +856,7 @@ TXT DKIM
 
 不要混用旧 NS 和 Cloudflare NS。
 
-## 换 NS 后整个域名打不开
+### 换 NS 后整个域名打不开
 
 第一优先检查：
 
@@ -866,7 +866,7 @@ TXT DKIM
 
 旧 DS 没清掉容易导致 `SERVFAIL`。
 
-## 网站可以开，邮件坏了
+### 网站可以开，邮件坏了
 
 检查：
 
@@ -879,7 +879,7 @@ DMARC
 
 是否完整迁移。
 
-## 根域能开，www 打不开
+### 根域能开，www 打不开
 
 检查：
 
@@ -887,7 +887,7 @@ DMARC
 CNAME www
 ```
 
-## www 能开，根域打不开
+### www 能开，根域打不开
 
 检查：
 
@@ -896,11 +896,11 @@ A @
 AAAA @
 ```
 
-## 出现重定向循环
+### 出现重定向循环
 
 重点检查 Cloudflare SSL/TLS 模式，尤其是 `Flexible`。
 
-## 开橙云后异常，灰云正常
+### 开橙云后异常，灰云正常
 
 问题通常发生在：
 
@@ -916,7 +916,7 @@ SSL
 
 ---
 
-# 二十九、最安全的回滚方案
+## 二十九、最安全的回滚方案
 
 如果切换 Nameserver 后出现严重问题：
 
@@ -936,9 +936,9 @@ SSL
 
 ---
 
-# 三十、迁移检查清单
+## 三十、迁移检查清单
 
-## 迁移前
+### 迁移前
 
 - [ ] 已确认不是 Transfer Domain
 - [ ] 已保存原 DNS 截图
@@ -949,7 +949,7 @@ SSL
 - [ ] Cloudflare 初始记录先设置 DNS Only
 - [ ] 已关闭旧 DNSSEC
 
-## 切换 Nameserver
+### 切换 Nameserver
 
 - [ ] Cloudflare 提供两个 NS
 - [ ] 原注册商删除旧 NS
@@ -957,7 +957,7 @@ SSL
 - [ ] 保存
 - [ ] Cloudflare 显示 Active
 
-## 激活后
+### 激活后
 
 - [ ] 根域正常
 - [ ] www 正常
@@ -972,7 +972,7 @@ SSL
 
 ---
 
-# 三十一、推荐的最终代理状态
+## 三十一、推荐的最终代理状态
 
 | Type | Name | 用途 | 推荐状态 |
 | --- | --- | --- | --- |
@@ -988,7 +988,7 @@ SSL
 
 ---
 
-# 三十二、几个不要犯的错误
+## 三十二、几个不要犯的错误
 
 1. **不要为了用 Cloudflare DNS 去 Transfer Domain**
 2. **不要 DNSSEC 开着直接换 Nameserver**
@@ -999,9 +999,9 @@ SSL
 
 ---
 
-# 三十三、这套架构的好处
+## 三十三、这套架构的好处
 
-## 域名价格和 DNS 服务解耦
+### 域名价格和 DNS 服务解耦
 
 ```text
 注册商续费便宜
@@ -1011,7 +1011,7 @@ Cloudflare DNS 强
 → DNS 交给 Cloudflare
 ```
 
-## 网站以后随便换
+### 网站以后随便换
 
 ```text
 Cloudflare → Squarespace
@@ -1022,7 +1022,7 @@ Cloudflare → VPS
 
 都不需要转移域名。
 
-## DNS 统一管理
+### DNS 统一管理
 
 以后：
 
@@ -1037,7 +1037,7 @@ www.example
 
 ---
 
-# 三十四、一句话理解整套系统
+## 三十四、一句话理解整套系统
 
 ```text
 注册商
@@ -1061,7 +1061,7 @@ DNSSEC
 
 ---
 
-# 三十五、最终结论
+## 三十五、最终结论
 
 如果目标是：
 
